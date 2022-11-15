@@ -1,0 +1,6 @@
+[submodule "ui-components-sua"]
+	path = ui-components-sua
+	url = https://github.com/ovas-sua/ui-components-sua.git
+[submodule "src/core"]
+	path = src/core
+	url = https://github.com/ovas-sua/core.git
