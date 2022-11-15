@@ -5,13 +5,14 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 
 export default defineConfig({
-  base: '/ovas-sua/ova-template/',
+  base: "/ovas-ucun/",
   plugins: [reactRefresh()],
   resolve: {
     alias: {
       "@/": `${path.resolve(__dirname, "src")}/`,
-      "@shared/": `${path.resolve(__dirname, "src/core/shared/components")}/`,
-      "@styles/": `${path.resolve(__dirname, "src/core/shared/styles")}/`,
+      "@components/": `${path.resolve(__dirname, "src/components")}/`,
+      "@styles/": `${path.resolve(__dirname, "src/styles")}/`,
+      "@pages/": `${path.resolve(__dirname, "src/pages")}/`,
       "@context/": `${path.resolve(__dirname, "src/context")}/`,
     },
   },
