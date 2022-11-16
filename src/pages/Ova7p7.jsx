@@ -1,11 +1,11 @@
 import { Col, Row } from "@components";
 
-const TemplateCover = () => {
+const Ova7p7 = () => {
   return (
     <Row justify-content="center" align-items="center">
-      <Col>Tomando las riendas de la producción equina</Col>
+      <Col>Etapa 5</Col>
     </Row>
   );
 };
 
-export default TemplateCover;
+export default Ova7p7;
