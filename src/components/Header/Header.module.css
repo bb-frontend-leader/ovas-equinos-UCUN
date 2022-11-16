@@ -1,0 +1,117 @@
+.c-header {
+    --margin-top: 2rem;
+    padding: 0 1.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: transparent;
+}
+
+
+:where(.c-header ul) {
+    padding-left: 0px;
+    display: inline-flex;
+    list-style: none;
+}
+
+.c-header img {
+    image-rendering: -webkit-optimize-contrast;
+}
+
+
+.c-header__icon {
+    --size: 90px;
+    padding: 0.2rem;
+    margin-top: var(--margin-top);
+    width: var(--size);
+    max-height: var(--size);
+    background-color: transparent;
+    border: 0.1875rem solid transparent;
+    border-radius: min(10%, 3rem);
+    outline: 2px solid #0000;
+    cursor: pointer;
+}
+
+.c-header__icon>img {
+    width: inherit;
+    max-width: 100%;
+    display: block;
+}
+
+.c-header__logo {
+    max-width: 17vw;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: scale-down;
+    object-position: top;
+}
+
+.c-header__content {
+    display: inline-flex;
+    flex-grow: .5;
+}
+
+.c-nav {
+    position: relative;
+    margin-top: var(--margin-top);
+    height: 4rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2 1 auto;
+    background: rgb(6, 79, 37);
+    background: url(https://virtual.ucundinamarca.edu.co/red/baseUNAD/maquetaRED/assets/img_contenido/barra.png) no-repeat;
+    background-size: 100% 4rem;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.c-nav__list {
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.c-nav__list li {
+    padding: 0 .7rem;
+    position: relative;
+}
+
+.c-nav__list li a {
+    position: relative;
+    display: block;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #FFFF;
+}
+
+.c-nav__list>li:nth-child(2) {
+    border-left: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+}
+
+.c-nav__submenu {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 0;
+    width: 170px;
+    height: auto;
+    display: none;
+    background-color: #E8E6FE;
+    border-radius: 15px;
+    flex-direction: column;
+}
+
+
+.c-nav__submenu li a {
+    padding-bottom: .25rem;
+    font-size: 1.0625rem;
+    color: #9b9b9b;
+    border-bottom: 1px solid #FFF;
+}
+
+.is-nav__submenu--active {
+    display: inline-flex;
+}

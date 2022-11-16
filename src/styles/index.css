@@ -1,0 +1,10 @@
+/*--- Estilos generales ---*/
+@import url('./stylesheet/GlobalStyles.module.css');
+
+/*--- Estilos generales especificos del OVA ---*/
+@import url('./stylesheet/Home.module.css');
+
+/*--- Margenes ---*/
+/* @import url('./stylesSheet/Margins.module.css'); */
+
+
