@@ -1,9 +1,3 @@
-[submodule "ui-components-sua"]
-	path = ui-components-sua
-	url = https://github.com/ovas-sua/ui-components-sua.git
-[submodule "src/core"]
-	path = src/core
-	url = https://github.com/ovas-sua/core.git
 [submodule "UI-Components"]
 	path = UI-Components
 	url = https://github.com/UI-Components-Books-Books/UI-Components.git
