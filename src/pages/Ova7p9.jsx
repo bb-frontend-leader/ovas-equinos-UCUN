@@ -1,4 +1,4 @@
-import { Col, Row } from "@components";
+import { Col, Row } from "UI-Components-books";
 
 const Ova7p9 = () => {
   return (

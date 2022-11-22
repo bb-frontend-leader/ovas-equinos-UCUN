@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+import { Button } from "UI-Components-books";
+
 import css from "./Header.module.css";
 
 const Header = () => {
@@ -9,12 +12,12 @@ const Header = () => {
 
   return (
     <header className={css["c-header"]}>
-      <button className={css["c-header__icon"]}>
+      <Link to="unit/1/page/1" className={css["c-header__icon"]}>
         <img
           src="assets/images/icon-home.png"
           alt="Herradura con una figura en forma de casa"
         />
-      </button>
+      </Link>
 
       <div className={css["c-header__content"]}>
         <img
@@ -38,9 +41,16 @@ const Header = () => {
             </li>
 
             <li>
-              <button onClick={onOpenMenu} aria-expanded={active}>
-                ...
-              </button>
+              <Button
+                addClass={css["c-header__btn"]}
+                onClick={onOpenMenu}
+                aria-expanded={active}
+                hasAriaLabel
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                  <path d="M24 40q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7t1.7-.7q1 0 1.7.7t.7 1.7q0 1-.7 1.7T24 40Zm0-13.6q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7t1.7-.7q1 0 1.7.7t.7 1.7q0 1-.7 1.7t-1.7.7Zm0-13.6q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7T24 8q1 0 1.7.7t.7 1.7q0 1-.7 1.7t-1.7.7Z" />
+                </svg>
+              </Button>
               <ul
                 role="list"
                 className={`${css["c-nav__submenu"]} ${
@@ -68,12 +78,12 @@ const Header = () => {
         </nav>
       </div>
 
-      <button className={css["c-header__icon"]}>
+      <Link to="unit/1/page/2" className={css["c-header__icon"]}>
         <img
           src="assets/images/icon-horse.png"
           alt="Herradura con una figura de un caballo"
         />
-      </button>
+      </Link>
     </header>
   );
 };

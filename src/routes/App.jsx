@@ -5,6 +5,7 @@ import { Layout } from '@pages/Layout';
 import NotFound from '@pages/NotFound';
 import TemplateCover from '@pages/TemplateCover';
 
+
 import { paths } from './paths';
 
 const App = () => {

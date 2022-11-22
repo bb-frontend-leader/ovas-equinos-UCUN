@@ -1,10 +1,32 @@
-import { Col, Row } from "@components";
+import { Link } from "react-router-dom";
+import { Col, Row, Image } from "UI-Components-books";
 
 const TemplateCover = () => {
   return (
-    <Row justify-content="center" align-items="center">
-      <Col>Tomando las riendas de la producción equina</Col>
-    </Row>
+    <div className="template-container">
+      <Col md="10">
+        <Image
+          url="/assets/images/Slide1-image-1.png"
+          alt="Tomando las riendas de la producción equina"
+          addClass="u-mt-5"
+          width="1500"
+          noCaption
+        />
+      </Col>
+
+      <Col md="10" addClass="template-container__button u-mb-4">
+        <Row justify-content="center" align-items="center">
+          <Link to="unit/1/page/1">
+            <Image
+              url="/assets/images/Slide1-image-2.png"
+              alt="Continuar"
+              width="270"
+              noCaption
+            />
+          </Link>
+        </Row>
+      </Col>
+    </div>
   );
 };
 

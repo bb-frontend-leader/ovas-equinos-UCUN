@@ -39,7 +39,7 @@
 }
 
 .c-header__logo {
-    max-width: 17vw;
+    max-width: 15.5vw;
     width: 100%;
     height: auto;
     display: block;
@@ -72,6 +72,16 @@
     gap: 1rem;
 }
 
+.c-header__btn {
+    background-color: transparent;
+    padding: 0;
+}
+
+.c-header__btn svg {
+    fill: #FFF;
+    forced-color-adjust: auto
+}
+
 .c-nav__list li {
     padding: 0 .7rem;
     position: relative;
@@ -92,16 +102,17 @@
 
 .c-nav__submenu {
     position: absolute;
-    top: calc(100% + 16px);
+    top: calc(100% + 1px);
     left: 50%;
-    transform: translateX(-50%);
     padding: 1rem 0;
     width: 170px;
     height: auto;
     display: none;
+    flex-direction: column;
     background-color: #E8E6FE;
     border-radius: 15px;
-    flex-direction: column;
+    transform: translateX(-50%);
+    z-index: 9;
 }
 
 

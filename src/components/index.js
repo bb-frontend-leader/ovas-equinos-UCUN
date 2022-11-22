@@ -1,3 +1,3 @@
 export * from "./Header";
-export * from "./Col";
-export * from "./Row";
+export * from "./SVG";
+export * from "./View";

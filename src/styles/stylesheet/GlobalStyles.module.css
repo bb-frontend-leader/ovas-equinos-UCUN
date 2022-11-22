@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap');
 
+@font-face {
+    font-family: 'WesternBangBang-Regular';
+    src: url(/assets/fonts/WesternBangBang-Regular.woff) format('woff');
+    font-style: normal;
+    font-weight: 400;
+}
+
 *,
 *::before,
 *::after {
@@ -18,9 +25,13 @@ main {
 }
 
 body {
-    height: 100vh;
-    overflow-y: hidden;
+    min-height: 100vh;
     font-family: 'Nunito', sans-serif;
+    overflow-y: hidden;
+    background-image: url(/assets/images/principal-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
 }
 
 /* Remove default margin */
@@ -28,13 +39,41 @@ body {
     margin: 0;
 }
 
-.svg-icon {
-    fill: currentColor;
-    forced-color-adjust: auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
 .fs-base {
     font-size: clamp(1rem, 0.31vw + 0.94rem, 1.19rem);
+}
+
+.u-special-font {
+    font-family: 'WesternBangBang-Regular';
+}
+
+:where(.u-fs-svg p ) {
+    font-size: 1.4rem
+}
+
+.u-fs-svg-title {
+    font-size: 3.4rem;
+}
+
+.u-button-reset {
+    padding: 0;
+    display: block;
+    background-color: transparent;
+}
+
+/* Barras de scroll */
+::-webkit-scrollbar {
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 2px solid white;
+    background-color: var(--primaryColorLight);
+    border-radius: 7px;
 }

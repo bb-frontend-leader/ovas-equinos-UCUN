@@ -1,0 +1,29 @@
+/* Table Ova7p1 */
+
+.c-table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.c-table p {
+    font-size: 1.2rem;
+}
+
+.c-table * :not(strong, p) {
+    padding: 1rem;
+}
+
+.c-table tbody tr td {
+    width: auto;
+}
+
+.c-table tbody tr:nth-child(even) {
+    background-color: rgb(238 163 73 / 79%);
+}
+
+.c-table tbody tr:nth-child(odd) {
+    background-color: rgb(238 166 85 / 50%);
+}
