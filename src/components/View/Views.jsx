@@ -3,7 +3,6 @@ import {
   Children,
   cloneElement,
   isValidElement,
-  useLayoutEffect,
   useRef,
 } from "react";
 import PropTypes from "prop-types";
@@ -11,7 +10,7 @@ import PropTypes from "prop-types";
 import { ViewContext } from "./View";
 
 /**
- * date: 24/06/2022
+ * date: 23/11/2022
  * author:  alejandro-programador2
  * description:  Componente pestaña.
  * attributes:
@@ -24,10 +23,8 @@ const Views = ({ children }) => {
   // Almacena al referencia del elemento activo.
   const elementRef = useRef(null);
 
-  // Almacena el valor previo del index
-  const prevIndex = useRef(null);
-
   let childIndex = 1;
+
   // Obtenemos los hijos del componente y a cada uno le agregamos un identificador.
   const viewItems = Children.map(children, (child) => {
     if (!isValidElement(child)) {
@@ -45,15 +42,6 @@ const Views = ({ children }) => {
       index: value,
     });
   });
-
-  // useLayoutEffect(() => {
-  //   if (prevIndex) {
-  //     // setTimeout(() => {
-  //     //   elementRef.current.focus();
-  //     // }, 750);
-  //   }
-  //   prevIndex.current = index;
-  // });
 
   return (
     <>

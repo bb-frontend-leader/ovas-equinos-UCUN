@@ -6,7 +6,7 @@ const TemplateCover = () => {
     <div className="template-container">
       <Col md="10">
         <Image
-          url="/assets/images/Slide1-image-1.png"
+          url="/assets/images/Cover-image-1.png"
           alt="Tomando las riendas de la producción equina"
           addClass="u-mt-5"
           width="1500"
@@ -18,7 +18,7 @@ const TemplateCover = () => {
         <Row justify-content="center" align-items="center">
           <Link to="unit/1/page/1">
             <Image
-              url="/assets/images/Slide1-image-2.png"
+              url="/assets/images/Cover-image-2.png"
               alt="Continuar"
               width="270"
               noCaption

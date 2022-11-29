@@ -1,6 +1,6 @@
 /* Table Ova7p1 */
 
-.c-table {
+.table {
     width: 100%;
     display: block;
     overflow-x: auto;
@@ -8,22 +8,150 @@
     border-spacing: 10px;
 }
 
-.c-table p {
+.table p {
     font-size: 1.2rem;
 }
 
-.c-table * :not(strong, p) {
+.table * :not(strong, p) {
     padding: 1rem;
 }
 
-.c-table tbody tr td {
+.table tbody tr td {
     width: auto;
 }
 
-.c-table tbody tr:nth-child(even) {
+.table tbody tr:nth-child(even) {
     background-color: rgb(238 163 73 / 79%);
 }
 
-.c-table tbody tr:nth-child(odd) {
+.table tbody tr:nth-child(odd) {
     background-color: rgb(238 166 85 / 50%);
+}
+
+/* Contenedor */
+
+.container {
+    position: relative;
+}
+
+.title-container {
+    position: absolute;
+    bottom: calc(100% - (20px / 2));
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    line-height: normal;
+    z-index: 2;
+}
+
+.title-container--stage {
+    bottom: 0;
+    top: 0;
+}
+
+.title-container p {
+    color: var(--clr-primary-300);
+    font-weight: normal;
+}
+
+.title-container p>* {
+    color: var(--clr-primary-400);
+}
+
+/* Tabs Ova7p1 */
+
+.c-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0 2rem;
+}
+
+.c-tab-list {
+    flex-direction: column;
+    flex: 1 0 auto;
+    border-bottom: 0;
+    gap: 0.9rem 0;
+}
+
+.c-tab {
+    border-bottom: 0;
+    border: 0px;
+    padding: 0 0.7rem;
+    background-color: var(--clr-primary-200);
+    box-shadow: 2px 2px 7px 0px var(--clr-primary-800);
+}
+
+.is-tab--selected {
+    background-color: var(--clr-primary-900);
+    box-shadow: 2px 2px 7px 0px var(--clr-primary-800);
+}
+
+.is-tab--selected>p {
+    color: var(--clr-primary-400);
+}
+
+.c-tab-panel>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-tab-panel__image>img {
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 13px rgb(0 0 0 / 17%);
+}
+
+@media screen and (max-width: 900px) {
+    .c-tabs {
+        flex-direction: column;
+    }
+}
+
+/* Modal */
+.c-modal {
+    padding: 3.5rem 1.8rem;
+    background-color: transparent;
+    background-image: url(/ovas-ucun/assets/images/Modal-background-horse.png);
+    background-size: cover;
+    background-repeat: round;
+    max-inline-size: fit-content;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Image container */
+
+.c-image-container-sign::after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 17px);
+    left: 50%;
+    width: 62px;
+    height: 77px;
+    background-image: url(/ovas-ucun/assets/images/Slide3-image-5.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1024px) {
+    .c-image-container-sign::after {
+        display: none;
+    }
+}
+
+/* Activity */
+
+.c-actvity__image>img {
+    border-radius: 32px;
+    box-shadow: 0px 0px 0px 6px rgb(0 0 0 / 17%);
+}
+
+/* Grid */
+
+.c-checkbox-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
 }

@@ -1,3 +1,5 @@
+/* header element */
+
 .c-header {
     --margin-top: 2rem;
     padding: 0 1.25rem;
@@ -6,7 +8,6 @@
     justify-content: space-evenly;
     background-color: transparent;
 }
-
 
 :where(.c-header ul) {
     padding-left: 0px;
@@ -18,17 +19,18 @@
     image-rendering: -webkit-optimize-contrast;
 }
 
+/* Header button icon */
 
 .c-header__icon {
-    --size: 90px;
+    --size: 5.625rem;
     padding: 0.2rem;
     margin-top: var(--margin-top);
     width: var(--size);
     max-height: var(--size);
-    background-color: transparent;
-    border: 0.1875rem solid transparent;
     border-radius: min(10%, 3rem);
-    outline: 2px solid #0000;
+    --outline-color: var(--clr-common-white-100);
+    --outline-size: 4px;
+    --outline-offset: 1px;
     cursor: pointer;
 }
 
@@ -38,19 +40,24 @@
     display: block;
 }
 
+/* Header logo */
+
 .c-header__logo {
-    max-width: 15.5vw;
-    width: 100%;
+    width: clamp( 200px, 100%, 15.5vw );
     height: auto;
     display: block;
     object-fit: scale-down;
     object-position: top;
 }
 
+/* Header content */
+
 .c-header__content {
     display: inline-flex;
     flex-grow: .5;
 }
+
+/* Nav element */
 
 .c-nav {
     position: relative;
@@ -75,10 +82,11 @@
 .c-header__btn {
     background-color: transparent;
     padding: 0;
+    border-radius: 10px;
 }
 
 .c-header__btn svg {
-    fill: #FFF;
+    fill: var(--clr-common-white-100);
     forced-color-adjust: auto
 }
 
@@ -91,14 +99,17 @@
     position: relative;
     display: block;
     font-size: 1.25rem;
+    text-align: center;
     text-decoration: none;
-    color: #FFFF;
+    color: var(--clr-common-white-100);
 }
 
 .c-nav__list>li:nth-child(2) {
-    border-left: 1px solid #FFF;
-    border-right: 1px solid #FFF;
+    border-left: 1px solid var(--clr-common-white-100);
+    border-right: 1px solid var(--clr-common-white-100);
 }
+
+/* Sub menu */
 
 .c-nav__submenu {
     position: absolute;
@@ -119,10 +130,35 @@
 .c-nav__submenu li a {
     padding-bottom: .25rem;
     font-size: 1.0625rem;
-    color: #9b9b9b;
-    border-bottom: 1px solid #FFF;
+    color: var(--clr-neutral-400);
+    border-bottom: 1px solid var(--clr-common-white-100);
 }
 
 .is-nav__submenu--active {
     display: inline-flex;
+}
+
+/* Media query */
+
+@media screen and (max-width: 850px) {
+
+    .c-header {
+        --margin-top: .3rem;
+    }
+
+    .c-header__content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .c-nav__list li a {
+        font-size: clamp(0.8rem, 0.15vw + 0.77rem, 0.89rem);
+    }
+
+    .c-header__icon {
+        --size: 4.625rem;
+        align-self: flex-end;
+    }
+
 }

@@ -2,11 +2,11 @@ import { Row, Col, Content, Image, Button } from "UI-Components-books";
 import {
   SvgMenu,
   SvgStaticRoulette,
-  SvgBottomBar,
   View,
   Views,
-  ViewButton,
+  ViewNavigation,
 } from "@components";
+import { Link } from "react-router-dom";
 
 const Ova7p1 = () => {
   return (
@@ -21,6 +21,8 @@ const Ova7p1 = () => {
 
           <Col xs="11" mm="10" md="9">
             <Views>
+              {/* Resultado esperado de aprendizaje */}
+
               <div className="animate__animated animate__zoomIn animate__fast">
                 <Row justify-content="center" align-items="center">
                   <Col xs="11" md="10">
@@ -30,7 +32,7 @@ const Ova7p1 = () => {
                       <image
                         width={2735}
                         height={973}
-                        xlinkHref="assets/images/Slide2-image-1.png"
+                        xlinkHref="assets/images/Slide1-image-1.png"
                         transform="matrix(.48 0 0 .48 7.113 65.883)"
                         overflow="visible"
                       />
@@ -38,7 +40,7 @@ const Ova7p1 = () => {
                       <image
                         width={1044}
                         height={728}
-                        xlinkHref="assets/images/Slide2-image-4.png"
+                        xlinkHref="assets/images/Slide1-image-4.png"
                         transform="matrix(.48 0 0 .48 732.711 138.53)"
                         overflow="visible"
                       />
@@ -48,25 +50,25 @@ const Ova7p1 = () => {
                       <image
                         width={1331}
                         height={206}
-                        xlinkHref="assets/images/Slide2-image-2.png"
+                        xlinkHref="assets/images/Slide1-image-2.png"
                         transform="matrix(.48 0 0 .48 344.073 1.747)"
                         overflow="visible"
                       />
 
                       <foreignObject x="1265" y="30" width="80" height="80">
-                        <ViewButton
+                        <ViewNavigation
                           addClass="u-button-reset"
                           label="Resultado esperado de aprendizaje"
                           hasAriaLabel
                           index={4}
                         >
                           <Image
-                            url="assets/images/Slide2-image-3.png"
+                            url="assets/images/Slide1-image-3.png"
                             alt=""
                             width="80"
                             noCaption
                           />
-                        </ViewButton>
+                        </ViewNavigation>
                       </foreignObject>
 
                       {/* Title */}
@@ -92,6 +94,7 @@ const Ova7p1 = () => {
                 </Row>
               </div>
 
+              {/* Presentación */}
               <div className="animate__animated animate__zoomIn animate__fast">
                 <Row justify-content="center" align-items="center">
                   <Col xs="11" md="10">
@@ -101,7 +104,7 @@ const Ova7p1 = () => {
                       <image
                         width={2735}
                         height={973}
-                        xlinkHref="assets/images/Slide2-image-1.png"
+                        xlinkHref="assets/images/Slide1-image-1.png"
                         transform="matrix(.48 0 0 .48 7.113 65.883)"
                         overflow="visible"
                       />
@@ -111,25 +114,25 @@ const Ova7p1 = () => {
                       <image
                         width={1331}
                         height={206}
-                        xlinkHref="assets/images/Slide2-image-2.png"
+                        xlinkHref="assets/images/Slide1-image-2.png"
                         transform="matrix(.48 0 0 .48 344.073 1.747)"
                         overflow="visible"
                       />
 
                       <foreignObject x="1265" y="30" width="80" height="80">
-                        <ViewButton
+                        <ViewNavigation
                           addClass="u-button-reset"
                           label="Resultado esperado de aprendizaje"
                           hasAriaLabel
                           index={4}
                         >
                           <Image
-                            url="assets/images/Slide2-image-3.png"
+                            url="assets/images/Slide1-image-3.png"
                             alt=""
                             width="80"
                             noCaption
                           />
-                        </ViewButton>
+                        </ViewNavigation>
                       </foreignObject>
 
                       {/* Title */}
@@ -173,6 +176,7 @@ const Ova7p1 = () => {
                 </Row>
               </div>
 
+              {/* Actividades a desarrollar */}
               <div className="animate__animated animate__zoomIn animate__fast">
                 <Row justify-content="center" align-items="center">
                   <Col xs="11" md="10">
@@ -182,7 +186,7 @@ const Ova7p1 = () => {
                       <image
                         width={2727}
                         height={522}
-                        xlinkHref="assets/images/Slide2-image-6.png"
+                        xlinkHref="assets/images/Slide1-image-6.png"
                         transform="matrix(.48 0 0 .48 5.926 87.566)"
                         overflow="visible"
                       />
@@ -190,25 +194,25 @@ const Ova7p1 = () => {
                       <image
                         width={1331}
                         height={206}
-                        xlinkHref="assets/images/Slide2-image-2.png"
+                        xlinkHref="assets/images/Slide1-image-2.png"
                         transform="matrix(.48 0 0 .48 344.486 7.02)"
                         overflow="visible"
                       />
 
                       <foreignObject x="1265" y="50" width="80" height="80">
-                        <ViewButton
+                        <ViewNavigation
                           addClass="u-button-reset"
                           label="Resultado esperado de aprendizaje"
                           hasAriaLabel
                           index={4}
                         >
                           <Image
-                            url="assets/images/Slide2-image-3.png"
+                            url="assets/images/Slide1-image-3.png"
                             alt=""
                             width="80"
                             noCaption
                           />
-                        </ViewButton>
+                        </ViewNavigation>
                       </foreignObject>
 
                       {/*  Down container */}
@@ -216,7 +220,7 @@ const Ova7p1 = () => {
                       <image
                         width={2767}
                         height={1192}
-                        xlinkHref="assets/images/Slide2-image-9.png"
+                        xlinkHref="assets/images/Slide1-image-9.png"
                         transform="translate(3.216 344) scale(.4773)"
                         overflow="visible"
                       />
@@ -224,7 +228,7 @@ const Ova7p1 = () => {
                       <image
                         width={39}
                         height={139}
-                        xlinkHref="assets/images/Slide2-image-7.png"
+                        xlinkHref="assets/images/Slide1-image-7.png"
                         transform="matrix(.48 0 0 .48 1258.16 314.519)"
                         overflow="visible"
                       />
@@ -232,7 +236,7 @@ const Ova7p1 = () => {
                       <image
                         width={39}
                         height={139}
-                        xlinkHref="assets/images/Slide2-image-7.png"
+                        xlinkHref="assets/images/Slide1-image-7.png"
                         transform="matrix(.48 0 0 .48 48.597 317.728)"
                         overflow="visible"
                       />
@@ -274,9 +278,10 @@ const Ova7p1 = () => {
                       </foreignObject>
 
                       {/* Table */}
+
                       <foreignObject x="120" y="361" width="1070" height="430">
-                        <figure tabIndex={0}>
-                          <table className="c-table">
+                        <figure>
+                          <table className="table">
                             <tbody>
                               <tr>
                                 <td>
@@ -388,24 +393,21 @@ const Ova7p1 = () => {
                       </foreignObject>
 
                       {/* Text */}
+
                       <foreignObject x="90" y="784" width="1150" height="30">
                         <p>
                           El recurso se aprueba con un puntaje igual o superior
-                          a 35 puntos y tendrá un intento para realizar cada
-                          actividad.
+                          a <strong>35 puntos</strong> y tendrá un intento para
+                          realizar cada actividad.
                         </p>
                       </foreignObject>
 
                       {/* Buttons */}
 
-                      <foreignObject x="440" y="811" width="166" height="80">
-                        <Button
-                          addClass="u-button-reset"
-                          label="Resultado esperado de aprendizaje"
-                          hasAriaLabel
-                        >
+                      <foreignObject x="440" y="811" width="166" height="85">
+                        <Button addClass="u-button-reset u-stack" label="">
                           <Image
-                            url="assets/images/Slide2-image-8.png"
+                            url="assets/images/Slide1-image-8.png"
                             alt=""
                             width="164"
                             noCaption
@@ -414,44 +416,25 @@ const Ova7p1 = () => {
                       </foreignObject>
 
                       <foreignObject x="668" y="820" width="230" height="80">
-                        <Button
-                          addClass="u-button-reset"
-                          label="Continuar"
-                          hasAriaLabel
+                        <Link
+                          className="u-button-reset u-stack"
+                          aria-label="LLeva a la página donde puede dirigirse a las diferentes etapas"
+                          to="/unit/1/page/2"
                         >
                           <Image
-                            url="assets/images/Slide2-image-5.png"
-                            alt=""
+                            url="assets/images/Cover-image-2.png"
+                            alt="Tabla de madera que contiene la palabra continuar"
                             width="212"
                             noCaption
                           />
-                        </Button>
-                      </foreignObject>
-
-                      {/* Text button */}
-
-                      <foreignObject x="530" y="832" width="50" height="40">
-                        <p
-                          className="u-special-font"
-                          style={{ fontSize: "1.9rem", pointerEvents: "none" }}
-                        >
-                          PDF
-                        </p>
-                      </foreignObject>
-
-                      <foreignObject x="725" y="832" width="100" height="50">
-                        <p
-                          className="u-special-font"
-                          style={{ fontSize: "1.9rem", pointerEvents: "none" }}
-                        >
-                          Continuar
-                        </p>
+                        </Link>
                       </foreignObject>
                     </svg>
                   </Col>
                 </Row>
               </div>
 
+              {/* Defautl */}
               <div className="animate__animated animate__zoomIn animate__fast">
                 <Row
                   justify-content="center"
@@ -463,7 +446,69 @@ const Ova7p1 = () => {
                     className="u-mb-2"
                   />
 
-                  <SvgBottomBar style={{ maxWidth: "670px" }} />
+                  <svg viewBox="0 0 1158.3 215.6" style={{ maxWidth: "670px" }}>
+                    <image
+                      width={2414}
+                      height={425}
+                      xlinkHref="/assets/images/SvgBottomBar-1.png"
+                      transform="matrix(.48 0 0 .48 -.23 10.073)"
+                      overflow="visible"
+                    />
+                    <image
+                      width={205}
+                      height={192}
+                      xlinkHref="/assets/images/SvgBottomBar-5.png"
+                      transform="matrix(.48 0 0 .48 48.13 34.4)"
+                      overflow="visible"
+                    />
+                    <image
+                      width={679}
+                      height={408}
+                      xlinkHref="/assets/images/SvgBottomBar-2.png"
+                      transform="matrix(.48 0 0 .48 795.322 1.483)"
+                      overflow="visible"
+                    />
+                    <image
+                      width={678}
+                      height={408}
+                      xlinkHref="/assets/images/SvgBottomBar-3.png"
+                      transform="matrix(.48 0 0 .48 419.072 4.502)"
+                      overflow="visible"
+                    />
+                    <image
+                      width={678}
+                      height={408}
+                      xlinkHref="/assets/images/SvgBottomBar-4.png"
+                      transform="matrix(.48 0 0 .48 57.239 4.502)"
+                      overflow="visible"
+                    />
+
+                    {/* Buttons */}
+
+                    <foreignObject x="47" y="110" width="350" height="95">
+                      <Image
+                        url="assets/images/SvgBottomBar-6.png"
+                        alt=""
+                        noCaption
+                      />
+                    </foreignObject>
+
+                    <foreignObject x="412" y="110" width="350" height="95">
+                      <Image
+                        url="assets/images/SvgBottomBar-7.png"
+                        alt=""
+                        noCaption
+                      />
+                    </foreignObject>
+
+                    <foreignObject x="790" y="110" width="350" height="95">
+                      <Image
+                        url="assets/images/SvgBottomBar-8.png"
+                        alt=""
+                        noCaption
+                      />
+                    </foreignObject>
+                  </svg>
                 </Row>
               </div>
             </Views>

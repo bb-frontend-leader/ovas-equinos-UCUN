@@ -12,7 +12,10 @@ const Header = () => {
 
   return (
     <header className={css["c-header"]}>
-      <Link to="unit/1/page/1" className={css["c-header__icon"]}>
+      <Link
+        to="unit/1/page/1"
+        className={`${css["c-header__icon"]} animate__animated animate__bounce animate__delay-1s`}
+      >
         <img
           src="assets/images/icon-home.png"
           alt="Herradura con una figura en forma de casa"
@@ -21,12 +24,14 @@ const Header = () => {
 
       <div className={css["c-header__content"]}>
         <img
-          className={css["c-header__logo"]}
+          className={`${css["c-header__logo"]} animate__animated animate__backInDown`}
           src="https://virtual.ucundinamarca.edu.co/red/baseUNAD/maquetaRED/assets/img_contenido/logo.png"
           alt=""
         />
 
-        <nav className={css["c-nav"]}>
+        <nav
+          className={`${css["c-nav"]} animate__animated animate__backInDown`}
+        >
           <ul role="list" className={css["c-nav__list"]}>
             <li>
               <Link to="/">Introducción</Link>
@@ -47,7 +52,7 @@ const Header = () => {
                 aria-expanded={active}
                 hasAriaLabel
               >
-                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <svg xmlns="http://www.w3.org/2000/svg" height="44" width="30">
                   <path d="M24 40q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7t1.7-.7q1 0 1.7.7t.7 1.7q0 1-.7 1.7T24 40Zm0-13.6q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7t1.7-.7q1 0 1.7.7t.7 1.7q0 1-.7 1.7t-1.7.7Zm0-13.6q-1 0-1.7-.7t-.7-1.7q0-1 .7-1.7T24 8q1 0 1.7.7t.7 1.7q0 1-.7 1.7t-1.7.7Z" />
                 </svg>
               </Button>
@@ -78,7 +83,10 @@ const Header = () => {
         </nav>
       </div>
 
-      <Link to="unit/1/page/2" className={css["c-header__icon"]}>
+      <Link
+        to="unit/1/page/2"
+        className={`${css["c-header__icon"]} animate__animated animate__bounce animate__delay-1s`}
+      >
         <img
           src="assets/images/icon-horse.png"
           alt="Herradura con una figura de un caballo"

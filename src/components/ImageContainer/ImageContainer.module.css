@@ -1,0 +1,17 @@
+
+/* Image container */
+
+.c-image-container {
+    --width: 100%;
+    --height: auto;
+    --border-size: 20px;
+    --img-background: url('assets/images/wood.png');
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border: var(--border-size) solid;
+    border-image-source: var(--img-background);
+    border-image-slice: 100 fill;
+    aspect-ratio: var(--width) / var(--height);
+    image-rendering: -webkit-optimize-contrast;
+}
