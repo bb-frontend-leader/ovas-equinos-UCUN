@@ -1,0 +1,3 @@
+[submodule "UI-Components-books"]
+	path = UI-Components-books
+	url = https://github.com/UI-Components-Books-Books/UI-Components-books.git

@@ -1,0 +1,164 @@
+/* header element */
+
+.c-header {
+    --margin-top: 2rem;
+    padding: 0 1.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: transparent;
+}
+
+:where(.c-header ul) {
+    padding-left: 0px;
+    display: inline-flex;
+    list-style: none;
+}
+
+.c-header img {
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Header button icon */
+
+.c-header__icon {
+    --size: 5.625rem;
+    padding: 0.2rem;
+    margin-top: var(--margin-top);
+    width: var(--size);
+    max-height: var(--size);
+    border-radius: min(10%, 3rem);
+    --outline-color: var(--clr-common-white-100);
+    --outline-size: 4px;
+    --outline-offset: 1px;
+    cursor: pointer;
+}
+
+.c-header__icon>img {
+    width: inherit;
+    max-width: 100%;
+    display: block;
+}
+
+/* Header logo */
+
+.c-header__logo {
+    width: clamp( 200px, 100%, 15.5vw );
+    height: auto;
+    display: block;
+    object-fit: scale-down;
+    object-position: top;
+}
+
+/* Header content */
+
+.c-header__content {
+    display: inline-flex;
+    flex-grow: .5;
+}
+
+/* Nav element */
+
+.c-nav {
+    position: relative;
+    margin-top: var(--margin-top);
+    height: 4rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2 1 auto;
+    background: rgb(6, 79, 37);
+    background: url(https://virtual.ucundinamarca.edu.co/red/baseUNAD/maquetaRED/assets/img_contenido/barra.png) no-repeat;
+    background-size: 100% 4rem;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.c-nav__list {
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.c-header__btn {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 10px;
+}
+
+.c-header__btn svg {
+    fill: var(--clr-common-white-100);
+    forced-color-adjust: auto
+}
+
+.c-nav__list li {
+    padding: 0 .7rem;
+    position: relative;
+}
+
+.c-nav__list li a {
+    position: relative;
+    display: block;
+    font-size: 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--clr-common-white-100);
+}
+
+.c-nav__list>li:nth-child(2) {
+    border-left: 1px solid var(--clr-common-white-100);
+    border-right: 1px solid var(--clr-common-white-100);
+}
+
+/* Sub menu */
+
+.c-nav__submenu {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 50%;
+    padding: 1rem 0;
+    width: 170px;
+    height: auto;
+    display: none;
+    flex-direction: column;
+    background-color: #E8E6FE;
+    border-radius: 15px;
+    transform: translateX(-50%);
+    z-index: 9;
+}
+
+
+.c-nav__submenu li a {
+    padding-bottom: .25rem;
+    font-size: 1.0625rem;
+    color: var(--clr-neutral-400);
+    border-bottom: 1px solid var(--clr-common-white-100);
+}
+
+.is-nav__submenu--active {
+    display: inline-flex;
+}
+
+/* Media query */
+
+@media screen and (max-width: 850px) {
+
+    .c-header {
+        --margin-top: .3rem;
+    }
+
+    .c-header__content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .c-nav__list li a {
+        font-size: clamp(0.8rem, 0.15vw + 0.77rem, 0.89rem);
+    }
+
+    .c-header__icon {
+        --size: 4.625rem;
+        align-self: flex-end;
+    }
+
+}

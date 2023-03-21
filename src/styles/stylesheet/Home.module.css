@@ -1,0 +1,11 @@
+.template-container { 
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  grid-template-rows: auto  minmax(100px, 500px) 1fr;
+}
+
+.template-container__button {
+  align-self: flex-end;
+}

@@ -1,0 +1,8 @@
+/*--- Estilos generales ---*/
+@import url('./stylesheet/GlobalStyles.module.css');
+
+/*--- Estilos de la página de Inicio---*/
+@import url('./stylesheet/Home.module.css');
+
+/*--- Estilos generales del la OVA ---*/
+@import url('./stylesheet/Ova.module.css');

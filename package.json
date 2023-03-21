@@ -10,6 +10,7 @@
   },
   "standard": {
     "ignore": [
+      "/UI-Components-books/*",
       "/src/main.jsx",
       "/src/routes/App.jsx"
     ]
@@ -20,7 +21,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
-    "ui-components-sua": "link:ui-components-sua",
+    "UI-Components-books": "link:UI-Components-books",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
