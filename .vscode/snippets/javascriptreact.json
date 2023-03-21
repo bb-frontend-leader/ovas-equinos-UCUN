@@ -1,0 +1,74 @@
+{
+  "comment": {
+    "prefix": "__cm",
+    "body": [
+      "/**",
+      " * date: $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      " * author: ${1: <user>}",
+      " * description: ${2: <description>}",
+      " * returns : ${3: none}",
+      " * modifications :",
+      " *     <dd/mm/yyyy> <user>: <description>",
+      " */"
+    ],
+    "description": "commentarios"
+  },
+  "comment line": {
+    "prefix": "__cm_line",
+    "body": ["// $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR ${1:<user>}: ${2:<description>}"],
+    "description": "commentario de una línea"
+  },
+  "Component": {
+    "prefix": "__rafc_comp",
+    "body": [
+      "import PropTypes from 'prop-types';",
+      "import { Row, Col } from '@components';",
+      "import css from './${1:${TM_FILENAME_BASE}}.module.css';",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = ({ children }) => {",
+      "  return (",
+      "    <>",
+      "      <Row display=\"flex\" align-items=\"center\" justify-content=\"center\">",
+      "        <Col xs=\"12\" mm=\"8\" md=\"6\" hd=\"6\">",
+      "          <div className={css.class}>{children}</div>",
+      "        </Col>",
+      "      </Row>",
+      "    </>",
+      "  );",
+      "};",
+      "",
+      "${1:${TM_FILENAME_BASE}}.propTypes = {",
+      "  children: PropTypes.any",
+      "};",
+      "",
+      "export { ${1:${TM_FILENAME_BASE}} };",
+      ""
+    ],
+    "description": "Create Component"
+  },
+  "Function Arrow": {
+    "prefix": "__fn_Arrow",
+    "body": ["const ${1:handlerClick} = () => {", "  ${0}", "}"],
+    "description": "Function Arrow"
+  },
+  "import components core": {
+    "prefix": "__import_components",
+    "body": ["import {${0}} from '@components';"],
+    "description": "import components"
+  },
+  "import alias styles core": {
+    "prefix": "__import_styles",
+    "body": ["import {${0}} from '@styles';"],
+    "description": "import alias styles"
+  },
+  "import all alias": {
+    "prefix": "__import_all_alias",
+    "body": [
+      "import {} from '@'; // root/src",
+      "import {} from '@components'; // root/src/components",
+      "import {} from '@styles'; // root/src/styles",
+      "import {} from '@context'; // root/src/context"
+    ],
+    "description": "import all alias"
+  }
+}

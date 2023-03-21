@@ -1,0 +1,36 @@
+{
+  "files.exclude": {
+    "**/.vscode": false,
+    "**/node_modules": false,
+    "**/src/core/*.*": false,
+    "**.gitignore": true,
+    "**.eslintcache": true,
+    "**.eslintrc.json": true,
+    "**.gitmodules": false,
+    "**.prettierrc": true,
+    "**package-lock.json": true,
+    "**vite.config.js": false,
+    "**yarn.lock": true,
+    "**/.github": true,
+    
+    "**/UI-Components-books/.postcssrc.cjs": true,
+		"**/UI-Components-books/.npmrc": true,
+		"**/UI-Components-books/babel.config.json": true,
+		"**/UI-Components-books/jest.config.cjs": true,
+		"**/UI-Components-books/jest.setup.js": true,
+		"**/UI-Components-books/LICENSE": true,
+		"**/UI-Components-books/README.md": true,
+		"**/UI-Components-books/setupTest.js": true,
+		"**/UI-Components-books/vite.config.js": true,
+		"**/UI-Components-books/.gitignore": true,
+		"**/UI-Components-books/.vscode": true,
+		"**/UI-Components-books/yarn.lock": true,
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "workbench.settings.editor": "json"
+}
