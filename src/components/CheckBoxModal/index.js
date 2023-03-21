@@ -1,2 +1,2 @@
 export * from "./CheckBoxGroup";
-export * from "./CheckBoxModal";
+export { CheckBoxModal } from "./CheckBoxModal";

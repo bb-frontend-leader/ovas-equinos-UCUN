@@ -1,0 +1,37 @@
+/* Select */
+.c-select>div select {
+    height: 4.5rem;
+    color: #472309;
+    background-color: #f7c895;
+    border: 3px solid #bc7f62;
+    border-radius: 0.8rem;
+}
+
+.c-select>div select:disabled {
+    background: rgb(238,170,92);
+    background: linear-gradient(90deg, rgba(238,170,92,1) 36%, rgba(231,162,91,1) 44%, rgba(219,149,85,1) 55%, rgba(191,121,73,1) 77%, rgba(188,117,70,1) 100%);
+    border-color: #f7c895;
+}
+
+/* Checkbox */
+.c-checkbox {
+    --input-color: var(--clr-primary-900) !important;
+    font-weight: bold;
+}
+
+.c-checkbox[data-type="checkbox"] {
+    --input-border-radius: .1rem;
+}
+
+.c-checkbox>div {
+    min-inline-size: 1.475rem;
+    min-block-size: 1.475rem;
+    color: var(--clr-primary-900);
+    border: none;
+    box-shadow: inset 0px 0px 0px 3px #dc9359, 0px 0px 1.9px 0.5px #79452a, 0px 0px 0px 4px #dfa878, -2px 0px 1px 4.4px #bd7f5f;
+}
+
+.c-checkbox>div:focus-within {
+    outline: max(2px, 0.08em) solid #79452a;
+    outline-offset: max(2px, 0.4em);
+}

@@ -8,7 +8,7 @@ const TemplateCover = () => {
         <Image
           url="/assets/images/Cover-image-1.png"
           alt="Tomando las riendas de la producción equina"
-          addClass="u-mt-5"
+          addClass="u-mt-6"
           width="1500"
           noCaption
         />
@@ -20,7 +20,7 @@ const TemplateCover = () => {
             <Image
               url="/assets/images/Cover-image-2.png"
               alt="Continuar"
-              width="270"
+              width="300"
               noCaption
             />
           </Link>

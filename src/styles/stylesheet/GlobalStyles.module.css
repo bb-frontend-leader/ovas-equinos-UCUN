@@ -22,18 +22,20 @@
 main {
     overflow-y: auto;
     padding: 0 1rem;
+    scrollbar-gutter: stable both-edges;
 }
 
 body {
+    --bg-image: url(/assets/images/Principal-background.png);
     min-height: 100vh;
     font-family: 'Nunito', sans-serif;
     overflow-y: hidden;
-    background-image: url(/assets/images/Principal-background.png);
+    background-image: var(--bg-image);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
     color: var(--clr-primary-800);
-    transition: background-image .4s ease-in-out;
+    transition: background-image 1s ease-in-out;
 }
 
 /* Remove default margin */
@@ -88,6 +90,10 @@ a {
 
 .u-zindex-2 {
     z-index: 2;
+}
+
+.u-section-overflow {
+    overflow: visible;
 }
 
 /* Barras de scroll */

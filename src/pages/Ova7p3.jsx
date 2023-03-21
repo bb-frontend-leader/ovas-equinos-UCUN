@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import {
   Col,
@@ -23,24 +24,23 @@ import {
   SvgStageMenu,
   CheckBoxModal,
   CheckBoxGroup,
+  PlanGroup,
+  PlanSelect,
+  PlanCheck,
 } from "@components";
-
 import { useBackground } from "@hooks";
 
 const Ova7p3 = () => {
-  const [, setBackground] = useBackground("background-slide-3");
+  const { setBackground } = useBackground();
 
   const [isOpen, setIsOpen] = useState({
     context: false,
     situation: false,
   });
 
-  const onContext = () => {
-    setIsOpen((prev) => ({ ...prev, context: true }));
-  };
-
-  const onSituation = () => {
-    setIsOpen((prev) => ({ ...prev, situation: true }));
+  // Se utiliza para abrir y cerrar los modales.
+  const onToggleModal = (modal) => {
+    setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }));
   };
 
   const contextRef = useRef();
@@ -65,11 +65,11 @@ const Ova7p3 = () => {
                 width="500px"
                 height="100px"
               >
-                <p className="u-special-font u-text-center u-fs-500">
+                <h2 className="u-special-font u-text-center u-fs-500">
                   Etapa 1.
                   <br />
                   <span>Anatomía de la reproducción en equinos</span>
-                </p>
+                </h2>
               </ImageContainer>
 
               <p className="u-mt-6">
@@ -124,7 +124,7 @@ const Ova7p3 = () => {
                   <TabPanel>
                     <Image
                       src="assets/images/Slide3-image-3.png"
-                      alt="Vista anterior del aparato reproductor hembra equina"
+                      alt="Vista lateral del aparato reproductor hembra equina"
                       addClass="c-tab-panel__image"
                       width="550"
                       noCaption
@@ -134,7 +134,7 @@ const Ova7p3 = () => {
                   <TabPanel>
                     <Image
                       src="assets/images/Slide3-image-4.png"
-                      alt="Vista anterior del aparato reproductor hembra equina"
+                      alt="Vista posterior del aparato reproductor hembra equina"
                       addClass="c-tab-panel__image"
                       width="330"
                       noCaption
@@ -145,13 +145,10 @@ const Ova7p3 = () => {
 
               <Row justify-content="center" align-items="center">
                 <ButtonSection section={2}>
-                  <Button
-                    label="Ir a la segunda sección"
-                    addClass="u-button-reset u-stack"
-                    hasAriaLabel
-                  >
+                  <Button addClass="u-button-reset u-stack">
                     <Image
                       src="assets/images/Button-style-large.png"
+                      alt="Ir a la segunda sección"
                       width="200"
                       noCaption
                     />
@@ -180,11 +177,11 @@ const Ova7p3 = () => {
                 width="500px"
                 height="100px"
               >
-                <p className="u-special-font u-text-center u-fs-500">
+                <h2 className="u-special-font u-text-center u-fs-500">
                   Etapa 1.
                   <br />
                   <span>Anatomía de la reproducción en equinos</span>
-                </p>
+                </h2>
               </ImageContainer>
 
               <Image
@@ -201,14 +198,12 @@ const Ova7p3 = () => {
                 <foreignObject x="47" y="110" width="350" height="95">
                   <Button
                     ref={contextRef}
-                    label="contexto"
                     addClass="c-button"
-                    onClick={onContext}
-                    hasAriaLabel
+                    onClick={() => onToggleModal("context")}
                   >
                     <Image
                       url="assets/images/SvgBottomBar-6.png"
-                      alt=""
+                      alt="contexto"
                       noCaption
                     />
                   </Button>
@@ -217,14 +212,12 @@ const Ova7p3 = () => {
                 <foreignObject x="412" y="110" width="350" height="95">
                   <Button
                     ref={situationRef}
-                    label="situación"
                     addClass="c-button"
-                    onClick={onSituation}
-                    hasAriaLabel
+                    onClick={() => onToggleModal("situation")}
                   >
                     <Image
                       url="assets/images/SvgBottomBar-7.png"
-                      alt=""
+                      alt="situación"
                       noCaption
                     />
                   </Button>
@@ -239,10 +232,10 @@ const Ova7p3 = () => {
                       )
                     }
                   >
-                    <Button label="actividad" addClass="c-button" hasAriaLabel>
+                    <Button addClass="c-button">
                       <Image
                         url="assets/images/SvgBottomBar-8.png"
-                        alt=""
+                        alt="actividad"
                         noCaption
                       />
                     </Button>
@@ -256,9 +249,7 @@ const Ova7p3 = () => {
         <Modal
           isOpen={isOpen.context}
           finalFocusRef={contextRef}
-          onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))
-          }
+          onClose={() => onToggleModal("context")}
         >
           <ModalOverlay />
 
@@ -269,7 +260,9 @@ const Ova7p3 = () => {
               width="500px"
               height="50px"
             >
-              <p className="u-special-font u-text-center u-fs-600">Contexto</p>
+              <h2 className="u-special-font u-text-center u-fs-600">
+                Contexto
+              </h2>
             </ImageContainer>
 
             <Row justify-content="center" align-items="center">
@@ -302,6 +295,7 @@ const Ova7p3 = () => {
               <Col xs="11" mm="10" md="9" lg="6" hd="5">
                 <Image
                   src="assets/images/horse-base.png"
+                  alt="Animación de un caballo parado"
                   width="580"
                   noCaption
                 />
@@ -313,9 +307,7 @@ const Ova7p3 = () => {
         <Modal
           isOpen={isOpen.situation}
           finalFocusRef={situationRef}
-          onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, situation: value }))
-          }
+          onClose={() => onToggleModal("situation")}
         >
           <ModalOverlay />
 
@@ -326,7 +318,9 @@ const Ova7p3 = () => {
               width="500px"
               height="50px"
             >
-              <p className="u-special-font u-text-center u-fs-600">Situación</p>
+              <h2 className="u-special-font u-text-center u-fs-600">
+                Situación
+              </h2>
             </ImageContainer>
 
             <Row justify-content="center" align-items="center">
@@ -356,6 +350,7 @@ const Ova7p3 = () => {
               <Col xs="11" mm="10" md="8" lg="6" hd="5">
                 <Image
                   src="assets/images/horse-base.png"
+                  alt="Animación de un caballo parado"
                   width="816"
                   noCaption
                 />
@@ -365,7 +360,7 @@ const Ova7p3 = () => {
         </Modal>
       </Section>
 
-      <Section addClass="animate__animated animate__fadeInDown animate__faster">
+      <Section addClass="animate__animated animate__fadeInDown animate__faster u-section-overflow">
         <Row justify-content="center" align-items="center">
           <Col xs="11" mm="10" md="9" lg="8" hd="7">
             <ImageContainer
@@ -379,9 +374,9 @@ const Ova7p3 = () => {
                 width="500px"
                 height="50px"
               >
-                <p className="u-special-font u-text-center u-fs-600">
+                <h2 className="u-special-font u-text-center u-fs-600">
                   Actividad 1
-                </p>
+                </h2>
               </ImageContainer>
 
               <Row
@@ -518,13 +513,10 @@ const Ova7p3 = () => {
                         )
                       }
                     >
-                      <Button
-                        label="Volver a la segunda sección"
-                        addClass="u-button-reset u-stack"
-                        hasAriaLabel
-                      >
+                      <Button addClass="u-button-reset u-stack">
                         <Image
                           src="assets/images/Button-style-large.png"
+                          alt="Volver a la segunda sección"
                           width="200"
                           noCaption
                         />
@@ -545,8 +537,305 @@ const Ova7p3 = () => {
 
       <Section addClass="animate__animated animate__fadeInDown animate__faster">
         <Row justify-content="center" align-items="center">
-          <Col xs="11" mm="10" md="9" lg="8" hd="7">
-            Plan de manejo: Anatomía de la reproducción en equinos.
+          <Col xs="12" mm="11" md="10" lg="9" hd="8">
+            <ImageContainer
+              background="assets/images/Slide3-image-7.png"
+              addClass="u-text-center u-my-2"
+              padding="30px"
+            >
+              <h2 className="u-mb-3 u-fs-300">
+                <strong>Plan de manejo:</strong> Anatomía de la reproducción en
+                equinos.
+              </h2>
+
+              <p className="u-mb-5 u-fs-300">
+                Con base en la información manejada en esta parte del recurso,
+                seleccione las partes que conforman el tracto reproductivo de la
+                hembra equina y del menú desplegable elija la función respectiva
+                dentro del sistema reproductivo.
+              </p>
+
+              <div className="c-plan-group-grid u-px-3">
+                <PlanGroup>
+                  <PlanCheck value="question_1" label="Vulva." />
+
+                  <PlanSelect id="question_1">
+                    <option value={1}>
+                      Órgano que fundamenta en la expresión de sintomatología de
+                      celo.
+                    </option>
+
+                    <option value={2}>
+                      En esta región se produce la eyaculación, siendo el inicio
+                      del proceso de fertilización..
+                    </option>
+
+                    <option value={3}>
+                      A través del este se realiza el pasaje de instrumentos con
+                      los cuales se realizan diferentes biotecnologías, ya sea
+                      inseminación artificial o, colecta y transferencia de
+                      embriones.
+                    </option>
+
+                    <option value={4}>
+                      Es el sitio en el cual se realiza la deposición del semen
+                      en la inseminación artificial.
+                    </option>
+
+                    <option value={5}>
+                      En su interior se produce el recorrido que realiza el
+                      embrión para procurar el reconocimiento materno de preñez
+                      y lograr la gestación, junto con el cuerpo uterino,
+                      reflejan la presentación de edema uterino, el cual es
+                      fundamental en el seguimiento que se realiza para
+                      determinar el momento de la ovulación.
+                    </option>
+                  </PlanSelect>
+
+                  <PlanCheck value="question_2" label="Vagina." />
+
+                  <PlanSelect id="question_2">
+                    <option value={1}>
+                      Órgano que fundamenta en la expresión de sintomatología de
+                      celo.
+                    </option>
+
+                    <option value={2}>
+                      En esta región se produce la eyaculación, siendo el inicio
+                      del proceso de fertilización..
+                    </option>
+
+                    <option value={3}>
+                      A través del este se realiza el pasaje de instrumentos con
+                      los cuales se realizan diferentes biotecnologías, ya sea
+                      inseminación artificial o, colecta y transferencia de
+                      embriones.
+                    </option>
+
+                    <option value={4}>
+                      Es el sitio en el cual se realiza la deposición del semen
+                      en la inseminación artificial.
+                    </option>
+
+                    <option value={5}>
+                      En su interior se produce el recorrido que realiza el
+                      embrión para procurar el reconocimiento materno de preñez
+                      y lograr la gestación, junto con el cuerpo uterino,
+                      reflejan la presentación de edema uterino, el cual es
+                      fundamental en el seguimiento que se realiza para
+                      determinar el momento de la ovulación.
+                    </option>
+                  </PlanSelect>
+
+                  <PlanCheck value="question_3" label="Cérvix." />
+
+                  <PlanSelect id="question_3">
+                    <option value={1}>
+                      Órgano que fundamenta en la expresión de sintomatología de
+                      celo.
+                    </option>
+
+                    <option value={2}>
+                      En esta región se produce la eyaculación, siendo el inicio
+                      del proceso de fertilización..
+                    </option>
+
+                    <option value={3}>
+                      A través del este se realiza el pasaje de instrumentos con
+                      los cuales se realizan diferentes biotecnologías, ya sea
+                      inseminación artificial o, colecta y transferencia de
+                      embriones.
+                    </option>
+
+                    <option value={4}>
+                      Es el sitio en el cual se realiza la deposición del semen
+                      en la inseminación artificial.
+                    </option>
+
+                    <option value={5}>
+                      En su interior se produce el recorrido que realiza el
+                      embrión para procurar el reconocimiento materno de preñez
+                      y lograr la gestación, junto con el cuerpo uterino,
+                      reflejan la presentación de edema uterino, el cual es
+                      fundamental en el seguimiento que se realiza para
+                      determinar el momento de la ovulación.
+                    </option>
+                  </PlanSelect>
+
+                  <PlanCheck value="question_4" label="Cuerpo del útero." />
+
+                  <PlanSelect id="question_4">
+                    <option value={1}>
+                      Órgano que fundamenta en la expresión de sintomatología de
+                      celo.
+                    </option>
+
+                    <option value={2}>
+                      En esta región se produce la eyaculación, siendo el inicio
+                      del proceso de fertilización..
+                    </option>
+
+                    <option value={3}>
+                      A través del este se realiza el pasaje de instrumentos con
+                      los cuales se realizan diferentes biotecnologías, ya sea
+                      inseminación artificial o, colecta y transferencia de
+                      embriones.
+                    </option>
+
+                    <option value={4}>
+                      Es el sitio en el cual se realiza la deposición del semen
+                      en la inseminación artificial.
+                    </option>
+
+                    <option value={5}>
+                      En su interior se produce el recorrido que realiza el
+                      embrión para procurar el reconocimiento materno de preñez
+                      y lograr la gestación, junto con el cuerpo uterino,
+                      reflejan la presentación de edema uterino, el cual es
+                      fundamental en el seguimiento que se realiza para
+                      determinar el momento de la ovulación.
+                    </option>
+                  </PlanSelect>
+
+                  <PlanCheck value="question_5" label="Cuerno uterinos." />
+
+                  <PlanSelect id="question_5">
+                    <option value={1}>
+                      Órgano que fundamenta en la expresión de sintomatología de
+                      celo.
+                    </option>
+
+                    <option value={2}>
+                      En esta región se produce la eyaculación, siendo el inicio
+                      del proceso de fertilización..
+                    </option>
+
+                    <option value={3}>
+                      A través del este se realiza el pasaje de instrumentos con
+                      los cuales se realizan diferentes biotecnologías, ya sea
+                      inseminación artificial o, colecta y transferencia de
+                      embriones.
+                    </option>
+
+                    <option value={4}>
+                      Es el sitio en el cual se realiza la deposición del semen
+                      en la inseminación artificial.
+                    </option>
+
+                    <option value={5}>
+                      En su interior se produce el recorrido que realiza el
+                      embrión para procurar el reconocimiento materno de preñez
+                      y lograr la gestación, junto con el cuerpo uterino,
+                      reflejan la presentación de edema uterino, el cual es
+                      fundamental en el seguimiento que se realiza para
+                      determinar el momento de la ovulación.
+                    </option>
+                  </PlanSelect>
+
+                  <PlanCheck value="question_6" label="Oviducto." />
+
+                  <PlanSelect id="question_6">
+                    <option value={1}>
+                      Órgano que fundamenta en la expresión de sintomatología de
+                      celo.
+                    </option>
+
+                    <option value={2}>
+                      En esta región se produce la eyaculación, siendo el inicio
+                      del proceso de fertilización..
+                    </option>
+
+                    <option value={3}>
+                      A través del este se realiza el pasaje de instrumentos con
+                      los cuales se realizan diferentes biotecnologías, ya sea
+                      inseminación artificial o, colecta y transferencia de
+                      embriones.
+                    </option>
+
+                    <option value={4}>
+                      Es el sitio en el cual se realiza la deposición del semen
+                      en la inseminación artificial.
+                    </option>
+
+                    <option value={5}>
+                      En su interior se produce el recorrido que realiza el
+                      embrión para procurar el reconocimiento materno de preñez
+                      y lograr la gestación, junto con el cuerpo uterino,
+                      reflejan la presentación de edema uterino, el cual es
+                      fundamental en el seguimiento que se realiza para
+                      determinar el momento de la ovulación.
+                    </option>
+                  </PlanSelect>
+
+                  <PlanCheck value="question_7" label="Ovarios." />
+
+                  <PlanSelect id="question_7">
+                    <option value={1}>
+                      Órgano que fundamenta en la expresión de sintomatología de
+                      celo.
+                    </option>
+
+                    <option value={2}>
+                      En esta región se produce la eyaculación, siendo el inicio
+                      del proceso de fertilización..
+                    </option>
+
+                    <option value={3}>
+                      A través del este se realiza el pasaje de instrumentos con
+                      los cuales se realizan diferentes biotecnologías, ya sea
+                      inseminación artificial o, colecta y transferencia de
+                      embriones.
+                    </option>
+
+                    <option value={4}>
+                      Es el sitio en el cual se realiza la deposición del semen
+                      en la inseminación artificial.
+                    </option>
+
+                    <option value={5}>
+                      En su interior se produce el recorrido que realiza el
+                      embrión para procurar el reconocimiento materno de preñez
+                      y lograr la gestación, junto con el cuerpo uterino,
+                      reflejan la presentación de edema uterino, el cual es
+                      fundamental en el seguimiento que se realiza para
+                      determinar el momento de la ovulación.
+                    </option>
+                  </PlanSelect>
+                </PlanGroup>
+              </div>
+
+              <Row
+                justify-content="center"
+                align-items="center"
+                addClass="u-mt-3"
+              >
+                <ButtonSection section={3}>
+                  <Button addClass="u-button-reset u-stack">
+                    <Image
+                      src="assets/images/Button-style-large.png"
+                      alt="Volver a la tercera sección"
+                      width="200"
+                      noCaption
+                    />
+                    <span className="u-special-font u-fs-500 u-zindex-2">
+                      Volver
+                    </span>
+                  </Button>
+                </ButtonSection>
+
+                <Link to="/unit/1/page/2" className="u-button-reset u-stack">
+                  <Image
+                    src="assets/images/Button-style-large.png"
+                    alt="Lleva al menú principal"
+                    width="200"
+                    noCaption
+                  />
+                  <span className="u-special-font u-fs-500 u-zindex-2">
+                    Continuar
+                  </span>
+                </Link>
+              </Row>
+            </ImageContainer>
           </Col>
         </Row>
       </Section>

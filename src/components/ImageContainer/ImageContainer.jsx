@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react";
+import { createElement } from "react";
 import PropTypes from "prop-types";
 
 import css from "./ImageContainer.module.css";
@@ -13,35 +13,31 @@ export const ImageContainer = ({
   element,
   ...props
 }) => {
-  const elementRef = useRef();
+  // Utilizado para crear un elemento diferente a un 'div'
+  const component = element || "div";
 
-  const Component = element || "div";
+  // Encargada de realizar la validación de las customProperties
+  const valitationProperties = () => {
+    const customProperties = {};
 
-  useLayoutEffect(() => {
-    if (!elementRef.current) return;
+    if (height) customProperties["--height"] = height;
+    if (width) customProperties["--width"] = width;
+    if (padding) customProperties["--border-size"] = padding;
+    if (background) customProperties["--img-background"] = `url(${background})`;
 
-    height && elementRef.current.style.setProperty("--height", height);
-    width && elementRef.current.style.setProperty("--width", width);
-    padding && elementRef.current.style.setProperty("--border-size", padding);
-    background &&
-      elementRef.current.style.setProperty(
-        "--img-background",
-        `url(${background})`
-      );
+    return customProperties;
+  };
 
-    return () => {
-      elementRef.current = "";
-    };
-  }, [elementRef, height, width, padding, background]);
-
-  return (
-    <Component
-      ref={elementRef}
-      className={`${css["c-image-container"]} ${addClass ?? ""}`}
-      {...props}
-    >
-      {children}
-    </Component>
+  return createElement(
+    component,
+    {
+      className: `${css["c-image-container"]} ${addClass ?? ""}`,
+      ...(!!valitationProperties() && {
+        style: { ...valitationProperties() },
+      }),
+      ...props,
+    },
+    [children]
   );
 };
 

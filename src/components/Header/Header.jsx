@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { Button } from "UI-Components-books";
 
@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className={css["c-header"]}>
-      <Link
+      <NavLink
         to="unit/1/page/1"
         className={`${css["c-header__icon"]} animate__animated animate__bounce animate__delay-1s`}
       >
@@ -20,7 +20,7 @@ const Header = () => {
           src="assets/images/icon-home.png"
           alt="Herradura con una figura en forma de casa"
         />
-      </Link>
+      </NavLink>
 
       <div className={css["c-header__content"]}>
         <img
@@ -34,15 +34,15 @@ const Header = () => {
         >
           <ul role="list" className={css["c-nav__list"]}>
             <li>
-              <Link to="/">Introducción</Link>
+              <NavLink to="/">Introducción</NavLink>
             </li>
 
             <li>
-              <Link to="/">Resultado esperado</Link>
+              <NavLink to="/">Resultado esperado</NavLink>
             </li>
 
             <li>
-              <Link to="/">Contenido</Link>
+              <NavLink to="/">Contenido</NavLink>
             </li>
 
             <li>
@@ -63,19 +63,19 @@ const Header = () => {
                 }`}
               >
                 <li>
-                  <Link to="/">Actividades de aprendizaje</Link>
+                  <NavLink to="/">Actividades de aprendizaje</NavLink>
                 </li>
 
                 <li>
-                  <Link to="/">Como se evaluará este curso</Link>
+                  <NavLink to="/">Como se evaluará este curso</NavLink>
                 </li>
 
                 <li>
-                  <Link to="/">Ref. bibliográfica</Link>
+                  <NavLink to="/">Ref. bibliográfica</NavLink>
                 </li>
 
                 <li>
-                  <Link to="/">Créditos</Link>
+                  <NavLink to="/">Créditos</NavLink>
                 </li>
               </ul>
             </li>
@@ -83,7 +83,7 @@ const Header = () => {
         </nav>
       </div>
 
-      <Link
+      <NavLink
         to="unit/1/page/2"
         className={`${css["c-header__icon"]} animate__animated animate__bounce animate__delay-1s`}
       >
@@ -91,7 +91,7 @@ const Header = () => {
           src="assets/images/icon-horse.png"
           alt="Herradura con una figura de un caballo"
         />
-      </Link>
+      </NavLink>
     </header>
   );
 };

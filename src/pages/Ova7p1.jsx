@@ -56,15 +56,10 @@ const Ova7p1 = () => {
                       />
 
                       <foreignObject x="1265" y="30" width="80" height="80">
-                        <ViewNavigation
-                          addClass="u-button-reset"
-                          label="Resultado esperado de aprendizaje"
-                          hasAriaLabel
-                          index={4}
-                        >
+                        <ViewNavigation addClass="u-button-reset" index={4}>
                           <Image
                             url="assets/images/Slide1-image-3.png"
-                            alt=""
+                            alt="Resultado esperado de aprendizaje"
                             width="80"
                             noCaption
                           />
@@ -120,15 +115,10 @@ const Ova7p1 = () => {
                       />
 
                       <foreignObject x="1265" y="30" width="80" height="80">
-                        <ViewNavigation
-                          addClass="u-button-reset"
-                          label="Resultado esperado de aprendizaje"
-                          hasAriaLabel
-                          index={4}
-                        >
+                        <ViewNavigation addClass="u-button-reset" index={4}>
                           <Image
                             url="assets/images/Slide1-image-3.png"
-                            alt=""
+                            alt="Resultado esperado de aprendizaje"
                             width="80"
                             noCaption
                           />
@@ -200,15 +190,10 @@ const Ova7p1 = () => {
                       />
 
                       <foreignObject x="1265" y="50" width="80" height="80">
-                        <ViewNavigation
-                          addClass="u-button-reset"
-                          label="Resultado esperado de aprendizaje"
-                          hasAriaLabel
-                          index={4}
-                        >
+                        <ViewNavigation addClass="u-button-reset" index={4}>
                           <Image
                             url="assets/images/Slide1-image-3.png"
-                            alt=""
+                            alt="Resultado esperado de aprendizaje"
                             width="80"
                             noCaption
                           />
@@ -405,10 +390,10 @@ const Ova7p1 = () => {
                       {/* Buttons */}
 
                       <foreignObject x="440" y="811" width="166" height="85">
-                        <Button addClass="u-button-reset u-stack" label="">
+                        <Button addClass="u-button-reset u-stack">
                           <Image
                             url="assets/images/Slide1-image-8.png"
-                            alt=""
+                            alt="Botón para descargar un svg"
                             width="164"
                             noCaption
                           />
@@ -417,13 +402,12 @@ const Ova7p1 = () => {
 
                       <foreignObject x="668" y="820" width="230" height="80">
                         <Link
-                          className="u-button-reset u-stack"
-                          aria-label="LLeva a la página donde puede dirigirse a las diferentes etapas"
                           to="/unit/1/page/2"
+                          className="u-button-reset u-stack"
                         >
                           <Image
                             url="assets/images/Cover-image-2.png"
-                            alt="Tabla de madera que contiene la palabra continuar"
+                            alt="LLeva a la página donde puede dirigirse a las diferentes etapas"
                             width="212"
                             noCaption
                           />

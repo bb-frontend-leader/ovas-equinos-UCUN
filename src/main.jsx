@@ -4,7 +4,7 @@ import App from './routes/App'
 import { ThemeProvider } from 'UI-Components-books'
 import { theme } from './theme/theme'
 
-import 'UI-Components-books/dist/style.css'
+import 'UI-Components-books/styles'
 import '@styles/index.css';
 
 ReactDOM.render(

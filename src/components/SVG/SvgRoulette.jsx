@@ -54,7 +54,7 @@ const SvgRoulette = memo((props) => {
     <svg ref={svgRef} viewBox="0 0 1848.2 839.9" id="SvgRoulette" {...props}>
       <style>
         {
-          "#SvgRoulette .st_button { cursor:pointer } #SvgRoulette .st_button:focus-visible{ outline: 7px solid var(--clr-common-white-100); border-radius: 8px; } #SvgRoulette .hidden { display: none }"
+          "#SvgRoulette .st_button { cursor:pointer } #SvgRoulette .st_button:focus-visible{ outline: 7px solid var(--clr-common-white-100); border-radius: 8px; } #SvgRoulette .hidden { display: none } #SvgRoulette .image-horse { pointer-events: none } #SvgRoulette .sign-message { pointer-events: none }"
         }
       </style>
 
@@ -188,7 +188,7 @@ const SvgRoulette = memo((props) => {
         xlinkHref="assets/images/SvgRoulette-4-letrero.png"
         transform="matrix(.48 0 0 .48 22.111 392.153)"
         overflow="visible"
-        className="hidden animate__animated animate__fadeIn animate__fast"
+        className="hidden sign-message animate__animated animate__fadeIn animate__fast"
         data-id="stage-4"
       />
 
@@ -196,14 +196,13 @@ const SvgRoulette = memo((props) => {
         <Link
           to="/unit/1/page/5"
           aria-label="LLeva a la página donde inicia la cuarta etapa"
-          className="u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden"
+          className="u-button-reset hidden u-stack animate__animated animate__fadeIn animate__fast"
           data-id="stage-4"
         >
           <Image
             url="assets/images/SvgRoulette-button.png"
             alt="Tabla de madera que contiene la palabra seleccionar"
             width="212"
-            data-id="stage-4"
             noCaption
           />
         </Link>
@@ -217,7 +216,7 @@ const SvgRoulette = memo((props) => {
         xlinkHref="assets/images/SvgRoulette-5-letrero.png"
         transform="matrix(.48 0 0 .48 6.286 71.335)"
         overflow="visible"
-        className="hidden animate__animated animate__fadeIn animate__fast"
+        className="hidden sign-message animate__animated animate__fadeIn animate__fast"
         data-id="stage-5"
       />
 
@@ -232,7 +231,6 @@ const SvgRoulette = memo((props) => {
             url="assets/images/SvgRoulette-button.png"
             alt="Tabla de madera que contiene la palabra seleccionar"
             width="212"
-            data-id="stage-5"
             noCaption
           />
         </Link>
@@ -272,7 +270,7 @@ const SvgRoulette = memo((props) => {
         xlinkHref="assets/images/SvgRoulette-2-letrero.png"
         transform="matrix(.48 0 0 .48 1124.057 401.967)"
         overflow="visible"
-        className="hidden animate__animated animate__fadeIn animate__fast"
+        className="hidden sign-message animate__animated animate__fadeIn animate__fast"
         data-id="stage-2"
       />
 
@@ -287,7 +285,6 @@ const SvgRoulette = memo((props) => {
             url="assets/images/SvgRoulette-button.png"
             alt="Tabla de madera que contiene la palabra seleccionar"
             width="212"
-            data-id="stage-2"
             noCaption
           />
         </Link>
@@ -301,7 +298,7 @@ const SvgRoulette = memo((props) => {
         xlinkHref="assets/images/SvgRoulette-3-letrero.png"
         transform="matrix(.48 0 0 .48 847.722 603.773)"
         overflow="visible"
-        className="hidden animate__animated animate__fadeIn animate__fast"
+        className="hidden sign-message animate__animated animate__fadeIn animate__fast"
         data-id="stage-3"
       />
 
@@ -316,7 +313,6 @@ const SvgRoulette = memo((props) => {
             url="assets/images/SvgRoulette-button.png"
             alt="Tabla de madera que contiene la palabra seleccionar"
             width="212"
-            data-id="stage-3"
             noCaption
           />
         </Link>
@@ -342,7 +338,7 @@ const SvgRoulette = memo((props) => {
         xlinkHref="assets/images/SvgRoulette-1-letrero.png"
         transform="matrix(.48 0 0 .48 1041.686 75.947)"
         overflow="visible"
-        className="hidden animate__animated animate__fadeIn animate__fast"
+        className="hidden sign-message animate__animated animate__fadeIn animate__fast"
         data-id="stage-1"
       />
 
@@ -372,6 +368,7 @@ const SvgRoulette = memo((props) => {
         xlinkHref="assets/images/SvgRoulette-horse.png"
         transform="matrix(.48 0 0 .48 649.793 175.133)"
         overflow="visible"
+        className="image-horse"
       />
     </svg>
   );
