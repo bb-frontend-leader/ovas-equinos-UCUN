@@ -194,7 +194,7 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x="165" y="569" width="230" height="80">
         <Link
-          to="/unit/1/page/5"
+          to="/unit/1/page/6"
           aria-label="LLeva a la página donde inicia la cuarta etapa"
           className="u-button-reset hidden u-stack animate__animated animate__fadeIn animate__fast"
           data-id="stage-4"
@@ -222,8 +222,8 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x="190" y="247" width="230" height="80">
         <Link
-          to="/unit/1/page/5"
-          aria-label="LLeva a la página donde inicia la cuarta etapa"
+          to="/unit/1/page/7"
+          aria-label="LLeva a la página donde inicia la quinta etapa"
           className="u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden"
           data-id="stage-5"
         >
