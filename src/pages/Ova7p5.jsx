@@ -32,14 +32,14 @@ const Ova7p5 = () => {
   const { setBackground } = useBackground();
 
   const [isOpen, setIsOpen] = useState({
-    modalAct2: false,
-    modalAct3: false,
+    modalAct7: true,
+    modalAct8: false,
   });
 
   // Se utiliza para abrir y cerrar los modales.
-  const onToggleModal = (modal) => {
-    setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }));
-  };
+  // const onToggleModal = (modal) => {
+  //   setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }));
+  // };
 
   const contextRef = useRef();
 
