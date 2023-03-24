@@ -390,3 +390,116 @@
     position: absolute;
     top: -66%;
 }
+
+/* etapa final */
+
+table{
+    width: 100%;
+}
+
+th.tableFinal-1:nth-child(1){
+    background-color: rgba(232, 167, 90, 0.5);
+    min-width: 50%;
+    width: 500px;
+    padding: 10px;
+}
+
+th.tableFinal-1:nth-child(2),
+th.tableFinal-1:nth-child(3){
+    background-color: rgba(231, 167, 90, 0.5);
+    min-width: 50%;
+    width: 90px;
+    padding: 10px;
+}
+
+th.tableFinal-2:nth-child(1){
+    background-color: rgba(238, 160, 63, 0.5);
+    min-width: 50%;
+    width: 500px;
+    padding: 10px;
+}
+
+th.tableFinal-2:nth-child(2),
+th.tableFinal-2:nth-child(3){
+    background-color: rgba(238, 160, 63, 0.5);
+    min-width: 50%;
+    width: 90px;
+    padding: 10px;
+}
+
+th.tableFinal-3{
+    background-color: rgba(232, 141, 27);
+}
+
+.imgSogasFinal img[tabIndex="-1"]{
+    --axis-y-img: 22%;
+    position: absolute;
+    height: auto;
+    width: 1rem;
+    z-index: 1;
+}
+
+.imgSogasFinal img[tabIndex="-1"]:nth-child(1){
+    top: calc(100% - var(--axis-y-img));
+    left: 2rem;
+}
+.imgSogasFinal img[tabIndex="-1"]:nth-child(4){
+    top: calc(100% - var(--axis-y-img));
+    right: 2rem;
+}
+.imgSogasFinal img[tabIndex="-1"]:nth-child(2){
+    top: calc(100% - var(--axis-y-img));
+    left: 54%;
+}
+.imgSogasFinal img[tabIndex="-1"]:nth-child(3){
+    top: calc(100% - var(--axis-y-img));
+    right: 54%;
+}
+
+.positionImgFinal{
+    position: absolute;
+    transform: translatex(50%);
+}
+
+.styleLink{
+    color: var(--clr-primary-800);
+}
+
+.positionContainerFinal{
+    position: absolute;
+    top: 99%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: calc(100% - 72%);
+}
+
+
+@media screen and (max-width: 991px) {
+    .imgSogasFinal img[tabIndex="-1"]{
+        --axis-y-img: 29%;
+        position: absolute;
+        height: auto;
+        width: 1rem;
+        z-index: 1;
+    }
+    
+    .imgSogasFinal img[tabIndex="-1"]:nth-child(1){
+        top: calc(100% - var(--axis-y-img));
+        left: 12rem;
+    }
+    .imgSogasFinal img[tabIndex="-1"]:nth-child(3){
+        top: calc(100% - var(--axis-y-img));
+        right: 12rem;
+    }
+    .imgSogasFinal img[tabIndex="-1"]:nth-child(2){
+        top: calc(100% - 16%);
+        left: 12rem;
+    }
+    .imgSogasFinal img[tabIndex="-1"]:nth-child(4){
+        top: calc(100% - 16%);
+        right: 12rem;
+    }
+}
+
+
