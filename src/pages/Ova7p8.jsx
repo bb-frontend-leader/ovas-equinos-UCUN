@@ -414,19 +414,17 @@ const Ova7p8 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
-                <ButtonSection section={5}>
-                  <Button addClass="u-button-reset u-stack">
-                    <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
-                      noCaption
-                    />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
-                      Continuar
-                    </span>
-                  </Button>
-                </ButtonSection>
+                <Link to="/unit/1/page/2" className="u-button-reset u-stack">
+                  <Image
+                    src="assets/images/Button-style-large.png"
+                    alt="Lleva al menú principal"
+                    width="200"
+                    noCaption
+                  />
+                  <span className="u-special-font u-fs-500 u-zindex-2">
+                    Continuar
+                  </span>
+                </Link>
               </Row>
             </ImageContainer>
           </Col>

@@ -14,6 +14,7 @@ import {
   Image,
   Button,
   CheckBox,
+  Audio
 } from "UI-Components-books";
 import {
   ImageContainer,
@@ -86,7 +87,9 @@ const Ova7p6 = () => {
                 audio.
               </p>
 
-              <Row justify-content="center" align-items="center">
+              
+              <Row className='positionContainerFinal' justify-content="center" align-items="center">
+                <Audio defaultStyle type='Button' className='styleAudioButton'/> 
                 <ButtonSection section={2}>
                   <Button addClass="u-button-reset u-stack">
                     <Image
@@ -100,6 +103,7 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
+             
               </Row>
             </ImageContainer>
           </Col>
