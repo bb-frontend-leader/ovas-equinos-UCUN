@@ -121,6 +121,16 @@
     image-rendering: -webkit-optimize-contrast;
 }
 
+.c-modal-secondary {
+    padding: 3.5rem 1.8rem;
+    background-color: transparent;
+    background-image: url(/ovas-ucun/assets/images/Slide5-image-4.png);
+    background-size: cover;
+    background-repeat: round;
+    image-rendering: -webkit-optimize-contrast;
+    block-size: 40%;
+}
+
 /* Image container */
 
 .c-image-container-sign::after {
@@ -299,4 +309,84 @@
 
 .drop-container__drop-item--active {
     box-shadow: rgb(193, 133, 100) 0 0 16px 2px;
+}
+
+/* etapa 3 */
+
+.c-toggle-check-grid-etapa3{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 80px;
+    padding-left: 0;
+}
+
+.c-toggle-check-grid-etapa3 li:nth-child(1){
+    position: absolute;
+    top: 29%;
+    left: 19%;
+}
+.c-toggle-check-grid-etapa3 li:nth-child(2){
+    position: absolute;
+    top: 37%;
+    left: 20%;
+}
+
+.planSelectStyle div select{
+    height: 3.5rem;
+}
+
+/* Actividad radio etapa 4 */
+
+.c-popover-check__content {
+    border: 4px solid rgb(193, 133, 100);
+    border-radius: 1.5rem;
+    background-color: rgb(248, 205, 152);
+    padding: 0.6rem 1rem 0.6rem 0.9rem;
+    color: rgb(71, 35, 9);
+    font-size: 0.885rem;
+}
+
+.c-popover-check__button {
+    height: 1.9rem;
+    width: 1.9rem;
+    font-size: 1.55rem;
+    color: #472309;
+    border: #8b5837;
+    background: linear-gradient(90deg, rgba(230, 155, 91, 1) 41%, rgba(215, 143, 87, 1) 60%, rgba(173, 108, 74, 1) 83%, rgba(158, 95, 68, 1) 94%);
+    box-shadow: inset 0.4px 0.3px 0.6px 2px #8b5837, 0px 0px 1.9px 0.5px #79452a, 0px 0px 0px 4px #dfa878, -2px 0px 1px 4.4px #bd7f5f;
+    text-shadow: 1.8px 0 #5c3927ed;
+}
+
+.c-popover-check__check {
+    position: absolute;
+    /* top: 30%; */
+    right: calc(100% - 2.475rem / 2);
+    transform: translateY(-300%);
+}
+
+.c-popover-check__check>div {
+    --input-border-radius: 50%;
+    --gap: 0.5em;
+    --input-color: var(--clr-primary-900);
+    min-inline-size: 1.475rem;
+    min-block-size: 1.475rem;
+    color: var(--clr-primary-900);
+    border: none;
+    background-color: #f8cd98;
+    box-shadow: inset 0px 0px 0px 3px #dc9359, 0px 0px 1.9px 0.5px #79452a, 0px 0px 0px 4px #dfa878, -2px 0px 1px 4.4px #bd7f5f;
+}
+
+.c-popover-check__check>div:focus-within {
+    outline: max(2px, 0.08em) solid #79452a;
+    outline-offset: max(2px, 0.4em);
+}
+
+.c-popover-check__check>div div::before {
+    background-color: var(--input-color);
+}
+
+.positionImg-Etapa4{
+    position: absolute;
+    top: -66%;
 }
