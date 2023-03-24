@@ -178,24 +178,20 @@ const Ova7p5 = () => {
                 </foreignObject>
 
                 <foreignObject x="412" y="110" width="350" height="95">
-                  <foreignObject x="47" y="110" width="350" height="95">
-                    <ButtonSection
-                      section={4}
-                      onClick={() =>
-                        setBackground(
-                          "url(/assets/images/Third-background.png)"
-                        )
-                      }
-                    >
-                      <Button addClass="c-button">
-                        <Image
-                          url="assets/images/SvgBottomBar-6.png"
-                          alt="actividad"
-                          noCaption
-                        />
-                      </Button>
-                    </ButtonSection>
-                  </foreignObject>
+                  <ButtonSection
+                    section={4}
+                    onClick={() =>
+                      setBackground("url(/assets/images/Third-background.png)")
+                    }
+                  >
+                    <Button addClass="c-button">
+                      <Image
+                        url="assets/images/SvgBottomBar-6.png"
+                        alt="actividad"
+                        noCaption
+                      />
+                    </Button>
+                  </ButtonSection>
                 </foreignObject>
 
                 <foreignObject x="790" y="110" width="350" height="95">
