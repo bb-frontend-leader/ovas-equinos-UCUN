@@ -1,4 +1,5 @@
-import ReactDOM from 'react-dom'
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
 import App from './routes/App'
 
 import { ThemeProvider } from 'UI-Components-books'
@@ -7,11 +8,10 @@ import { theme } from './theme/theme'
 import 'UI-Components-books/styles'
 import '@styles/index.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-     <ThemeProvider theme={theme}>
-        <App />
-     </ThemeProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+	<StrictMode>
+		<ThemeProvider theme={theme}>
+			<App />
+		</ThemeProvider>
+	</StrictMode>
+);
