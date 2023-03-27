@@ -8,6 +8,11 @@
     "build": "vite build --base=https://booksandbooksdigital.com.co/ovas-ucun/",
     "preview": "vite preview"
   },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
+  },
   "standard": {
     "ignore": [
       "/UI-Components-books/*",
@@ -17,28 +22,20 @@
   },
   "dependencies": {
     "@vitejs/plugin-react-refresh": "^1.3.6",
+    "UI-Components-books": "file:UI-Components-books",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
     "react-redux": "^8.0.5",
-    "UI-Components-books": "file:UI-Components-books",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^4.0.3",
     "@vitejs/plugin-react": "^2.1.0",
-    "vite": "^3.1.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.7",
-    "pretty-quick": "^3.1.3"
+    "pretty-quick": "^3.1.3",
+    "standard": "^17.0.0",
+    "vite": "^3.1.0"
   }
 }

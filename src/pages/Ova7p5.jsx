@@ -16,12 +16,14 @@ import {
   Select,
   List,
   ListItem,
+  Audio
 } from "UI-Components-books";
 import {
   ImageContainer,
   SvgStageMenuTwo,
   PopoverRadioGroup,
   PopoverRadio,
+  ValidationButton,
   PlanCheck,
   PlanGroup,
   PlanSelect,
@@ -105,7 +107,8 @@ const Ova7p5 = () => {
                 audio.
               </p>
 
-              <Row justify-content="center" align-items="center">
+              <Row className='positionContainerFinal' justify-content="center" align-items="center">
+                <Audio defaultStyle type='Button' className='styleAudioButton'/>
                 <ButtonSection section={2}>
                   <Button addClass="u-button-reset u-stack">
                     <Image
@@ -583,127 +586,121 @@ const Ova7p5 = () => {
       </Section>
 
       <Section>
-        <Row
-          justify-content="space-evenly"
-          align-items="center"
-          addClass="u-py-6"
-        >
-          <Col xs="11" mm="10" md="9" lg="7">
-            <Image
-              src="assets/images/SvgRoulette-inseminación-artificial-2.png"
-              alt="Ir a la segunda sección"
-              width="900"
-              noCaption
-            />
-            <PopoverRadioGroup>
-              <List addClass="c-toggle-check-grid-etapa3">
-                <ListItem>
-                  <PopoverRadio label="1" placement="top">
-                    <p>
-                      Se evidencia con la presencia del fotoperiodo positivo. Al
-                      realizar una evaluación reproductiva por colonoscopía
-                      transrectal revisando la presencia de estructuras
-                      ováricas, analizando la presencia de anestro.
-                    </p>
-                  </PopoverRadio>
-                </ListItem>
+        <PopoverRadioGroup>
+          <Row
+            justify-content="space-evenly"
+            align-items="center"
+            addClass="u-py-6"
+          >
+            <Col xs="11" mm="10" md="9" lg="7">
+              <Image
+                src="assets/images/SvgRoulette-inseminación-artificial-2.png"
+                alt="Ir a la segunda sección"
+                width="900"
+                noCaption
+              />
+                <List addClass="c-toggle-check-grid-etapa3">
+                  <ListItem>
+                    <PopoverRadio label="1" placement="top" id={1} answer='correct'>
+                      <p>
+                        Se evidencia con la presencia del fotoperiodo positivo. Al
+                        realizar una evaluación reproductiva por colonoscopía
+                        transrectal revisando la presencia de estructuras
+                        ováricas, analizando la presencia de anestro.
+                      </p>
+                    </PopoverRadio>
+                  </ListItem>
 
-                <ListItem>
-                  <PopoverRadio label="2" placement="bottom">
-                    <p>
-                      Se evidencia con la presencia del cuerpo hemorrágico, el
-                      cual empieza su formación una vez se rompen las paredes
-                      del folículo ovulatorio, iniciando una remodelación en la
-                      cual el tejido luteal juega un papel fundamental.
-                    </p>
-                  </PopoverRadio>
-                </ListItem>
-              </List>
-            </PopoverRadioGroup>
-          </Col>
-          <Col xs="11" mm="10" md="9" lg="5" hd="4">
-            <ImageContainer
-              background="assets/images/Slide1-image-9.png"
-              addClass="u-py-4 u-fs-300 c-image-container-sign"
-              padding="30px"
-            >
+                  <ListItem>
+                    <PopoverRadio label="2" placement="bottom" id={2} answer='wrong'>
+                      <p>
+                        Se evidencia con la presencia del cuerpo hemorrágico, el
+                        cual empieza su formación una vez se rompen las paredes
+                        del folículo ovulatorio, iniciando una remodelación en la
+                        cual el tejido luteal juega un papel fundamental.
+                      </p>
+                    </PopoverRadio>
+                  </ListItem>
+                </List>
+            </Col>
+              
+            <Col xs="11" mm="10" md="9" lg="5" hd="4">
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="500px"
-                height="50px"
+                background="assets/images/Slide1-image-9.png"
+                addClass="u-py-4 u-fs-300 c-image-container-sign"
+                padding="30px"
               >
-                <h2 className="u-special-font u-text-center u-fs-600">
-                  Actividad 5
-                </h2>
+                <ImageContainer
+                  background="assets/images/Slide3-image-1.png"
+                  addClass="title-container"
+                  width="500px"
+                  height="50px"
+                >
+                  <h2 className="u-special-font u-text-center u-fs-600">
+                    Actividad 5
+                  </h2>
+                </ImageContainer>
+
+                <p>
+                  Para evaluar el proceso de fertilidad de la hembra equina, se
+                  pueden realizar diferentes estudios tales como la
+                  ultrasonografía transrectal. ¿Cómo se evidencia a través de este
+                  estudio que la yegua logró la ovulación y el fin de la etapa de
+                  estro?
+                </p>
+
+                <p className="u-mx-2 u-my-3">
+                  Para responder a la pregunta, pase el cursor sobre cada número
+                  en el monitor del escáner y seleccione una de las dos opciones
+                  de respuesta haciendo clic en el círculo en blanco de la opción
+                  elegida.
+                </p>
+
+                <p className="u-mx-2">
+                  Esta actividad tiene 4 puntos. Solo tiene un intento para
+                  realizarla. <br />
+                  Al terminar haga clic en el botón “Validar” para conocer su
+                  retroalimentación y puntaje.
+                </p>
+                <Row justify-content="center" align-items="center">
+                  <ValidationButton>
+                    <Button addClass="u-button-reset u-stack">
+                      <Image
+                        src="assets/images/Button-style-large.png"
+                        alt="Ir a la segunda sección"
+                        width="200"
+                        noCaption
+                      />
+                      <span className="u-special-font u-fs-500 u-zindex-2">
+                        Validar
+                      </span>
+                    </Button>
+                  </ValidationButton>
+                  <ButtonSection
+                    section={7}
+                    onClick={() =>
+                      setBackground(
+                        "url(/assets/images/Principal-background.png)"
+                      )
+                    }
+                  >
+                    <Button addClass="u-button-reset u-stack">
+                      <Image
+                        src="assets/images/Button-style-large.png"
+                        alt="Ir a la segunda sección"
+                        width="200"
+                        noCaption
+                      />
+                      <span className="u-special-font u-fs-500 u-zindex-2">
+                        Continuar
+                      </span>
+                    </Button>
+                  </ButtonSection>
+                </Row>
               </ImageContainer>
-
-              <p>
-                Para evaluar el proceso de fertilidad de la hembra equina, se
-                pueden realizar diferentes estudios tales como la
-                ultrasonografía transrectal. ¿Cómo se evidencia a través de este
-                estudio que la yegua logró la ovulación y el fin de la etapa de
-                estro?
-              </p>
-
-              <p className="u-mx-2 u-my-3">
-                Para responder a la pregunta, pase el cursor sobre cada número
-                en el monitor del escáner y seleccione una de las dos opciones
-                de respuesta haciendo clic en el círculo en blanco de la opción
-                elegida.
-              </p>
-
-              <p className="u-mx-2">
-                Esta actividad tiene 4 puntos. Solo tiene un intento para
-                realizarla. <br />
-                Al terminar haga clic en el botón “Validar” para conocer su
-                retroalimentación y puntaje.
-              </p>
-              <Row justify-content="center" align-items="center">
-                <ButtonSection
-                  section={2}
-                  onClick={() =>
-                    setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
-                >
-                  <Button addClass="u-button-reset u-stack">
-                    <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
-                      noCaption
-                    />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
-                      Validar
-                    </span>
-                  </Button>
-                </ButtonSection>
-                <ButtonSection
-                  section={7}
-                  onClick={() =>
-                    setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
-                >
-                  <Button addClass="u-button-reset u-stack">
-                    <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
-                      noCaption
-                    />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
-                      Continuar
-                    </span>
-                  </Button>
-                </ButtonSection>
-              </Row>
-            </ImageContainer>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        </PopoverRadioGroup>
         <Modal
           isOpen={isOpen.modalAct3}
           finalFocusRef={contextRef}

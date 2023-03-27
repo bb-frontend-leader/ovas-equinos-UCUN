@@ -528,6 +528,7 @@ th.tableFinal-3 {
 .positionImgFinal {
   position: absolute;
   transform: translatex(50%);
+  z-index: 100;
 }
 
 .styleLink {
@@ -541,6 +542,21 @@ th.tableFinal-3 {
   justify-content: center;
   align-items: center;
   left: calc(100% - 72%);
+}
+
+.styleAudioButton{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: url(assets/images/ImgBtnButton.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border: none;
+}
+
+.styleAudioButton:focus{
+  border: 2px solid var(--clr-primary-800);
 }
 
 @media screen and (max-width: 991px) {
@@ -567,6 +583,12 @@ th.tableFinal-3 {
   .imgSogasFinal img[tabIndex="-1"]:nth-child(4) {
     top: calc(100% - 16%);
     right: 12rem;
+  }
+
+  .positionImgFinal {
+    position: absolute;
+    right: -18%;
+    z-index: 100;
   }
 }
 
