@@ -4,8 +4,6 @@
     "**/node_modules": false,
     "**/src/core/*.*": false,
     "**.gitignore": true,
-    "**.eslintcache": true,
-    "**.eslintrc.json": true,
     "**.gitmodules": false,
     "**.prettierrc": true,
     "**package-lock.json": true,
