@@ -15,6 +15,7 @@ export default defineConfig({
       "@pages/": `${path.resolve(__dirname, "src/pages")}/`,
       "@context/": `${path.resolve(__dirname, "src/context")}/`,
       "@hooks/": `${path.resolve(__dirname, "src/hook")}/`,
+      "@store/": `${path.resolve(__dirname, "store")}/`,
     },
   },
   esbuild: {
