@@ -9,6 +9,7 @@ export const PopoverRadioGroup = ({ children }) => {
   const [validation, setValidation] = useState(false);
 
   const onCheck = (value) => {
+    console.log(value)
     const validate = checked.filter((option) => option.id === value.id);
 
     if (validate.length) {
@@ -16,6 +17,8 @@ export const PopoverRadioGroup = ({ children }) => {
     } else {
       setChecked([...checked, { ...value }]);
     }
+
+    console.log(checked)
   };
 
   return (

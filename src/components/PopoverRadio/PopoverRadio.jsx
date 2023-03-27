@@ -10,7 +10,7 @@ import {
 
 import css from "./PopoverRadio.module.css";
 
-export const PopoverRadio = ({ children, label, distance, placement }) => {
+export const PopoverRadio = ({ children, label, distance, placement, id, answer }) => {
   return (
     <PopoverModal>
       <PopoverModalButton>
@@ -24,6 +24,8 @@ export const PopoverRadio = ({ children, label, distance, placement }) => {
       >
         {children}
         <CheckBox
+          value={answer}
+          id={`idChecbox${id}`}
           type="radio"
           label=""
           addClass={css["c-popover-check__check"]}
@@ -41,6 +43,8 @@ PopoverRadio.propTypes = {
   label: PropTypes.string,
   distance: PropTypes.number,
   placement: PropTypes.string,
+  id: PropTypes.number,
+  answer: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
