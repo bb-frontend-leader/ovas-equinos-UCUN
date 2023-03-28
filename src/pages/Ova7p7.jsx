@@ -12,8 +12,6 @@ import {
   ButtonSection,
   ModalOverlay,
   ModalContent,
-  List,
-  ListItem,
   Draggable,
   Droppable,
   GeneralDraggable,
@@ -21,19 +19,33 @@ import {
 import {
   SvgStageMenuTwo,
   ImageContainer,
-  PopoverCheckGroup,
-  PopoverCheck,
   DragValidation,
-  PlanGroup,
-  PlanSelect,
-  PlanCheck,
+  MultipleCheckbox,
+  MultipleCheckboxOption,
+  MultipleCheckBoxButton,
 } from "@components";
 import { useBackground } from "@hooks";
 
 const Ova7p7 = () => {
+  const questionOBJ = [
+    {
+      id: "1",
+      questionTitle:
+        "Teniendo en cuenta las enfermedades mencionadas en el recurso, mencione cuales enfermedades son de control en Colombia y que vacunas se deben incluir en el plan de manejo reproductivo según las directrices del Instituto Colombiano Agropecuario. Seleccione las vacunas que se deben incluir en el plan de manejo del sistema de producción equina según el ICA)",
+      options: [
+        { answer: "Encefalitis equina venezolana – EEV.", state: "right" },
+        { answer: "Influenza equina.", state: "right" },
+        { answer: "Influeza venezolana.", state: "wrong" },
+        { answer: "Encefalitis.", state: "wrong" },
+      ],
+    },
+  ];
   const { setBackground } = useBackground();
-
   const [isOpen, setIsOpen] = useState(false);
+  const puntaje = "Pediente por defenir";
+  const onResult = (value) => {
+    console.log(value);
+  };
 
   // Se utiliza para abrir y cerrar los modales.
   // const onToggleModal = (modal) => {
@@ -153,7 +165,7 @@ const Ova7p7 = () => {
           </Col>
         </Row>
 
-        {/* <Modal
+        <Modal
           isOpen={isOpen.context}
           finalFocusRef={contextRef}
           onClose={(value) =>
@@ -216,7 +228,7 @@ const Ova7p7 = () => {
               </Col>
             </Row>
           </ModalContent>
-        </Modal> */}
+        </Modal>
       </Section>
 
       <Section addClass="animate__animated animate__fadeInDown animate__faster u-section-overflow">
@@ -492,14 +504,12 @@ const Ova7p7 = () => {
               </div>
             </Col>
           </DragValidation>
-          <div className="btn-sec-act7">
-            <ButtonSection
-              section={2}
-              onClick={() =>
-                setBackground("url(/assets/images/Principal-background.png)")
-              }
-            >
-              <Button addClass="u-button-reset u-stack hoverButton">
+          <Col xs="11" mm="11" md="11" lg="11" hd="11">
+            <div className="btn-sec-act7">
+              <Button
+                addClass="u-button-reset u-stack hoverButton"
+                onClick={() => setIsOpen(true)}
+              >
                 <Image
                   src="assets/images/Button-style-large.png"
                   alt="Ir a la segunda sección"
@@ -510,48 +520,49 @@ const Ova7p7 = () => {
                   Validar
                 </span>
               </Button>
-            </ButtonSection>
-            <ButtonSection section={6}>
-              <Button addClass="u-button-reset u-stack hoverButton">
-                <Image
-                  src="assets/images/Button-style-large.png"
-                  alt="Ir a la segunda sección"
-                  width="200"
-                  noCaption
-                />
-                <span className="u-special-font u-fs-500 u-zindex-2">
-                  Continuar
-                </span>
-              </Button>
-            </ButtonSection>
-          </div>
+
+              <ButtonSection
+                section={1}
+                onClick={() =>
+                  setBackground("url(/assets/images/Principal-background.png)")
+                }
+              >
+                <Button addClass="u-button-reset u-stack hoverButton">
+                  <Image
+                    src="assets/images/Button-style-large.png"
+                    alt="Ir a la segunda sección"
+                    width="200"
+                    noCaption
+                  />
+                  <span className="u-special-font u-fs-500 u-zindex-2">
+                    Volver
+                  </span>
+                </Button>
+              </ButtonSection>
+            </div>
+          </Col>
         </Row>
         <Modal
           isOpen={isOpen}
           finalFocusRef={contextRef}
-          onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))
-          }
+          onClose={() => setIsOpen(false)}
         >
           <ModalOverlay />
           <ModalContent addClass="c-modal-secondary u-fs-300">
             <Row justify-content="center" align-items="center">
               <Col xs="11">
-                <p>
-                  La dinámica folicular de la hembra equina comprende las
-                  etapas: proestro, diestro, estro y metaestro y estas están
-                  asociadas a sus correspondientes fases de la siguiente manera:
+                <p className="u-text-center">
+                  La presencia de microorganismos patógenos a nivel uterino, los
+                  cuales interfieren en desarrollo embrionario son causas para
+                  abortos en las hembras equinas
                 </p>
-                <p className="u-my-3">
-                  Fase folicular o de regresión lútea = Proestro. <br /> Fase
-                  periovulatoria= Estro y metaestro. <br /> Fase luteal =
-                  Diestro.
-                </p>
-                <p className="u-text-center u-mb-3">
-                  <b>Puntaje obtenido:</b> x /6 puntos.
+                <p className="u-text-center">
+                  <b>Puntaje obtenido:{puntaje} / 6 puntos</b>
                 </p>
               </Col>
-              <ButtonSection section={6}>
+            </Row>
+            <div className="container-btn">
+              <ButtonSection section={5} onClick={() => setIsOpen(false)}>
                 <Button addClass="u-button-reset u-stack">
                   <Image
                     src="assets/images/Button-style-large.png"
@@ -564,201 +575,10 @@ const Ova7p7 = () => {
                   </span>
                 </Button>
               </ButtonSection>
-            </Row>
+            </div>
           </ModalContent>
         </Modal>
       </Section>
-
-      <Section addClass="animate__animated animate__fadeInDown animate__faster u-section-overflow">
-        <Row justify-content="center" align-items="center">
-          <Col xs="11">
-            <ImageContainer
-              background="assets/images/Slide1-image-9.png"
-              addClass="u-py-2 u-fs-300 u-text-center"
-              padding="30px"
-            >
-              <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="500px"
-                height="50px"
-              >
-                <h2 className="u-special-font u-text-center u-fs-600">
-                  Actividad 3
-                </h2>
-              </ImageContainer>
-
-              <p>
-                De acuerdo con la situación problémica presentada, seleccione
-                dos estrategias de solución, de modo que la yegua retorne a la
-                presentación periódica de síntomas de celo.
-              </p>
-
-              <p className="u-mx-2 u-my-3">
-                Lea cada una de las opciones presentadas y seleccione las dos
-                correctas, desplazándolas hacia las casillas en blanco para
-                completar la estrategia de solución. Haga clic en el botón
-                “Validar” para conocer la retroalimentación y el puntaje
-                obtenido.
-              </p>
-
-              <p className="u-mx-2">
-                Esta actividad tiene 2 y cada opción correcta vale 1 punto. Solo
-                tiene un intento para realizarla.
-              </p>
-
-              <DragValidation>
-                <Row
-                  justify-content="space-evenly"
-                  align-items="center"
-                  addClass="u-my-3"
-                >
-                  <Col
-                    xs="11"
-                    mm="10"
-                    md="9"
-                    lg="8"
-                    hd="7"
-                    addClass="u-self-start"
-                  >
-                    <GeneralDraggable addClass="c-drags">
-                      <Draggable
-                        id="A1"
-                        label="Draggable item"
-                        element="button"
-                        dragging="c-drag--active"
-                        addClass="c-drag"
-                      >
-                        Combinar la estimulación con hormonas sintéticas
-                        análogas, específicamente GnRH y estimulación lumínica
-                        en potrero, lo cual induce un retorno a la ciclicidad
-                        más rápida, o el estímulo lumínica artificial en la
-                        pesebrera.
-                      </Draggable>
-
-                      <Draggable
-                        id="B1"
-                        label="Draggable item"
-                        element="button"
-                        dragging="c-drag--active"
-                        addClass="c-drag"
-                      >
-                        Aislamiento permanente de la yegua por un ciclo de modo
-                        que empiece a presente síntomas del celo.
-                      </Draggable>
-
-                      <Draggable
-                        id="C1"
-                        label="Draggable item"
-                        element="button"
-                        dragging="c-drag--active"
-                        addClass="c-drag"
-                      >
-                        Alternar la presencia de la yegua entre la pesebrera en
-                        horas de la noche y en la pradera en horas del día, ya
-                        que se así normalizara el estímulo lumínico.
-                      </Draggable>
-
-                      <Draggable
-                        id="D1"
-                        label="Draggable item"
-                        element="button"
-                        dragging="c-drag--active"
-                        addClass="c-drag"
-                      >
-                        Motivar la presencia de vesícula embrionaria, usando
-                        exposición aislada cada semana permite que la hembra
-                        retorne al celo.
-                      </Draggable>
-                    </GeneralDraggable>
-                  </Col>
-
-                  <Col xs="11" mm="10" md="9" lg="6" hd="4">
-                    <div className="drop-container">
-                      <ImageContainer
-                        background="assets/images/Slide3-image-1.png"
-                        addClass="title-container drop-container__title"
-                        height="50px"
-                      >
-                        <p className="u-font-bold u-text-center u-fs-300 u-text-primary-300">
-                          La estrategias de solución es
-                        </p>
-                      </ImageContainer>
-
-                      <div className="drop-container__drop">
-                        <Droppable
-                          id="A"
-                          validate={["C1"]}
-                          label="droppable"
-                          addClass="drop-container__drop-item"
-                          over="drop-container__drop-item--active"
-                        />
-
-                        <img
-                          src="assets/images/Slide1-image-7.png"
-                          alt=""
-                          tabIndex={-1}
-                        />
-
-                        <img
-                          src="assets/images/Slide1-image-7.png"
-                          alt=""
-                          tabIndex={-1}
-                        />
-
-                        <img
-                          src="assets/images/Slide1-image-7.png"
-                          alt=""
-                          tabIndex={-1}
-                        />
-
-                        <img
-                          src="assets/images/Slide1-image-7.png"
-                          alt=""
-                          tabIndex={-1}
-                        />
-                      </div>
-
-                      <ImageContainer
-                        background="assets/images/Slide3-image-1.png"
-                        addClass="title-container drop-container__title"
-                        height="50px"
-                      >
-                        <p className="u-font-bold u-text-center u-fs-300 u-text-primary-300">
-                          y
-                        </p>
-                      </ImageContainer>
-
-                      <div className="drop-container__drop">
-                        <Droppable
-                          id="B"
-                          validate={["A1"]}
-                          label="droppable"
-                          addClass="drop-container__drop-item"
-                          over="drop-container__drop-item--active"
-                        />
-
-                        <img
-                          src="assets/images/Slide1-image-7.png"
-                          alt=""
-                          tabIndex={-1}
-                        />
-
-                        <img
-                          src="assets/images/Slide1-image-7.png"
-                          alt=""
-                          tabIndex={-1}
-                        />
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </DragValidation>
-            </ImageContainer>
-          </Col>
-        </Row>
-      </Section>
-
       <Section addClass="animate__animated animate__fadeInDown animate__faster u-section-overflow">
         <Row justify-content="center" align-items="center">
           <Col xs="12" mm="11" md="10" lg="9" hd="8">
@@ -768,215 +588,39 @@ const Ova7p7 = () => {
               padding="30px"
             >
               <h2 className="u-mb-3 u-fs-300">
-                <strong>Plan de manejo:</strong> Fisiología de la reproducción
-                en equinos.
+                <strong>Plan de manejo:</strong> Enfermedades que afectan la
+                reproducción en equinos
               </h2>
-
-              <p className="u-mb-5 u-fs-300">
-                Dentro del plan de manejo reproductivo se deben tener en cuenta
-                tres eventos fisiológicos que determinan los resultados del plan
-                de manejo reproductivo, seleccióne los correctos y asigne a cada
-                uno su respectiva justificación.
-              </p>
-
-              <div className="c-plan-group-grid u-px-3">
-                <PlanGroup>
-                  <PlanCheck value="question_1" label="Dinámica folicular." />
-
-                  <PlanSelect id="question_1">
-                    <option value={1}>
-                      En esta se describen las diferentes etapas por las que
-                      pasa el folículo en su recorrido desde la reserva
-                      folicular, hasta la ovulación, conocerla permite controlar
-                      el ciclo estral, según las necesidades reproductivas del
-                      sistema.
-                    </option>
-
-                    <option value={2}>
-                      Conocer el momento más próximo posible a la ovulación,
-                      determina el éxito de biotecnologías reparativas como la
-                      inseminación artificial, ya que entre mas cercana se
-                      realice a este evento, las probabilidades de preñez cada
-                      vez serán más altas.
-                    </option>
-
-                    <option value={3}>
-                      Conocer los diferentes grados de edema uterino,
-                      complementa el seguimiento ovárico orientado a determinar
-                      el momento de la ovulación, esta actividad representa un
-                      proceso fundamental en el plan de manejo reproductivo en
-                      equinos.
-                    </option>
-
-                    <option value={4}>
-                      Al igual que seguimiento ovárico, conocer el
-                      comportamiento reproductivo en las diferentes etapas del
-                      ciclo estral, permite realizar acciones específicas
-                      orientadas a la fertilización procura de porcentajes altos
-                      de preñez, ya sea por monta natural biotecnologías
-                      complementarias.
-                    </option>
-                  </PlanSelect>
-
-                  <PlanCheck value="question_2" label="Ovulación." />
-
-                  <PlanSelect id="question_2">
-                    <option value={1}>
-                      En esta se describen las diferentes etapas por las que
-                      pasa el folículo en su recorrido desde la reserva
-                      folicular, hasta la ovulación, conocerla permite controlar
-                      el ciclo estral, según las necesidades reproductivas del
-                      sistema.
-                    </option>
-
-                    <option value={2}>
-                      Conocer el momento más próximo posible a la ovulación,
-                      determina el éxito de biotecnologías reparativas como la
-                      inseminación artificial, ya que entre mas cercana se
-                      realice a este evento, las probabilidades de preñez cada
-                      vez serán más altas.
-                    </option>
-
-                    <option value={3}>
-                      Conocer los diferentes grados de edema uterino,
-                      complementa el seguimiento ovárico orientado a determinar
-                      el momento de la ovulación, esta actividad representa un
-                      proceso fundamental en el plan de manejo reproductivo en
-                      equinos.
-                    </option>
-
-                    <option value={4}>
-                      Al igual que seguimiento ovárico, conocer el
-                      comportamiento reproductivo en las diferentes etapas del
-                      ciclo estral, permite realizar acciones específicas
-                      orientadas a la fertilización procura de porcentajes altos
-                      de preñez, ya sea por monta natural biotecnologías
-                      complementarias.
-                    </option>
-                  </PlanSelect>
-
-                  <PlanCheck value="question_3" label="Edema uterino." />
-
-                  <PlanSelect id="question_3">
-                    <option value={1}>
-                      En esta se describen las diferentes etapas por las que
-                      pasa el folículo en su recorrido desde la reserva
-                      folicular, hasta la ovulación, conocerla permite controlar
-                      el ciclo estral, según las necesidades reproductivas del
-                      sistema.
-                    </option>
-
-                    <option value={2}>
-                      Conocer el momento más próximo posible a la ovulación,
-                      determina el éxito de biotecnologías reparativas como la
-                      inseminación artificial, ya que entre mas cercana se
-                      realice a este evento, las probabilidades de preñez cada
-                      vez serán más altas.
-                    </option>
-
-                    <option value={3}>
-                      Conocer los diferentes grados de edema uterino,
-                      complementa el seguimiento ovárico orientado a determinar
-                      el momento de la ovulación, esta actividad representa un
-                      proceso fundamental en el plan de manejo reproductivo en
-                      equinos.
-                    </option>
-
-                    <option value={4}>
-                      Al igual que seguimiento ovárico, conocer el
-                      comportamiento reproductivo en las diferentes etapas del
-                      ciclo estral, permite realizar acciones específicas
-                      orientadas a la fertilización procura de porcentajes altos
-                      de preñez, ya sea por monta natural biotecnologías
-                      complementarias.
-                    </option>
-                  </PlanSelect>
-
-                  <PlanCheck
-                    value="question_4"
-                    label="Sintomatología de celo."
-                  />
-
-                  <PlanSelect id="question_4">
-                    <option value={1}>
-                      En esta se describen las diferentes etapas por las que
-                      pasa el folículo en su recorrido desde la reserva
-                      folicular, hasta la ovulación, conocerla permite controlar
-                      el ciclo estral, según las necesidades reproductivas del
-                      sistema.
-                    </option>
-
-                    <option value={2}>
-                      Conocer el momento más próximo posible a la ovulación,
-                      determina el éxito de biotecnologías reparativas como la
-                      inseminación artificial, ya que entre mas cercana se
-                      realice a este evento, las probabilidades de preñez cada
-                      vez serán más altas.
-                    </option>
-
-                    <option value={3}>
-                      Conocer los diferentes grados de edema uterino,
-                      complementa el seguimiento ovárico orientado a determinar
-                      el momento de la ovulación, esta actividad representa un
-                      proceso fundamental en el plan de manejo reproductivo en
-                      equinos.
-                    </option>
-
-                    <option value={4}>
-                      Al igual que seguimiento ovárico, conocer el
-                      comportamiento reproductivo en las diferentes etapas del
-                      ciclo estral, permite realizar acciones específicas
-                      orientadas a la fertilización procura de porcentajes altos
-                      de preñez, ya sea por monta natural biotecnologías
-                      complementarias.
-                    </option>
-                  </PlanSelect>
-
-                  <PlanCheck value="question_5" label="Dinámica de celo." />
-
-                  <PlanSelect id="question_5">
-                    <option value={1}>
-                      En esta se describen las diferentes etapas por las que
-                      pasa el folículo en su recorrido desde la reserva
-                      folicular, hasta la ovulación, conocerla permite controlar
-                      el ciclo estral, según las necesidades reproductivas del
-                      sistema.
-                    </option>
-
-                    <option value={2}>
-                      Conocer el momento más próximo posible a la ovulación,
-                      determina el éxito de biotecnologías reparativas como la
-                      inseminación artificial, ya que entre mas cercana se
-                      realice a este evento, las probabilidades de preñez cada
-                      vez serán más altas.
-                    </option>
-
-                    <option value={3}>
-                      Conocer los diferentes grados de edema uterino,
-                      complementa el seguimiento ovárico orientado a determinar
-                      el momento de la ovulación, esta actividad representa un
-                      proceso fundamental en el plan de manejo reproductivo en
-                      equinos.
-                    </option>
-
-                    <option value={4}>
-                      Al igual que seguimiento ovárico, conocer el
-                      comportamiento reproductivo en las diferentes etapas del
-                      ciclo estral, permite realizar acciones específicas
-                      orientadas a la fertilización procura de porcentajes altos
-                      de preñez, ya sea por monta natural biotecnologías
-                      complementarias.
-                    </option>
-                  </PlanSelect>
-                </PlanGroup>
-              </div>
+              <MultipleCheckbox
+                id="ucun-Activity7"
+                addClass="fieldsetStyle"
+                onResult={(value) => onResult(value)}
+              >
+                <MultipleCheckboxOption
+                  mainOBJ={questionOBJ}
+                  addClass="checkStyle"
+                />
+                <MultipleCheckBoxButton hasCustomButton>
+                  <Button addClass="u-button-reset u-stack btnValidar">
+                    <Image
+                      src="assets/images/Button-style-large.png"
+                      alt="Volver a la tercera sección"
+                      width="200"
+                      noCaption
+                    />
+                    <span className="u-special-font u-fs-500 u-zindex-2">
+                      Validar
+                    </span>
+                  </Button>
+                </MultipleCheckBoxButton>
+              </MultipleCheckbox>
 
               <Row
                 justify-content="center"
                 align-items="center"
                 addClass="u-mt-3"
               >
-                <ButtonSection section={3}>
+                <ButtonSection section={1}>
                   <Button addClass="u-button-reset u-stack">
                     <Image
                       src="assets/images/Button-style-large.png"
@@ -990,7 +634,7 @@ const Ova7p7 = () => {
                   </Button>
                 </ButtonSection>
 
-                <Link to="/unit/1/page/2" className="u-button-reset u-stack">
+                <Link to="/unit/1/page/8" className="u-button-reset u-stack">
                   <Image
                     src="assets/images/Button-style-large.png"
                     alt="Lleva al menú principal"
