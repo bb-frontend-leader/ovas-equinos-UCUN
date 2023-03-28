@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   Col,
@@ -15,66 +15,66 @@ import {
   Button,
   CheckBox,
   Audio
-} from "UI-Components-books";
+} from 'UI-Components-books'
 import {
   ImageContainer,
   SvgStageMenuTwo,
   PlanCheck,
   PlanGroup,
-  PlanSelect,
-} from "@components";
-import { useBackground } from "@hooks";
+  PlanSelect
+} from '@components'
+import { useBackground } from '@hooks'
 
 const Ova7p6 = () => {
-  const { setBackground } = useBackground();
+  const { setBackground } = useBackground()
 
   const [isOpen, setIsOpen] = useState({
     modalAct1: false,
-    modalAct2: false,
-  });
+    modalAct2: false
+  })
 
   // Se utiliza para abrir y cerrar los modales.
   const onToggleModal = (modal) => {
-    setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }));
-  };
+    setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }))
+  }
 
-  const contextRef = useRef();
+  const contextRef = useRef()
 
   return (
     <Panel>
       <NavSection />
 
       <Section>
-        <Row justify-content="center" align-items="center" addClass="u-my-7">
-          <Col xs="11" md="10" lg="9" hd="5">
+        <Row justify-content='center' align-items='center' addClass='u-my-7'>
+          <Col xs='11' md='10' lg='9' hd='5'>
             <Image
-              src="assets/images/SvgRoulette-horse.png"
-              alt="Imagen de la cabeza de un caballo"
-              width="450"
-              addClass="u-mt-5"
+              src='assets/images/SvgRoulette-horse.png'
+              alt='Imagen de la cabeza de un caballo'
+              width='450'
+              addClass='u-mt-5'
               noCaption
             />
           </Col>
-          <Col xs="11" md="10" lg="9" hd="6">
+          <Col xs='11' md='10' lg='9' hd='6'>
             <ImageContainer
-              background="assets/images/Slide1-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide1-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="80%"
-                height="100px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='80%'
+                height='100px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 4.
                   <br />
                   <span>Biotecnologías reproductivas en equinos</span>
                 </h2>
               </ImageContainer>
 
-              <p className="u-mt-6">
+              <p className='u-mt-6'>
                 Las biotecnologías reproductivas en equinos se presentan como
                 herramientas que permiten maximizar la fisiología reproductiva
                 de los ejemplares. En la presente etapa reconocerá algunas de
@@ -82,28 +82,27 @@ const Ova7p6 = () => {
                 equina, para acercarse a algunos datos sobre estas.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Haga clic en el ícono ubicado a continuación para reproducir el
                 audio.
               </p>
 
-              
-              <Row className='positionContainerFinal' justify-content="center" align-items="center">
-                <Audio defaultStyle type='Button' className='styleAudioButton'/> 
+              <Row className='positionContainerFinal' justify-content='center' align-items='center'>
+                <Audio defaultStyle type='Button' className='styleAudioButton' />
                 <ButtonSection section={2}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
                 </ButtonSection>
-             
+
               </Row>
             </ImageContainer>
           </Col>
@@ -111,20 +110,20 @@ const Ova7p6 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center">
-          <Col xs="11" mm="10" md="9" lg="8" hd="7">
+        <Row justify-content='center' align-items='center'>
+          <Col xs='11' mm='10' md='9' lg='8' hd='7'>
             <Row
-              justify-content="center"
-              align-items="center"
-              flex-direction="columns"
+              justify-content='center'
+              align-items='center'
+              flex-direction='columns'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container title-container--stage"
-                width="95%"
-                height="100px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container title-container--stage'
+                width='95%'
+                height='100px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 4.
                   <br />
                   <span>Biotecnologías reproductivas en equinos</span>
@@ -132,61 +131,58 @@ const Ova7p6 = () => {
               </ImageContainer>
 
               <Image
-                src="assets/images/SvgRoulette-horse.png"
-                alt="Imagen de la cabeza de un caballo"
-                width="450"
-                addClass="u-mt-5"
+                src='assets/images/SvgRoulette-horse.png'
+                alt='Imagen de la cabeza de un caballo'
+                width='450'
+                addClass='u-mt-5'
                 noCaption
               />
 
-              <SvgStageMenuTwo style={{ maxWidth: "700px" }}>
+              <SvgStageMenuTwo style={{ maxWidth: '700px' }}>
                 {/* Buttons */}
 
-                <foreignObject x="47" y="110" width="350" height="95">
+                <foreignObject x='47' y='110' width='350' height='95'>
                   <ButtonSection
                     section={3}
                     onClick={() =>
-                      setBackground("url(/assets/images/Fourth-background.png)")
-                    }
+                      setBackground('url(/assets/images/Fourth-background.png)')}
                   >
-                    <Button addClass="c-button">
+                    <Button addClass='c-button'>
                       <Image
-                        url="assets/images/SvgBottomBar-7.png"
-                        alt="actividad"
+                        url='assets/images/SvgBottomBar-7.png'
+                        alt='actividad'
                         noCaption
                       />
                     </Button>
                   </ButtonSection>
                 </foreignObject>
 
-                <foreignObject x="412" y="110" width="350" height="95">
+                <foreignObject x='412' y='110' width='350' height='95'>
                   <ButtonSection
                     section={4}
                     onClick={() =>
-                      setBackground("url(/assets/images/Fourth-background.png)")
-                    }
+                      setBackground('url(/assets/images/Fourth-background.png)')}
                   >
-                    <Button addClass="c-button">
+                    <Button addClass='c-button'>
                       <Image
-                        url="assets/images/SvgBottomBar-6.png"
-                        alt="actividad"
+                        url='assets/images/SvgBottomBar-6.png'
+                        alt='actividad'
                         noCaption
                       />
                     </Button>
                   </ButtonSection>
                 </foreignObject>
 
-                <foreignObject x="790" y="110" width="350" height="95">
+                <foreignObject x='790' y='110' width='350' height='95'>
                   <ButtonSection
                     section={5}
                     onClick={() =>
-                      setBackground("url(/assets/images/Fifth-background.png)")
-                    }
+                      setBackground('url(/assets/images/Fifth-background.png)')}
                   >
-                    <Button addClass="c-button">
+                    <Button addClass='c-button'>
                       <Image
-                        url="assets/images/SvgBottomBar-8.png"
-                        alt="actividad"
+                        url='assets/images/SvgBottomBar-8.png'
+                        alt='actividad'
                         noCaption
                       />
                     </Button>
@@ -199,30 +195,30 @@ const Ova7p6 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center" addClass="u-my-4">
-          <Col xs="11" md="10" lg="9" hd="6">
+        <Row justify-content='center' align-items='center' addClass='u-my-4'>
+          <Col xs='11' md='10' lg='9' hd='6'>
             <ImageContainer
-              background="assets/images/Slide5-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide5-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="80%"
-                height="55px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='80%'
+                height='55px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Sitauación
                 </h2>
               </ImageContainer>
 
-              <p className="u-mt-6">
+              <p className='u-mt-6'>
                 En la finca “La Rotonda”, el propietario presenta la siguiente
                 situación problémica:
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Este es un sistema de producción equina especializado en la base
                 genética criolla colombiana, mis ejemplares, en alguna etapa de
                 su vida, se encuentran en competencias o exhibiciones continuas,
@@ -238,43 +234,42 @@ const Ova7p6 = () => {
                 reproductivos individuales y globales de mi criadero.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Las biotecnologías reproductivas aplicables en hembras equinas
                 permiten la obtención de más de una cría al año, utilizando
                 material genético de una hembra en competencia sin que esta deba
                 ser preñada.
               </p>
 
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection
                   section={2}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Volver
                     </span>
                   </Button>
                 </ButtonSection>
                 <ButtonSection section={4}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
@@ -282,12 +277,12 @@ const Ova7p6 = () => {
               </Row>
             </ImageContainer>
           </Col>
-          <Col xs="11" md="10" lg="9" hd="6">
+          <Col xs='11' md='10' lg='9' hd='6'>
             <Image
-              src="assets/images/SvgRoulette-genética-criolla.png"
-              alt="Imagen de una persona con un caballo."
-              width="930"
-              addClass="u-mt-5"
+              src='assets/images/SvgRoulette-genética-criolla.png'
+              alt='Imagen de una persona con un caballo.'
+              width='930'
+              addClass='u-mt-5'
               noCaption
             />
           </Col>
@@ -295,25 +290,25 @@ const Ova7p6 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center" addClass="u-my-4">
-          <Col xs="11" md="10" lg="9" hd="6">
+        <Row justify-content='center' align-items='center' addClass='u-my-4'>
+          <Col xs='11' md='10' lg='9' hd='6'>
             <ImageContainer
-              background="assets/images/Slide5-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide5-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="80%"
-                height="55px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='80%'
+                height='55px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Contexto
                 </h2>
               </ImageContainer>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Al estar tanto hembras como machos en etapa de competencia, su
                 desempeño reproductivo se ve afectado, por lo tanto, gran
                 porcentaje de las hembras no logran ser preñadas y los machos
@@ -329,36 +324,35 @@ const Ova7p6 = () => {
                 animal en competencia no puede hacer
               </p>
 
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection
                   section={2}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Volver
                     </span>
                   </Button>
                 </ButtonSection>
                 <ButtonSection section={5}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
@@ -366,12 +360,12 @@ const Ova7p6 = () => {
               </Row>
             </ImageContainer>
           </Col>
-          <Col xs="11" md="10" lg="9" hd="6">
+          <Col xs='11' md='10' lg='9' hd='6'>
             <Image
-              src="assets/images/SvgRoulette-genética-criolla.png"
-              alt="Imagen de una persona con un caballo."
-              width="930"
-              addClass="u-mt-5"
+              src='assets/images/SvgRoulette-genética-criolla.png'
+              alt='Imagen de una persona con un caballo.'
+              width='930'
+              addClass='u-mt-5'
               noCaption
             />
           </Col>
@@ -379,125 +373,124 @@ const Ova7p6 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="flex-end" addClass="u-my-4">
-          <Col xs="11" md="10" lg="9" hd="6">
+        <Row justify-content='center' align-items='flex-end' addClass='u-my-4'>
+          <Col xs='11' md='10' lg='9' hd='6'>
             <Image
-              src="assets/images/SvgRoulette-genética-criolla.png"
-              alt="Imagen de una persona con un caballo."
-              width="930"
-              addClass="u-mt-5 positionImg-Etapa4"
+              src='assets/images/SvgRoulette-genética-criolla.png'
+              alt='Imagen de una persona con un caballo.'
+              width='930'
+              addClass='u-mt-5 positionImg-Etapa4'
               noCaption
             />
-            <Col xs="11">
+            <Col xs='11'>
               <ImageContainer
-                background="assets/images/Slide1-image-1.png"
-                addClass="u-fs-300 container"
-                padding="33px"
+                background='assets/images/Slide1-image-1.png'
+                addClass='u-fs-300 container'
+                padding='33px'
               >
                 <ImageContainer
-                  background="assets/images/Slide3-image-1.png"
-                  addClass="title-container"
-                  width="80%"
-                  height="55px"
+                  background='assets/images/Slide3-image-1.png'
+                  addClass='title-container'
+                  width='80%'
+                  height='55px'
                 >
-                  <h2 className="u-special-font u-text-center u-fs-500">
+                  <h2 className='u-special-font u-text-center u-fs-500'>
                     Actividad 6
                   </h2>
                 </ImageContainer>
-                <p className="u-mt-6">
+                <p className='u-mt-6'>
                   Lea cada una de las opciones presentadas y seleccione dos
                   correctas haciendo clic en el recuadro derecho de la opción
                   elegida. Para terminar haga clic en el botón “Validar” para
                   conocer su r etroalimentación y puntaje.
                 </p>
 
-                <p className="u-my-3">
+                <p className='u-my-3'>
                   Esta actividad tiene un valor de 10 puntos. Cada respuesta
                   correcta vale cinco puntos. Cuenta con un intento para
                   realizarla.
                 </p>
 
-                <p className="u-my-3">
+                <p className='u-my-3'>
                   Debe desarrollar la actividad para avanzar.
                 </p>
               </ImageContainer>
             </Col>
           </Col>
-          <Col xs="11" md="10" lg="9" hd="5">
+          <Col xs='11' md='10' lg='9' hd='5'>
             <ImageContainer
-              background="assets/images/Slide5-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide5-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
-              <div className="c-popover-check__content u-mb-3">
-                <p className="u-font-bold u-fs-300">
+              <div className='c-popover-check__content u-mb-3'>
+                <p className='u-font-bold u-fs-300'>
                   Colecta y transferencia de embriones. Colectar embriones de
                   una hembra en competencia para ser transferidos a una hembra
                   receptora la cual continuará con el proceso de gestación y
                   parto.
                 </p>
                 <CheckBox
-                  addClass="c-popover-check__check"
-                  type="radio"
-                  label=""
+                  addClass='c-popover-check__check'
+                  type='radio'
+                  label=''
                 />
               </div>
-              <div className="c-popover-check__content u-mb-3">
-                <p className="u-font-bold u-fs-300">
+              <div className='c-popover-check__content u-mb-3'>
+                <p className='u-font-bold u-fs-300'>
                   Evaluación reproductiva de presencia de estructuras ováricas,
                   analizando la presencia de anestro el cual es trasplantado a
                   una hembra receptora la cual continuará con el proceso de
                   gestación.
                 </p>
                 <CheckBox
-                  addClass="c-popover-check__check"
-                  type="radio"
-                  label=""
+                  addClass='c-popover-check__check'
+                  type='radio'
+                  label=''
                 />
               </div>
-              <div className="c-popover-check__content u-mb-3">
-                <p className="u-font-bold u-fs-300">
+              <div className='c-popover-check__content u-mb-3'>
+                <p className='u-font-bold u-fs-300'>
                   Combinar la estimulación con hormonas sintéticas análogas,
                   específicamente GnRH y estimulación lumínica en potrero, lo
                   cual induce un retorno a la ciclicidad más rápida, o el
                   estímulo lumínica artificial en la pesebrera.
                 </p>
                 <CheckBox
-                  addClass="c-popover-check__check"
-                  type="radio"
-                  label=""
+                  addClass='c-popover-check__check'
+                  type='radio'
+                  label=''
                 />
               </div>
-              <div className="c-popover-check__content u-mb-3">
-                <p className="u-font-bold u-fs-300">
+              <div className='c-popover-check__content u-mb-3'>
+                <p className='u-font-bold u-fs-300'>
                   Combinar y motivar la presencia de vesícula embrionaria,
                   usando exposición aislada cada semana permitiendo que la
                   hembra en competencia retorne al celo y se logre el proceso de
                   gestación y parto.
                 </p>
                 <CheckBox
-                  addClass="c-popover-check__check"
-                  type="radio"
-                  label=""
+                  addClass='c-popover-check__check'
+                  type='radio'
+                  label=''
                 />
               </div>
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection
                   section={2}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Validar
                     </span>
                   </Button>
@@ -506,18 +499,17 @@ const Ova7p6 = () => {
                   section={6}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
@@ -530,32 +522,31 @@ const Ova7p6 = () => {
           isOpen={isOpen.modalAct1}
           finalFocusRef={contextRef}
           onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))
-          }
+            setIsOpen((prev) => ({ ...prev, context: value }))}
         >
           <ModalOverlay />
-          <ModalContent addClass="c-modal-secondary u-fs-300">
-            <Row justify-content="center" align-items="center">
-              <Col xs="11">
+          <ModalContent addClass='c-modal-secondary u-fs-300'>
+            <Row justify-content='center' align-items='center'>
+              <Col xs='11'>
                 <p>
                   La colecta y transferencia de embriones, así como combinar la
                   estimulación con hormonas sintéticas análogas, específicamente
                   GnRH y estimulación lumínica en potrero, son biotecnologías
                   reproductivas aplicables a este caso.
                 </p>
-                <p className="u-text-center u-mb-3">
+                <p className='u-text-center u-mb-3'>
                   <b>Puntaje obtenido:</b> x /10 puntos.
                 </p>
               </Col>
               <ButtonSection section={6}>
-                <Button addClass="u-button-reset u-stack">
+                <Button addClass='u-button-reset u-stack'>
                   <Image
-                    src="assets/images/Button-style-large.png"
-                    alt="Ir a la segunda sección"
-                    width="200"
+                    src='assets/images/Button-style-large.png'
+                    alt='Ir a la segunda sección'
+                    width='200'
                     noCaption
                   />
-                  <span className="u-special-font u-fs-500 u-zindex-2">
+                  <span className='u-special-font u-fs-500 u-zindex-2'>
                     Continuar
                   </span>
                 </Button>
@@ -566,18 +557,18 @@ const Ova7p6 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center">
-          <Col xs="11" mm="10" md="9">
+        <Row justify-content='center' align-items='center'>
+          <Col xs='11' mm='10' md='9'>
             <ImageContainer
-              background="assets/images/Slide1-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide1-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
-              <p className="u-mt-6 u-text-center">
+              <p className='u-mt-6 u-text-center'>
                 <b>Plan de manejo:</b> Biotecnologías reproductivas en equinos.
               </p>
 
-              <p className="u-my-3 u-text-center">
+              <p className='u-my-3 u-text-center'>
                 Las biotecnologías reproductivas son herramientas
                 biotecnológicas que permiten obtener el mayor provecho
                 reproductivo posible a un individuo en sus diferentes etapas
@@ -590,17 +581,17 @@ const Ova7p6 = () => {
                 justificación.
               </p>
 
-              <div className="c-plan-group-grid u-px-3">
+              <div className='c-plan-group-grid u-px-3'>
                 <PlanGroup>
                   <PlanCheck
-                    value="question_1"
-                    label="Ultrasonografía reproductiva."
+                    value='question_1'
+                    label='Ultrasonografía reproductiva.'
                   />
 
                   <PlanSelect
-                    id="question_1"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_1'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>
                       Sin lugar a dudas es la biotecnología que mayor impacto
@@ -646,14 +637,14 @@ const Ova7p6 = () => {
                   </PlanSelect>
 
                   <PlanCheck
-                    value="question_2"
-                    label="Monta natural dirigida."
+                    value='question_2'
+                    label='Monta natural dirigida.'
                   />
 
                   <PlanSelect
-                    id="question_2"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_2'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>
                       Sin lugar a dudas es la biotecnología que mayor impacto
@@ -699,14 +690,14 @@ const Ova7p6 = () => {
                   </PlanSelect>
 
                   <PlanCheck
-                    value="question_3"
-                    label="Inseminación artificial."
+                    value='question_3'
+                    label='Inseminación artificial.'
                   />
 
                   <PlanSelect
-                    id="question_3"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_3'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>
                       Sin lugar a dudas es la biotecnología que mayor impacto
@@ -752,14 +743,14 @@ const Ova7p6 = () => {
                   </PlanSelect>
 
                   <PlanCheck
-                    value="question_4"
-                    label="Colecta y transferencia de embriones."
+                    value='question_4'
+                    label='Colecta y transferencia de embriones.'
                   />
 
                   <PlanSelect
-                    id="question_4"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_4'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>
                       Sin lugar a dudas es la biotecnología que mayor impacto
@@ -805,14 +796,14 @@ const Ova7p6 = () => {
                   </PlanSelect>
 
                   <PlanCheck
-                    value="question_5"
-                    label="Colecta artificial dirigida."
+                    value='question_5'
+                    label='Colecta artificial dirigida.'
                   />
 
                   <PlanSelect
-                    id="question_5"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_5'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>
                       Sin lugar a dudas es la biotecnología que mayor impacto
@@ -859,35 +850,34 @@ const Ova7p6 = () => {
                 </PlanGroup>
               </div>
 
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection
                   section={2}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Volver
                     </span>
                   </Button>
                 </ButtonSection>
-                <Link to="/unit/1/page/2" className="u-button-reset u-stack">
+                <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
-                    src="assets/images/Button-style-large.png"
-                    alt="Lleva al menú principal"
-                    width="200"
+                    src='assets/images/Button-style-large.png'
+                    alt='Lleva al menú principal'
+                    width='200'
                     noCaption
                   />
-                  <span className="u-special-font u-fs-500 u-zindex-2">
+                  <span className='u-special-font u-fs-500 u-zindex-2'>
                     Continuar
                   </span>
                 </Link>
@@ -897,7 +887,7 @@ const Ova7p6 = () => {
         </Row>
       </Section>
     </Panel>
-  );
-};
+  )
+}
 
-export default Ova7p6;
+export default Ova7p6

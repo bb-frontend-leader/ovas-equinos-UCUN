@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   Col,
@@ -17,7 +17,7 @@ import {
   List,
   ListItem,
   Audio
-} from "UI-Components-books";
+} from 'UI-Components-books'
 import {
   ImageContainer,
   SvgStageMenuTwo,
@@ -26,53 +26,75 @@ import {
   ValidationButton,
   PlanCheck,
   PlanGroup,
-  PlanSelect,
-} from "@components";
-import { useBackground } from "@hooks";
+  PlanSelect
+} from '@components'
+import { useBackground } from '@hooks'
 
 const Ova7p5 = () => {
-  const { setBackground } = useBackground();
+  const { setBackground } = useBackground()
 
   const [isOpen, setIsOpen] = useState({
-    modalAct7: true,
-    modalAct8: false,
-  });
+    modalAct1: { on: false, point: 0 },
+    modalAct2: { on: false, point: 0 },
+    modalAct3: { on: false, point: 0 }
+  })
+
+  const setValueModal = (valor) => {
+    if (valor.answer === 'right') {
+      setIsOpen((prev) => ({ ...prev, modalAct2: { on: true, point: valor.points } }))
+    } else if (valor.answer === 'wrong') {
+      setIsOpen((prev) => ({ ...prev, modalAct3: { on: true, point: valor.points } }))
+    }
+  }
+
+  const options1 = [
+    {
+      id: 1,
+      answer: 'right',
+      points: 4
+    },
+    {
+      id: 2,
+      answer: 'wrong',
+      points: 0
+    }
+  ]
 
   // Se utiliza para abrir y cerrar los modales.
   // const onToggleModal = (modal) => {
   //   setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }));
   // };
 
-  const contextRef = useRef();
+  const contextRef = useRef()
 
   return (
     <Panel>
       <NavSection />
 
       <Section>
-        <Row justify-content="center" align-items="center" addClass="u-my-7">
-          <Col xs="11" md="10" lg="9" hd="5">
+        <Row justify-content='center' align-items='center' addClass='u-my-7'>
+          <Col xs='11' md='10' lg='9' hd='5'>
             <Image
-              src="assets/images/SvgRoulette-horse.png"
-              alt="Imagen de la cabeza de un caballo"
-              width="450"
-              addClass="u-mt-5"
+              src='assets/images/SvgRoulette-horse.png'
+              alt='Imagen de la cabeza de un caballo'
+              width='450'
+              addClass='u-mt-5'
               noCaption
             />
           </Col>
-          <Col xs="11" md="10" lg="9" hd="6">
+          <Col xs='11' md='10' lg='9' hd='6'>
             <ImageContainer
-              background="assets/images/Slide1-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide1-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="109%"
-                height="100px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='109%'
+                height='100px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 3.
                   <br />
                   <span>
@@ -82,7 +104,7 @@ const Ova7p5 = () => {
                 </h2>
               </ImageContainer>
 
-              <p className="u-mt-6">
+              <p className='u-mt-6'>
                 En la hembra equina es determinante conocer la relación estrecha
                 que existe entre la actividad ovárica y el estado uterino, ya
                 que de su sincronía y funcionamiento depende aplicar
@@ -92,7 +114,7 @@ const Ova7p5 = () => {
                 y su relación con la función ovárica.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Un ejemplo asociado a algunos datos de dinámica folicular en la
                 yegua de Paso Fino Colombiano, puede ser consultado en el
                 estudio realizado por Ramírez, G., Gutiérrez, C., & Ramos, M.
@@ -102,22 +124,22 @@ const Ova7p5 = () => {
                 contenido.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Haga clic en el ícono ubicado a continuación para reproducir el
                 audio.
               </p>
 
-              <Row className='positionContainerFinal' justify-content="center" align-items="center">
-                <Audio defaultStyle type='Button' className='styleAudioButton'/>
+              <Row className='positionContainerFinal' justify-content='center' align-items='center'>
+                <Audio defaultStyle type='Button' className='styleAudioButton' />
                 <ButtonSection section={2}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
@@ -129,20 +151,20 @@ const Ova7p5 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center">
-          <Col xs="11" mm="10" md="9" lg="8" hd="7">
+        <Row justify-content='center' align-items='center'>
+          <Col xs='11' mm='10' md='9' lg='8' hd='7'>
             <Row
-              justify-content="center"
-              align-items="center"
-              flex-direction="columns"
+              justify-content='center'
+              align-items='center'
+              flex-direction='columns'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container title-container--stage"
-                width="95%"
-                height="100px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container title-container--stage'
+                width='95%'
+                height='100px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 3.
                   <br />
                   <span>
@@ -153,61 +175,58 @@ const Ova7p5 = () => {
               </ImageContainer>
 
               <Image
-                src="assets/images/SvgRoulette-horse.png"
-                alt="Imagen de la cabeza de un caballo"
-                width="450"
-                addClass="u-mt-5"
+                src='assets/images/SvgRoulette-horse.png'
+                alt='Imagen de la cabeza de un caballo'
+                width='450'
+                addClass='u-mt-5'
                 noCaption
               />
 
-              <SvgStageMenuTwo style={{ maxWidth: "700px" }}>
+              <SvgStageMenuTwo style={{ maxWidth: '700px' }}>
                 {/* Buttons */}
 
-                <foreignObject x="47" y="110" width="350" height="95">
+                <foreignObject x='47' y='110' width='350' height='95'>
                   <ButtonSection
                     section={3}
                     onClick={() =>
-                      setBackground("url(/assets/images/Third-background.png)")
-                    }
+                      setBackground('url(/assets/images/Third-background.png)')}
                   >
-                    <Button addClass="c-button">
+                    <Button addClass='c-button'>
                       <Image
-                        url="assets/images/SvgBottomBar-7.png"
-                        alt="actividad"
+                        url='assets/images/SvgBottomBar-7.png'
+                        alt='actividad'
                         noCaption
                       />
                     </Button>
                   </ButtonSection>
                 </foreignObject>
 
-                <foreignObject x="412" y="110" width="350" height="95">
+                <foreignObject x='412' y='110' width='350' height='95'>
                   <ButtonSection
                     section={4}
                     onClick={() =>
-                      setBackground("url(/assets/images/Third-background.png)")
-                    }
+                      setBackground('url(/assets/images/Third-background.png)')}
                   >
-                    <Button addClass="c-button">
+                    <Button addClass='c-button'>
                       <Image
-                        url="assets/images/SvgBottomBar-6.png"
-                        alt="actividad"
+                        url='assets/images/SvgBottomBar-6.png'
+                        alt='actividad'
                         noCaption
                       />
                     </Button>
                   </ButtonSection>
                 </foreignObject>
 
-                <foreignObject x="790" y="110" width="350" height="95">
+                <foreignObject x='790' y='110' width='350' height='95'>
                   <ButtonSection
                     section={4}
                     onClick={() =>
-                      setBackground("url(/assets/images/Third-background.png)")
-                    }
+                      setBackground('url(/assets/images/Third-background.png)')}
                   >
-                    <Button addClass="c-button">
+                    <Button addClass='c-button'>
                       <Image
-                        url="assets/images/SvgBottomBar-8.png"
-                        alt="actividad"
+                        url='assets/images/SvgBottomBar-8.png'
+                        alt='actividad'
                         noCaption
                       />
                     </Button>
@@ -220,32 +239,32 @@ const Ova7p5 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center" addClass="u-my-4">
-          <Col xs="11" md="10" lg="9" hd="5">
+        <Row justify-content='center' align-items='center' addClass='u-my-4'>
+          <Col xs='11' md='10' lg='9' hd='5'>
             <ImageContainer
-              background="assets/images/Slide5-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide5-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="80%"
-                height="55px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='80%'
+                height='55px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Sitauación
                 </h2>
               </ImageContainer>
 
-              <p className="u-mt-6">
+              <p className='u-mt-6'>
                 La inseminación artificial desde hace muchos años es una de las
                 prácticas de servicio con mayor impacto en la industria equina,
                 ya que permite obtener el máximo rendimiento reproductivo y
                 genético de un semental específico.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 En la producción a la cual usted asiste, usa esta biotecnología
                 como una de las cotidianas, y en la cual con su implementación
                 continua se ha logrado determinar que los individuos deben ser
@@ -259,36 +278,35 @@ const Ova7p5 = () => {
                 es de 41 mm.
               </p>
 
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection
                   section={2}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Volver
                     </span>
                   </Button>
                 </ButtonSection>
                 <ButtonSection section={4}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
@@ -296,12 +314,12 @@ const Ova7p5 = () => {
               </Row>
             </ImageContainer>
           </Col>
-          <Col xs="11" md="10" lg="9" hd="7">
+          <Col xs='11' md='10' lg='9' hd='7'>
             <Image
-              src="assets/images/SvgRoulette-inseminación-artificial.png"
-              alt="Imagen de veterinario haciendo inseminación artificial a una yegua"
-              width="930"
-              addClass="u-mt-5"
+              src='assets/images/SvgRoulette-inseminación-artificial.png'
+              alt='Imagen de veterinario haciendo inseminación artificial a una yegua'
+              width='930'
+              addClass='u-mt-5'
               noCaption
             />
           </Col>
@@ -309,25 +327,25 @@ const Ova7p5 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center" addClass="u-my-4">
-          <Col xs="11" md="10" lg="9" hd="5">
+        <Row justify-content='center' align-items='center' addClass='u-my-4'>
+          <Col xs='11' md='10' lg='9' hd='5'>
             <ImageContainer
-              background="assets/images/Slide5-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide5-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="80%"
-                height="55px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='80%'
+                height='55px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Contexto
                 </h2>
               </ImageContainer>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 La inseminación artificial es una las prácticas reproductivas
                 más comunes usadas en el control reproductivo de sistemas de
                 producción equina, sin embargo, para lograr buenos resultados en
@@ -338,36 +356,35 @@ const Ova7p5 = () => {
                 la preñez.
               </p>
 
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection
                   section={2}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Volver
                     </span>
                   </Button>
                 </ButtonSection>
                 <ButtonSection section={5}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
@@ -375,12 +392,12 @@ const Ova7p5 = () => {
               </Row>
             </ImageContainer>
           </Col>
-          <Col xs="11" md="10" lg="9" hd="7">
+          <Col xs='11' md='10' lg='9' hd='7'>
             <Image
-              src="assets/images/SvgRoulette-inseminación-artificial.png"
-              alt="Imagen de veterinario haciendo inseminación artificial a una yegua"
-              width="930"
-              addClass="u-mt-5"
+              src='assets/images/SvgRoulette-inseminación-artificial.png'
+              alt='Imagen de veterinario haciendo inseminación artificial a una yegua'
+              width='930'
+              addClass='u-mt-5'
               noCaption
             />
           </Col>
@@ -388,83 +405,83 @@ const Ova7p5 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center" addClass="u-my-4">
-          <Col xs="11" md="10" lg="9" hd="7">
+        <Row justify-content='center' align-items='center' addClass='u-my-4'>
+          <Col xs='11' md='10' lg='9' hd='7'>
             <Image
-              src="assets/images/SvgRoulette-inseminación-artificial.png"
-              alt="Imagen de veterinario haciendo inseminación artificial a una yegua"
-              width="930"
-              addClass="u-mt-5"
+              src='assets/images/SvgRoulette-inseminación-artificial.png'
+              alt='Imagen de veterinario haciendo inseminación artificial a una yegua'
+              width='930'
+              addClass='u-mt-5'
               noCaption
             />
           </Col>
-          <Col xs="11" md="10" lg="9" hd="5">
+          <Col xs='11' md='10' lg='9' hd='5'>
             <ImageContainer
-              background="assets/images/Slide5-image-2.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide5-image-2.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="80%"
-                height="55px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='80%'
+                height='55px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Actividad 4
                 </h2>
               </ImageContainer>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 A partir de la situación presentada, seleccionae del menú
                 desplegable las etapas en las que se divide la dinámica
                 folicular de la yegua, acorde con la fase indicada en la columna
                 de la izquierda.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Esta actividad tiene 6 puntos y cada opción correcta vale 2
                 puntos. Solo tiene un intento para realizarla.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Al terminar, haga clic en el botón “Validar” para conocer su
                 retroalimentación y puntaje.
               </p>
             </ImageContainer>
-            <div className="imgSogas">
+            <div className='imgSogas'>
               <img
-                src="assets/images/Slide1-image-7.png"
-                alt=""
+                src='assets/images/Slide1-image-7.png'
+                alt=''
                 tabIndex={-1}
               />
 
               <img
-                src="assets/images/Slide1-image-7.png"
-                alt=""
+                src='assets/images/Slide1-image-7.png'
+                alt=''
                 tabIndex={-1}
               />
             </div>
-            <Row justify-content="center" align-items="center">
+            <Row justify-content='center' align-items='center'>
               <ImageContainer
-                width="90%"
-                background="assets/images/Slide5-image-2.png"
-                addClass="u-fs-300 container"
-                padding="33px"
+                width='90%'
+                background='assets/images/Slide5-image-2.png'
+                addClass='u-fs-300 container'
+                padding='33px'
               >
                 <table>
                   <tr>
-                    <th className="styleTitle">Fase</th>
-                    <th className="styleTitle">Etapa</th>
+                    <th className='styleTitle'>Fase</th>
+                    <th className='styleTitle'>Etapa</th>
                   </tr>
                   <tr>
-                    <th className="styleContent1">
+                    <th className='styleContent1'>
                       Fase folicular o de regresión lútea.
                     </th>
-                    <th className="styleContent1">
+                    <th className='styleContent1'>
                       <Select
-                        addClass="styleSelectEtapa3-1"
-                        placeholder="Seleccionar"
+                        addClass='styleSelectEtapa3-1'
+                        placeholder='Seleccionar'
                       >
                         <option value={1}>Proestro.</option>
                         <option value={2}>Estro y maestro.</option>
@@ -474,11 +491,11 @@ const Ova7p5 = () => {
                     </th>
                   </tr>
                   <tr>
-                    <th className="styleContent2">Fase periovulatoria.</th>
-                    <th className="styleContent2">
+                    <th className='styleContent2'>Fase periovulatoria.</th>
+                    <th className='styleContent2'>
                       <Select
-                        addClass="styleSelectEtapa3-1"
-                        placeholder="Seleccionar"
+                        addClass='styleSelectEtapa3-1'
+                        placeholder='Seleccionar'
                       >
                         <option value={1}>Proestro.</option>
                         <option value={2}>Estro y maestro.</option>
@@ -488,11 +505,11 @@ const Ova7p5 = () => {
                     </th>
                   </tr>
                   <tr>
-                    <th className="styleContent1">Fase luteal.</th>
-                    <th className="styleContent1">
+                    <th className='styleContent1'>Fase luteal.</th>
+                    <th className='styleContent1'>
                       <Select
-                        addClass="styleSelectEtapa3-1"
-                        placeholder="Seleccionar"
+                        addClass='styleSelectEtapa3-1'
+                        placeholder='Seleccionar'
                       >
                         <option value={1}>Proestro.</option>
                         <option value={2}>Estro y maestro.</option>
@@ -503,36 +520,35 @@ const Ova7p5 = () => {
                   </tr>
                 </table>
 
-                <Row justify-content="center" align-items="center">
+                <Row justify-content='center' align-items='center'>
                   <ButtonSection
                     section={2}
                     onClick={() =>
                       setBackground(
-                        "url(/assets/images/Principal-background.png)"
-                      )
-                    }
+                        'url(/assets/images/Principal-background.png)'
+                      )}
                   >
-                    <Button addClass="u-button-reset u-stack">
+                    <Button addClass='u-button-reset u-stack'>
                       <Image
-                        src="assets/images/Button-style-large.png"
-                        alt="Ir a la segunda sección"
-                        width="200"
+                        src='assets/images/Button-style-large.png'
+                        alt='Ir a la segunda sección'
+                        width='200'
                         noCaption
                       />
-                      <span className="u-special-font u-fs-500 u-zindex-2">
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
                         Validar
                       </span>
                     </Button>
                   </ButtonSection>
                   <ButtonSection section={6}>
-                    <Button addClass="u-button-reset u-stack">
+                    <Button addClass='u-button-reset u-stack'>
                       <Image
-                        src="assets/images/Button-style-large.png"
-                        alt="Ir a la segunda sección"
-                        width="200"
+                        src='assets/images/Button-style-large.png'
+                        alt='Ir a la segunda sección'
+                        width='200'
                         noCaption
                       />
-                      <span className="u-special-font u-fs-500 u-zindex-2">
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
                         Continuar
                       </span>
                     </Button>
@@ -543,39 +559,38 @@ const Ova7p5 = () => {
           </Col>
         </Row>
         <Modal
-          isOpen={isOpen.modalAct2}
+          isOpen={isOpen.modalAct1.on}
           finalFocusRef={contextRef}
           onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))
-          }
+            setIsOpen((prev) => ({ ...prev, context: value }))}
         >
           <ModalOverlay />
-          <ModalContent addClass="c-modal-secondary u-fs-300">
-            <Row justify-content="center" align-items="center">
-              <Col xs="11">
+          <ModalContent addClass='c-modal-secondary u-fs-300'>
+            <Row justify-content='center' align-items='center'>
+              <Col xs='11'>
                 <p>
                   La dinámica folicular de la hembra equina comprende las
                   etapas: proestro, diestro, estro y metaestro y estas están
                   asociadas a sus correspondientes fases de la siguiente manera:
                 </p>
-                <p className="u-my-3">
+                <p className='u-my-3'>
                   Fase folicular o de regresión lútea = Proestro. <br /> Fase
                   periovulatoria= Estro y metaestro. <br /> Fase luteal =
                   Diestro.
                 </p>
-                <p className="u-text-center u-mb-3">
-                  <b>Puntaje obtenido:</b> x /6 puntos.
+                <p className='u-text-center u-mb-3'>
+                  <b>Puntaje obtenido:</b> {isOpen.modalAct1.point} /6 puntos.
                 </p>
               </Col>
               <ButtonSection section={6}>
-                <Button addClass="u-button-reset u-stack">
+                <Button addClass='u-button-reset u-stack'>
                   <Image
-                    src="assets/images/Button-style-large.png"
-                    alt="Ir a la segunda sección"
-                    width="200"
+                    src='assets/images/Button-style-large.png'
+                    alt='Ir a la segunda sección'
+                    width='200'
                     noCaption
                   />
-                  <span className="u-special-font u-fs-500 u-zindex-2">
+                  <span className='u-special-font u-fs-500 u-zindex-2'>
                     Continuar
                   </span>
                 </Button>
@@ -586,57 +601,60 @@ const Ova7p5 = () => {
       </Section>
 
       <Section>
-        <PopoverRadioGroup>
+        <PopoverRadioGroup
+          options={options1}
+          onResult={(valor) => setValueModal(valor)}
+        >
           <Row
-            justify-content="space-evenly"
-            align-items="center"
-            addClass="u-py-6"
+            justify-content='space-evenly'
+            align-items='center'
+            addClass='u-py-6'
           >
-            <Col xs="11" mm="10" md="9" lg="7">
+            <Col xs='11' mm='10' md='9' lg='7'>
               <Image
-                src="assets/images/SvgRoulette-inseminación-artificial-2.png"
-                alt="Ir a la segunda sección"
-                width="900"
+                src='assets/images/SvgRoulette-inseminación-artificial-2.png'
+                alt='Ir a la segunda sección'
+                width='900'
                 noCaption
               />
-                <List addClass="c-toggle-check-grid-etapa3">
-                  <ListItem>
-                    <PopoverRadio label="1" placement="top" id={1} answer='correct'>
-                      <p>
-                        Se evidencia con la presencia del fotoperiodo positivo. Al
-                        realizar una evaluación reproductiva por colonoscopía
-                        transrectal revisando la presencia de estructuras
-                        ováricas, analizando la presencia de anestro.
-                      </p>
-                    </PopoverRadio>
-                  </ListItem>
+              <List addClass='c-toggle-check-grid-etapa3'>
+                <ListItem>
+                  <PopoverRadio label='1' placement='top' id={1}>
+                    <p>
+                      Se evidencia con la presencia del fotoperiodo positivo. Al
+                      realizar una evaluación reproductiva por colonoscopía
+                      transrectal revisando la presencia de estructuras
+                      ováricas, analizando la presencia de anestro.
+                    </p>
+                  </PopoverRadio>
+                </ListItem>
 
-                  <ListItem>
-                    <PopoverRadio label="2" placement="bottom" id={2} answer='wrong'>
-                      <p>
-                        Se evidencia con la presencia del cuerpo hemorrágico, el
-                        cual empieza su formación una vez se rompen las paredes
-                        del folículo ovulatorio, iniciando una remodelación en la
-                        cual el tejido luteal juega un papel fundamental.
-                      </p>
-                    </PopoverRadio>
-                  </ListItem>
-                </List>
+                <ListItem>
+                  <PopoverRadio label='2' placement='bottom' id={2}>
+                    <p>
+                      Se evidencia con la presencia del cuerpo hemorrágico, el
+                      cual empieza su formación una vez se rompen las paredes
+                      del folículo ovulatorio, iniciando una remodelación en la
+                      cual el tejido luteal juega un papel fundamental.
+                    </p>
+                  </PopoverRadio>
+                </ListItem>
+              </List>
             </Col>
-              
-            <Col xs="11" mm="10" md="9" lg="5" hd="4">
+
+            <Col xs='11' mm='10' md='9' lg='5' hd='4'>
               <ImageContainer
-                background="assets/images/Slide1-image-9.png"
-                addClass="u-py-4 u-fs-300 c-image-container-sign"
-                padding="30px"
+                background='assets/images/Slide1-image-9.png'
+                addClass='u-py-4 u-fs-300 c-image-container-sign'
+                padding='30px'
               >
                 <ImageContainer
-                  background="assets/images/Slide3-image-1.png"
-                  addClass="title-container"
-                  width="500px"
-                  height="50px"
+                  background='assets/images/Slide3-image-1.png'
+                  addClass='title-container'
+                  width='500px'
+                  height='50px'
                 >
-                  <h2 className="u-special-font u-text-center u-fs-600">
+                  <h2 className='u-special-font u-text-center u-fs-600'>
                     Actividad 5
                   </h2>
                 </ImageContainer>
@@ -649,29 +667,29 @@ const Ova7p5 = () => {
                   estro?
                 </p>
 
-                <p className="u-mx-2 u-my-3">
+                <p className='u-mx-2 u-my-3'>
                   Para responder a la pregunta, pase el cursor sobre cada número
                   en el monitor del escáner y seleccione una de las dos opciones
                   de respuesta haciendo clic en el círculo en blanco de la opción
                   elegida.
                 </p>
 
-                <p className="u-mx-2">
+                <p className='u-mx-2'>
                   Esta actividad tiene 4 puntos. Solo tiene un intento para
                   realizarla. <br />
                   Al terminar haga clic en el botón “Validar” para conocer su
                   retroalimentación y puntaje.
                 </p>
-                <Row justify-content="center" align-items="center">
+                <Row justify-content='center' align-items='center'>
                   <ValidationButton>
-                    <Button addClass="u-button-reset u-stack">
+                    <Button addClass='u-button-reset u-stack'>
                       <Image
-                        src="assets/images/Button-style-large.png"
-                        alt="Ir a la segunda sección"
-                        width="200"
+                        src='assets/images/Button-style-large.png'
+                        alt='Ir a la segunda sección'
+                        width='200'
                         noCaption
                       />
-                      <span className="u-special-font u-fs-500 u-zindex-2">
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
                         Validar
                       </span>
                     </Button>
@@ -680,18 +698,17 @@ const Ova7p5 = () => {
                     section={7}
                     onClick={() =>
                       setBackground(
-                        "url(/assets/images/Principal-background.png)"
-                      )
-                    }
+                        'url(/assets/images/Principal-background.png)'
+                      )}
                   >
-                    <Button addClass="u-button-reset u-stack">
+                    <Button addClass='u-button-reset u-stack'>
                       <Image
-                        src="assets/images/Button-style-large.png"
-                        alt="Ir a la segunda sección"
-                        width="200"
+                        src='assets/images/Button-style-large.png'
+                        alt='Ir a la segunda sección'
+                        width='200'
                         noCaption
                       />
-                      <span className="u-special-font u-fs-500 u-zindex-2">
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
                         Continuar
                       </span>
                     </Button>
@@ -702,16 +719,15 @@ const Ova7p5 = () => {
           </Row>
         </PopoverRadioGroup>
         <Modal
-          isOpen={isOpen.modalAct3}
+          isOpen={isOpen.modalAct2.on}
           finalFocusRef={contextRef}
-          onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))
-          }
+          onClose={() =>
+            setIsOpen((prev) => ({ ...prev, modalAct2: { on: false } }))}
         >
-          <ModalOverlay />
-          <ModalContent addClass="c-modal-secondary u-fs-300">
-            <Row justify-content="center" align-items="center">
-              <Col xs="11">
+          <ModalOverlay addClass='u-z-20' />
+          <ModalContent addClass='c-modal-secondary u-fs-300 u-z-30'>
+            <Row justify-content='center' align-items='center'>
+              <Col xs='11'>
                 <p>
                   La estructura ovárica que evidencia el logro de la ovulación,
                   es la presencia del cuerpo hemorrágico, el cual empieza su
@@ -721,19 +737,58 @@ const Ova7p5 = () => {
                   produjo la ovulación.
                 </p>
 
-                <p className="u-text-center u-mb-3">
-                  <b>Puntaje obtenido:</b> x /4 puntos.
+                <p className='u-text-center u-mb-3'>
+                  <b>Puntaje obtenido:</b> {isOpen.modalAct2.point} /4 puntos.
                 </p>
               </Col>
-              <ButtonSection section={7}>
-                <Button addClass="u-button-reset u-stack">
+              <ButtonSection section={7} onClick={() => setIsOpen((prev) => ({ ...prev, modalAct2: { on: false } }))}>
+                <Button addClass='u-button-reset u-stack'>
                   <Image
-                    src="assets/images/Button-style-large.png"
-                    alt="Ir a la segunda sección"
-                    width="200"
+                    src='assets/images/Button-style-large.png'
+                    alt='Ir a la segunda sección'
+                    width='200'
                     noCaption
                   />
-                  <span className="u-special-font u-fs-500 u-zindex-2">
+                  <span className='u-special-font u-fs-500 u-zindex-2'>
+                    Continuar
+                  </span>
+                </Button>
+              </ButtonSection>
+            </Row>
+          </ModalContent>
+        </Modal>
+        <Modal
+          isOpen={isOpen.modalAct3.on}
+          finalFocusRef={contextRef}
+          onClose={() =>
+            setIsOpen((prev) => ({ ...prev, modalAct3: { on: false } }))}
+        >
+          <ModalOverlay addClass='u-z-20' />
+          <ModalContent addClass='c-modal-secondary u-fs-300 u-z-30'>
+            <Row justify-content='center' align-items='center'>
+              <Col xs='11'>
+                <p>
+                  La estructura ovárica que evidencia el logro de la ovulación,
+                  es la presencia del cuerpo hemorrágico, el cual empieza su
+                  formación una vez se rompen las paredes del folículo
+                  ovulatorio, este se puede evidenciar por ultrasonografía
+                  transrectal, enfocando el análisis al ovario en el cual se
+                  produjo la ovulación.
+                </p>
+
+                <p className='u-text-center u-mb-3'>
+                  <b>Puntaje obtenido:</b> {isOpen.modalAct3.point} /4 puntos.
+                </p>
+              </Col>
+              <ButtonSection section={7} onClick={() => setIsOpen((prev) => ({ ...prev, modalAct3: { on: false } }))}>
+                <Button addClass='u-button-reset u-stack'>
+                  <Image
+                    src='assets/images/Button-style-large.png'
+                    alt='Ir a la segunda sección'
+                    width='200'
+                    noCaption
+                  />
+                  <span className='u-special-font u-fs-500 u-zindex-2'>
                     Continuar
                   </span>
                 </Button>
@@ -744,19 +799,19 @@ const Ova7p5 = () => {
       </Section>
 
       <Section>
-        <Row justify-content="center" align-items="center">
-          <Col xs="11" mm="10" md="9" lg="8" hd="7">
+        <Row justify-content='center' align-items='center'>
+          <Col xs='11' mm='10' md='9' lg='8' hd='7'>
             <ImageContainer
-              background="assets/images/Slide1-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide1-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
-              <p className="u-mt-6">
+              <p className='u-mt-6'>
                 <b>Plan de manejo:</b> Variables foliculares relacionadas a los
                 parámetros reproductivos en equinos.
               </p>
 
-              <p className="u-my-3 u-text-center">
+              <p className='u-my-3 u-text-center'>
                 Resulta fundamental en un plan de manejo reproductivo en equinos
                 conocer algunos parámetros relacionados a las variables
                 ováricas, ya que a partir de estos datos se planea y determina
@@ -768,17 +823,17 @@ const Ova7p5 = () => {
                 colombiana.
               </p>
 
-              <div className="c-plan-group-grid u-px-3">
+              <div className='c-plan-group-grid u-px-3'>
                 <PlanGroup>
                   <PlanCheck
-                    value="question_1"
-                    label="Duración del ciclo estral."
+                    value='question_1'
+                    label='Duración del ciclo estral.'
                   />
 
                   <PlanSelect
-                    id="question_1"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_1'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>20 – 21 días promedio.</option>
 
@@ -792,14 +847,14 @@ const Ova7p5 = () => {
                   </PlanSelect>
 
                   <PlanCheck
-                    value="question_2"
-                    label="Crecimiento diario folicular."
+                    value='question_2'
+                    label='Crecimiento diario folicular.'
                   />
 
                   <PlanSelect
-                    id="question_2"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_2'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>20 – 21 días promedio.</option>
 
@@ -813,14 +868,14 @@ const Ova7p5 = () => {
                   </PlanSelect>
 
                   <PlanCheck
-                    value="question_3"
-                    label="Diámetro folicular a la ovulación."
+                    value='question_3'
+                    label='Diámetro folicular a la ovulación.'
                   />
 
                   <PlanSelect
-                    id="question_3"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_3'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>20 – 21 días promedio.</option>
 
@@ -833,12 +888,12 @@ const Ova7p5 = () => {
                     <option value={5}>90 días promedio.</option>
                   </PlanSelect>
 
-                  <PlanCheck value="question_4" label="Duración folicular." />
+                  <PlanCheck value='question_4' label='Duración folicular.' />
 
                   <PlanSelect
-                    id="question_4"
-                    placeholder="Seleccionar"
-                    addClass="planSelectStyle"
+                    id='question_4'
+                    placeholder='Seleccionar'
+                    addClass='planSelectStyle'
                   >
                     <option value={1}>20 – 21 días promedio.</option>
 
@@ -853,35 +908,34 @@ const Ova7p5 = () => {
                 </PlanGroup>
               </div>
 
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection
                   section={2}
                   onClick={() =>
                     setBackground(
-                      "url(/assets/images/Principal-background.png)"
-                    )
-                  }
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Volver
                     </span>
                   </Button>
                 </ButtonSection>
-                <Link to="/unit/1/page/2" className="u-button-reset u-stack">
+                <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
-                    src="assets/images/Button-style-large.png"
-                    alt="Lleva al menú principal"
-                    width="200"
+                    src='assets/images/Button-style-large.png'
+                    alt='Lleva al menú principal'
+                    width='200'
                     noCaption
                   />
-                  <span className="u-special-font u-fs-500 u-zindex-2">
+                  <span className='u-special-font u-fs-500 u-zindex-2'>
                     Continuar
                   </span>
                 </Link>
@@ -891,7 +945,7 @@ const Ova7p5 = () => {
         </Row>
       </Section>
     </Panel>
-  );
-};
+  )
+}
 
-export default Ova7p5;
+export default Ova7p5

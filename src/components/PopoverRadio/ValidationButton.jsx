@@ -1,14 +1,13 @@
-import { useContext, cloneElement } from 'react';
-import PropTypes from 'prop-types';
+import { useContext, cloneElement } from 'react'
+import PropTypes from 'prop-types'
 
-import { PopoverRadioGroupContext } from './PopoverRadioGroup';
+import { PopoverRadioGroupContext } from './PopoverRadioGroup'
 
 export const ValidationButton = ({ children, onClick }) => {
   // Obtenemos el método validate y la propiedad disabledButton del contexto.
   const {
-    validation,
     onCheck
-  } = useContext(PopoverRadioGroupContext);
+  } = useContext(PopoverRadioGroupContext)
 
   /**
    * Función utilizada para lanzar la validación
@@ -16,12 +15,11 @@ export const ValidationButton = ({ children, onClick }) => {
    * @param {event} e - evento
    */
   const handleValidation = (e) => {
-    console.log(e)
     if (onClick) {
-      onClick(e);
+      onClick(e)
     }
-    onCheck();
-  };
+    onCheck()
+  }
 
   /**
    * Agregamos el evento onClick y
@@ -30,10 +28,10 @@ export const ValidationButton = ({ children, onClick }) => {
   return cloneElement(children, {
     ...children.props,
     onClick: handleValidation
-  });
-};
+  })
+}
 
 ValidationButton.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
   onClick: PropTypes.func
-};
+}
