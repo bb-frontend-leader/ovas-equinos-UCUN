@@ -5,6 +5,7 @@
     padding: 0.6rem 1rem 0.6rem 0.9rem;
     color: rgb(71, 35, 9);
     font-size: 0.885rem;
+    z-index: 1;
 }
 
 .c-popover-check__button {
@@ -44,4 +45,12 @@
 
 .c-popover-check__check>div div::before {
     background-color: var(--input-color);
+}
+
+.c-verde{
+    --input-color: green;
+}
+
+.c-rojo{
+    --input-color: red;
 }
