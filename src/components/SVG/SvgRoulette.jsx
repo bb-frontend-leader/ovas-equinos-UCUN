@@ -194,7 +194,7 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x="165" y="569" width="230" height="80">
         <Link
-          to="/unit/1/page/6"
+          to="/unit/1/page/stage-4"
           aria-label="LLeva a la página donde inicia la cuarta etapa"
           className="u-button-reset hidden u-stack animate__animated animate__fadeIn animate__fast"
           data-id="stage-4"
@@ -222,7 +222,7 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x="190" y="247" width="230" height="80">
         <Link
-          to="/unit/1/page/7"
+          to="/unit/1/page/stage-5"
           aria-label="LLeva a la página donde inicia la quinta etapa"
           className="u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden"
           data-id="stage-5"
@@ -276,7 +276,7 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x="1410" y="532" width="230" height="80">
         <Link
-          to="/unit/1/page/4"
+          to="/unit/1/page/stage-2"
           aria-label="LLeva a la página donde inicia la segunda etapa"
           className="u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden"
           data-id="stage-2"
@@ -304,7 +304,7 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x="1132" y="783" width="230" height="80">
         <Link
-          to="/unit/1/page/5"
+          to="/unit/1/page/stage-3"
           aria-label="LLeva a la página donde inicia la tercera etapa"
           className="u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden"
           data-id="stage-3"
@@ -344,7 +344,7 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x="1325" y="203" width="230" height="80">
         <Link
-          to="/unit/1/page/3"
+          to="/unit/1/page/stage-1"
           aria-label="LLeva a la página donde inicia la primera etapa"
           className="u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden"
           data-id="stage-1"

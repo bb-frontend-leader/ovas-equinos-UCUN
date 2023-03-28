@@ -1,10 +1,10 @@
-import { useState, useContext, useRef } from "react";
-import PropTypes from "prop-types";
+import { useState, useContext, useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-import { Modal, ModalOverlay, ModalContent } from "UI-Components-books";
-import { CheckBoxGroupContext, ImageContainer } from "@components";
+import { Modal, ModalOverlay, ModalContent } from 'UI-Components-books'
+import { CheckBoxGroupContext, ImageContainer } from '@components'
 
-import css from "./CheckBoxModal.module.css";
+import css from './CheckBoxModal.module.css'
 
 export const CheckBoxModal = ({
   children,
@@ -13,22 +13,27 @@ export const CheckBoxModal = ({
   state,
   label,
   value,
-  addClass,
+  points,
+  addClass
 }) => {
   // Estado utilizado para controlar si el input está checked.
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false)
 
   // Estado utilizado para controlar si el modal está abierto.
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   // Obtenemos las diferentes propiedades del contexto superior.
-  const { onCheck, validation } = useContext(CheckBoxGroupContext);
+  const {
+    checkboxValues,
+    activity: { validation },
+    addNewRef
+  } = useContext(CheckBoxGroupContext)
 
-  // Referencia del elemento checkbox
-  const checkboxRef = useRef();
+  // Referencia del elemento checkbox.
+  const checkboxRef = useRef()
 
-  // Almacenamos el ID del setTimeout
-  const timeoutID = useRef();
+  // Almacenamos el ID del setTimeout.
+  const timeoutID = useRef()
 
   /**
    * Detecta cuando el input tiene un cambio y actualiza
@@ -39,15 +44,15 @@ export const CheckBoxModal = ({
    * @param {HTMLInputElement} target - HTMLInputElement.
    */
   const onChangeCheckbox = ({ target }) => {
-    setChecked(target.checked);
+    setChecked(target.checked)
 
     if (target.checked) {
-      onCheck({ id: target.id, value: target.value });
-      return;
+      checkboxValues({ id: target.id, value: target.value, points })
+      return
     }
 
-    onCheck({ id: target.id, value: "" });
-  };
+    checkboxValues({ id: target.id, value: '', points: 0 })
+  }
 
   /**
    * Abre el modal con un delay de 700ms luego
@@ -56,46 +61,56 @@ export const CheckBoxModal = ({
    */
   const onMouseOver = () => {
     timeoutID.current = setTimeout(() => {
-      setIsOpen(!isOpen);
-    }, 700);
-  };
+      setIsOpen(!isOpen)
+    }, 700)
+  }
 
   /**
    * Elimina el setTimeOut si el cursor
    * ha dejado el elemento span.
    */
   const onMouseLeave = () => {
-    window.clearTimeout(timeoutID.current);
-  };
+    window.clearTimeout(timeoutID.current)
+  }
 
   // Cierra el modal actualizando el estado isOpen.
   const onCloseModal = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
+
+  useEffect(() => {
+    // Agregamos al Referencia a la función addNewRef si está existe
+    checkboxRef.current && addNewRef(checkboxRef.current)
+
+    return () => {
+      // Limpiamos la referencia al desmontar el componente
+      checkboxRef.current = null
+    }
+  }, [checkboxRef])
 
   return (
     <>
       <label
         htmlFor={id}
-        className={`${css["c-input"]} u-flex u-my-2 ${addClass ?? ""}`}
-        data-state={validation ? state : "normal"}
+        className={`${css['c-input']} u-flex u-my-2 ${addClass ?? ''}`}
+        data-state={validation ? state : 'normal'}
       >
-        <div className={css["c-input__box"]}>
+        <div className={css['c-input__box']}>
           <input
             id={id}
             ref={checkboxRef}
-            type="checkbox"
+            type='checkbox'
             name={name}
-            value={value}
+            value={state}
             checked={checked}
-            className={css["c-input__check"]}
+            className={css['c-input__check']}
             onChange={onChangeCheckbox}
             {...(validation && { disabled: validation })}
           />
-          <div className={css["c-input__icon"]}></div>
+          <div className={css['c-input__icon']} />
         </div>
         <span
-          className={css["c-input__label"]}
+          className={css['c-input__label']}
           onMouseOver={onMouseOver}
           onMouseLeave={onMouseLeave}
         >
@@ -105,30 +120,31 @@ export const CheckBoxModal = ({
 
       <Modal isOpen={isOpen} onClose={onCloseModal} finalFocusRef={checkboxRef}>
         <ModalOverlay />
-        <ModalContent addClass={css["c-modal"]}>
+        <ModalContent addClass={css['c-modal']}>
           <ImageContainer
-            background="assets/images/Modal-background-wood-1.png"
-            padding="40px"
+            background='assets/images/Modal-background-wood-1.png'
+            padding='40px'
           >
             {children}
           </ImageContainer>
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
 CheckBoxModal.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.arrayOf(PropTypes.node)
   ]),
   id: PropTypes.string.isRequired,
   name: PropTypes.string,
   label: PropTypes.string,
   state: PropTypes.string,
   value: PropTypes.string,
-  addClass: PropTypes.string,
-};
+  points: PropTypes.number,
+  addClass: PropTypes.string
+}

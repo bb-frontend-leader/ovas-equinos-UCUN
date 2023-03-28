@@ -1,0 +1,20 @@
+/* Modal */
+
+.c-modal {
+    background: transparent;
+    block-size: auto;
+    padding: 0 !important;
+    --modal-max-width: 40.375rem;
+}
+
+.c-modal>button {
+    padding: var(--padding-2);
+    --outline-color: var(--clr-common-white-100);
+    --outline-size: 4px;
+    background-color: transparent;
+    background-image: url(/assets/images/Slide1-image-3.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+}

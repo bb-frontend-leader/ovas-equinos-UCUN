@@ -1,14 +1,14 @@
-import { createContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { createContext, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
-import { numberOfUnits, paths } from "../routes/paths";
+import { numberOfUnits, paths } from '../routes/paths'
 
 /**
  * Date: 2022-02-11
  * UserName: Books&Books
  * Description: Crea contexto, hereda propiedades directamente
  */
-export const PaginationContext = createContext();
+export const PaginationContext = createContext()
 
 /**
  * Date: 2022-02-11
@@ -16,12 +16,12 @@ export const PaginationContext = createContext();
  * Description: Variables que se heredan directamente
  */
 const PaginationProvider = ({ children }) => {
-  const [routes, setRoutes] = useState([]);
-  const [currentUnit, setCurrentUnit] = useState(null);
+  const [routes, setRoutes] = useState([])
+  const [currentUnit, setCurrentUnit] = useState(null)
   // Recibe titulos de unidades
-  const unitTitles = ["Title Unit"];
+  const unitTitles = ['Title Unit']
   // Recibe titulos de las paginas
-  const unitPageTitles = [["Title page"]];
+  const unitPageTitles = [['Title page']]
 
   /**
    * Date: 2022-02-11
@@ -29,21 +29,21 @@ const PaginationProvider = ({ children }) => {
    * Description: Filtra, valida y asigna unidades
    */
   useEffect(() => {
-    const allPaths = paths;
-    const routesPerUnits = [];
+    const allPaths = paths
+    const routesPerUnits = []
 
     for (let i = 0; i <= numberOfUnits; i++) {
       const filter = allPaths.filter((path) =>
         path.component_route.includes(`unit-${i}`)
-      );
+      )
 
       if (filter.length !== 0) {
-        routesPerUnits.push(filter);
+        routesPerUnits.push(filter)
       }
     }
 
-    setRoutes(routesPerUnits);
-  }, []);
+    setRoutes(routesPerUnits)
+  }, [])
 
   return (
     <PaginationContext.Provider
@@ -52,16 +52,16 @@ const PaginationProvider = ({ children }) => {
         currentUnit,
         unitTitles,
         setCurrentUnit,
-        unitPageTitles,
+        unitPageTitles
       }}
     >
       {children}
     </PaginationContext.Provider>
-  );
-};
+  )
+}
 
 PaginationProvider.propTypes = {
-  children: PropTypes.any,
-};
+  children: PropTypes.any
+}
 
-export { PaginationProvider };
+export { PaginationProvider }

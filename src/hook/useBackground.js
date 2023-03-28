@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 
 const useBackground = () => {
-  const [background, setBackground] = useState("");
+  const [background, setBackground] = useState('')
 
   useEffect(() => {
-    if (!background) return;
+    if (!background) return
 
-    const body = document.body;
-    body.style.setProperty("--bg-image", background);
+    const body = document.body
+    body.style.setProperty('--bg-image', background)
 
     return () => {
-      body.style.removeProperty("--bg-image");
-    };
-  }, [background]);
+      body.style.removeProperty('--bg-image')
+    }
+  }, [background])
 
-  return { background, setBackground };
-};
+  return { background, setBackground }
+}
 
-export { useBackground };
+export { useBackground }

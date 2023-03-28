@@ -1,35 +1,48 @@
-import { useState, createContext } from "react";
-import PropTypes from "prop-types";
+import { useState, createContext, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-export const PopoverRadioGroupContext = createContext();
+export const PopoverRadioGroupContext = createContext()
 
-export const PopoverRadioGroup = ({ children }) => {
-  const [checked, setChecked] = useState([]);
+export const PopoverRadioGroup = ({
+  children, options, onResult
+}) => {
+  const [state, setState] = useState(false)
 
-  const [validation, setValidation] = useState(false);
+  const [checked, setChecked] = useState('')
 
-  const onCheck = (value) => {
-    const validate = checked.filter((option) => option.id === value.id);
+  const [validation, setValidation] = useState()
 
-    if (validate.length) {
-      setChecked([...checked.filter((option) => option.id !== value.id)]);
-    } else {
-      setChecked([...checked, { ...value }]);
+  useEffect(() => {
+    setValidation(options)
+  }, [])
+
+  const onCheck = () => {
+    const valorFinal = validation.filter(valor => valor.id === parseInt(checked))
+
+    if (onResult) {
+      onResult(valorFinal[0])
     }
-  };
+
+    if (valorFinal) {
+      console.log(valorFinal)
+      setState(valorFinal[0].answer)
+    }
+  }
 
   return (
-    <PopoverRadioGroupContext.Provider value={{ onCheck, validation }}>
+    <PopoverRadioGroupContext.Provider value={{ onCheck, validation, setChecked, checked, state, setState }}>
       {children}
     </PopoverRadioGroupContext.Provider>
-  );
-};
+  )
+}
 
 PopoverRadioGroupContext.propTypes = {
+  options: PropTypes.array,
+  onResult: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.arrayOf(PropTypes.node),
-  ]),
-};
+    PropTypes.arrayOf(PropTypes.node)
+  ])
+}

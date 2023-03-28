@@ -96,57 +96,60 @@ a {
     overflow: visible;
 }
 
-table{
+table {
     width: 100%;
 }
 
-th.styleTitle:nth-child(1){
+th.styleTitle:nth-child(1) {
     background-color: rgba(228, 130, 20, 0.6);
     min-width: 50%;
     width: 230px;
     padding: 10px;
 }
-th.styleTitle:nth-child(2){
+
+th.styleTitle:nth-child(2) {
     background-color: rgba(228, 131, 20, 0.6);
     min-width: 50%;
     width: 175px;
     padding: 10px;
 }
 
-th.styleContent1:nth-child(1){
+th.styleContent1:nth-child(1) {
     background-color: rgba(232, 168, 98, 0.5);
     min-width: 50%;
     width: 230px;
     padding: 10px;
 }
-th.styleContent1:nth-child(2){
+
+th.styleContent1:nth-child(2) {
     background-color: rgba(232, 168, 98, 0.5);
     min-width: 50%;
     width: 175px;
     padding: 10px;
 }
 
-th.styleContent2:nth-child(1){
+th.styleContent2:nth-child(1) {
     background-color: rgba(234, 157, 65, 0.6);
     min-width: 50%;
     width: 230px;
     padding: 10px;
 }
-th.styleContent2:nth-child(2){
+
+th.styleContent2:nth-child(2) {
     background-color: rgba(234, 157, 65, 0.6);
     min-width: 50%;
     width: 175px;
     padding: 10px;
 }
 
-.styleSelectEtapa3-1 div select{
+.styleSelectEtapa3-1 div select {
     background-color: rgba(232, 168, 98, 0.5);
-    border: 2px solid rgba(247,200,149);
+    border: 2px solid rgba(247, 200, 149);
     color: var(--clr-primary-800);
     font-size: var(--fs-300);
 }
 
-.imgSogas img[tabIndex="-1"]{
+.imgSogas img[tabIndex="-1"] {
     --axis-x-img: 7.5rem;
     --axis-y-img: 57%;
     position: absolute;
@@ -155,11 +158,12 @@ th.styleContent2:nth-child(2){
     z-index: 1;
 }
 
-.imgSogas img[tabIndex="-1"]:nth-child(1){
+.imgSogas img[tabIndex="-1"]:nth-child(1) {
     left: calc(100% - var(--axis-x-img));
     top: calc(100% - var(--axis-y-img));
 }
-.imgSogas img[tabIndex="-1"]:nth-child(2){
+
+.imgSogas img[tabIndex="-1"]:nth-child(2) {
     right: calc(100% - var(--axis-x-img));
     top: calc(100% - var(--axis-y-img));
 }
