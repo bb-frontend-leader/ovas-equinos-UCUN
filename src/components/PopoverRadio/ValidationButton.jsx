@@ -6,7 +6,6 @@ import { PopoverRadioGroupContext } from './PopoverRadioGroup'
 export const ValidationButton = ({ children, onClick }) => {
   // Obtenemos el método validate y la propiedad disabledButton del contexto.
   const {
-    validation,
     onCheck
   } = useContext(PopoverRadioGroupContext)
 
@@ -16,7 +15,6 @@ export const ValidationButton = ({ children, onClick }) => {
    * @param {event} e - evento
    */
   const handleValidation = (e) => {
-    console.log(e)
     if (onClick) {
       onClick(e)
     }

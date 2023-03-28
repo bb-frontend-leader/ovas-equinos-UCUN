@@ -63,7 +63,7 @@ const Ova7p3 = () => {
   const validateRef = useRef()
 
   return (
-    <Panel defaultIndex={3}>
+    <Panel>
       <NavSection />
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>

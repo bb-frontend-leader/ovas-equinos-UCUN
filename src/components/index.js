@@ -8,3 +8,4 @@ export * from './PopoverCheck'
 export * from './DragValidation'
 export * from './PopoverRadio'
 export * from './ModalActivity'
+export * from "./MultipleCheckbox";

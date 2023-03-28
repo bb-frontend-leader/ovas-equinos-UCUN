@@ -604,3 +604,17 @@ th.tableFinal-3 {
     z-index: 100;
   }
 }
+
+.container-btn {
+  position: absolute;
+  left: calc(100% - 60%);
+  bottom: -6%;
+}
+
+.fieldsetStyle>fieldset {
+  border: none;
+}
+
+.btnValidar {
+  margin: 0 auto;
+}
