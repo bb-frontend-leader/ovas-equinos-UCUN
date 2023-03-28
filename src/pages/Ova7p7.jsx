@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useReducer } from "react";
 import { Link } from "react-router-dom";
 import {
   Panel,
@@ -14,6 +14,7 @@ import {
   ModalContent,
   Draggable,
   Droppable,
+  DragAndDrop,
   GeneralDraggable,
 } from "UI-Components-books";
 import {
@@ -42,17 +43,112 @@ const Ova7p7 = () => {
   ];
   const { setBackground } = useBackground();
   const [isOpen, setIsOpen] = useState(false);
-  const puntaje = "Pediente por defenir";
+  let puntaje = null;
   const onResult = (value) => {
     console.log(value);
   };
 
-  // Se utiliza para abrir y cerrar los modales.
-  // const onToggleModal = (modal) => {
-  //   setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }));
-  // };
-
   const contextRef = useRef();
+
+  // Custom hook que permite cambiar el background.
+  // const { level, setUpdateLevelActive, setActivityLoad, setActivityComplete } =
+  //   useLevelMap();
+
+  // Usado para controlar la apertura del modal de la actividad radio y el contenido dentro de éste.
+  const [validate, setValidate] = useState({ isOpen: false, isRight: false });
+  const [defaultValidateId, setDefaultValidateId] = useState([]);
+  const [defaultState, setDefaultState] = useState({});
+  const [updateState, setUpdateState] = useState({});
+
+  // Usado para controlar todos los elementos de la actividad Drag.
+  const [dragActivity, updatedDragActivity] = useReducer(
+    (prev, next) => {
+      return { ...prev, ...next };
+    },
+    { isOpenModal: false, isRight: false, isValidate: false, button: true }
+  );
+
+  /**
+   * Función que se encarga de validar
+   * el valor proporcionado por el componente Radio.
+   *
+   * @param {Array} result - Object
+   */
+  const onValidate = (result) => {
+    const newObject = { isOpen: true };
+
+    if (result) {
+      newObject.isRight = true;
+    }
+    setValidate({ ...newObject });
+  };
+
+  // Se utiliza para cerrar el modal de la actividad Radio.
+  const onCloseModal = () => {
+    setValidate({ ...validate, isOpen: false });
+  };
+
+  /**
+   * Función que se encarga de validar
+   * el valor proporcionado por el componente DragAndDrop.
+   *
+   * @param {Array} value - ID del drag
+   */
+  const onNewDrag = ({ validate: drags, active }) => {
+    const newListDrags = [...drags];
+    const TOTAL_DRAGS_TO_THROW_CORRECT_MODAL = 1;
+
+    if (active && dragActivity.button) {
+      updatedDragActivity({ button: !dragActivity.button });
+    }
+
+    if (newListDrags.length === TOTAL_DRAGS_TO_THROW_CORRECT_MODAL) {
+      updatedDragActivity({ isRight: !dragActivity.isRight });
+    }
+    // setUpdateLevelActive("/redg-4/level-1/activity-8");
+  };
+
+  // Referencia del botón que valida la actividad drag.
+  const refButtonDragActivity = useRef();
+
+  // Referencia del botón de la actividad Radio.
+  const refButtonActivity = useRef();
+
+  const onState = ({ state }) => {
+    setUpdateState(state);
+  };
+
+  // useEffect(() => {
+  //   // guarda las llaves de las actividades en cache
+  //   setActivityLoad({
+  //     activities: [{ key: "Lv1Act7-Ativity1" }, { key: "Lv1Act7-Ativity2" }],
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   if (dragActivity.isValidate && !dragActivity.load) {
+  //     setActivityComplete({
+  //       key: updateState.key,
+  //       answer: updateState.validateId,
+  //       answers: updateState.newObjectState,
+  //     });
+  //   }
+  // }, [dragActivity]);
+
+  // useEffect(() => {
+  //   if (level) {
+  //     const { activities } = level;
+  //     const activity = activities?.find(
+  //       (item) => item.key === "Lv1Act7-Ativity1"
+  //     );
+  //     if (activity?.complete) {
+  //       setDefaultValidateId(activity.answer || []);
+  //       setDefaultState(activity.answers || {});
+
+  //       if (!activity.isValidate) updatedDragActivity({ isValidate: true });
+  //     }
+  //   }
+  // }, [level]);
 
   return (
     <Panel>
@@ -164,71 +260,6 @@ const Ova7p7 = () => {
             </Row>
           </Col>
         </Row>
-
-        <Modal
-          isOpen={isOpen.context}
-          finalFocusRef={contextRef}
-          onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))
-          }
-        >
-          <ModalOverlay />
-
-          <ModalContent addClass="c-modal u-fs-300">
-            <ImageContainer
-              background="assets/images/Slide3-image-1.png"
-              addClass="title-container title-container--stage"
-              width="500px"
-              height="50px"
-            >
-              <h2 className="u-special-font u-text-center u-fs-600">
-                Contexto
-              </h2>
-            </ImageContainer>
-
-            <Row justify-content="center" align-items="center">
-              <Col xs="11" addClass="u-self-end u-mb-9">
-                <ImageContainer
-                  background="assets/images/Slide1-image-9.png"
-                  addClass="u-mt-3"
-                >
-                  <Row justify-content="center" align-items="center">
-                    <Col xs="11" mm="10" md="9" lg="7" hd="6">
-                      <p>
-                        Son muchas las causas patológicas que afectan la
-                        reproducción en equinos, sin embargo, conocer su
-                        sintomatología y lograr un correcto diagnóstico es el
-                        conducto regular y más adecuado para generar el control
-                        de sus efectos nocivos en la rentabilidad del sistema,
-                        para esto hay que apoyarse en pruebas de laboratorio que
-                        permitan identificar los microorganismos presentes en el
-                        cuadro patológico, y con base en esto iniciar las
-                        estrategias de control y prevención, ante la
-                        presentación de un cuadro de una yegua problema, en la
-                        cual se han realizado varias inseminaciones, no se ha
-                        logrado obtener preñez y se sospecha de situaciones
-                        sanitarias.
-                      </p>
-                    </Col>
-
-                    <Col xs="11" mm="10" md="9" lg="6" hd="5">
-                      <p className="u-text-center u-font-bold u-my-2">
-                        Haga clic sobre la imagen para consultar el documento
-                        sobre Anatomy, Physiology and Reproduction in the Mare.
-                      </p>
-
-                      <Image
-                        src="/assets/images/Slide4-image-1.png"
-                        alt="Gráfico circular donde aparece dos fases: la primera es al fase folicular donde se encuentra lo Estrógenos y la segunda es la fase luteal donde esta la Prostagaldina y la Progesterona."
-                        noCaption
-                      />
-                    </Col>
-                  </Row>
-                </ImageContainer>
-              </Col>
-            </Row>
-          </ModalContent>
-        </Modal>
       </Section>
 
       <Section addClass="animate__animated animate__fadeInDown animate__faster u-section-overflow">
@@ -395,7 +426,14 @@ const Ova7p7 = () => {
           align-items="center"
           addClass="u-py-6"
         >
-          <DragValidation>
+          <DragAndDrop
+            validate={dragActivity.isValidate}
+            id="Lv1Act7-Ativity1"
+            onState={onState}
+            defaultValidate={defaultValidateId}
+            defaultState={defaultState}
+            onValidate={onNewDrag}
+          >
             <Col xs="11" mm="10" md="10" lg="10" hd="10">
               <ImageContainer
                 background="assets/images/Slide1-image-9.png"
@@ -457,7 +495,7 @@ const Ova7p7 = () => {
                 </p>
                 <Droppable
                   id="A"
-                  validate={["A1"]}
+                  validate={["B1"]}
                   label="droppable"
                   addClass="drop-act7"
                   over="drop-container__drop-item--active"
@@ -477,7 +515,7 @@ const Ova7p7 = () => {
                 </p>
                 <Droppable
                   id="B"
-                  validate={["B1"]}
+                  validate={["A1"]}
                   label="droppable"
                   addClass="drop-act7"
                   over="drop-container__drop-item--active"
@@ -503,12 +541,23 @@ const Ova7p7 = () => {
                 />
               </div>
             </Col>
-          </DragValidation>
+          </DragAndDrop>
           <Col xs="11" mm="11" md="11" lg="11" hd="11">
             <div className="btn-sec-act7">
               <Button
                 addClass="u-button-reset u-stack hoverButton"
-                onClick={() => setIsOpen(true)}
+                ref={refButtonDragActivity}
+                label="Comprobar"
+                disabled={dragActivity.button}
+                hasAriaLabel
+                onClick={() => {
+                  () => setIsOpen(true);
+                  updatedDragActivity({
+                    isValidate: !dragActivity.isValidate,
+                    button: !dragActivity.button,
+                    isOpenModal: !dragActivity.isOpenModal,
+                  });
+                }}
               >
                 <Image
                   src="assets/images/Button-style-large.png"
@@ -543,9 +592,11 @@ const Ova7p7 = () => {
           </Col>
         </Row>
         <Modal
-          isOpen={isOpen}
+          isOpen={dragActivity.isOpenModal}
           finalFocusRef={contextRef}
-          onClose={() => setIsOpen(false)}
+          onClose={() =>
+            updatedDragActivity({ isOpenModal: !dragActivity.isOpenModal })
+          }
         >
           <ModalOverlay />
           <ModalContent addClass="c-modal-secondary u-fs-300">
@@ -557,12 +608,21 @@ const Ova7p7 = () => {
                   abortos en las hembras equinas
                 </p>
                 <p className="u-text-center">
-                  <b>Puntaje obtenido:{puntaje} / 6 puntos</b>
+                  <b>
+                    Puntaje obtenido: {dragActivity.isRight ? 6 : 0} / 6 puntos
+                  </b>
                 </p>
               </Col>
             </Row>
             <div className="container-btn">
-              <ButtonSection section={5} onClick={() => setIsOpen(false)}>
+              <ButtonSection
+                section={5}
+                onClick={() =>
+                  updatedDragActivity({
+                    isOpenModal: !dragActivity.isOpenModal,
+                  })
+                }
+              >
                 <Button addClass="u-button-reset u-stack">
                   <Image
                     src="assets/images/Button-style-large.png"
