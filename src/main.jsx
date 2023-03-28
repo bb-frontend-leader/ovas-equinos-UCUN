@@ -10,7 +10,7 @@ import '@styles/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>;
+    <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
   </StrictMode>

@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   Col,
@@ -17,8 +17,8 @@ import {
   ModalContent,
   ModalOverlay,
   Image,
-  Button,
-} from "UI-Components-books";
+  Button
+} from 'UI-Components-books'
 import {
   ImageContainer,
   SvgStageMenu,
@@ -27,132 +27,147 @@ import {
   PlanGroup,
   PlanSelect,
   PlanCheck,
-} from "@components";
-import { useBackground } from "@hooks";
+  CheckBoxButton,
+  ModalActivity
+} from '@components'
+import { useBackground } from '@hooks'
 
 const Ova7p3 = () => {
-  const { setBackground } = useBackground();
+  const { setBackground } = useBackground()
+
+  const [points, setPoints] = useState(0)
 
   const [isOpen, setIsOpen] = useState({
     context: false,
     situation: false,
-  });
+    activity: false
+  })
 
   // Se utiliza para abrir y cerrar los modales.
   const onToggleModal = (modal) => {
-    setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }));
-  };
+    setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }))
+  }
 
-  const contextRef = useRef();
+  const handleActivity = ({ result }) => {
+    setPoints(result.points)
+    onToggleModal('activity')
+  }
 
-  const situationRef = useRef();
+  // Referencia del botón contexto.
+  const contextRef = useRef()
+
+  // Referencia del botón situación.
+  const situationRef = useRef()
+
+  // Referencia del botón para validar la actividad.
+  const validateRef = useRef()
 
   return (
-    <Panel>
+    <Panel defaultIndex={3}>
       <NavSection />
 
-      <Section addClass="animate__animated animate__fadeInDown animate__faster">
-        <Row justify-content="center" align-items="center" addClass="u-my-7">
-          <Col xs="11" md="10" lg="9" hd="7">
+      <Section addClass='animate__animated animate__fadeInDown animate__faster'>
+        <Row justify-content='center' align-items='center' addClass='u-my-7'>
+          <Col xs='11' md='10' lg='9' hd='7'>
             <ImageContainer
-              background="assets/images/Slide1-image-1.png"
-              addClass="u-fs-300 container"
-              padding="33px"
+              background='assets/images/Slide1-image-1.png'
+              addClass='u-fs-300 container'
+              padding='33px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="500px"
-                height="100px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='500px'
+                height='100px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 1.
                   <br />
                   <span>Anatomía de la reproducción en equinos</span>
                 </h2>
               </ImageContainer>
 
-              <p className="u-mt-6">
+              <p className='u-mt-6'>
                 Introducción Resultado esperado Contenido Antes de visitar las
                 pesebreras se recomienda repasar algunos conceptos. En esta
                 etapa se abordarán algunos elementos relacionados con la
                 anatomía de la hembra equina.
               </p>
 
-              <p className="u-my-3">
+              <p className='u-my-3'>
                 Haga clic en los botones para ver la vista anterior, lateral y
                 posterior del aparato reproductor hembra equina. En cada una de
                 ellas encontrará el detalle de las estructuras anatómicas.
               </p>
 
-              <Tabs addClass="c-tabs u-my-1">
+              <Tabs addClass='c-tabs u-my-1'>
                 <TabList
-                  addClass="c-tab-list"
-                  orientation="vertial"
-                  label="Anatomía de la reproducción en equinos"
+                  addClass='c-tab-list'
+                  orientation='vertial'
+                  label='Anatomía de la reproducción en equinos'
                 >
-                  <Tab addClass="c-tab u-fs-400" selected="is-tab--selected">
-                    <p className="u-special-font">
+                  <Tab addClass='c-tab u-fs-400' selected='is-tab--selected'>
+                    <p className='u-special-font'>
                       Vista anterior del aparato reproductor hembra equina
                     </p>
                   </Tab>
 
-                  <Tab addClass="c-tab u-fs-400" selected="is-tab--selected">
-                    <p className="u-special-font">
+                  <Tab addClass='c-tab u-fs-400' selected='is-tab--selected'>
+                    <p className='u-special-font'>
                       Vista lateral del aparato reproductor hembra equina
                     </p>
                   </Tab>
 
-                  <Tab addClass="c-tab u-fs-400" selected="is-tab--selected">
-                    <p className="u-special-font">
+                  <Tab addClass='c-tab u-fs-400' selected='is-tab--selected'>
+                    <p className='u-special-font'>
                       Vista posterior aparato reproductor hembra equina
                     </p>
                   </Tab>
                 </TabList>
 
-                <TabPanels addClass="c-tab-panel">
+                <TabPanels addClass='c-tab-panel'>
                   <TabPanel>
                     <Image
-                      src="assets/images/Slide3-image-2.png"
-                      alt="Vista anterior del aparato reproductor hembra equina"
-                      addClass="c-tab-panel__image"
-                      width="550"
+                      src='assets/images/Slide3-image-2.png'
+                      alt='Vista anterior del aparato reproductor hembra equina'
+                      addClass='c-tab-panel__image'
+                      width='550'
                       noCaption
                     />
                   </TabPanel>
 
                   <TabPanel>
                     <Image
-                      src="assets/images/Slide3-image-3.png"
-                      alt="Vista lateral del aparato reproductor hembra equina"
-                      addClass="c-tab-panel__image"
-                      width="550"
+                      src='assets/images/Slide3-image-3.png'
+                      alt='Vista lateral del aparato reproductor hembra equina'
+                      addClass='c-tab-panel__image'
+                      width='550'
                       noCaption
                     />
                   </TabPanel>
 
                   <TabPanel>
                     <Image
-                      src="assets/images/Slide3-image-4.png"
-                      alt="Vista posterior del aparato reproductor hembra equina"
-                      addClass="c-tab-panel__image"
-                      width="330"
+                      src='assets/images/Slide3-image-4.png'
+                      alt='Vista posterior del aparato reproductor hembra equina'
+                      addClass='c-tab-panel__image'
+                      width='330'
                       noCaption
                     />
                   </TabPanel>
                 </TabPanels>
               </Tabs>
 
-              <Row justify-content="center" align-items="center">
+              <Row justify-content='center' align-items='center'>
                 <ButtonSection section={2}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Ir a la segunda sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Continuar
                     </span>
                   </Button>
@@ -163,21 +178,21 @@ const Ova7p3 = () => {
         </Row>
       </Section>
 
-      <Section addClass="animate__animated animate__fadeInDown animate__faster">
-        <Row justify-content="center" align-items="center">
-          <Col xs="11" mm="10" md="9" lg="8" hd="7">
+      <Section addClass='animate__animated animate__fadeInDown animate__faster'>
+        <Row justify-content='center' align-items='center'>
+          <Col xs='11' mm='10' md='9' lg='8' hd='7'>
             <Row
-              justify-content="center"
-              align-items="center"
-              flex-direction="columns"
+              justify-content='center'
+              align-items='center'
+              flex-direction='columns'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container title-container--stage"
-                width="500px"
-                height="100px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container title-container--stage'
+                width='500px'
+                height='100px'
               >
-                <h2 className="u-special-font u-text-center u-fs-500">
+                <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 1.
                   <br />
                   <span>Anatomía de la reproducción en equinos</span>
@@ -185,57 +200,56 @@ const Ova7p3 = () => {
               </ImageContainer>
 
               <Image
-                src="assets/images/SvgRoulette-horse.png"
-                alt="Imagen de la cabeza de un caballo"
-                width="450"
-                addClass="u-mt-5"
+                src='assets/images/SvgRoulette-horse.png'
+                alt='Imagen de la cabeza de un caballo'
+                width='450'
+                addClass='u-mt-5'
                 noCaption
               />
 
-              <SvgStageMenu style={{ maxWidth: "700px" }}>
+              <SvgStageMenu style={{ maxWidth: '700px' }}>
                 {/* Buttons */}
 
-                <foreignObject x="47" y="110" width="350" height="95">
+                <foreignObject x='47' y='110' width='350' height='95'>
                   <Button
                     ref={contextRef}
-                    addClass="c-button"
-                    onClick={() => onToggleModal("context")}
+                    addClass='c-button'
+                    onClick={() => onToggleModal('context')}
                   >
                     <Image
-                      url="assets/images/SvgBottomBar-6.png"
-                      alt="contexto"
+                      url='assets/images/SvgBottomBar-6.png'
+                      alt='contexto'
                       noCaption
                     />
                   </Button>
                 </foreignObject>
 
-                <foreignObject x="412" y="110" width="350" height="95">
+                <foreignObject x='412' y='110' width='350' height='95'>
                   <Button
                     ref={situationRef}
-                    addClass="c-button"
-                    onClick={() => onToggleModal("situation")}
+                    addClass='c-button'
+                    onClick={() => onToggleModal('situation')}
                   >
                     <Image
-                      url="assets/images/SvgBottomBar-7.png"
-                      alt="situación"
+                      url='assets/images/SvgBottomBar-7.png'
+                      alt='situación'
                       noCaption
                     />
                   </Button>
                 </foreignObject>
 
-                <foreignObject x="790" y="110" width="350" height="95">
+                <foreignObject x='790' y='110' width='350' height='95'>
                   <ButtonSection
                     section={3}
                     onClick={() =>
                       setBackground(
-                        "url(/assets/images/Secondary-background.png)"
-                      )
-                    }
+                        'url(/assets/images/Secondary-background.png)'
+                      )}
                   >
-                    <Button addClass="c-button">
+                    <Button addClass='c-button'>
                       <Image
-                        url="assets/images/SvgBottomBar-8.png"
-                        alt="actividad"
+                        url='assets/images/SvgBottomBar-8.png'
+                        alt='actividad'
                         noCaption
                       />
                     </Button>
@@ -249,30 +263,30 @@ const Ova7p3 = () => {
         <Modal
           isOpen={isOpen.context}
           finalFocusRef={contextRef}
-          onClose={() => onToggleModal("context")}
+          onClose={() => onToggleModal('context')}
         >
           <ModalOverlay />
 
-          <ModalContent addClass="c-modal u-fs-300">
+          <ModalContent addClass='c-modal u-fs-300'>
             <ImageContainer
-              background="assets/images/Slide3-image-1.png"
-              addClass="title-container title-container--stage"
-              width="500px"
-              height="50px"
+              background='assets/images/Slide3-image-1.png'
+              addClass='title-container title-container--stage'
+              width='500px'
+              height='50px'
             >
-              <h2 className="u-special-font u-text-center u-fs-600">
+              <h2 className='u-special-font u-text-center u-fs-600'>
                 Contexto
               </h2>
             </ImageContainer>
 
-            <Row justify-content="center" align-items="center">
-              <Col xs="11" mm="10" md="9" lg="6" addClass="u-self-end u-mb-9">
+            <Row justify-content='center' align-items='center'>
+              <Col xs='11' mm='10' md='9' lg='6' addClass='u-self-end u-mb-9'>
                 <ImageContainer
-                  background="assets/images/Slide1-image-9.png"
-                  addClass="c-image-container-sign"
-                  padding="30px"
+                  background='assets/images/Slide1-image-9.png'
+                  addClass='c-image-container-sign'
+                  padding='30px'
                 >
-                  <p className="u-mb-3">
+                  <p className='u-mb-3'>
                     En la fina La Pradera la yegua “Vencedora” presentó síntomas
                     de celo. Fue servida utilizando inseminación artificial hace
                     25 días, los operarios del establecimiento estuvieron muy
@@ -292,11 +306,11 @@ const Ova7p3 = () => {
                 </ImageContainer>
               </Col>
 
-              <Col xs="11" mm="10" md="9" lg="6" hd="5">
+              <Col xs='11' mm='10' md='9' lg='6' hd='5'>
                 <Image
-                  src="assets/images/horse-base.png"
-                  alt="Animación de un caballo parado"
-                  width="580"
+                  src='assets/images/horse-base.png'
+                  alt='Animación de un caballo parado'
+                  width='580'
                   noCaption
                 />
               </Col>
@@ -307,35 +321,35 @@ const Ova7p3 = () => {
         <Modal
           isOpen={isOpen.situation}
           finalFocusRef={situationRef}
-          onClose={() => onToggleModal("situation")}
+          onClose={() => onToggleModal('situation')}
         >
           <ModalOverlay />
 
-          <ModalContent addClass="c-modal u-fs-300">
+          <ModalContent addClass='c-modal u-fs-300'>
             <ImageContainer
-              background="assets/images/Slide3-image-1.png"
-              addClass="title-container title-container--stage"
-              width="500px"
-              height="50px"
+              background='assets/images/Slide3-image-1.png'
+              addClass='title-container title-container--stage'
+              width='500px'
+              height='50px'
             >
-              <h2 className="u-special-font u-text-center u-fs-600">
+              <h2 className='u-special-font u-text-center u-fs-600'>
                 Situación
               </h2>
             </ImageContainer>
 
-            <Row justify-content="center" align-items="center">
+            <Row justify-content='center' align-items='center'>
               <Col
-                xs="11"
-                mm="10"
-                md="8"
-                lg="6"
-                hd="5"
-                addClass="u-self-end u-mb-9"
+                xs='11'
+                mm='10'
+                md='8'
+                lg='6'
+                hd='5'
+                addClass='u-self-end u-mb-9'
               >
                 <ImageContainer
-                  background="assets/images/Slide1-image-9.png"
-                  addClass="c-image-container-sign"
-                  padding="30px"
+                  background='assets/images/Slide1-image-9.png'
+                  addClass='c-image-container-sign'
+                  padding='30px'
                 >
                   <p>
                     La evaluación reproductiva por ultrasonografía es una
@@ -347,11 +361,11 @@ const Ova7p3 = () => {
                 </ImageContainer>
               </Col>
 
-              <Col xs="11" mm="10" md="8" lg="6" hd="5">
+              <Col xs='11' mm='10' md='8' lg='6' hd='5'>
                 <Image
-                  src="assets/images/horse-base.png"
-                  alt="Animación de un caballo parado"
-                  width="816"
+                  src='assets/images/horse-base.png'
+                  alt='Animación de un caballo parado'
+                  width='816'
                   noCaption
                 />
               </Col>
@@ -360,42 +374,42 @@ const Ova7p3 = () => {
         </Modal>
       </Section>
 
-      <Section addClass="animate__animated animate__fadeInDown animate__faster u-section-overflow">
-        <Row justify-content="center" align-items="center">
-          <Col xs="11" mm="10" md="9" lg="8" hd="7">
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='center' align-items='center'>
+          <Col xs='11' mm='10' md='9' lg='8' hd='7'>
             <ImageContainer
-              background="assets/images/Slide1-image-9.png"
-              addClass="u-mt-2"
-              padding="30px"
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-mt-2'
+              padding='30px'
             >
               <ImageContainer
-                background="assets/images/Slide3-image-1.png"
-                addClass="title-container"
-                width="500px"
-                height="50px"
+                background='assets/images/Slide3-image-1.png'
+                addClass='title-container'
+                width='500px'
+                height='50px'
               >
-                <h2 className="u-special-font u-text-center u-fs-600">
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Actividad 1
                 </h2>
               </ImageContainer>
 
               <Row
-                justify-content="center"
-                align-items="center"
-                addClass="u-pt-2"
+                justify-content='center'
+                align-items='center'
+                addClass='u-pt-2'
               >
-                <Col xs="11" mm="10" md="9" lg="6" hd="5">
+                <Col xs='11' mm='10' md='9' lg='6' hd='5'>
                   <Image
-                    src="assets/images/Slide3-image-6.png"
-                    alt="Vista anterior del aparato reproductor hembra equina"
-                    addClass="c-actvity__image"
-                    width="360"
+                    src='assets/images/Slide3-image-6.png'
+                    alt='Vista anterior del aparato reproductor hembra equina'
+                    addClass='c-actvity__image'
+                    width='360'
                     noCaption
                   />
                 </Col>
 
-                <Col xs="11" mm="10" md="9" lg="7" hd="6" addClass="u-fs-300">
-                  <p className="u-mb-2 u-mt-5">
+                <Col xs='11' mm='10' md='9' lg='7' hd='6' addClass='u-fs-300'>
+                  <p className='u-mb-2 u-mt-5'>
                     Luego de la ultrasonografía, las estructuras que podrían
                     estar presentes en el tracto uterino e impedirían el retorno
                     al celo de la hembra en mención serian.
@@ -410,20 +424,21 @@ const Ova7p3 = () => {
                     obtenido.
                   </p>
 
-                  <div className="c-checkbox-modal-grid u-my-4">
-                    <CheckBoxGroup>
+                  <CheckBoxGroup onResult={handleActivity}>
+                    <div className='c-checkbox-modal-grid u-my-4'>
                       <CheckBoxModal
-                        id="ui-checkbox-1"
-                        value="option_1"
-                        label="Opción 1"
-                        state="right"
+                        id='ui-checkbox-1'
+                        value='option_1'
+                        label='Opción 1'
+                        state='right'
+                        points={2.5}
                       >
                         <Row
-                          justify-content="center"
-                          flex-direction="column"
-                          addClass="u-fs-300"
+                          justify-content='center'
+                          flex-direction='column'
+                          addClass='u-fs-300'
                         >
-                          <p className="u-my-2 u-font-bold">Opción 1</p>
+                          <p className='u-my-2 u-font-bold'>Opción 1</p>
                           <p>
                             La presencia de un cuerpo lúteo en alguno de los
                             ovarios acompañado de una vesícula embrionaria y un
@@ -435,17 +450,18 @@ const Ova7p3 = () => {
                       </CheckBoxModal>
 
                       <CheckBoxModal
-                        id="ui-checkbox-2"
-                        value="option_2"
-                        label="Opción 2"
-                        state="rigth"
+                        id='ui-checkbox-2'
+                        value='option_2'
+                        label='Opción 2'
+                        state='wrong'
+                        points={0}
                       >
                         <Row
-                          justify-content="center"
-                          flex-direction="column"
-                          addClass="u-fs-300"
+                          justify-content='center'
+                          flex-direction='column'
+                          addClass='u-fs-300'
                         >
-                          <p className="u-my-2 u-font-bold">Opción 2</p>
+                          <p className='u-my-2 u-font-bold'>Opción 2</p>
                           <p>
                             La presencia de un cuerpo extraño en alguno de los
                             úteros acompañado de una vesícula seminal y un
@@ -457,17 +473,18 @@ const Ova7p3 = () => {
                       </CheckBoxModal>
 
                       <CheckBoxModal
-                        id="ui-checkbox-3"
-                        value="option_3"
-                        label="Opción 3"
-                        state="wrong"
+                        id='ui-checkbox-3'
+                        value='option_3'
+                        label='Opción 3'
+                        state='right'
+                        points={2.5}
                       >
                         <Row
-                          justify-content="center"
-                          flex-direction="column"
-                          addClass="u-fs-300"
+                          justify-content='center'
+                          flex-direction='column'
+                          addClass='u-fs-300'
                         >
-                          <p className="u-my-2 u-font-bold">Opción 3</p>
+                          <p className='u-my-2 u-font-bold'>Opción 3</p>
                           <p>
                             Se podría encontrar un cuerpo lúteo en alguno de los
                             ovarios, pero no la presencia de vesícula
@@ -480,17 +497,18 @@ const Ova7p3 = () => {
                       </CheckBoxModal>
 
                       <CheckBoxModal
-                        id="ui-checkbox-4"
-                        value="option_4"
-                        label="Opción 4"
-                        state="wrong"
+                        id='ui-checkbox-4'
+                        value='option_4'
+                        label='Opción 4'
+                        state='wrong'
+                        points={0}
                       >
                         <Row
-                          justify-content="center"
-                          flex-direction="column"
-                          addClass="u-fs-300"
+                          justify-content='center'
+                          flex-direction='column'
+                          addClass='u-fs-300'
                         >
-                          <p className="u-my-2 u-font-bold">Opción 4</p>
+                          <p className='u-my-2 u-font-bold'>Opción 4</p>
                           <p>
                             Se podría encontrar un cuerpo lúteo en alguno de los
                             ovarios, pero no la presencia de vesícula
@@ -501,65 +519,93 @@ const Ova7p3 = () => {
                           </p>
                         </Row>
                       </CheckBoxModal>
-                    </CheckBoxGroup>
-                  </div>
+                    </div>
 
-                  <Row justify-content="center" align-items="center">
-                    <ButtonSection
-                      section={2}
-                      onClick={() =>
-                        setBackground(
-                          "url(/assets/images/Principal-background.png)"
-                        )
-                      }
-                    >
-                      <Button addClass="u-button-reset u-stack">
-                        <Image
-                          src="assets/images/Button-style-large.png"
-                          alt="Volver a la segunda sección"
-                          width="200"
-                          noCaption
-                        />
-                        <span className="u-special-font u-fs-500 u-zindex-2">
-                          Volver
-                        </span>
-                      </Button>
-                    </ButtonSection>
-                  </Row>
+                    <Row justify-content='center' align-items='center'>
+                      <CheckBoxButton>
+                        <Button
+                          ref={validateRef}
+                          addClass='u-button-reset u-stack'
+                        >
+                          <Image
+                            src='assets/images/Button-style-large.png'
+                            alt='Volver a la segunda sección'
+                            width='200'
+                            noCaption
+                          />
+                          <span className='u-special-font u-fs-500 u-zindex-2'>
+                            Validar
+                          </span>
+                        </Button>
+                      </CheckBoxButton>
+
+                      <ButtonSection
+                        section={2}
+                        onClick={() =>
+                          setBackground(
+                            'url(/assets/images/Principal-background.png)'
+                          )}
+                      >
+                        <Button addClass='u-button-reset u-stack'>
+                          <Image
+                            src='assets/images/Button-style-large.png'
+                            alt='Volver a la segunda sección'
+                            width='200'
+                            noCaption
+                          />
+                          <span className='u-special-font u-fs-500 u-zindex-2'>
+                            Volver
+                          </span>
+                        </Button>
+                      </ButtonSection>
+                    </Row>
+                  </CheckBoxGroup>
                 </Col>
               </Row>
             </ImageContainer>
           </Col>
 
-          <Col xs="11" mm="10" md="9" lg="6" hd="4" />
+          <Col xs='11' mm='10' md='9' lg='6' hd='4' />
+
+          <ModalActivity
+            section={4}
+            open={isOpen.activity}
+            onClose={() => onToggleModal('activity')}
+            focusRef={validateRef}
+            feedback='Se debe contar con el conocimiento anatómico de la hembra
+            equina de modo que pueda determinar las causas de no retorno
+            al celo a partir d elas evaluaciones realizadas y de la
+            situación asociada.'
+            points={`${points} / 5`}
+          />
         </Row>
       </Section>
 
-      <Section addClass="animate__animated animate__fadeInDown animate__faster">
-        <Row justify-content="center" align-items="center">
-          <Col xs="12" mm="11" md="10" lg="9" hd="8">
+      <Section addClass='animate__animated animate__fadeInDown animate__faster'>
+        <Row justify-content='center' align-items='center'>
+          <Col xs='12' mm='11' md='10' lg='9' hd='8'>
             <ImageContainer
-              background="assets/images/Slide3-image-7.png"
-              addClass="u-text-center u-my-2"
-              padding="30px"
+              background='assets/images/Slide3-image-7.png'
+              addClass='u-text-center u-my-2'
+              padding='30px'
             >
-              <h2 className="u-mb-3 u-fs-300">
+              <h2 className='u-mb-3 u-fs-300'>
                 <strong>Plan de manejo:</strong> Anatomía de la reproducción en
                 equinos.
               </h2>
 
-              <p className="u-mb-5 u-fs-300">
+              <p className='u-mb-5 u-fs-300'>
                 Con base en la información manejada en esta parte del recurso,
                 seleccione las partes que conforman el tracto reproductivo de la
                 hembra equina y del menú desplegable elija la función respectiva
                 dentro del sistema reproductivo.
               </p>
 
-              <div className="c-plan-group-grid u-px-3">
+              <div className='c-plan-group-grid u-px-3'>
                 <PlanGroup>
-                  <PlanCheck value="question_1" label="Vulva." />
+                  <PlanCheck value='question_1' label='Vulva.' />
 
-                  <PlanSelect id="question_1">
+                  <PlanSelect id='question_1'>
                     <option value={1}>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
@@ -592,9 +638,9 @@ const Ova7p3 = () => {
                     </option>
                   </PlanSelect>
 
-                  <PlanCheck value="question_2" label="Vagina." />
+                  <PlanCheck value='question_2' label='Vagina.' />
 
-                  <PlanSelect id="question_2">
+                  <PlanSelect id='question_2'>
                     <option value={1}>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
@@ -627,9 +673,9 @@ const Ova7p3 = () => {
                     </option>
                   </PlanSelect>
 
-                  <PlanCheck value="question_3" label="Cérvix." />
+                  <PlanCheck value='question_3' label='Cérvix.' />
 
-                  <PlanSelect id="question_3">
+                  <PlanSelect id='question_3'>
                     <option value={1}>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
@@ -662,9 +708,9 @@ const Ova7p3 = () => {
                     </option>
                   </PlanSelect>
 
-                  <PlanCheck value="question_4" label="Cuerpo del útero." />
+                  <PlanCheck value='question_4' label='Cuerpo del útero.' />
 
-                  <PlanSelect id="question_4">
+                  <PlanSelect id='question_4'>
                     <option value={1}>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
@@ -697,9 +743,9 @@ const Ova7p3 = () => {
                     </option>
                   </PlanSelect>
 
-                  <PlanCheck value="question_5" label="Cuerno uterinos." />
+                  <PlanCheck value='question_5' label='Cuerno uterinos.' />
 
-                  <PlanSelect id="question_5">
+                  <PlanSelect id='question_5'>
                     <option value={1}>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
@@ -732,9 +778,9 @@ const Ova7p3 = () => {
                     </option>
                   </PlanSelect>
 
-                  <PlanCheck value="question_6" label="Oviducto." />
+                  <PlanCheck value='question_6' label='Oviducto.' />
 
-                  <PlanSelect id="question_6">
+                  <PlanSelect id='question_6'>
                     <option value={1}>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
@@ -767,9 +813,9 @@ const Ova7p3 = () => {
                     </option>
                   </PlanSelect>
 
-                  <PlanCheck value="question_7" label="Ovarios." />
+                  <PlanCheck value='question_7' label='Ovarios.' />
 
-                  <PlanSelect id="question_7">
+                  <PlanSelect id='question_7'>
                     <option value={1}>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
@@ -805,32 +851,32 @@ const Ova7p3 = () => {
               </div>
 
               <Row
-                justify-content="center"
-                align-items="center"
-                addClass="u-mt-3"
+                justify-content='center'
+                align-items='center'
+                addClass='u-mt-3'
               >
                 <ButtonSection section={3}>
-                  <Button addClass="u-button-reset u-stack">
+                  <Button addClass='u-button-reset u-stack'>
                     <Image
-                      src="assets/images/Button-style-large.png"
-                      alt="Volver a la tercera sección"
-                      width="200"
+                      src='assets/images/Button-style-large.png'
+                      alt='Volver a la tercera sección'
+                      width='200'
                       noCaption
                     />
-                    <span className="u-special-font u-fs-500 u-zindex-2">
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
                       Volver
                     </span>
                   </Button>
                 </ButtonSection>
 
-                <Link to="/unit/1/page/2" className="u-button-reset u-stack">
+                <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
-                    src="assets/images/Button-style-large.png"
-                    alt="Lleva al menú principal"
-                    width="200"
+                    src='assets/images/Button-style-large.png'
+                    alt='Lleva al menú principal'
+                    width='200'
                     noCaption
                   />
-                  <span className="u-special-font u-fs-500 u-zindex-2">
+                  <span className='u-special-font u-fs-500 u-zindex-2'>
                     Continuar
                   </span>
                 </Link>
@@ -840,7 +886,7 @@ const Ova7p3 = () => {
         </Row>
       </Section>
     </Panel>
-  );
-};
+  )
+}
 
-export default Ova7p3;
+export default Ova7p3

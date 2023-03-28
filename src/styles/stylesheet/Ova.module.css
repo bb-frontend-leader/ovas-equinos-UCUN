@@ -56,7 +56,7 @@
   font-weight: normal;
 }
 
-.title-container h2 > * {
+.title-container h2>* {
   color: var(--clr-primary-400);
 }
 
@@ -88,17 +88,17 @@
   box-shadow: 2px 2px 7px 0px var(--clr-primary-800);
 }
 
-.is-tab--selected > p {
+.is-tab--selected>p {
   color: var(--clr-primary-400);
 }
 
-.c-tab-panel > div {
+.c-tab-panel>div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.c-tab-panel__image > img {
+.c-tab-panel__image>img {
   border-radius: 8px;
   box-shadow: 0px 0px 0px 13px rgb(0 0 0 / 17%);
 }
@@ -154,7 +154,7 @@
 
 /* Activity */
 
-.c-actvity__image > img {
+.c-actvity__image>img {
   border-radius: 32px;
   box-shadow: 0px 0px 0px 6px rgb(0 0 0 / 17%);
 }
@@ -295,6 +295,7 @@
 .drop-container__drop img[tabIndex="-1"]:nth-child(5) {
   top: calc(100% - var(--axis-y-img));
 }
+
 .drop-container__act-7,
 .drop-container__drop-item {
   height: auto;
@@ -326,6 +327,7 @@
   top: 29%;
   left: 19%;
 }
+
 .c-toggle-check-grid-etapa3 li:nth-child(2) {
   position: absolute;
   top: 37%;
@@ -353,13 +355,11 @@
   font-size: 1.55rem;
   color: #472309;
   border: #8b5837;
-  background: linear-gradient(
-    90deg,
-    rgba(230, 155, 91, 1) 41%,
-    rgba(215, 143, 87, 1) 60%,
-    rgba(173, 108, 74, 1) 83%,
-    rgba(158, 95, 68, 1) 94%
-  );
+  background: linear-gradient(90deg,
+      rgba(230, 155, 91, 1) 41%,
+      rgba(215, 143, 87, 1) 60%,
+      rgba(173, 108, 74, 1) 83%,
+      rgba(158, 95, 68, 1) 94%);
   box-shadow: inset 0.4px 0.3px 0.6px 2px #8b5837, 0px 0px 1.9px 0.5px #79452a,
     0px 0px 0px 4px #dfa878, -2px 0px 1px 4.4px #bd7f5f;
   text-shadow: 1.8px 0 #5c3927ed;
@@ -372,7 +372,7 @@
   transform: translateY(-300%);
 }
 
-.c-popover-check__check > div {
+.c-popover-check__check>div {
   --input-border-radius: 50%;
   --gap: 0.5em;
   --input-color: var(--clr-primary-900);
@@ -385,12 +385,12 @@
     0px 0px 0px 4px #dfa878, -2px 0px 1px 4.4px #bd7f5f;
 }
 
-.c-popover-check__check > div:focus-within {
+.c-popover-check__check>div:focus-within {
   outline: max(2px, 0.08em) solid #79452a;
   outline-offset: max(2px, 0.4em);
 }
 
-.c-popover-check__check > div div::before {
+.c-popover-check__check>div div::before {
   background-color: var(--input-color);
 }
 
@@ -398,20 +398,24 @@
   position: absolute;
   top: -66%;
 }
+
 .hoverButton:hover {
   transform: scale(1.05);
   transform-origin: center;
 }
+
 .container-act-7 {
   position: relative;
   padding-bottom: 3rem;
   margin-bottom: 6rem;
 }
+
 .drop-container__act-7 {
   margin-bottom: 8rem;
   position: relative;
   z-index: -1;
 }
+
 .c-drags-act-7 {
   position: absolute;
   top: 76%;
@@ -425,6 +429,7 @@
   z-index: 2;
   box-shadow: none;
 }
+
 .drop-act7 {
   position: absolute;
   top: 66%;
@@ -438,6 +443,7 @@
   z-index: 2;
   box-shadow: none;
 }
+
 .c-drag--act7 {
   width: 100%;
   height: 100%;
@@ -455,6 +461,7 @@
   display: flex;
   justify-content: center;
 }
+
 .positionImg-Etapa4 {
   position: absolute;
   top: -66%;
@@ -512,14 +519,17 @@ th.tableFinal-3 {
   top: calc(100% - var(--axis-y-img));
   left: 2rem;
 }
+
 .imgSogasFinal img[tabIndex="-1"]:nth-child(4) {
   top: calc(100% - var(--axis-y-img));
   right: 2rem;
 }
+
 .imgSogasFinal img[tabIndex="-1"]:nth-child(2) {
   top: calc(100% - var(--axis-y-img));
   left: 54%;
 }
+
 .imgSogasFinal img[tabIndex="-1"]:nth-child(3) {
   top: calc(100% - var(--axis-y-img));
   right: 54%;
@@ -544,7 +554,7 @@ th.tableFinal-3 {
   left: calc(100% - 72%);
 }
 
-.styleAudioButton{
+.styleAudioButton {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -555,7 +565,7 @@ th.tableFinal-3 {
   border: none;
 }
 
-.styleAudioButton:focus{
+.styleAudioButton:focus {
   border: 2px solid var(--clr-primary-800);
 }
 
@@ -572,14 +582,17 @@ th.tableFinal-3 {
     top: calc(100% - var(--axis-y-img));
     left: 12rem;
   }
+
   .imgSogasFinal img[tabIndex="-1"]:nth-child(3) {
     top: calc(100% - var(--axis-y-img));
     right: 12rem;
   }
+
   .imgSogasFinal img[tabIndex="-1"]:nth-child(2) {
     top: calc(100% - 16%);
     left: 12rem;
   }
+
   .imgSogasFinal img[tabIndex="-1"]:nth-child(4) {
     top: calc(100% - 16%);
     right: 12rem;
