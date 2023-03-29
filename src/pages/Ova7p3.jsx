@@ -32,22 +32,33 @@ import {
 } from '@components'
 import { useBackground } from '@hooks'
 
-const Ova7p3 = () => {
-  const { setBackground } = useBackground()
+import { useActivityStore } from '../store/store'
 
+const Ova7p3 = () => {
+  const getStorage = useActivityStore((state) => state.activities)
+
+  getStorage()
+
+  // Usado para almacenar el puntaje de la actividad y
+  // poder mostrarlo en el ModalActivity.
   const [points, setPoints] = useState(0)
 
+  // Estado utilizado para controlar la apertura y cierre de modales.
   const [isOpen, setIsOpen] = useState({
     context: false,
     situation: false,
     activity: false
   })
 
+  // Hook utilizado para actualizar el background-image.
+  const { setBackground } = useBackground()
+
   // Se utiliza para abrir y cerrar los modales.
   const onToggleModal = (modal) => {
     setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }))
   }
 
+  // Funcion utilizada en el onResult de la actividad.
   const handleActivity = ({ result }) => {
     setPoints(result.points)
     onToggleModal('activity')

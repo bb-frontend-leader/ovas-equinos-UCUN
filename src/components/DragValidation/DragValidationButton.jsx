@@ -1,14 +1,14 @@
-import { useContext, cloneElement } from 'react'
+import { useContext, cloneElement, Children } from 'react'
 import PropTypes from 'prop-types'
 
-import { PopoverRadioGroupContext } from './PopoverRadioGroup'
+import { DragValidationContext } from './DragValidation'
 
-export const ValidationButton = ({ children, onClick }) => {
+export const DragValidationButton = ({ children, onClick }) => {
   // Obtenemos el método validate y la propiedad disabledButton del contexto.
   const {
     validate,
     activity: { button }
-  } = useContext(PopoverRadioGroupContext)
+  } = useContext(DragValidationContext)
 
   /**
    * Función utilizada para lanzar la validación
@@ -26,14 +26,16 @@ export const ValidationButton = ({ children, onClick }) => {
    * Agregamos el evento onClick y
    * la propiedad siabled al children del compontente.
    */
-  return cloneElement(children, {
-    ...children.props,
-    onClick: handleValidation,
-    disabled: button
-  })
+  return Children.map(children, (child) =>
+    cloneElement(child, {
+      ...children.props,
+      onClick: handleValidation,
+      disabled: button
+    })
+  )
 }
 
-ValidationButton.propTypes = {
+DragValidationButton.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
   onClick: PropTypes.func
 }

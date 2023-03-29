@@ -1,11 +1,9 @@
-import { createContext, useReducer, useEffect } from 'react'
+import { createContext, useReducer, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-export const PopoverRadioGroupContext = createContext()
+export const SelectGroupContext = createContext()
 
-const CORRECT_STATE = 'right'
-
-export const PopoverRadioGroup = ({ children, onResult, minSelected }) => {
+export const SelectGroup = ({ children, onResult, minSelected }) => {
   const [activity, updatedActivity] = useReducer(
     (prev, next) => {
       return { ...prev, ...next }
@@ -21,6 +19,12 @@ export const PopoverRadioGroup = ({ children, onResult, minSelected }) => {
     }
   )
 
+  const optionsRef = useRef([])
+
+  const addNewRef = (ref) => {
+    optionsRef.current = [...optionsRef.current, ref]
+  }
+
   /**
    * Creada para almacenar el radio seleccionado,
    * se crea un nuevo objecto con el id de la pregunta y el valor del checkbox.
@@ -28,9 +32,12 @@ export const PopoverRadioGroup = ({ children, onResult, minSelected }) => {
    * @param {String} id - id de la pregunta.
    * @param {Object} value - valor del radio seleccionado.
    */
-  const radioValues = ({ id, value, points }) => {
+  const selectValues = ({ id, value, points }) => {
     updatedActivity({
-      options: [{ id, value, points }]
+      options: [
+        ...activity.options.filter((option) => option.id !== id),
+        { id, value, points }
+      ]
     })
   }
 
@@ -43,9 +50,10 @@ export const PopoverRadioGroup = ({ children, onResult, minSelected }) => {
     updatedActivity({ validation: true, button: true })
 
     const correctOptions = activity.options.filter(
-      (option) => option.value === CORRECT_STATE
+      (option) => option.value === true
     )
-    const sumPoints = activity.options.reduce(
+
+    const sumPoints = correctOptions.reduce(
       (acc, { points }) => acc + points,
       0
     )
@@ -71,24 +79,21 @@ export const PopoverRadioGroup = ({ children, onResult, minSelected }) => {
   useEffect(() => {
     if (!activity.options.length) return
 
-    if (
-      minSelected === activity.options.length &&
-      !activity.validation
-    ) {
+    if (minSelected === activity.options.length && !activity.validation) {
       updatedActivity({ button: false })
     }
   }, [activity.options])
 
   return (
-    <PopoverRadioGroupContext.Provider
-      value={{ validate, radioValues, activity, updatedActivity }}
+    <SelectGroupContext.Provider
+      value={{ validate, selectValues, activity, updatedActivity, addNewRef }}
     >
       {children}
-    </PopoverRadioGroupContext.Provider>
+    </SelectGroupContext.Provider>
   )
 }
 
-PopoverRadioGroupContext.propTypes = {
+SelectGroup.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,

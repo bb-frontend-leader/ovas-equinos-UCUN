@@ -81,3 +81,15 @@ export const paths = [
     component_route: 'unit-1/u1p10'
   }
 ]
+
+export default function createActivityState () {
+  const STAGE_REGEX = /stage-\d+/i
+
+  return [...paths]
+    .filter(({ path }) => STAGE_REGEX.test(path))
+    .map((item) => ({
+      state: item.path.match(STAGE_REGEX)[0],
+      activities: [{}],
+      completed: false
+    }))
+}

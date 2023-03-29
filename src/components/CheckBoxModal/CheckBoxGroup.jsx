@@ -36,7 +36,10 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
    */
   const checkboxValues = ({ id, value, points }) => {
     updatedActivity({
-      options: [...activity.options.filter((option) => option.id !== id), { id, value, points }]
+      options: [
+        ...activity.options.filter((option) => option.id !== id),
+        { id, value, points }
+      ]
     })
   }
 
@@ -48,8 +51,13 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
   const validate = () => {
     updatedActivity({ validation: true, button: true })
 
-    const correctOptions = activity.options.filter((option) => option.value === CORRECT_STATE)
-    const sumPoints = activity.options.reduce((acc, { points }) => acc + points, 0)
+    const correctOptions = activity.options.filter(
+      (option) => option.value === CORRECT_STATE
+    )
+    const sumPoints = activity.options.reduce(
+      (acc, { points }) => acc + points,
+      0
+    )
 
     const newResult = { ...activity.result, points: sumPoints }
 
@@ -74,13 +82,18 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
 
     const MITAD = 2
 
-    if (optionsRef.current.length / MITAD === activity.options.length && !activity.validation) {
+    if (
+      optionsRef.current.length / MITAD === activity.options.length &&
+      !activity.validation
+    ) {
       updatedActivity({ button: false })
     }
   }, [activity.options])
 
   return (
-    <CheckBoxGroupContext.Provider value={{ validate, checkboxValues, activity, updatedActivity, addNewRef }}>
+    <CheckBoxGroupContext.Provider
+      value={{ validate, checkboxValues, activity, updatedActivity, addNewRef }}
+    >
       {children}
     </CheckBoxGroupContext.Provider>
   )

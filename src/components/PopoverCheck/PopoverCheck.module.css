@@ -5,6 +5,7 @@
     padding: 0.6rem 1rem 0.6rem 0.9rem;
     color: rgb(71, 35, 9);
     font-size: 0.885rem;
+    z-index: 2;
 }
 
 .c-popover-check__button {
@@ -31,11 +32,19 @@
     --input-color: var(--clr-primary-900);
     min-inline-size: 1.475rem;
     min-block-size: 1.475rem;
-    color: var(--clr-primary-900);
     border: none;
     background-color: #f8cd98;
     box-shadow: inset 0px 0px 0px 3px #dc9359, 0px 0px 1.9px 0.5px #79452a, 0px 0px 0px 4px #dfa878, -2px 0px 1px 4.4px #bd7f5f;
 }
+
+.c-popover-check__check[data-state="wrong"]>div {
+    --input-color: var(--clr-error-600);
+}
+
+.c-popover-check__check[data-state="right"]>div {
+    --input-color: var(--clr-success-600);
+}
+
 
 .c-popover-check__check>div:focus-within {
     outline: max(2px, 0.08em) solid #79452a;

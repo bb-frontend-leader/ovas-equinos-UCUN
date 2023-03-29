@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { PropTypes } from 'prop-types'
 
 import {
@@ -7,27 +8,24 @@ import {
   PopoverModalButton,
   PopoverModalContent
 } from 'UI-Components-books'
-
 import { PopoverRadioGroupContext } from './PopoverRadioGroup'
 
 import css from './PopoverRadio.module.css'
-import { useContext } from 'react'
 
-export const PopoverRadio = ({ children, label, distance, placement, id }) => {
+export const PopoverRadio = ({
+  children,
+  label,
+  distance,
+  placement,
+  id,
+  points,
+  state
+}) => {
+  // Obtenemos las diferentes propiedades del contexto superior.
   const {
-    setChecked,
-    checked,
-    setState,
-    state
+    radioValues,
+    activity: { validation }
   } = useContext(PopoverRadioGroupContext)
-
-  const monstarSeleccion = ({ id }) => {
-    setChecked(id.charAt(id.length - 1))
-
-    if (checked) {
-      setState(false)
-    }
-  }
 
   return (
     <PopoverModal>
@@ -42,12 +40,13 @@ export const PopoverRadio = ({ children, label, distance, placement, id }) => {
       >
         {children}
         <CheckBox
-          id={`idChecbox${id}`}
+          id={`idRadio${id}`}
           type='radio'
-          label=''
           addClass={`${css['c-popover-check__check']}`}
-          onChange={monstarSeleccion}
-          state={state || 'normal'}
+          state={validation ? state : 'normal'}
+          isDisabled={validation}
+          onChange={(value) => radioValues({ ...value, points })}
+          label=''
         />
       </PopoverModalContent>
     </PopoverModal>
@@ -62,11 +61,19 @@ PopoverRadio.propTypes = {
   label: PropTypes.string,
   distance: PropTypes.number,
   placement: PropTypes.string,
-  id: PropTypes.number,
+  points: PropTypes.number,
+  state: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.arrayOf(PropTypes.node)
-  ])
+  ]),
+  id: function (props, propName, componentName) {
+    if (typeof props[propName] !== 'string') {
+      return new Error(
+        `Es necesario la propiedad \`${propName}\` en el componente \`${componentName}\`.`
+      )
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, cloneElement } from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 
 import { Layout } from '@pages/Layout'
@@ -22,7 +22,7 @@ const App = () => {
                      */
                     paths.map((route) => {
                       const tempComponent = route.component
-                      const Component = (props = {}) => React.cloneElement(tempComponent, { ...props })
+                      const Component = (props = {}) => cloneElement(tempComponent, { ...props })
 
                       return <Route path={route.path} key={route.id} element={<Component />} />
                     })

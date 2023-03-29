@@ -19,6 +19,10 @@
     font-weight: bold;
 }
 
+.c-checkbox span {
+    text-align: left;
+}
+
 .c-checkbox[data-type="checkbox"] {
     --input-border-radius: .1rem;
 }

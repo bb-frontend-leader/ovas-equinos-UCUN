@@ -1,1 +1,2 @@
-export { DragValidation } from "./DragValidation";
+export * from './DragValidation'
+export { DragValidationButton } from './DragValidationButton'
