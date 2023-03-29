@@ -5,7 +5,7 @@ import { useNavigation } from '@hooks'
 
 import css from './ModalActivity.module.css'
 
-export const ModalActivity = ({ open, onClose, focusRef, feedback, points, section }) => {
+export const ModalActivity = ({ children, open, onClose, focusRef, feedback, points, section }) => {
   const { onNavigate } = useNavigation()
 
   const handleCloseModal = () => {
@@ -33,6 +33,8 @@ export const ModalActivity = ({ open, onClose, focusRef, feedback, points, secti
             {feedback}
           </p>
 
+          {children}
+
           <p className='u-text-center'>
             <strong>Puntaje obtenido</strong>: {`${points}`} puntos.
           </p>
@@ -43,9 +45,15 @@ export const ModalActivity = ({ open, onClose, focusRef, feedback, points, secti
 }
 
 ModalActivity.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(PropTypes.node)
+  ]),
   open: PropTypes.bool,
   onClose: PropTypes.func,
-  focusRef: PropTypes.func,
+  focusRef: PropTypes.object,
   feedback: PropTypes.string,
   points: PropTypes.string,
   section: PropTypes.number

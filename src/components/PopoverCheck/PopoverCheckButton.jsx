@@ -1,14 +1,14 @@
 import { useContext, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 
-import { PopoverRadioGroupContext } from './PopoverRadioGroup'
+import { PopoverCheckGroupContext } from './PopoverCheckGroup'
 
-export const ValidationButton = ({ children, onClick }) => {
+export const PopoverCheckButton = ({ children, onClick }) => {
   // Obtenemos el método validate y la propiedad disabledButton del contexto.
   const {
     validate,
     activity: { button }
-  } = useContext(PopoverRadioGroupContext)
+  } = useContext(PopoverCheckGroupContext)
 
   /**
    * Función utilizada para lanzar la validación
@@ -33,7 +33,7 @@ export const ValidationButton = ({ children, onClick }) => {
   })
 }
 
-ValidationButton.propTypes = {
+PopoverCheckButton.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
   onClick: PropTypes.func
 }
