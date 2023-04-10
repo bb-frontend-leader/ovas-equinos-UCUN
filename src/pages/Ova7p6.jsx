@@ -8,12 +8,8 @@ import {
   Section,
   NavSection,
   ButtonSection,
-  Modal,
-  ModalContent,
-  ModalOverlay,
   Image,
   Button,
-  CheckBox,
   Audio
 } from 'UI-Components-books'
 import {
@@ -21,31 +17,47 @@ import {
   SvgStageMenuTwo,
   PlanCheck,
   PlanGroup,
-  PlanSelect
+  PlanSelect,
+  ModalActivity,
+  CheckBoxGroup,
+  CheckBoxButton,
+  CheckBox
 } from '@components'
 import { useBackground } from '@hooks'
 
 const Ova7p6 = () => {
-  const { setBackground } = useBackground()
+  // Usado para almacenar el puntaje de la actividad y
+  // poder mostrarlo en el ModalActivity.
+  const [points, setPoints] = useState(0)
 
+  // Estado utilizado para controlar la apertura y cierre de modales.
   const [isOpen, setIsOpen] = useState({
-    modalAct1: false,
-    modalAct2: false
+    activity: false
   })
+
+  // Hook utilizado para actualizar el background-image.
+  const { setBackground } = useBackground()
 
   // Se utiliza para abrir y cerrar los modales.
   const onToggleModal = (modal) => {
     setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }))
   }
 
-  const contextRef = useRef()
+  // Funcion utilizada en el onResult de la actividad.
+  const handleActivity = ({ result }) => {
+    setPoints(result.points)
+    onToggleModal('activity')
+  }
+
+  // Referencia del botón para validar la actividad.
+  const validateRef = useRef()
 
   return (
     <Panel>
       <NavSection />
 
-      <Section>
-        <Row justify-content='center' align-items='center' addClass='u-my-7'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='center' align-items='center'>
           <Col xs='11' md='10' lg='9' hd='5'>
             <Image
               src='assets/images/SvgRoulette-horse.png'
@@ -55,6 +67,7 @@ const Ova7p6 = () => {
               noCaption
             />
           </Col>
+
           <Col xs='11' md='10' lg='9' hd='6'>
             <ImageContainer
               background='assets/images/Slide1-image-1.png'
@@ -64,7 +77,7 @@ const Ova7p6 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container'
-                width='80%'
+                width='60%'
                 height='100px'
               >
                 <h2 className='u-special-font u-text-center u-fs-500'>
@@ -74,7 +87,7 @@ const Ova7p6 = () => {
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-6'>
+              <p className='u-mt-3'>
                 Las biotecnologías reproductivas en equinos se presentan como
                 herramientas que permiten maximizar la fisiología reproductiva
                 de los ejemplares. En la presente etapa reconocerá algunas de
@@ -87,13 +100,21 @@ const Ova7p6 = () => {
                 audio.
               </p>
 
-              <Row className='positionContainerFinal' justify-content='center' align-items='center'>
-                <Audio defaultStyle type='Button' className='styleAudioButton' />
+              <Row
+                addClass='positionContainerFinal'
+                justify-content='center'
+              >
+                <Audio
+                  defaultStyle
+                  type='Button'
+                  className='styleAudioButton'
+                />
+
                 <ButtonSection section={2}>
-                  <Button addClass='u-button-reset u-stack'>
+                  <Button addClass='u-button-reset u-stack u-self-start'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -102,14 +123,13 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
-
               </Row>
             </ImageContainer>
           </Col>
         </Row>
       </Section>
 
-      <Section>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
           <Col xs='11' mm='10' md='9' lg='8' hd='7'>
             <Row
@@ -120,8 +140,8 @@ const Ova7p6 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container title-container--stage'
-                width='95%'
                 height='100px'
+                width='50%'
               >
                 <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 4.
@@ -194,8 +214,8 @@ const Ova7p6 = () => {
         </Row>
       </Section>
 
-      <Section>
-        <Row justify-content='center' align-items='center' addClass='u-my-4'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='center' align-items='center'>
           <Col xs='11' md='10' lg='9' hd='6'>
             <ImageContainer
               background='assets/images/Slide5-image-1.png'
@@ -205,15 +225,15 @@ const Ova7p6 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container'
-                width='80%'
                 height='55px'
+                width='60%'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Sitauación
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-6'>
+              <p className='u-mt-3'>
                 En la finca “La Rotonda”, el propietario presenta la siguiente
                 situación problémica:
               </p>
@@ -252,7 +272,7 @@ const Ova7p6 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -261,11 +281,12 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
+
                 <ButtonSection section={4}>
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -277,6 +298,7 @@ const Ova7p6 = () => {
               </Row>
             </ImageContainer>
           </Col>
+
           <Col xs='11' md='10' lg='9' hd='6'>
             <Image
               src='assets/images/SvgRoulette-genética-criolla.png'
@@ -289,9 +311,9 @@ const Ova7p6 = () => {
         </Row>
       </Section>
 
-      <Section>
-        <Row justify-content='center' align-items='center' addClass='u-my-4'>
-          <Col xs='11' md='10' lg='9' hd='6'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='space-evenly' align-items='center'>
+          <Col xs='11' md='10' lg='6' hd='5'>
             <ImageContainer
               background='assets/images/Slide5-image-1.png'
               addClass='u-fs-300 container'
@@ -300,10 +322,10 @@ const Ova7p6 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container'
-                width='80%'
                 height='55px'
+                width='60%'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Contexto
                 </h2>
               </ImageContainer>
@@ -335,7 +357,7 @@ const Ova7p6 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -344,11 +366,12 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
+
                 <ButtonSection section={5}>
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -372,9 +395,13 @@ const Ova7p6 = () => {
         </Row>
       </Section>
 
-      <Section>
-        <Row justify-content='center' align-items='flex-end' addClass='u-my-4'>
-          <Col xs='11' md='10' lg='9' hd='6'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row
+          justify-content='space-evenly'
+          align-items='flex-end'
+          addClass='u-my-4'
+        >
+          <Col xs='11' md='10' lg='6' hd='5'>
             <Image
               src='assets/images/SvgRoulette-genética-criolla.png'
               alt='Imagen de una persona con un caballo.'
@@ -394,11 +421,12 @@ const Ova7p6 = () => {
                   width='80%'
                   height='55px'
                 >
-                  <h2 className='u-special-font u-text-center u-fs-500'>
+                  <h2 className='u-special-font u-text-center u-fs-600'>
                     Actividad 6
                   </h2>
                 </ImageContainer>
-                <p className='u-mt-6'>
+
+                <p className='u-mt-3'>
                   Lea cada una de las opciones presentadas y seleccione dos
                   correctas haciendo clic en el recuadro derecho de la opción
                   elegida. Para terminar haga clic en el botón “Validar” para
@@ -417,158 +445,144 @@ const Ova7p6 = () => {
               </ImageContainer>
             </Col>
           </Col>
-          <Col xs='11' md='10' lg='9' hd='5'>
+
+          <Col xs='11' md='10' lg='6' hd='5'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
-              padding='33px'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300'
+              padding='40px'
             >
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Colecta y transferencia de embriones. Colectar embriones de
-                  una hembra en competencia para ser transferidos a una hembra
-                  receptora la cual continuará con el proceso de gestación y
-                  parto.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Evaluación reproductiva de presencia de estructuras ováricas,
-                  analizando la presencia de anestro el cual es trasplantado a
-                  una hembra receptora la cual continuará con el proceso de
-                  gestación.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Combinar la estimulación con hormonas sintéticas análogas,
-                  específicamente GnRH y estimulación lumínica en potrero, lo
-                  cual induce un retorno a la ciclicidad más rápida, o el
-                  estímulo lumínica artificial en la pesebrera.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Combinar y motivar la presencia de vesícula embrionaria,
-                  usando exposición aislada cada semana permitiendo que la
-                  hembra en competencia retorne al celo y se logre el proceso de
-                  gestación y parto.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <Row justify-content='center' align-items='center'>
-                <ButtonSection
-                  section={2}
-                  onClick={() =>
-                    setBackground(
-                      'url(/assets/images/Principal-background.png)'
-                    )}
-                >
-                  <Button addClass='u-button-reset u-stack'>
-                    <Image
-                      src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
-                      width='200'
-                      noCaption
-                    />
-                    <span className='u-special-font u-fs-500 u-zindex-2'>
-                      Validar
-                    </span>
-                  </Button>
-                </ButtonSection>
-                <ButtonSection
-                  section={6}
-                  onClick={() =>
-                    setBackground(
-                      'url(/assets/images/Principal-background.png)'
-                    )}
-                >
-                  <Button addClass='u-button-reset u-stack'>
-                    <Image
-                      src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
-                      width='200'
-                      noCaption
-                    />
-                    <span className='u-special-font u-fs-500 u-zindex-2'>
-                      Continuar
-                    </span>
-                  </Button>
-                </ButtonSection>
-              </Row>
+              <CheckBoxGroup minSelected={2} onResult={handleActivity}>
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Colecta y transferencia de embriones. Colectar embriones de
+                    una hembra en competencia para ser transferidos a una hembra
+                    receptora la cual continuará con el proceso de gestación y
+                    parto.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-1'
+                    addClass='c-popover-check__check'
+                    points={5}
+                    state='right'
+                    label=''
+                  />
+                </div>
+
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Evaluación reproductiva de presencia de estructuras
+                    ováricas, analizando la presencia de anestro el cual es
+                    trasplantado a una hembra receptora la cual continuará con
+                    el proceso de gestación.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-2'
+                    addClass='c-popover-check__check'
+                    points={5}
+                    state='right'
+                    label=''
+                  />
+                </div>
+
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Combinar la estimulación con hormonas sintéticas análogas,
+                    específicamente GnRH y estimulación lumínica en potrero, lo
+                    cual induce un retorno a la ciclicidad más rápida, o el
+                    estímulo lumínica artificial en la pesebrera.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-3'
+                    addClass='c-popover-check__check'
+                    points={-5}
+                    state='wrong'
+                    label=''
+                  />
+                </div>
+
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Combinar y motivar la presencia de vesícula embrionaria,
+                    usando exposición aislada cada semana permitiendo que la
+                    hembra en competencia retorne al celo y se logre el proceso
+                    de gestación y parto.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-4'
+                    addClass='c-popover-check__check'
+                    points={-5}
+                    state='wrong'
+                    label=''
+                  />
+                </div>
+
+                <Row justify-content='center' align-items='center'>
+                  <CheckBoxButton>
+                    <Button ref={validateRef} addClass='u-button-reset u-stack'>
+                      <Image
+                        src='assets/images/Button-style-large.png'
+                        alt='Validar la actividad'
+                        width='200'
+                        noCaption
+                      />
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
+                        Validar
+                      </span>
+                    </Button>
+                  </CheckBoxButton>
+
+                  <ButtonSection
+                    section={6}
+                    onClick={() =>
+                      setBackground(
+                        'url(/assets/images/Principal-background.png)'
+                      )}
+                  >
+                    <Button addClass='u-button-reset u-stack'>
+                      <Image
+                        src='assets/images/Button-style-large.png'
+                        alt='Continuar a la siguiente sección'
+                        width='200'
+                        noCaption
+                      />
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
+                        Continuar
+                      </span>
+                    </Button>
+                  </ButtonSection>
+                </Row>
+              </CheckBoxGroup>
             </ImageContainer>
           </Col>
+
+          <ModalActivity
+            section={6}
+            open={isOpen.activity}
+            onClose={() => onToggleModal('activity')}
+            focusRef={validateRef}
+            feedback='La colecta y transferencia de embriones, así como combinar la
+            estimulación con hormonas sintéticas análogas, específicamente
+            GnRH y estimulación lumínica en potrero, son biotecnologías
+            reproductivas aplicables a este caso.'
+            points={`${points} / 10`}
+          />
         </Row>
-        <Modal
-          isOpen={isOpen.modalAct1}
-          finalFocusRef={contextRef}
-          onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))}
-        >
-          <ModalOverlay />
-          <ModalContent addClass='c-modal-secondary u-fs-300'>
-            <Row justify-content='center' align-items='center'>
-              <Col xs='11'>
-                <p>
-                  La colecta y transferencia de embriones, así como combinar la
-                  estimulación con hormonas sintéticas análogas, específicamente
-                  GnRH y estimulación lumínica en potrero, son biotecnologías
-                  reproductivas aplicables a este caso.
-                </p>
-                <p className='u-text-center u-mb-3'>
-                  <b>Puntaje obtenido:</b> x /10 puntos.
-                </p>
-              </Col>
-              <ButtonSection section={6}>
-                <Button addClass='u-button-reset u-stack'>
-                  <Image
-                    src='assets/images/Button-style-large.png'
-                    alt='Ir a la segunda sección'
-                    width='200'
-                    noCaption
-                  />
-                  <span className='u-special-font u-fs-500 u-zindex-2'>
-                    Continuar
-                  </span>
-                </Button>
-              </ButtonSection>
-            </Row>
-          </ModalContent>
-        </Modal>
       </Section>
 
-      <Section>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
-          <Col xs='11' mm='10' md='9'>
+          <Col xs='12' mm='11' md='10' lg='9' hd='8'>
             <ImageContainer
-              background='assets/images/Slide1-image-1.png'
-              addClass='u-fs-300 container'
-              padding='33px'
+              background='assets/images/Slide3-image-7.png'
+              addClass='u-text-center u-my-2'
+              padding='30px'
             >
-              <p className='u-mt-6 u-text-center'>
-                <b>Plan de manejo:</b> Biotecnologías reproductivas en equinos.
-              </p>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
+                <strong>Plan de manejo:</strong> Biotecnologías reproductivas en equinos.
+              </h2>
 
-              <p className='u-my-3 u-text-center'>
+              <p className='u-mb-5 u-fs-300'>
                 Las biotecnologías reproductivas son herramientas
                 biotecnológicas que permiten obtener el mayor provecho
                 reproductivo posible a un individuo en sus diferentes etapas
@@ -850,7 +864,11 @@ const Ova7p6 = () => {
                 </PlanGroup>
               </div>
 
-              <Row justify-content='center' align-items='center'>
+              <Row
+                justify-content='center'
+                align-items='center'
+                addClass='u-mt-3'
+              >
                 <ButtonSection
                   section={2}
                   onClick={() =>
@@ -861,7 +879,7 @@ const Ova7p6 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -870,10 +888,11 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
+
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

@@ -49,11 +49,11 @@ export const PopoverCheckGroup = ({ children, onResult, minSelected }) => {
       (option) => option.value === CORRECT_STATE
     )
     const sumPoints = activity.options.reduce(
-      (acc, { points }) => acc + points,
+      (acc, { points }) => points === 0 && acc > 0 ? points - acc : acc + points,
       0
     )
 
-    const newResult = { ...activity.result, points: sumPoints }
+    const newResult = { ...activity.result, points: correctOptions.length > 0 ? sumPoints : 0 }
 
     correctOptions.length === activity.options.length &&
       (newResult.validate = true)

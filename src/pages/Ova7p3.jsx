@@ -174,7 +174,7 @@ const Ova7p3 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -435,7 +435,7 @@ const Ova7p3 = () => {
                     obtenido.
                   </p>
 
-                  <CheckBoxGroup onResult={handleActivity}>
+                  <CheckBoxGroup minSelected={2} onResult={handleActivity}>
                     <div className='c-checkbox-modal-grid u-my-4'>
                       <CheckBoxModal
                         id='ui-checkbox-1'
@@ -465,7 +465,7 @@ const Ova7p3 = () => {
                         value='option_2'
                         label='Opción 2'
                         state='wrong'
-                        points={0}
+                        points={-2.5}
                       >
                         <Row
                           justify-content='center'
@@ -512,7 +512,7 @@ const Ova7p3 = () => {
                         value='option_4'
                         label='Opción 4'
                         state='wrong'
-                        points={0}
+                        points={-2.5}
                       >
                         <Row
                           justify-content='center'
@@ -540,7 +540,7 @@ const Ova7p3 = () => {
                         >
                           <Image
                             src='assets/images/Button-style-large.png'
-                            alt='Volver a la segunda sección'
+                            alt='Validar la actividad'
                             width='200'
                             noCaption
                           />
@@ -560,7 +560,7 @@ const Ova7p3 = () => {
                         <Button addClass='u-button-reset u-stack'>
                           <Image
                             src='assets/images/Button-style-large.png'
-                            alt='Volver a la segunda sección'
+                            alt='Volver a la sección anterior'
                             width='200'
                             noCaption
                           />
@@ -600,7 +600,7 @@ const Ova7p3 = () => {
               addClass='u-text-center u-my-2'
               padding='30px'
             >
-              <h2 className='u-mb-3 u-fs-300'>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
                 <strong>Plan de manejo:</strong> Anatomía de la reproducción en
                 equinos.
               </h2>
@@ -870,7 +870,7 @@ const Ova7p3 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la tercera sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -883,7 +883,7 @@ const Ova7p3 = () => {
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

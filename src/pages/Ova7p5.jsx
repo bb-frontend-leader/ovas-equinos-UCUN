@@ -71,7 +71,7 @@ const Ova7p5 = () => {
   const radioValidateRef = useRef()
 
   return (
-    <Panel defaultIndex={5}>
+    <Panel>
       <NavSection />
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
@@ -132,20 +132,20 @@ const Ova7p5 = () => {
               </p>
 
               <Row
-                className='positionContainerFinal'
+                addClass='positionContainerFinal'
                 justify-content='center'
-                align-items='center'
               >
                 <Audio
                   defaultStyle
                   type='Button'
                   className='styleAudioButton'
                 />
+
                 <ButtonSection section={2}>
-                  <Button addClass='u-button-reset u-stack'>
+                  <Button addClass='u-button-reset u-stack u-self-start'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -171,8 +171,8 @@ const Ova7p5 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container title-container--stage'
-                width='95%'
                 height='100px'
+                width='80%'
               >
                 <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 3.
@@ -262,8 +262,8 @@ const Ova7p5 = () => {
                 width='80%'
                 height='55px'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
-                  Sitauación
+                <h2 className='u-special-font u-text-center u-fs-600'>
+                  Situación
                 </h2>
               </ImageContainer>
 
@@ -299,7 +299,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -313,7 +313,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -352,7 +352,7 @@ const Ova7p5 = () => {
                 width='80%'
                 height='55px'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Contexto
                 </h2>
               </ImageContainer>
@@ -379,7 +379,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -393,7 +393,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -441,7 +441,7 @@ const Ova7p5 = () => {
                 width='80%'
                 height='55px'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Actividad 4
                 </h2>
               </ImageContainer>
@@ -462,21 +462,22 @@ const Ova7p5 = () => {
                 Al terminar, haga clic en el botón “Validar” para conocer su
                 retroalimentación y puntaje.
               </p>
+
+              <div className='imgSogas'>
+                <img
+                  src='assets/images/Slide1-image-7.png'
+                  alt=''
+                  tabIndex={-1}
+                />
+
+                <img
+                  src='assets/images/Slide1-image-7.png'
+                  alt=''
+                  tabIndex={-1}
+                />
+              </div>
+
             </ImageContainer>
-
-            <div className='imgSogas'>
-              <img
-                src='assets/images/Slide1-image-7.png'
-                alt=''
-                tabIndex={-1}
-              />
-
-              <img
-                src='assets/images/Slide1-image-7.png'
-                alt=''
-                tabIndex={-1}
-              />
-            </div>
 
             <Row justify-content='center' align-items='center'>
               <ImageContainer
@@ -549,7 +550,7 @@ const Ova7p5 = () => {
                       <Button addClass='u-button-reset u-stack'>
                         <Image
                           src='assets/images/Button-style-large.png'
-                          alt='Volver a la segunda sección'
+                          alt='Validar la actividad'
                           width='200'
                           noCaption
                         />
@@ -563,7 +564,7 @@ const Ova7p5 = () => {
                       <Button addClass='u-button-reset u-stack'>
                         <Image
                           src='assets/images/Button-style-large.png'
-                          alt='Ir a la segunda sección'
+                          alt='Continuar a la siguiente sección'
                           width='200'
                           noCaption
                         />
@@ -697,7 +698,7 @@ const Ova7p5 = () => {
                     >
                       <Image
                         src='assets/images/Button-style-large.png'
-                        alt='Ir a la segunda sección'
+                        alt='Validar la actividad'
                         width='200'
                         noCaption
                       />
@@ -717,7 +718,7 @@ const Ova7p5 = () => {
                     <Button addClass='u-button-reset u-stack'>
                       <Image
                         src='assets/images/Button-style-large.png'
-                        alt='Ir a la segunda sección'
+                        alt='Continuar a la siguiente sección'
                         width='200'
                         noCaption
                       />
@@ -755,7 +756,7 @@ const Ova7p5 = () => {
               addClass='u-text-center u-my-2'
               padding='30px'
             >
-              <h2 className='u-mb-3 u-fs-300'>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
                 <strong>Plan de manejo:</strong> Variables foliculares
                 relacionadas a los parámetros reproductivos en equinos.
               </h2>
@@ -856,7 +857,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -869,7 +870,7 @@ const Ova7p5 = () => {
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

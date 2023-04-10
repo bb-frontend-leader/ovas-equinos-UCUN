@@ -287,7 +287,7 @@ const Ova7p4 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la primera sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -301,7 +301,7 @@ const Ova7p4 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la tercera sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -367,7 +367,7 @@ const Ova7p4 = () => {
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-1'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='1'
                   >
@@ -397,7 +397,7 @@ const Ova7p4 = () => {
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-3'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='3'
                   >
@@ -408,7 +408,7 @@ const Ova7p4 = () => {
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-4'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='4'
                   >
@@ -437,7 +437,7 @@ const Ova7p4 = () => {
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-6'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='6'
                   >
@@ -454,7 +454,7 @@ const Ova7p4 = () => {
                   <Button ref={validateRef} addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la segunda sección'
+                      alt='Validar la actividad'
                       width='200'
                       noCaption
                     />
@@ -588,7 +588,7 @@ const Ova7p4 = () => {
                         <Button ref={validateRef} addClass='u-button-reset u-stack'>
                           <Image
                             src='assets/images/Button-style-large.png'
-                            alt='Volver a la segunda sección'
+                            alt='Validar la actividad'
                             width='200'
                             noCaption
                           />
@@ -708,7 +708,7 @@ const Ova7p4 = () => {
               addClass='u-text-center u-my-2'
               padding='30px'
             >
-              <h2 className='u-mb-3 u-fs-300'>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
                 <strong>Plan de manejo:</strong> Fisiología de la reproducción
                 en equinos.
               </h2>
@@ -921,7 +921,7 @@ const Ova7p4 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la tercera sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -934,7 +934,7 @@ const Ova7p4 = () => {
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

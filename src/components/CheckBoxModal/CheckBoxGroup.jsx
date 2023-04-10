@@ -1,11 +1,11 @@
-import { createContext, useReducer, useRef, useEffect } from 'react'
+import { createContext, useReducer, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 export const CheckBoxGroupContext = createContext()
 
 const CORRECT_STATE = 'right'
 
-export const CheckBoxGroup = ({ id, children, onResult }) => {
+export const CheckBoxGroup = ({ children, onResult, minSelected }) => {
   const [activity, updatedActivity] = useReducer(
     (prev, next) => {
       return { ...prev, ...next }
@@ -20,12 +20,6 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
       options: []
     }
   )
-
-  const optionsRef = useRef([])
-
-  const addNewRef = (ref) => {
-    optionsRef.current = [...optionsRef.current, ref]
-  }
 
   /**
    * Creada para almacenar los checkbox seleccionados,
@@ -55,11 +49,13 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
       (option) => option.value === CORRECT_STATE
     )
     const sumPoints = activity.options.reduce(
-      (acc, { points }) => acc + points,
+      (acc, { points }) => points === 0 && acc > 0 ? points - acc : acc + points,
       0
     )
 
-    const newResult = { ...activity.result, points: sumPoints }
+    console.log(sumPoints, correctOptions.length)
+
+    const newResult = { ...activity.result, points: correctOptions.length > 0 ? sumPoints : 0 }
 
     correctOptions.length === activity.options.length &&
       (newResult.validate = true)
@@ -80,10 +76,8 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
   useEffect(() => {
     if (!activity.options.length) return
 
-    const MITAD = 2
-
     if (
-      optionsRef.current.length / MITAD === activity.options.length &&
+      minSelected === activity.options.length &&
       !activity.validation
     ) {
       updatedActivity({ button: false })
@@ -92,7 +86,7 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
 
   return (
     <CheckBoxGroupContext.Provider
-      value={{ validate, checkboxValues, activity, updatedActivity, addNewRef }}
+      value={{ validate, checkboxValues, activity, updatedActivity }}
     >
       {children}
     </CheckBoxGroupContext.Provider>
@@ -100,12 +94,12 @@ export const CheckBoxGroup = ({ id, children, onResult }) => {
 }
 
 CheckBoxGroup.propTypes = {
-  id: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node)
   ]),
-  onResult: PropTypes.func
+  onResult: PropTypes.func,
+  minSelected: PropTypes.number.isRequired
 }

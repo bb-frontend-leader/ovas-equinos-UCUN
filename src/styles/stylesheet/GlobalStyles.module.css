@@ -150,8 +150,8 @@ th.styleContent2:nth-child(2) {
 }
 
 .imgSogas img[tabIndex="-1"] {
-    --axis-x-img: 7.5rem;
-    --axis-y-img: 57%;
+    --axis-x-img: 2.5rem;
+    --axis-y-img: 0;
     position: absolute;
     height: auto;
     width: 1rem;

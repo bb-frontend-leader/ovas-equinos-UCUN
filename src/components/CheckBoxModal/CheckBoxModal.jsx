@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect } from 'react'
+import { useState, useContext, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import { Modal, ModalOverlay, ModalContent } from 'UI-Components-books'
@@ -25,8 +25,7 @@ export const CheckBoxModal = ({
   // Obtenemos las diferentes propiedades del contexto superior.
   const {
     checkboxValues,
-    activity: { validation },
-    addNewRef
+    activity: { validation }
   } = useContext(CheckBoxGroupContext)
 
   // Referencia del elemento checkbox.
@@ -77,16 +76,6 @@ export const CheckBoxModal = ({
   const onCloseModal = () => {
     setIsOpen(!isOpen)
   }
-
-  useEffect(() => {
-    // Agregamos al Referencia a la función addNewRef si está existe
-    checkboxRef.current && addNewRef(checkboxRef.current)
-
-    return () => {
-      // Limpiamos la referencia al desmontar el componente
-      checkboxRef.current = null
-    }
-  }, [checkboxRef])
 
   return (
     <>

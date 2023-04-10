@@ -43,6 +43,7 @@ export const PopoverCheck = ({
           id={id}
           addClass={css['c-popover-check__check']}
           state={validation ? state : 'normal'}
+          value={state}
           isDisabled={validation}
           onChange={(value) => checkboxValues({ ...value, points })}
           label=''

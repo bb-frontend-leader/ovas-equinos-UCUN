@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import PropTypes from "prop-types";
+import { useContext } from 'react'
+import PropTypes from 'prop-types'
 
-import { Button } from "UI-Components-books";
-import { ViewContext } from "@components";
+import { Button } from 'UI-Components-books'
+import { ViewContext } from '@components'
 
 /**
  * date: 23/11/2022
@@ -12,11 +12,11 @@ import { ViewContext } from "@components";
  *  - index: número de la pestaña a la cual va redirigir
  */
 export const ViewNavigation = ({ index, ...props }) => {
-  const { changeView } = useContext(ViewContext);
+  const { changeView } = useContext(ViewContext)
 
-  return <Button {...props} onClick={() => changeView(index)} />;
-};
+  return <Button {...props} onClick={() => changeView(index)} />
+}
 
 ViewNavigation.propTypes = {
-  index: PropTypes.number.isRequired,
-};
+  index: PropTypes.number.isRequired
+}
