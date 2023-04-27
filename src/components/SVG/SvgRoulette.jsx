@@ -2,6 +2,7 @@ import { memo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Image } from 'UI-Components-books'
+import { useActivity } from '@hooks'
 
 /**
  * Se crea un objeto que no se puede cambiar para
@@ -13,6 +14,9 @@ const KEYCODE = Object.freeze({
 })
 
 const SvgRoulette = memo((props) => {
+  const { getStagesComplete } = useActivity()
+  const { stage1, stage2, stage3, stage4, stage5 } = getStagesComplete()
+
   const svgRef = useRef()
 
   const changeStyle = (active) => {
@@ -54,7 +58,7 @@ const SvgRoulette = memo((props) => {
     <svg ref={svgRef} viewBox='0 0 1848.2 839.9' id='SvgRoulette' {...props}>
       <style>
         {
-          '#SvgRoulette .st_button { cursor:pointer } #SvgRoulette .st_button:focus-visible{ outline: 7px solid var(--clr-common-white-100); border-radius: 8px; } #SvgRoulette .hidden { display: none } #SvgRoulette .image-horse { pointer-events: none } #SvgRoulette .sign-message { pointer-events: none }'
+          '#SvgRoulette .disabled { cursor: not-allowed } #SvgRoulette .st_button { cursor:pointer } #SvgRoulette .st_button:focus-visible{ outline: 7px solid var(--clr-common-white-100); border-radius: 8px; } #SvgRoulette .hidden { display: none } #SvgRoulette .image-horse { pointer-events: none } #SvgRoulette .sign-message { pointer-events: none }'
         }
       </style>
 
@@ -71,7 +75,9 @@ const SvgRoulette = memo((props) => {
           width={740}
           height={652}
           data-stage='stage-1'
-          xlinkHref='assets/images/SvgRoulette-1-normal.png'
+          xlinkHref={`assets/images/${
+            stage1.completed ? 'SvgRoulette-1-complete' : 'SvgRoulette-1-normal'
+          }.png`}
           transform='matrix(.481 0 0 .481 863.716 13.94)'
           overflow='visible'
         />
@@ -90,7 +96,9 @@ const SvgRoulette = memo((props) => {
           width={540}
           height={870}
           data-stage='stage-2'
-          xlinkHref='assets/images/SvgRoulette-2-normal.png'
+          xlinkHref={`assets/images/${
+            stage2.completed ? 'SvgRoulette-2-complete' : 'SvgRoulette-2-normal'
+          }.png`}
           transform='matrix(.48 0 0 .48 977.836 271.173)'
           overflow='visible'
         />
@@ -109,7 +117,9 @@ const SvgRoulette = memo((props) => {
           width={914}
           height={450}
           data-stage='stage-3'
-          xlinkHref='assets/images/SvgRoulette-3-normal.png'
+          xlinkHref={`assets/images/${
+            stage3.completed ? 'SvgRoulette-3-complete' : 'SvgRoulette-3-normal'
+          }.png`}
           transform='matrix(.48 0 0 .48 644.671 543.934)'
           overflow='visible'
         />
@@ -128,7 +138,9 @@ const SvgRoulette = memo((props) => {
           width={539}
           height={870}
           data-stage='stage-4'
-          xlinkHref='assets/images/SvgRoulette-4-normal.png'
+          xlinkHref={`assets/images/${
+            stage4.completed ? 'SvgRoulette-4-complete' : 'SvgRoulette-4-normal'
+          }.png`}
           transform='matrix(.48 0 0 .48 491.296 272.028)'
           overflow='visible'
         />
@@ -147,7 +159,9 @@ const SvgRoulette = memo((props) => {
           width={740}
           height={652}
           data-stage='stage-5'
-          xlinkHref='assets/images/SvgRoulette-5-normal.png'
+          xlinkHref={`assets/images/${
+            stage5.completed ? 'SvgRoulette-5-complete' : 'SvgRoulette-5-normal'
+          }.png`}
           transform='matrix(.48 0 0 .48 509.66 15.256)'
           overflow='visible'
         />
@@ -194,9 +208,11 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x='165' y='569' width='230' height='80'>
         <Link
-          to='/unit/1/page/stage-4'
+          {...(stage3.completed && { to: '/unit/1/page/stage-4' })}
           aria-label='LLeva a la página donde inicia la cuarta etapa'
-          className='u-button-reset hidden u-stack animate__animated animate__fadeIn animate__fast'
+          className={`u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden ${
+            !stage3.completed && 'disabled'
+          }`}
           data-id='stage-4'
         >
           <Image
@@ -222,9 +238,11 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x='190' y='247' width='230' height='80'>
         <Link
-          to='/unit/1/page/stage-5'
+          {...(stage4.completed && { to: '/unit/1/page/stage-5' })}
           aria-label='LLeva a la página donde inicia la quinta etapa'
-          className='u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden'
+          className={`u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden ${
+            !stage4.completed && 'disabled'
+          }`}
           data-id='stage-5'
         >
           <Image
@@ -276,9 +294,11 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x='1410' y='532' width='230' height='80'>
         <Link
-          to='/unit/1/page/stage-2'
+          {...(stage1.completed && { to: '/unit/1/page/stage-2' })}
           aria-label='LLeva a la página donde inicia la segunda etapa'
-          className='u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden'
+          className={`u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden ${
+            !stage1.completed && 'disabled'
+          }`}
           data-id='stage-2'
         >
           <Image
@@ -304,9 +324,11 @@ const SvgRoulette = memo((props) => {
 
       <foreignObject x='1132' y='783' width='230' height='80'>
         <Link
-          to='/unit/1/page/stage-3'
+          {...(stage2.completed && { to: '/unit/1/page/stage-3' })}
           aria-label='LLeva a la página donde inicia la tercera etapa'
-          className='u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden'
+          className={`u-button-reset u-stack animate__animated animate__fadeIn animate__fast hidden ${
+            !stage2.completed && 'disabled'
+          }`}
           data-id='stage-3'
         >
           <Image

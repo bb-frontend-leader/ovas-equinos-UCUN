@@ -362,7 +362,7 @@ const Ova7p4 = () => {
           </Col>
 
           <Col xs='11' mm='10' md='9' lg='7' hd='6'>
-            <PopoverCheckGroup onResult={handleActivityCheckbox} minSelected={2}>
+            <PopoverCheckGroup id='activity_2' onResult={handleActivityCheckbox} minSelected={2}>
               <List addClass='c-toggle-check-grid'>
                 <ListItem>
                   <PopoverCheck
@@ -518,7 +518,7 @@ const Ova7p4 = () => {
                 tiene un intento para realizarla.
               </p>
 
-              <DragValidation onResult={handleActivityDrag} points={1}>
+              <DragValidation onResult={handleActivityDrag} points={1} id='activity_3'>
                 <Row
                   justify-content='space-evenly'
                   align-items='center'

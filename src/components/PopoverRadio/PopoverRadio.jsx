@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { PropTypes } from 'prop-types'
 
 import {
@@ -21,11 +21,27 @@ export const PopoverRadio = ({
   points,
   state
 }) => {
+// Estado utilizado para controlar si el input está checked.
+  const [checked, setChecked] = useState(false)
+
   // Obtenemos las diferentes propiedades del contexto superior.
   const {
     radioValues,
-    activity: { validation }
+    activity: { validation, options, load }
   } = useContext(PopoverRadioGroupContext)
+
+  const onChangeRadio = (value) => {
+    setChecked(!checked)
+    radioValues({ ...value, points })
+  }
+
+  useEffect(() => {
+    if (!load) return
+
+    setChecked((prev) => {
+      return options.some(option => option.id === id) || prev
+    })
+  }, [options])
 
   return (
     <PopoverModal>
@@ -40,13 +56,15 @@ export const PopoverRadio = ({
       >
         {children}
         <CheckBox
-          id={`idRadio${id}`}
+          id={id}
           type='radio'
           addClass={`${css['c-popover-check__check']}`}
           state={validation ? state : 'normal'}
+          label={label}
           isDisabled={validation}
-          onChange={(value) => radioValues({ ...value, points })}
-          label=''
+          onChange={onChangeRadio}
+          inherit
+          checked={checked}
         />
       </PopoverModalContent>
     </PopoverModal>

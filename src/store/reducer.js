@@ -1,10 +1,29 @@
 import { TYPES } from '../types/types'
 
-export const activitiesReducer = (state, { type, payload }) => {
-  switch (type) {
-    case TYPES.SAVE_ACTIVITY:
-      return [...state.filter(activity => activity.name !== payload.name), ...payload]
-    default:
-      return state
+const UPDATE_STATE_BY_ACTION = {
+  [TYPES.SAVE_ACTIVITY]: (state, payload) => {
+    const { activity, stage } = payload
+
+    return [
+      ...state.map((item) =>
+        item.stage === stage
+          ? { ...item, activities: [...item.activities, { ...activity }] }
+          : item
+      )
+    ]
+  },
+  [TYPES.COMPLETE_STAGE]: (state, payload) => {
+    const { stage } = payload
+
+    return [
+      ...state.map((item) =>
+        item.stage === stage ? { ...item, completed: true } : item
+      )
+    ]
   }
+}
+
+export const activityReducer = (state, { type, payload }) => {
+  const updateState = UPDATE_STATE_BY_ACTION[type]
+  return updateState ? updateState(state, payload) : state
 }

@@ -32,13 +32,7 @@ import {
 } from '@components'
 import { useBackground } from '@hooks'
 
-import { useActivityStore } from '../store/store'
-
 const Ova7p3 = () => {
-  const getStorage = useActivityStore((state) => state.activities)
-
-  getStorage()
-
   // Usado para almacenar el puntaje de la actividad y
   // poder mostrarlo en el ModalActivity.
   const [points, setPoints] = useState(0)
@@ -435,7 +429,7 @@ const Ova7p3 = () => {
                     obtenido.
                   </p>
 
-                  <CheckBoxGroup minSelected={2} onResult={handleActivity}>
+                  <CheckBoxGroup id='activity_1' minSelected={2} onResult={handleActivity}>
                     <div className='c-checkbox-modal-grid u-my-4'>
                       <CheckBoxModal
                         id='ui-checkbox-1'

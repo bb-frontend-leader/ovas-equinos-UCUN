@@ -486,7 +486,7 @@ const Ova7p5 = () => {
                 addClass='u-fs-300 container'
                 padding='33px'
               >
-                <SelectGroup onResult={handleActivitySelect} minSelected={3}>
+                <SelectGroup id='activity_4' onResult={handleActivitySelect} minSelected={3}>
                   <table>
                     <thead>
                       <tr>
@@ -501,6 +501,7 @@ const Ova7p5 = () => {
                         </td>
                         <td className='styleContent1'>
                           <SelectElement
+                            id='select-1'
                             addClass='styleSelectEtapa3-1'
                             points={2}
                             correct='Proestro.'
@@ -516,6 +517,7 @@ const Ova7p5 = () => {
                         <td className='styleContent2'>Fase periovulatoria.</td>
                         <td className='styleContent2'>
                           <SelectElement
+                            id='select-2'
                             addClass='styleSelectEtapa3-1'
                             points={2}
                             correct='Estro y maestro.'
@@ -531,6 +533,7 @@ const Ova7p5 = () => {
                         <td className='styleContent1'>Fase luteal.</td>
                         <td className='styleContent1'>
                           <SelectElement
+                            id='select-3'
                             addClass='styleSelectEtapa3-1'
                             points={2}
                             correct='Diestro.'
@@ -606,7 +609,7 @@ const Ova7p5 = () => {
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='space-evenly' align-items='center'>
-          <PopoverRadioGroup onResult={handleActivityRadio} minSelected={1}>
+          <PopoverRadioGroup id='activity_5' onResult={handleActivityRadio} minSelected={1}>
             <Col xs='11' mm='10' md='9' lg='7' hd='6' addClass='u-self-end'>
               <Image
                 src='assets/images/SvgRoulette-inseminación-artificial-2.png'

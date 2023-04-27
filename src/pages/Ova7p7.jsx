@@ -305,7 +305,7 @@ const Ova7p7 = () => {
           align-items='center'
           addClass='u-py-6'
         >
-          <DragValidation onResult={handleActivityDrag} points={6}>
+          <DragValidation id='activity_7' onResult={handleActivityDrag} points={6}>
             <Col xs='11' mm='10' md='10' lg='10' hd='10'>
               <ImageContainer
                 background='assets/images/Slide1-image-9.png'
@@ -486,7 +486,7 @@ const Ova7p7 = () => {
                 Teniendo en cuenta las enfermedades mencionadas en el recurso, mencione cuales enfermedades son de control en Colombia y que vacunas se deben incluir en el plan de manejo reproductivo según las directrices del Instituto Colombiano Agropecuario. Seleccione las vacunas que se deben incluir en el plan de manejo del sistema de producción equina según el ICA).
               </p>
 
-              <Row justify-content='center' align-items='center' flexColumn='column'>
+              <Row justify-content='center' align-items='center' flex-direction='column'>
                 <div className='u-flow' style={{ '--flow-space': '2rem' }}>
                   <PlanGroup>
                     <PlanCheck
@@ -501,7 +501,7 @@ const Ova7p7 = () => {
 
                     <PlanCheck
                       value='question_3'
-                      label='EInflueza venezolana.'
+                      label='Influeza venezolana.'
                     />
 
                     <PlanCheck

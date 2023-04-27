@@ -1,11 +1,15 @@
-import { createContext, useReducer, useEffect } from 'react'
+import { createContext, useReducer, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
+import { useActivity } from '@hooks'
 
 export const PopoverCheckGroupContext = createContext()
 
 const CORRECT_STATE = 'right'
 
-export const PopoverCheckGroup = ({ children, onResult, minSelected }) => {
+export const PopoverCheckGroup = ({ id, children, onResult, minSelected }) => {
+  const { setActivity, getActivity } = useActivity()
+  const level = useMemo(() => getActivity(id), [id])
+
   const [activity, updatedActivity] = useReducer(
     (prev, next) => {
       return { ...prev, ...next }
@@ -17,7 +21,8 @@ export const PopoverCheckGroup = ({ children, onResult, minSelected }) => {
         validate: false,
         points: 0
       },
-      options: []
+      options: [],
+      load: false
     }
   )
 
@@ -64,6 +69,13 @@ export const PopoverCheckGroup = ({ children, onResult, minSelected }) => {
     }
 
     updatedActivity({ result: newResult })
+
+    setActivity({
+      activity: id,
+      points: newResult.points,
+      state: { validation: true, load: true },
+      answers: [...activity.options]
+    })
   }
 
   /**
@@ -82,6 +94,25 @@ export const PopoverCheckGroup = ({ children, onResult, minSelected }) => {
     }
   }, [activity.options])
 
+  /**
+   * Efecto utilizado para cargar la actividad,
+   * desde el localStorage solo si está existe.
+   */
+  useEffect(() => {
+    if (Object.keys(level).length === 0) return
+
+    updatedActivity({
+      validation: level.state.validation,
+      button: true,
+      result: {
+        validate: false,
+        points: level.points
+      },
+      options: [...level.answers],
+      load: level.state.load
+    })
+  }, [level])
+
   return (
     <PopoverCheckGroupContext.Provider
       value={{ validate, checkboxValues, activity, updatedActivity }}
@@ -99,5 +130,6 @@ PopoverCheckGroup.propTypes = {
     PropTypes.arrayOf(PropTypes.node)
   ]),
   onResult: PropTypes.func,
-  minSelected: PropTypes.number.isRequired
+  minSelected: PropTypes.number.isRequired,
+  id: PropTypes.string
 }

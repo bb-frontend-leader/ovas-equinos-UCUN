@@ -452,7 +452,7 @@ const Ova7p6 = () => {
               addClass='u-fs-300'
               padding='40px'
             >
-              <CheckBoxGroup minSelected={2} onResult={handleActivity}>
+              <CheckBoxGroup id='activity_6' minSelected={2} onResult={handleActivity}>
                 <div className='c-popover-check__content u-mb-3'>
                   <p className='u-fs-300'>
                     Colecta y transferencia de embriones. Colectar embriones de
