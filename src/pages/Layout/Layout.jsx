@@ -1,18 +1,38 @@
-import { useLocation } from "react-router-dom";
-import PropTypes from "prop-types";
+import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-import { Header } from "@components";
+import { Header } from '@components'
+import { useActivity } from '@hooks'
+
+const STAGE_REGEX = /stage-\d+/i
 
 export const Layout = ({ children }) => {
-  const location = useLocation();
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const { getCurrentStageObject } = useActivity()
+
+  useEffect(() => {
+    if (!STAGE_REGEX.test(pathname)) {
+      return
+    }
+
+    const stageNavigate = getCurrentStageObject(
+      pathname.match(STAGE_REGEX)[0]
+    )?.navigate
+
+    if (!stageNavigate) {
+      navigate('/unit/1/page/1')
+    }
+  }, [pathname])
 
   return (
     <>
-      {location.pathname !== "/" && <Header />}
+      {pathname !== '/' && <Header />}
       <main>{children}</main>
     </>
-  );
-};
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([
@@ -21,5 +41,5 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
     PropTypes.string
-  ]),
-};
+  ])
+}

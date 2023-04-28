@@ -38,6 +38,15 @@ export const useActivity = () => {
       type: TYPES.COMPLETE_STAGE,
       payload: { stage: currentStage.current }
     })
+
+    setNavigate(currentStage.current)
+  }
+
+  const setNavigate = (stage) => {
+    dispatch({
+      type: TYPES.ACTIVE_NAVIGATE,
+      payload: stage
+    })
   }
 
   const getStagesComplete = () => {
@@ -51,14 +60,31 @@ export const useActivity = () => {
 
   const getActivity = (id) => {
     const { activities } = getCurrentStageObject(currentStage.current)
-    const activity = activities.find(item => item.activity === id) ?? {}
+    const activity = activities.find((item) => item.activity === id) ?? {}
 
     return { ...activity }
+  }
+
+  const getAllActivityPoints = () => {
+    const activities = useActivityStore.getState().activities
+
+    const mergedActivities = activities.reduce((merged, { activities }) => {
+      const newActivities = activities.reduce((acc, { activity, points }) => {
+        const newActivity = activity.replace('_', '')
+        return { ...acc, [newActivity]: points }
+      }, {})
+
+      return { ...merged, ...newActivities }
+    }, {})
+
+    return mergedActivities
   }
 
   return {
     setActivity,
     getActivity,
-    getStagesComplete
+    getStagesComplete,
+    getAllActivityPoints,
+    getCurrentStageObject
   }
 }

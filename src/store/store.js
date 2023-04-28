@@ -9,31 +9,36 @@ const initialState = [
     stage: 'stage-1',
     activities: [],
     completed: false,
-    totalActivities: 1
+    totalActivities: 1,
+    navigate: true
   },
   {
     stage: 'stage-2',
     activities: [],
     completed: false,
-    totalActivities: 2
+    totalActivities: 2,
+    navigate: false
   },
   {
     stage: 'stage-3',
     activities: [],
     completed: false,
-    totalActivities: 2
+    totalActivities: 2,
+    navigate: false
   },
   {
     stage: 'stage-4',
     activities: [],
     completed: false,
-    totalActivities: 1
+    totalActivities: 1,
+    navigate: false
   },
   {
     stage: 'stage-5',
     activities: [],
     completed: false,
-    totalActivities: 1
+    totalActivities: 1,
+    navigate: false
   }
 ]
 

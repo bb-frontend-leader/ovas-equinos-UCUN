@@ -2,8 +2,15 @@ import { Link } from 'react-router-dom'
 
 import { Col, Row, Content, Image } from 'UI-Components-books'
 import { ImageContainer } from '@components'
+import { useActivity } from '@hooks'
 
 const Ova7p8 = () => {
+  const { getAllActivityPoints } = useActivity()
+  const points = getAllActivityPoints()
+
+  const sumPoints = (value) =>
+    Object.values(value).reduce((acc, point) => acc + point, 0)
+
   return (
     <Content>
       <Row
@@ -73,7 +80,9 @@ const Ova7p8 = () => {
                   </td>
                   <td className='tableFinal-1'>Actividad 1</td>
                   <td className='tableFinal-1'>
-                    <span className='u-font-bold'>X puntos</span>
+                    <span className='u-font-bold'>
+                      {points.activity1 || 0} puntos
+                    </span>
                   </td>
                 </tr>
 
@@ -89,8 +98,13 @@ const Ova7p8 = () => {
                     Actividad 3
                   </td>
                   <td className='tableFinal-2'>
-                    <span className='u-font-bold'>X puntos</span> <br />
-                    <span className='u-font-bold'>X puntos</span>
+                    <span className='u-font-bold'>
+                      {points.activity2 || 0} puntos
+                    </span>{' '}
+                    <br />
+                    <span className='u-font-bold'>
+                      {points.activity3 || 0} puntos
+                    </span>
                   </td>
                 </tr>
 
@@ -106,8 +120,13 @@ const Ova7p8 = () => {
                     Actividad 5
                   </td>
                   <td className='tableFinal-1'>
-                    <span className='u-font-bold'>X puntos</span> <br />
-                    <span className='u-font-bold'>X puntos</span>
+                    <span className='u-font-bold'>
+                      {points.activity4 || 0} puntos
+                    </span>{' '}
+                    <br />
+                    <span className='u-font-bold'>
+                      {points.activity5 || 0} puntos
+                    </span>
                   </td>
                 </tr>
 
@@ -120,7 +139,9 @@ const Ova7p8 = () => {
                   </td>
                   <td className='tableFinal-2'>Actividad 6</td>
                   <td className='tableFinal-2'>
-                    <span className='u-font-bold'>X puntos</span>
+                    <span className='u-font-bold'>
+                      {points.activity6 || 0} puntos
+                    </span>
                   </td>
                 </tr>
 
@@ -133,7 +154,9 @@ const Ova7p8 = () => {
                   </td>
                   <td className='tableFinal-1'>Actividad 7</td>
                   <td className='tableFinal-1'>
-                    <span className='u-font-bold'>X puntos</span>
+                    <span className='u-font-bold'>
+                      {points.activity7 || 0} puntos
+                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -144,7 +167,9 @@ const Ova7p8 = () => {
                     <strong className='u-ml-3'>Total puntaje obtenido</strong>
                   </td>
                   <td className='tableFinal-3'>
-                    <span className='u-font-bold'>X puntos</span>
+                    <span className='u-font-bold'>
+                      {sumPoints(points)} puntos
+                    </span>
                   </td>
                 </tr>
               </tfoot>
@@ -163,7 +188,10 @@ const Ova7p8 = () => {
                 </span>
               </Link>
 
-              <Link to='/unit/1/page/stage-5' className='u-button-reset u-stack'>
+              <Link
+                to='/unit/1/page/stage-5'
+                className='u-button-reset u-stack'
+              >
                 <Image
                   src='assets/images/Button-style-large.png'
                   alt='Volver al stage 5'

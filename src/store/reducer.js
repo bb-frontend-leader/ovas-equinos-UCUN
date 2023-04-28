@@ -20,6 +20,20 @@ const UPDATE_STATE_BY_ACTION = {
         item.stage === stage ? { ...item, completed: true } : item
       )
     ]
+  },
+  [TYPES.ACTIVE_NAVIGATE]: (state, payload) => {
+    const currentStageIndex =
+      state.findIndex((item) => item.stage === payload) + 1
+
+    if (currentStageIndex < state.length && currentStageIndex >= 0) {
+      return [
+        ...state.slice(0, currentStageIndex),
+        { ...state[currentStageIndex], navigate: true },
+        ...state.slice(currentStageIndex + 1)
+      ]
+    }
+
+    return state
   }
 }
 
