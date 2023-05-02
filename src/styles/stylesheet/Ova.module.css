@@ -169,7 +169,7 @@
 
 .c-plan-group-grid {
   display: grid;
-  grid-template-columns: minmax(200px, 260px) 1fr;
+  grid-template-columns: minmax(200px, 260px) 40vw;
   gap: 0.8rem 1.2rem;
 }
 
@@ -332,10 +332,6 @@
   position: absolute;
   top: 37%;
   left: 20%;
-}
-
-.planSelectStyle div select {
-  height: 3.5rem;
 }
 
 /* Actividad radio etapa 4 */

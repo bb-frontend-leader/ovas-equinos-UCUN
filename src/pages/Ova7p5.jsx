@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Item } from 'react-stately'
 
 import {
   Col,
@@ -783,16 +784,16 @@ const Ova7p5 = () => {
                     label='Duración del ciclo estral.'
                   />
 
-                  <PlanSelect id='question_1' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
+                  <PlanSelect id='question_1' label='Seleccionar'>
+                    <Item key='1'>20 – 21 días promedio.</Item>
 
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
+                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
 
-                    <option value={3}>40 - 46 mm, promedio.</option>
+                    <Item key='3'>40 - 46 mm, promedio.</Item>
 
-                    <option value={4}>1 - 4 mm, promedio.</option>
+                    <Item key='4'>1 - 4 mm, promedio.</Item>
 
-                    <option value={5}>90 días promedio.</option>
+                    <Item key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -800,16 +801,16 @@ const Ova7p5 = () => {
                     label='Crecimiento diario folicular.'
                   />
 
-                  <PlanSelect id='question_2' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
+                  <PlanSelect id='question_2' label='Seleccionar'>
+                    <Item key='1'>20 – 21 días promedio.</Item>
 
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
+                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
 
-                    <option value={3}>40 - 46 mm, promedio.</option>
+                    <Item key='3'>40 - 46 mm, promedio.</Item>
 
-                    <option value={4}>1 - 4 mm, promedio.</option>
+                    <Item key='4'>1 - 4 mm, promedio.</Item>
 
-                    <option value={5}>90 días promedio.</option>
+                    <Item key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -817,30 +818,30 @@ const Ova7p5 = () => {
                     label='Diámetro folicular a la ovulación.'
                   />
 
-                  <PlanSelect id='question_3' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
+                  <PlanSelect id='question_3' label='Seleccionar'>
+                    <Item key='1'>20 – 21 días promedio.</Item>
 
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
+                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
 
-                    <option value={3}>40 - 46 mm, promedio.</option>
+                    <Item key='3'>40 - 46 mm, promedio.</Item>
 
-                    <option value={4}>1 - 4 mm, promedio.</option>
+                    <Item key='4'>1 - 4 mm, promedio.</Item>
 
-                    <option value={5}>90 días promedio.</option>
+                    <Item key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_4' label='Duración folicular.' />
 
-                  <PlanSelect id='question_4' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
+                  <PlanSelect id='question_4' label='Seleccionar'>
+                    <Item key='1'>20 – 21 días promedio.</Item>
 
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
+                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
 
-                    <option value={3}>40 - 46 mm, promedio.</option>
+                    <Item key='3'>40 - 46 mm, promedio.</Item>
 
-                    <option value={4}>1 - 4 mm, promedio.</option>
+                    <Item key='4'>1 - 4 mm, promedio.</Item>
 
-                    <option value={5}>90 días promedio.</option>
+                    <Item key='5'>90 días promedio.</Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>

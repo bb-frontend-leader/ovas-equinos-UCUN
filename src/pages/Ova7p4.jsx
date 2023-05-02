@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Item } from 'react-stately'
 
 import {
   Panel,
@@ -724,113 +725,113 @@ const Ova7p4 = () => {
                 <PlanGroup>
                   <PlanCheck value='question_1' label='Dinámica folicular.' />
 
-                  <PlanSelect id='question_1'>
-                    <option value={1}>
+                  <PlanSelect id='question_1' label='Seleccionar'>
+                    <Item key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_2' label='Ovulación.' />
 
-                  <PlanSelect id='question_2'>
-                    <option value={1}>
+                  <PlanSelect id='question_2' label='Seleccionar'>
+                    <Item key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_3' label='Edema uterino.' />
 
-                  <PlanSelect id='question_3'>
-                    <option value={1}>
+                  <PlanSelect id='question_3' label='Seleccionar'>
+                    <Item key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -838,76 +839,76 @@ const Ova7p4 = () => {
                     label='Sintomatología de celo.'
                   />
 
-                  <PlanSelect id='question_4'>
-                    <option value={1}>
+                  <PlanSelect id='question_4' label='Seleccionar'>
+                    <Item key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_5' label='Dinámica de celo.' />
 
-                  <PlanSelect id='question_5'>
-                    <option value={1}>
+                  <PlanSelect id='question_5' label='Seleccionar'>
+                    <Item key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>

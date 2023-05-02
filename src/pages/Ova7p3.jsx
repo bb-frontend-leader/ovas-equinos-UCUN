@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Item } from 'react-stately'
 
 import {
   Col,
@@ -68,7 +69,7 @@ const Ova7p3 = () => {
   const validateRef = useRef()
 
   return (
-    <Panel>
+    <Panel defaultIndex={4}>
       <NavSection />
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
@@ -433,7 +434,7 @@ const Ova7p3 = () => {
                     <div className='c-checkbox-modal-grid u-my-4'>
                       <CheckBoxModal
                         id='ui-checkbox-1'
-                        value='option_1'
+                        value='Item_1'
                         label='Opción 1'
                         state='right'
                         points={2.5}
@@ -456,7 +457,7 @@ const Ova7p3 = () => {
 
                       <CheckBoxModal
                         id='ui-checkbox-2'
-                        value='option_2'
+                        value='Item_2'
                         label='Opción 2'
                         state='wrong'
                         points={-2.5}
@@ -479,7 +480,7 @@ const Ova7p3 = () => {
 
                       <CheckBoxModal
                         id='ui-checkbox-3'
-                        value='option_3'
+                        value='Item_3'
                         label='Opción 3'
                         state='right'
                         points={2.5}
@@ -503,7 +504,7 @@ const Ova7p3 = () => {
 
                       <CheckBoxModal
                         id='ui-checkbox-4'
-                        value='option_4'
+                        value='Item_4'
                         label='Opción 4'
                         state='wrong'
                         points={-2.5}
@@ -587,7 +588,7 @@ const Ova7p3 = () => {
       </Section>
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
-        <Row justify-content='center' align-items='center'>
+        <Row justify-content='center' align-items='flex-start'>
           <Col xs='12' mm='11' md='10' lg='9' hd='8'>
             <ImageContainer
               background='assets/images/Slide3-image-7.png'
@@ -610,247 +611,247 @@ const Ova7p3 = () => {
                 <PlanGroup>
                   <PlanCheck value='question_1' label='Vulva.' />
 
-                  <PlanSelect id='question_1'>
-                    <option value={1}>
+                  <PlanSelect id='question_1' label='Seleccionar'>
+                    <Item key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_2' label='Vagina.' />
 
-                  <PlanSelect id='question_2'>
-                    <option value={1}>
+                  <PlanSelect id='question_2' label='Seleccionar'>
+                    <Item key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_3' label='Cérvix.' />
 
-                  <PlanSelect id='question_3'>
-                    <option value={1}>
+                  <PlanSelect id='question_3' label='Seleccionar'>
+                    <Item key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_4' label='Cuerpo del útero.' />
 
-                  <PlanSelect id='question_4'>
-                    <option value={1}>
+                  <PlanSelect id='question_4' label='Seleccionar'>
+                    <Item key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_5' label='Cuerno uterinos.' />
 
-                  <PlanSelect id='question_5'>
-                    <option value={1}>
+                  <PlanSelect id='question_5' label='Seleccionar'>
+                    <Item key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_6' label='Oviducto.' />
 
-                  <PlanSelect id='question_6'>
-                    <option value={1}>
+                  <PlanSelect id='question_6' label='Seleccionar'>
+                    <Item key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_7' label='Ovarios.' />
 
-                  <PlanSelect id='question_7'>
-                    <option value={1}>
+                  <PlanSelect id='question_7' label='Seleccionar'>
+                    <Item key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>

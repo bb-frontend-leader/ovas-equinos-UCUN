@@ -1,12 +1,9 @@
 import { useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { Select } from 'UI-Components-books'
-import { PlanGroupContext } from '@components'
+import { PlanGroupContext, Select } from '@components'
 
-import css from './PlanActivity.module.css'
-
-export const PlanSelect = ({ children, id, placeholder, label, addClass }) => {
+export const PlanSelect = ({ children, id, placeholder, label }) => {
   const { addNewSelectId, validation } = useContext(PlanGroupContext)
 
   const isEnable = validation(id)
@@ -23,11 +20,11 @@ export const PlanSelect = ({ children, id, placeholder, label, addClass }) => {
 
   return (
     <Select
+      id={id}
       label={label}
       data-id={id}
       placeholder={placeholder}
       isDisabled={!isEnable}
-      addClass={`${css['c-select']} ${addClass ?? ''}`}
     >
       {children}
     </Select>

@@ -32,8 +32,6 @@ export const SelectElement = ({
   useEffect(() => {
     if (!load && refSelect.current) return
 
-    console.log('🚀')
-
     const optionsElement = [
       ...refSelect.current.getElementsByTagName('option')
     ]
