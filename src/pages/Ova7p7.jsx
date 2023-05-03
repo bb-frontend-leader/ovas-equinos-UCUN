@@ -306,7 +306,11 @@ const Ova7p7 = () => {
           align-items='center'
           addClass='u-py-6'
         >
-          <DragValidation id='activity_7' onResult={handleActivityDrag} points={6}>
+          <DragValidation
+            id='activity_7'
+            onResult={handleActivityDrag}
+            points={6}
+          >
             <Col xs='11' mm='10' md='10' lg='10' hd='10'>
               <ImageContainer
                 background='assets/images/Slide1-image-9.png'
@@ -439,7 +443,9 @@ const Ova7p7 = () => {
                 <ButtonSection
                   section={1}
                   onClick={() =>
-                    setBackground('url(/assets/images/Principal-background.png)')}
+                    setBackground(
+                      'url(/assets/images/Principal-background.png)'
+                    )}
                 >
                   <Button addClass='u-button-reset u-stack hoverButton'>
                     <Image
@@ -484,31 +490,38 @@ const Ova7p7 = () => {
               </h2>
 
               <p className='u-mb-5 u-fs-300'>
-                Teniendo en cuenta las enfermedades mencionadas en el recurso, mencione cuales enfermedades son de control en Colombia y que vacunas se deben incluir en el plan de manejo reproductivo según las directrices del Instituto Colombiano Agropecuario. Seleccione las vacunas que se deben incluir en el plan de manejo del sistema de producción equina según el ICA).
+                Teniendo en cuenta las enfermedades mencionadas en el recurso,
+                mencione cuales enfermedades son de control en Colombia y que
+                vacunas se deben incluir en el plan de manejo reproductivo según
+                las directrices del Instituto Colombiano Agropecuario.
+                Seleccione las vacunas que se deben incluir en el plan de manejo
+                del sistema de producción equina según el ICA).
               </p>
 
-              <Row justify-content='center' align-items='center' flex-direction='column'>
+              <Row
+                justify-content='center'
+                align-items='center'
+                flex-direction='column'
+              >
                 <div className='u-flow' style={{ '--flow-space': '2rem' }}>
-                  <PlanGroup>
+                  <PlanGroup
+                    onlyCheckbox
+                    id='plan_5'
+                    title='Enfermedades que afectan la reproducción en equinos.'
+                  >
                     <PlanCheck
                       value='question_1'
                       label='Encefalitis equina venezolana – EEV.'
                     />
 
-                    <PlanCheck
-                      value='question_2'
-                      label='Influenza equina.'
-                    />
+                    <PlanCheck value='question_2' label='Influenza equina.' />
 
                     <PlanCheck
                       value='question_3'
                       label='Influeza venezolana.'
                     />
 
-                    <PlanCheck
-                      value='question_4'
-                      label='Encefalitis.'
-                    />
+                    <PlanCheck value='question_4' label='Encefalitis.' />
                   </PlanGroup>
                 </div>
               </Row>

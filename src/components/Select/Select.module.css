@@ -57,7 +57,7 @@
 .c-list-box {
     margin: 0px;
     padding: 0px;
-    max-height: 300px;
+    max-height: 150px;
     min-width: 100px;
     background-color: var(--clr-brown-light);
     list-style: none;

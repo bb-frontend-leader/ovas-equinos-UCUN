@@ -4,22 +4,64 @@ const UPDATE_STATE_BY_ACTION = {
   [TYPES.SAVE_ACTIVITY]: (state, payload) => {
     const { activity, stage } = payload
 
-    return [
-      ...state.map((item) =>
-        item.stage === stage
-          ? { ...item, activities: [...item.activities, { ...activity }] }
-          : item
-      )
-    ]
+    const updatedState = state.map(item => {
+      if (item.stage !== stage) {
+        return item
+      }
+
+      const updatedActivities = [
+        ...item.activities,
+        { ...activity }
+      ]
+
+      return {
+        ...item,
+        activities: updatedActivities
+      }
+    })
+
+    return updatedState
+  },
+  [TYPES.SAVE_PLAN]: (state, payload) => {
+    const { plan, stage } = payload
+    const newAnswer = plan.answers[0]
+
+    const updatedState = state.map((item) => {
+      if (item.stage !== stage) {
+        return item
+      }
+
+      const updatedPlan = {
+        ...plan,
+        answers: [
+          ...item.plan.answers.filter(answer => answer.id !== newAnswer.id),
+          newAnswer
+        ]
+      }
+
+      return {
+        ...item,
+        plan: updatedPlan
+      }
+    })
+
+    return updatedState
   },
   [TYPES.COMPLETE_STAGE]: (state, payload) => {
     const { stage } = payload
 
-    return [
-      ...state.map((item) =>
-        item.stage === stage ? { ...item, completed: true } : item
-      )
-    ]
+    const updatedState = state.map(item => {
+      if (item.stage === stage) {
+        return {
+          ...item,
+          completed: true
+        }
+      }
+
+      return item
+    })
+
+    return updatedState
   },
   [TYPES.ACTIVE_NAVIGATE]: (state, payload) => {
     const currentStageIndex =

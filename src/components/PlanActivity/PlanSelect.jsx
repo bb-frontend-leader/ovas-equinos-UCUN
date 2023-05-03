@@ -1,22 +1,30 @@
-import { useContext, useEffect } from 'react'
+import { useContext, Children, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-
 import { PlanGroupContext, Select } from '@components'
 
-export const PlanSelect = ({ children, id, placeholder, label }) => {
-  const { addNewSelectId, validation } = useContext(PlanGroupContext)
+export const PlanSelect = ({ id, children, placeholder, label }) => {
+  const [selected, setSeleted] = useState(null)
+  const { validation, handleSectionChange, load } = useContext(PlanGroupContext)
 
   const isEnable = validation(id)
 
-  useEffect(() => {
-    // Agregamos al Referencia a la función addNewRef si está existe
-    id && addNewSelectId(id)
+  const onSelectionChange = (key) => {
+    const selectedChild = Children.toArray(children).find(
+      (child) => child.props['data-key'] === key
+    )
+    const selectedText = selectedChild?.props?.children
 
-    return () => {
-      // Limpiamos la referencia al desmontar el componente
-      id = null
-    }
-  }, [id])
+    handleSectionChange({ id, key, value: selectedText })
+    setSeleted(key)
+  }
+
+  useEffect(() => {
+    if (load.length === 0) return
+
+    setSeleted((prev) => {
+      return load.find(value => value.id === id)?.key || prev
+    })
+  }, [load])
 
   return (
     <Select
@@ -25,6 +33,8 @@ export const PlanSelect = ({ children, id, placeholder, label }) => {
       data-id={id}
       placeholder={placeholder}
       isDisabled={!isEnable}
+      selectedKey={selected}
+      onSelectionChange={onSelectionChange}
     >
       {children}
     </Select>

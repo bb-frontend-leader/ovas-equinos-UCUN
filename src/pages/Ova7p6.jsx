@@ -599,14 +599,17 @@ const Ova7p6 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_4'
+                  title='Biotecnologías reproductivas en equinos.'
+                >
                   <PlanCheck
                     value='question_1'
                     label='Ultrasonografía reproductiva.'
                   />
 
                   <PlanSelect id='question_1' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
@@ -615,7 +618,7 @@ const Ova7p6 = () => {
                       biotecnologías reproductivas.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
@@ -624,7 +627,7 @@ const Ova7p6 = () => {
                       este.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -634,7 +637,7 @@ const Ova7p6 = () => {
                       un macho reproductor en el sistema.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -655,7 +658,7 @@ const Ova7p6 = () => {
                   />
 
                   <PlanSelect id='question_2' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
@@ -664,7 +667,7 @@ const Ova7p6 = () => {
                       biotecnologías reproductivas.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
@@ -673,7 +676,7 @@ const Ova7p6 = () => {
                       este.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -683,7 +686,7 @@ const Ova7p6 = () => {
                       un macho reproductor en el sistema.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -704,7 +707,7 @@ const Ova7p6 = () => {
                   />
 
                   <PlanSelect id='question_3' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
@@ -713,7 +716,7 @@ const Ova7p6 = () => {
                       biotecnologías reproductivas.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
@@ -722,7 +725,7 @@ const Ova7p6 = () => {
                       este.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -732,7 +735,7 @@ const Ova7p6 = () => {
                       un macho reproductor en el sistema.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -753,7 +756,7 @@ const Ova7p6 = () => {
                   />
 
                   <PlanSelect id='question_4' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
@@ -762,7 +765,7 @@ const Ova7p6 = () => {
                       biotecnologías reproductivas.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
@@ -771,7 +774,7 @@ const Ova7p6 = () => {
                       este.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -781,7 +784,7 @@ const Ova7p6 = () => {
                       un macho reproductor en el sistema.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -802,7 +805,7 @@ const Ova7p6 = () => {
                   />
 
                   <PlanSelect id='question_5' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
@@ -811,7 +814,7 @@ const Ova7p6 = () => {
                       biotecnologías reproductivas.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
@@ -820,7 +823,7 @@ const Ova7p6 = () => {
                       este.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -830,7 +833,7 @@ const Ova7p6 = () => {
                       un macho reproductor en el sistema.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a

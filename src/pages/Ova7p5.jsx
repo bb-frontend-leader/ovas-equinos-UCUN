@@ -132,10 +132,7 @@ const Ova7p5 = () => {
                 audio.
               </p>
 
-              <Row
-                addClass='positionContainerFinal'
-                justify-content='center'
-              >
+              <Row addClass='positionContainerFinal' justify-content='center'>
                 <Audio
                   defaultStyle
                   type='Button'
@@ -477,7 +474,6 @@ const Ova7p5 = () => {
                   tabIndex={-1}
                 />
               </div>
-
             </ImageContainer>
 
             <Row justify-content='center' align-items='center'>
@@ -487,7 +483,11 @@ const Ova7p5 = () => {
                 addClass='u-fs-300 container'
                 padding='33px'
               >
-                <SelectGroup id='activity_4' onResult={handleActivitySelect} minSelected={3}>
+                <SelectGroup
+                  id='activity_4'
+                  onResult={handleActivitySelect}
+                  minSelected={3}
+                >
                   <table>
                     <thead>
                       <tr>
@@ -508,7 +508,9 @@ const Ova7p5 = () => {
                             correct='Proestro.'
                           >
                             <option value='Proestro.'>Proestro.</option>
-                            <option value='Estro y maestro.'>Estro y maestro.</option>
+                            <option value='Estro y maestro.'>
+                              Estro y maestro.
+                            </option>
                             <option value='Diestro.'>Diestro.</option>
                             <option value='Anestro.'>Anestro.</option>
                           </SelectElement>
@@ -524,7 +526,9 @@ const Ova7p5 = () => {
                             correct='Estro y maestro.'
                           >
                             <option value='Proestro.'>Proestro.</option>
-                            <option value='Estro y maestro.'>Estro y maestro.</option>
+                            <option value='Estro y maestro.'>
+                              Estro y maestro.
+                            </option>
                             <option value='Diestro.'>Diestro.</option>
                             <option value='Anestro.'>Anestro.</option>
                           </SelectElement>
@@ -540,7 +544,9 @@ const Ova7p5 = () => {
                             correct='Diestro.'
                           >
                             <option value='Proestro.'>Proestro.</option>
-                            <option value='Estro y maestro.'>Estro y maestro.</option>
+                            <option value='Estro y maestro.'>
+                              Estro y maestro.
+                            </option>
                             <option value='Diestro.'>Diestro.</option>
                             <option value='Anestro.'>Anestro.</option>
                           </SelectElement>
@@ -595,22 +601,20 @@ const Ova7p5 = () => {
           points={`${points.select} / 6`}
         >
           <List style={{ padding: '0' }}>
-            <ListItem>
-              Fase folicular o de regresión lútea = Proestro.
-            </ListItem>
-            <ListItem>
-              Fase periovulatoria= Estro y metaestro.
-            </ListItem>
-            <ListItem>
-              Fase luteal = Diestro.
-            </ListItem>
+            <ListItem>Fase folicular o de regresión lútea = Proestro.</ListItem>
+            <ListItem>Fase periovulatoria= Estro y metaestro.</ListItem>
+            <ListItem>Fase luteal = Diestro.</ListItem>
           </List>
         </ModalActivity>
       </Section>
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='space-evenly' align-items='center'>
-          <PopoverRadioGroup id='activity_5' onResult={handleActivityRadio} minSelected={1}>
+          <PopoverRadioGroup
+            id='activity_5'
+            onResult={handleActivityRadio}
+            minSelected={1}
+          >
             <Col xs='11' mm='10' md='9' lg='7' hd='6' addClass='u-self-end'>
               <Image
                 src='assets/images/SvgRoulette-inseminación-artificial-2.png'
@@ -778,22 +782,21 @@ const Ova7p5 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_3'
+                  title='Variables foliculares relacionadas a los parámetros reproductivos en equinos.'
+                >
                   <PlanCheck
                     value='question_1'
                     label='Duración del ciclo estral.'
                   />
 
                   <PlanSelect id='question_1' label='Seleccionar'>
-                    <Item key='1'>20 – 21 días promedio.</Item>
-
-                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
-
-                    <Item key='3'>40 - 46 mm, promedio.</Item>
-
-                    <Item key='4'>1 - 4 mm, promedio.</Item>
-
-                    <Item key='5'>90 días promedio.</Item>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -802,15 +805,11 @@ const Ova7p5 = () => {
                   />
 
                   <PlanSelect id='question_2' label='Seleccionar'>
-                    <Item key='1'>20 – 21 días promedio.</Item>
-
-                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
-
-                    <Item key='3'>40 - 46 mm, promedio.</Item>
-
-                    <Item key='4'>1 - 4 mm, promedio.</Item>
-
-                    <Item key='5'>90 días promedio.</Item>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -819,29 +818,21 @@ const Ova7p5 = () => {
                   />
 
                   <PlanSelect id='question_3' label='Seleccionar'>
-                    <Item key='1'>20 – 21 días promedio.</Item>
-
-                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
-
-                    <Item key='3'>40 - 46 mm, promedio.</Item>
-
-                    <Item key='4'>1 - 4 mm, promedio.</Item>
-
-                    <Item key='5'>90 días promedio.</Item>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_4' label='Duración folicular.' />
 
                   <PlanSelect id='question_4' label='Seleccionar'>
-                    <Item key='1'>20 – 21 días promedio.</Item>
-
-                    <Item key='2'>2.5 mm diarios, en promedio.</Item>
-
-                    <Item key='3'>40 - 46 mm, promedio.</Item>
-
-                    <Item key='4'>1 - 4 mm, promedio.</Item>
-
-                    <Item key='5'>90 días promedio.</Item>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>

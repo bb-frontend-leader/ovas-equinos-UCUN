@@ -363,7 +363,11 @@ const Ova7p4 = () => {
           </Col>
 
           <Col xs='11' mm='10' md='9' lg='7' hd='6'>
-            <PopoverCheckGroup id='activity_2' onResult={handleActivityCheckbox} minSelected={2}>
+            <PopoverCheckGroup
+              id='activity_2'
+              onResult={handleActivityCheckbox}
+              minSelected={2}
+            >
               <List addClass='c-toggle-check-grid'>
                 <ListItem>
                   <PopoverCheck
@@ -519,7 +523,11 @@ const Ova7p4 = () => {
                 tiene un intento para realizarla.
               </p>
 
-              <DragValidation onResult={handleActivityDrag} points={1} id='activity_3'>
+              <DragValidation
+                onResult={handleActivityDrag}
+                points={1}
+                id='activity_3'
+              >
                 <Row
                   justify-content='space-evenly'
                   align-items='center'
@@ -586,7 +594,10 @@ const Ova7p4 = () => {
 
                     <Row justify-content='center' align-items='center'>
                       <DragValidationButton>
-                        <Button ref={validateRef} addClass='u-button-reset u-stack'>
+                        <Button
+                          ref={validateRef}
+                          addClass='u-button-reset u-stack'
+                        >
                           <Image
                             src='assets/images/Button-style-large.png'
                             alt='Validar la actividad'
@@ -722,11 +733,14 @@ const Ova7p4 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_2'
+                  title='Fisiología de la reproducción en equinos.'
+                >
                   <PlanCheck value='question_1' label='Dinámica folicular.' />
 
                   <PlanSelect id='question_1' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
@@ -734,7 +748,7 @@ const Ova7p4 = () => {
                       sistema.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
@@ -742,7 +756,7 @@ const Ova7p4 = () => {
                       vez serán más altas.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
@@ -750,7 +764,7 @@ const Ova7p4 = () => {
                       equinos.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
@@ -763,7 +777,7 @@ const Ova7p4 = () => {
                   <PlanCheck value='question_2' label='Ovulación.' />
 
                   <PlanSelect id='question_2' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
@@ -771,7 +785,7 @@ const Ova7p4 = () => {
                       sistema.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
@@ -779,7 +793,7 @@ const Ova7p4 = () => {
                       vez serán más altas.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
@@ -787,7 +801,7 @@ const Ova7p4 = () => {
                       equinos.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
@@ -800,7 +814,7 @@ const Ova7p4 = () => {
                   <PlanCheck value='question_3' label='Edema uterino.' />
 
                   <PlanSelect id='question_3' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
@@ -808,7 +822,7 @@ const Ova7p4 = () => {
                       sistema.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
@@ -816,7 +830,7 @@ const Ova7p4 = () => {
                       vez serán más altas.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
@@ -824,7 +838,7 @@ const Ova7p4 = () => {
                       equinos.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
@@ -840,7 +854,7 @@ const Ova7p4 = () => {
                   />
 
                   <PlanSelect id='question_4' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
@@ -848,7 +862,7 @@ const Ova7p4 = () => {
                       sistema.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
@@ -856,7 +870,7 @@ const Ova7p4 = () => {
                       vez serán más altas.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
@@ -864,7 +878,7 @@ const Ova7p4 = () => {
                       equinos.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
@@ -877,7 +891,7 @@ const Ova7p4 = () => {
                   <PlanCheck value='question_5' label='Dinámica de celo.' />
 
                   <PlanSelect id='question_5' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
@@ -885,7 +899,7 @@ const Ova7p4 = () => {
                       sistema.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
@@ -893,7 +907,7 @@ const Ova7p4 = () => {
                       vez serán más altas.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
@@ -901,7 +915,7 @@ const Ova7p4 = () => {
                       equinos.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas

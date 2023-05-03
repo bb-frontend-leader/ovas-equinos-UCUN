@@ -81,15 +81,6 @@ export const SelectGroup = ({ id, children, onResult, minSelected }) => {
       state: { validation: true, load: true },
       answers: [...activity.options]
     })
-
-    // validation: false,
-    // button: true,
-    // result: {
-    //   validate: false,
-    //   points: 0
-    // },
-    // options: [],
-    // load: false
   }
 
   /**

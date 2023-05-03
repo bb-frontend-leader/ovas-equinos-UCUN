@@ -430,7 +430,11 @@ const Ova7p3 = () => {
                     obtenido.
                   </p>
 
-                  <CheckBoxGroup id='activity_1' minSelected={2} onResult={handleActivity}>
+                  <CheckBoxGroup
+                    id='activity_1'
+                    minSelected={2}
+                    onResult={handleActivity}
+                  >
                     <div className='c-checkbox-modal-grid u-my-4'>
                       <CheckBoxModal
                         id='ui-checkbox-1'
@@ -608,33 +612,36 @@ const Ova7p3 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_1'
+                  title='Anatomía de la reproducción en equinos.'
+                >
                   <PlanCheck value='question_1' label='Vulva.' />
 
                   <PlanSelect id='question_1' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
                       del proceso de fertilización.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
                     </Item>
 
-                    <Item key='5'>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
@@ -647,29 +654,29 @@ const Ova7p3 = () => {
                   <PlanCheck value='question_2' label='Vagina.' />
 
                   <PlanSelect id='question_2' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
                       del proceso de fertilización.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
                     </Item>
 
-                    <Item key='5'>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
@@ -682,29 +689,29 @@ const Ova7p3 = () => {
                   <PlanCheck value='question_3' label='Cérvix.' />
 
                   <PlanSelect id='question_3' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
                       del proceso de fertilización.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
                     </Item>
 
-                    <Item key='5'>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
@@ -717,29 +724,29 @@ const Ova7p3 = () => {
                   <PlanCheck value='question_4' label='Cuerpo del útero.' />
 
                   <PlanSelect id='question_4' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
                       del proceso de fertilización.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
                     </Item>
 
-                    <Item key='5'>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
@@ -752,29 +759,29 @@ const Ova7p3 = () => {
                   <PlanCheck value='question_5' label='Cuerno uterinos.' />
 
                   <PlanSelect id='question_5' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
                       del proceso de fertilización.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
                     </Item>
 
-                    <Item key='5'>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
@@ -787,29 +794,29 @@ const Ova7p3 = () => {
                   <PlanCheck value='question_6' label='Oviducto.' />
 
                   <PlanSelect id='question_6' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
                       del proceso de fertilización.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
                     </Item>
 
-                    <Item key='5'>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
@@ -822,29 +829,29 @@ const Ova7p3 = () => {
                   <PlanCheck value='question_7' label='Ovarios.' />
 
                   <PlanSelect id='question_7' label='Seleccionar'>
-                    <Item key='1'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
                     </Item>
 
-                    <Item key='2'>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
                       del proceso de fertilización.
                     </Item>
 
-                    <Item key='3'>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
                     </Item>
 
-                    <Item key='4'>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
                     </Item>
 
-                    <Item key='5'>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,

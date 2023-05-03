@@ -27,6 +27,16 @@ export const useActivity = () => {
     setCompleteStage()
   }
 
+  const setPlan = (plan) => {
+    dispatch({
+      type: TYPES.SAVE_PLAN,
+      payload: {
+        stage: currentStage.current,
+        plan
+      }
+    })
+  }
+
   const setCompleteStage = () => {
     const { activities, totalActivities } = getCurrentStageObject(
       currentStage.current
@@ -58,6 +68,11 @@ export const useActivity = () => {
     }, {})
   }
 
+  const getPlan = () => {
+    const { plan = {} } = getCurrentStageObject(currentStage.current)
+    return plan
+  }
+
   const getActivity = (id) => {
     const { activities } = getCurrentStageObject(currentStage.current)
     const activity = activities.find((item) => item.activity === id) ?? {}
@@ -81,6 +96,8 @@ export const useActivity = () => {
   }
 
   return {
+    setPlan,
+    getPlan,
     setActivity,
     getActivity,
     getStagesComplete,
