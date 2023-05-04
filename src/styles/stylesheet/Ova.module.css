@@ -136,7 +136,7 @@
 .c-image-container-sign::after {
   content: "";
   position: absolute;
-  top: calc(100% + 17px);
+  top: calc(100% + 19px);
   left: 50%;
   width: 62px;
   height: 77px;
@@ -541,7 +541,8 @@ td.tableFinal-3 {
   color: var(--clr-primary-800);
 }
 
-.positionContainerFinal {
+div.positionContainerFinal {
+  display: inline-flex;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

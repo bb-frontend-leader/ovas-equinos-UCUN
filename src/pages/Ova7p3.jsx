@@ -12,7 +12,6 @@ import {
   TabPanels,
   Panel,
   Section,
-  NavSection,
   ButtonSection,
   Modal,
   ModalContent,
@@ -69,8 +68,8 @@ const Ova7p3 = () => {
   const validateRef = useRef()
 
   return (
-    <Panel defaultIndex={4}>
-      <NavSection />
+    <Panel>
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
         <Row justify-content='center' align-items='center' addClass='u-my-7'>

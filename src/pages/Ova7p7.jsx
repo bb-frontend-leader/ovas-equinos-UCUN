@@ -8,7 +8,6 @@ import {
   Row,
   Image,
   Button,
-  NavSection,
   ButtonSection,
   Draggable,
   Droppable,
@@ -54,7 +53,7 @@ const Ova7p7 = () => {
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
         <Row justify-content='center' align-items='center'>

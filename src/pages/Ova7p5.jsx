@@ -7,7 +7,6 @@ import {
   Row,
   Panel,
   Section,
-  NavSection,
   ButtonSection,
   Image,
   Button,
@@ -73,7 +72,7 @@ const Ova7p5 = () => {
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
@@ -132,7 +131,7 @@ const Ova7p5 = () => {
                 audio.
               </p>
 
-              <Row addClass='positionContainerFinal' justify-content='center'>
+              <div className='positionContainerFinal'>
                 <Audio
                   defaultStyle
                   type='Button'
@@ -152,7 +151,7 @@ const Ova7p5 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
-              </Row>
+              </div>
             </ImageContainer>
           </Col>
         </Row>
@@ -248,10 +247,10 @@ const Ova7p5 = () => {
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
-          <Col xs='11' md='10' lg='9' hd='5'>
+          <Col xs='11' md='10' lg='9' hd='5' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer
@@ -265,7 +264,7 @@ const Ova7p5 = () => {
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-6'>
+              <p className='u-mt-3'>
                 La inseminación artificial desde hace muchos años es una de las
                 prácticas de servicio con mayor impacto en la industria equina,
                 ya que permite obtener el máximo rendimiento reproductivo y
@@ -338,10 +337,10 @@ const Ova7p5 = () => {
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
-          <Col xs='11' md='10' lg='9' hd='5'>
+          <Col xs='11' md='10' lg='9' hd='5' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer

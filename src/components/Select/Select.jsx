@@ -16,15 +16,9 @@ import PropTypes from 'prop-types'
 import { Icon } from 'UI-Components-books'
 import css from './Select.module.css'
 
-export const Select = ({
-  id,
-  label,
-  name,
-  placeholder,
-  disabled,
-  value,
-  ...props
-}) => {
+export const Select = (props) => {
+  const { label, name } = props
+
   // Create state based on the incoming props
   const state = useSelectState({ label, name, ...props })
 
@@ -37,10 +31,8 @@ export const Select = ({
   )
 
   return (
-    <div className={`${css['c-select']}`} aria-labelledby={id}>
-      <div id={id} className='u-sr-only' {...labelProps}>
-        {label}
-      </div>
+    <div className={`${css['c-select']}`}>
+      <div {...labelProps} className='u-sr-only'>{label}</div>
       <HiddenSelect state={state} triggerRef={ref} label={label} name={name} />
 
       <Button buttonRef={ref} {...triggerProps}>

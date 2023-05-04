@@ -10,7 +10,6 @@ import {
   Image,
   Modal,
   Button,
-  NavSection,
   ButtonSection,
   ModalOverlay,
   ModalContent,
@@ -78,7 +77,7 @@ const Ova7p4 = () => {
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
         <Row justify-content='center' align-items='center'>

@@ -95,6 +95,21 @@ export const useActivity = () => {
     return mergedActivities
   }
 
+  const getAllPlan = () => {
+    const activities = useActivityStore.getState().activities
+
+    const mergedPlans = activities.map(({ plan }) => {
+      const answers = plan.answers.map(({ question, value }) => ({
+        id: window.crypto.randomUUID(),
+        question,
+        answer: value ?? question
+      }))
+      return { title: plan.title, answers }
+    })
+
+    return mergedPlans
+  }
+
   return {
     setPlan,
     getPlan,
@@ -102,6 +117,7 @@ export const useActivity = () => {
     getActivity,
     getStagesComplete,
     getAllActivityPoints,
+    getAllPlan,
     getCurrentStageObject
   }
 }

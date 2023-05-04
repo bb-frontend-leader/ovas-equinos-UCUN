@@ -77,7 +77,7 @@ const Ova7p9 = () => {
               </a>
             </p>
 
-            <Row addClass='positionContainerFinal' justify-content='center'>
+            <div className='positionContainerFinal'>
               <Link to='/unit/1/page/8' className='u-button-reset u-stack'>
                 <Image
                   src='assets/images/Button-style-large.png'
@@ -101,7 +101,7 @@ const Ova7p9 = () => {
                   Continuar
                 </span>
               </Link>
-            </Row>
+            </div>
           </ImageContainer>
         </Col>
       </Row>

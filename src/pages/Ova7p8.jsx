@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
+import { PDFDownloadLink } from '@react-pdf/renderer'
 
 import { Col, Row, Content, Image } from 'UI-Components-books'
 import { ImageContainer } from '@components'
 import { useActivity } from '@hooks'
+import { PlanFile } from '@pages/Pdf'
 
 const Ova7p8 = () => {
   const { getAllActivityPoints } = useActivity()
@@ -225,14 +227,22 @@ const Ova7p8 = () => {
                 </p>
 
                 <div className='positionImgFinal'>
-                  <a href='/' download className='u-stack'>
+                  {/* <a href={instance.url} target='_blank' rel='noopener noreferrer' className='u-stack'>
                     <Image
                       url='assets/images/Slide1-image-8.png'
                       alt='Descargar las estrategias de manejo zootécnico para el control reproductivo'
                       width='145'
                       noCaption
                     />
-                  </a>
+                  </a> */}
+                  <PDFDownloadLink document={<PlanFile />} fileName='estrategias-de-manejo-zootecnico.pdf' className='u-stack'>
+                    <Image
+                      url='assets/images/Slide1-image-8.png'
+                      alt='Descargar las estrategias de manejo zootécnico para el control reproductivo'
+                      width='145'
+                      noCaption
+                    />
+                  </PDFDownloadLink>
                 </div>
               </ImageContainer>
             </Col>

@@ -36,7 +36,7 @@ const Ova7p10 = () => {
               <p>2022</p>
             </div>
 
-            <Row addClass='positionContainerFinal' justify-content='center'>
+            <div className='positionContainerFinal'>
               <Link to='/unit/1/page/1' className='u-button-reset u-stack'>
                 <Image
                   src='assets/images/Button-style-large.png'
@@ -60,7 +60,7 @@ const Ova7p10 = () => {
                   Volver
                 </span>
               </Link>
-            </Row>
+            </div>
           </ImageContainer>
         </Col>
       </Row>

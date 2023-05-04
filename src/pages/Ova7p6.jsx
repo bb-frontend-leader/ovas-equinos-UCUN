@@ -7,7 +7,6 @@ import {
   Row,
   Panel,
   Section,
-  NavSection,
   ButtonSection,
   Image,
   Button,
@@ -55,7 +54,7 @@ const Ova7p6 = () => {
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
@@ -214,10 +213,10 @@ const Ova7p6 = () => {
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
-          <Col xs='11' md='10' lg='9' hd='6'>
+          <Col xs='11' md='10' lg='9' hd='6' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer
@@ -311,10 +310,10 @@ const Ova7p6 = () => {
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='space-evenly' align-items='center'>
-          <Col xs='11' md='10' lg='6' hd='5'>
+          <Col xs='11' md='10' lg='6' hd='5' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer
