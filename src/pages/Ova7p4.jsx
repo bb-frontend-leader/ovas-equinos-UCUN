@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Item } from 'react-stately'
 
 import {
   Panel,
@@ -9,7 +10,6 @@ import {
   Image,
   Modal,
   Button,
-  NavSection,
   ButtonSection,
   ModalOverlay,
   ModalContent,
@@ -77,7 +77,7 @@ const Ova7p4 = () => {
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
         <Row justify-content='center' align-items='center'>
@@ -287,7 +287,7 @@ const Ova7p4 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la primera sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -301,7 +301,7 @@ const Ova7p4 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la tercera sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -362,12 +362,16 @@ const Ova7p4 = () => {
           </Col>
 
           <Col xs='11' mm='10' md='9' lg='7' hd='6'>
-            <PopoverCheckGroup onResult={handleActivityCheckbox} minSelected={2}>
+            <PopoverCheckGroup
+              id='activity_2'
+              onResult={handleActivityCheckbox}
+              minSelected={2}
+            >
               <List addClass='c-toggle-check-grid'>
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-1'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='1'
                   >
@@ -397,7 +401,7 @@ const Ova7p4 = () => {
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-3'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='3'
                   >
@@ -408,7 +412,7 @@ const Ova7p4 = () => {
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-4'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='4'
                   >
@@ -437,7 +441,7 @@ const Ova7p4 = () => {
                 <ListItem>
                   <PopoverCheck
                     id='popover-checkbox-6'
-                    points={0}
+                    points={-1}
                     state='wrong'
                     label='6'
                   >
@@ -454,7 +458,7 @@ const Ova7p4 = () => {
                   <Button ref={validateRef} addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la segunda sección'
+                      alt='Validar la actividad'
                       width='200'
                       noCaption
                     />
@@ -518,7 +522,11 @@ const Ova7p4 = () => {
                 tiene un intento para realizarla.
               </p>
 
-              <DragValidation onResult={handleActivityDrag} points={1}>
+              <DragValidation
+                onResult={handleActivityDrag}
+                points={1}
+                id='activity_3'
+              >
                 <Row
                   justify-content='space-evenly'
                   align-items='center'
@@ -585,10 +593,13 @@ const Ova7p4 = () => {
 
                     <Row justify-content='center' align-items='center'>
                       <DragValidationButton>
-                        <Button ref={validateRef} addClass='u-button-reset u-stack'>
+                        <Button
+                          ref={validateRef}
+                          addClass='u-button-reset u-stack'
+                        >
                           <Image
                             src='assets/images/Button-style-large.png'
-                            alt='Volver a la segunda sección'
+                            alt='Validar la actividad'
                             width='200'
                             noCaption
                           />
@@ -708,7 +719,7 @@ const Ova7p4 = () => {
               addClass='u-text-center u-my-2'
               padding='30px'
             >
-              <h2 className='u-mb-3 u-fs-300'>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
                 <strong>Plan de manejo:</strong> Fisiología de la reproducción
                 en equinos.
               </h2>
@@ -721,116 +732,119 @@ const Ova7p4 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_2'
+                  title='Fisiología de la reproducción en equinos.'
+                >
                   <PlanCheck value='question_1' label='Dinámica folicular.' />
 
-                  <PlanSelect id='question_1'>
-                    <option value={1}>
+                  <PlanSelect id='question_1' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_2' label='Ovulación.' />
 
-                  <PlanSelect id='question_2'>
-                    <option value={1}>
+                  <PlanSelect id='question_2' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_3' label='Edema uterino.' />
 
-                  <PlanSelect id='question_3'>
-                    <option value={1}>
+                  <PlanSelect id='question_3' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -838,76 +852,76 @@ const Ova7p4 = () => {
                     label='Sintomatología de celo.'
                   />
 
-                  <PlanSelect id='question_4'>
-                    <option value={1}>
+                  <PlanSelect id='question_4' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_5' label='Dinámica de celo.' />
 
-                  <PlanSelect id='question_5'>
-                    <option value={1}>
+                  <PlanSelect id='question_5' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       En esta se describen las diferentes etapas por las que
                       pasa el folículo en su recorrido desde la reserva
                       folicular, hasta la ovulación, conocerla permite controlar
                       el ciclo estral, según las necesidades reproductivas del
                       sistema.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       Conocer el momento más próximo posible a la ovulación,
                       determina el éxito de biotecnologías reparativas como la
                       inseminación artificial, ya que entre mas cercana se
                       realice a este evento, las probabilidades de preñez cada
                       vez serán más altas.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Conocer los diferentes grados de edema uterino,
                       complementa el seguimiento ovárico orientado a determinar
                       el momento de la ovulación, esta actividad representa un
                       proceso fundamental en el plan de manejo reproductivo en
                       equinos.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Al igual que seguimiento ovárico, conocer el
                       comportamiento reproductivo en las diferentes etapas del
                       ciclo estral, permite realizar acciones específicas
                       orientadas a la fertilización procura de porcentajes altos
                       de preñez, ya sea por monta natural biotecnologías
                       complementarias.
-                    </option>
+                    </Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>
@@ -921,7 +935,7 @@ const Ova7p4 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la tercera sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -934,7 +948,7 @@ const Ova7p4 = () => {
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

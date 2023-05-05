@@ -1,0 +1,118 @@
+:root {
+    --clr-brown-light: #f7c895;
+    --clr-brown: #bc7f62;
+    --clr-brown-dark: #472309;
+}
+
+/* Select */
+.c-select {
+    width: 100%;
+    height: 4.5rem;
+    font-size: var(--fs-300);
+}
+
+.c-select__text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.c-select__button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    color: var(--clr-brown-dark);
+    border: 2px solid var(--clr-brown);
+    background-color: var(--clr-brown-light);
+    overflow: hidden;
+}
+
+
+.c-select__button:disabled {
+    background: #eeaa5c;
+    background: linear-gradient(90deg, rgba(238, 170, 92, 1) 36%, rgba(231, 162, 91, 1) 44%, rgba(219, 149, 85, 1) 55%, rgba(191, 121, 73, 1) 77%, rgba(188, 117, 70, 1) 100%);
+    border: 2px solid var(--clr-brown-light);
+    border-radius: 0.8rem;
+}
+
+.c-select__icon {
+    --icon-size: 2em;
+    fill: var(--clr-brown);
+}
+
+
+/* Componente Popover */
+.c-popover {
+    position: absolute;
+    top: 100%;
+    width: 40vw;
+    z-index: 1;
+}
+
+
+/* Componente listBox */
+.c-list-box {
+    margin: 0px;
+    padding: 0px;
+    max-height: 150px;
+    min-width: 100px;
+    background-color: var(--clr-brown-light);
+    list-style: none;
+    overflow: auto;
+    border-bottom: 2px solid var(--clr-brown);
+    border-left: 2px solid var(--clr-brown);
+    border-right: 2px solid var(--clr-brown);
+    border-bottom-left-radius: .8rem;
+    border-bottom-right-radius: .8rem;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.c-list-box::-webkit-scrollbar-thumb {
+    background: var(--clr-brown);
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.c-list-box::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-brown-light);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+.c-list-box::-webkit-scrollbar-thumb:active {
+    background-color: var(--clr-brown-light);
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.c-list-box::-webkit-scrollbar-track {
+    background: var(--clr-brown-light);
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+.c-list-box::-webkit-scrollbar-track:hover,
+.c-list-box::-webkit-scrollbar-track:active {
+    background: var(--clr-brown-light);
+}
+
+/* Componente Option */
+.c-option {
+    padding: .8rem;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.c-option:not(:last-child) {
+    border-bottom: 2px solid var(--clr-brown);
+}
+
+.c-option--focus {
+    background-color: #f6bc78;
+}
+
+.c-option--disabled {
+    color: gray;
+}

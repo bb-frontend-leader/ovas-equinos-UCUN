@@ -1,19 +1,15 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Item } from 'react-stately'
 
 import {
   Col,
   Row,
   Panel,
   Section,
-  NavSection,
   ButtonSection,
-  Modal,
-  ModalContent,
-  ModalOverlay,
   Image,
   Button,
-  CheckBox,
   Audio
 } from 'UI-Components-books'
 import {
@@ -21,31 +17,47 @@ import {
   SvgStageMenuTwo,
   PlanCheck,
   PlanGroup,
-  PlanSelect
+  PlanSelect,
+  ModalActivity,
+  CheckBoxGroup,
+  CheckBoxButton,
+  CheckBox
 } from '@components'
 import { useBackground } from '@hooks'
 
 const Ova7p6 = () => {
-  const { setBackground } = useBackground()
+  // Usado para almacenar el puntaje de la actividad y
+  // poder mostrarlo en el ModalActivity.
+  const [points, setPoints] = useState(0)
 
+  // Estado utilizado para controlar la apertura y cierre de modales.
   const [isOpen, setIsOpen] = useState({
-    modalAct1: false,
-    modalAct2: false
+    activity: false
   })
+
+  // Hook utilizado para actualizar el background-image.
+  const { setBackground } = useBackground()
 
   // Se utiliza para abrir y cerrar los modales.
   const onToggleModal = (modal) => {
     setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }))
   }
 
-  const contextRef = useRef()
+  // Funcion utilizada en el onResult de la actividad.
+  const handleActivity = ({ result }) => {
+    setPoints(result.points)
+    onToggleModal('activity')
+  }
+
+  // Referencia del botón para validar la actividad.
+  const validateRef = useRef()
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
-      <Section>
-        <Row justify-content='center' align-items='center' addClass='u-my-7'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='center' align-items='center'>
           <Col xs='11' md='10' lg='9' hd='5'>
             <Image
               src='assets/images/SvgRoulette-horse.png'
@@ -55,6 +67,7 @@ const Ova7p6 = () => {
               noCaption
             />
           </Col>
+
           <Col xs='11' md='10' lg='9' hd='6'>
             <ImageContainer
               background='assets/images/Slide1-image-1.png'
@@ -64,7 +77,7 @@ const Ova7p6 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container'
-                width='80%'
+                width='60%'
                 height='100px'
               >
                 <h2 className='u-special-font u-text-center u-fs-500'>
@@ -74,7 +87,7 @@ const Ova7p6 = () => {
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-6'>
+              <p className='u-mt-3'>
                 Las biotecnologías reproductivas en equinos se presentan como
                 herramientas que permiten maximizar la fisiología reproductiva
                 de los ejemplares. En la presente etapa reconocerá algunas de
@@ -87,13 +100,18 @@ const Ova7p6 = () => {
                 audio.
               </p>
 
-              <Row className='positionContainerFinal' justify-content='center' align-items='center'>
-                <Audio defaultStyle type='Button' className='styleAudioButton' />
+              <Row addClass='positionContainerFinal' justify-content='center'>
+                <Audio
+                  defaultStyle
+                  type='Button'
+                  className='styleAudioButton'
+                />
+
                 <ButtonSection section={2}>
-                  <Button addClass='u-button-reset u-stack'>
+                  <Button addClass='u-button-reset u-stack u-self-start'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -102,14 +120,13 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
-
               </Row>
             </ImageContainer>
           </Col>
         </Row>
       </Section>
 
-      <Section>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
           <Col xs='11' mm='10' md='9' lg='8' hd='7'>
             <Row
@@ -120,8 +137,8 @@ const Ova7p6 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container title-container--stage'
-                width='95%'
                 height='100px'
+                width='50%'
               >
                 <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 4.
@@ -194,26 +211,26 @@ const Ova7p6 = () => {
         </Row>
       </Section>
 
-      <Section>
-        <Row justify-content='center' align-items='center' addClass='u-my-4'>
-          <Col xs='11' md='10' lg='9' hd='6'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='center' align-items='center'>
+          <Col xs='11' md='10' lg='9' hd='6' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container'
-                width='80%'
                 height='55px'
+                width='60%'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Sitauación
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-6'>
+              <p className='u-mt-3'>
                 En la finca “La Rotonda”, el propietario presenta la siguiente
                 situación problémica:
               </p>
@@ -252,7 +269,7 @@ const Ova7p6 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -261,11 +278,12 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
+
                 <ButtonSection section={4}>
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -277,6 +295,7 @@ const Ova7p6 = () => {
               </Row>
             </ImageContainer>
           </Col>
+
           <Col xs='11' md='10' lg='9' hd='6'>
             <Image
               src='assets/images/SvgRoulette-genética-criolla.png'
@@ -289,21 +308,21 @@ const Ova7p6 = () => {
         </Row>
       </Section>
 
-      <Section>
-        <Row justify-content='center' align-items='center' addClass='u-my-4'>
-          <Col xs='11' md='10' lg='9' hd='6'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='space-evenly' align-items='center'>
+          <Col xs='11' md='10' lg='6' hd='5' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container'
-                width='80%'
                 height='55px'
+                width='60%'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Contexto
                 </h2>
               </ImageContainer>
@@ -335,7 +354,7 @@ const Ova7p6 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -344,11 +363,12 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
+
                 <ButtonSection section={5}>
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -372,9 +392,13 @@ const Ova7p6 = () => {
         </Row>
       </Section>
 
-      <Section>
-        <Row justify-content='center' align-items='flex-end' addClass='u-my-4'>
-          <Col xs='11' md='10' lg='9' hd='6'>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row
+          justify-content='space-evenly'
+          align-items='flex-end'
+          addClass='u-my-4'
+        >
+          <Col xs='11' md='10' lg='6' hd='5'>
             <Image
               src='assets/images/SvgRoulette-genética-criolla.png'
               alt='Imagen de una persona con un caballo.'
@@ -394,11 +418,12 @@ const Ova7p6 = () => {
                   width='80%'
                   height='55px'
                 >
-                  <h2 className='u-special-font u-text-center u-fs-500'>
+                  <h2 className='u-special-font u-text-center u-fs-600'>
                     Actividad 6
                   </h2>
                 </ImageContainer>
-                <p className='u-mt-6'>
+
+                <p className='u-mt-3'>
                   Lea cada una de las opciones presentadas y seleccione dos
                   correctas haciendo clic en el recuadro derecho de la opción
                   elegida. Para terminar haga clic en el botón “Validar” para
@@ -417,158 +442,149 @@ const Ova7p6 = () => {
               </ImageContainer>
             </Col>
           </Col>
-          <Col xs='11' md='10' lg='9' hd='5'>
+
+          <Col xs='11' md='10' lg='6' hd='5'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
-              padding='33px'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300'
+              padding='40px'
             >
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Colecta y transferencia de embriones. Colectar embriones de
-                  una hembra en competencia para ser transferidos a una hembra
-                  receptora la cual continuará con el proceso de gestación y
-                  parto.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Evaluación reproductiva de presencia de estructuras ováricas,
-                  analizando la presencia de anestro el cual es trasplantado a
-                  una hembra receptora la cual continuará con el proceso de
-                  gestación.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Combinar la estimulación con hormonas sintéticas análogas,
-                  específicamente GnRH y estimulación lumínica en potrero, lo
-                  cual induce un retorno a la ciclicidad más rápida, o el
-                  estímulo lumínica artificial en la pesebrera.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <div className='c-popover-check__content u-mb-3'>
-                <p className='u-font-bold u-fs-300'>
-                  Combinar y motivar la presencia de vesícula embrionaria,
-                  usando exposición aislada cada semana permitiendo que la
-                  hembra en competencia retorne al celo y se logre el proceso de
-                  gestación y parto.
-                </p>
-                <CheckBox
-                  addClass='c-popover-check__check'
-                  type='radio'
-                  label=''
-                />
-              </div>
-              <Row justify-content='center' align-items='center'>
-                <ButtonSection
-                  section={2}
-                  onClick={() =>
-                    setBackground(
-                      'url(/assets/images/Principal-background.png)'
-                    )}
-                >
-                  <Button addClass='u-button-reset u-stack'>
-                    <Image
-                      src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
-                      width='200'
-                      noCaption
-                    />
-                    <span className='u-special-font u-fs-500 u-zindex-2'>
-                      Validar
-                    </span>
-                  </Button>
-                </ButtonSection>
-                <ButtonSection
-                  section={6}
-                  onClick={() =>
-                    setBackground(
-                      'url(/assets/images/Principal-background.png)'
-                    )}
-                >
-                  <Button addClass='u-button-reset u-stack'>
-                    <Image
-                      src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
-                      width='200'
-                      noCaption
-                    />
-                    <span className='u-special-font u-fs-500 u-zindex-2'>
-                      Continuar
-                    </span>
-                  </Button>
-                </ButtonSection>
-              </Row>
+              <CheckBoxGroup
+                id='activity_6'
+                minSelected={2}
+                onResult={handleActivity}
+              >
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Colecta y transferencia de embriones. Colectar embriones de
+                    una hembra en competencia para ser transferidos a una hembra
+                    receptora la cual continuará con el proceso de gestación y
+                    parto.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-1'
+                    addClass='c-popover-check__check'
+                    points={5}
+                    state='right'
+                    label=''
+                  />
+                </div>
+
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Evaluación reproductiva de presencia de estructuras
+                    ováricas, analizando la presencia de anestro el cual es
+                    trasplantado a una hembra receptora la cual continuará con
+                    el proceso de gestación.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-2'
+                    addClass='c-popover-check__check'
+                    points={5}
+                    state='right'
+                    label=''
+                  />
+                </div>
+
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Combinar la estimulación con hormonas sintéticas análogas,
+                    específicamente GnRH y estimulación lumínica en potrero, lo
+                    cual induce un retorno a la ciclicidad más rápida, o el
+                    estímulo lumínica artificial en la pesebrera.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-3'
+                    addClass='c-popover-check__check'
+                    points={-5}
+                    state='wrong'
+                    label=''
+                  />
+                </div>
+
+                <div className='c-popover-check__content u-mb-3'>
+                  <p className='u-fs-300'>
+                    Combinar y motivar la presencia de vesícula embrionaria,
+                    usando exposición aislada cada semana permitiendo que la
+                    hembra en competencia retorne al celo y se logre el proceso
+                    de gestación y parto.
+                  </p>
+                  <CheckBox
+                    id='checkbox-id-4'
+                    addClass='c-popover-check__check'
+                    points={-5}
+                    state='wrong'
+                    label=''
+                  />
+                </div>
+
+                <Row justify-content='center' align-items='center'>
+                  <CheckBoxButton>
+                    <Button ref={validateRef} addClass='u-button-reset u-stack'>
+                      <Image
+                        src='assets/images/Button-style-large.png'
+                        alt='Validar la actividad'
+                        width='200'
+                        noCaption
+                      />
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
+                        Validar
+                      </span>
+                    </Button>
+                  </CheckBoxButton>
+
+                  <ButtonSection
+                    section={6}
+                    onClick={() =>
+                      setBackground(
+                        'url(/assets/images/Principal-background.png)'
+                      )}
+                  >
+                    <Button addClass='u-button-reset u-stack'>
+                      <Image
+                        src='assets/images/Button-style-large.png'
+                        alt='Continuar a la siguiente sección'
+                        width='200'
+                        noCaption
+                      />
+                      <span className='u-special-font u-fs-500 u-zindex-2'>
+                        Continuar
+                      </span>
+                    </Button>
+                  </ButtonSection>
+                </Row>
+              </CheckBoxGroup>
             </ImageContainer>
           </Col>
+
+          <ModalActivity
+            section={6}
+            open={isOpen.activity}
+            onClose={() => onToggleModal('activity')}
+            focusRef={validateRef}
+            feedback='La colecta y transferencia de embriones, así como combinar la
+            estimulación con hormonas sintéticas análogas, específicamente
+            GnRH y estimulación lumínica en potrero, son biotecnologías
+            reproductivas aplicables a este caso.'
+            points={`${points} / 10`}
+          />
         </Row>
-        <Modal
-          isOpen={isOpen.modalAct1}
-          finalFocusRef={contextRef}
-          onClose={(value) =>
-            setIsOpen((prev) => ({ ...prev, context: value }))}
-        >
-          <ModalOverlay />
-          <ModalContent addClass='c-modal-secondary u-fs-300'>
-            <Row justify-content='center' align-items='center'>
-              <Col xs='11'>
-                <p>
-                  La colecta y transferencia de embriones, así como combinar la
-                  estimulación con hormonas sintéticas análogas, específicamente
-                  GnRH y estimulación lumínica en potrero, son biotecnologías
-                  reproductivas aplicables a este caso.
-                </p>
-                <p className='u-text-center u-mb-3'>
-                  <b>Puntaje obtenido:</b> x /10 puntos.
-                </p>
-              </Col>
-              <ButtonSection section={6}>
-                <Button addClass='u-button-reset u-stack'>
-                  <Image
-                    src='assets/images/Button-style-large.png'
-                    alt='Ir a la segunda sección'
-                    width='200'
-                    noCaption
-                  />
-                  <span className='u-special-font u-fs-500 u-zindex-2'>
-                    Continuar
-                  </span>
-                </Button>
-              </ButtonSection>
-            </Row>
-          </ModalContent>
-        </Modal>
       </Section>
 
-      <Section>
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
-          <Col xs='11' mm='10' md='9'>
+          <Col xs='12' mm='11' md='10' lg='9' hd='8'>
             <ImageContainer
-              background='assets/images/Slide1-image-1.png'
-              addClass='u-fs-300 container'
-              padding='33px'
+              background='assets/images/Slide3-image-7.png'
+              addClass='u-text-center u-my-2'
+              padding='30px'
             >
-              <p className='u-mt-6 u-text-center'>
-                <b>Plan de manejo:</b> Biotecnologías reproductivas en equinos.
-              </p>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
+                <strong>Plan de manejo:</strong> Biotecnologías reproductivas en
+                equinos.
+              </h2>
 
-              <p className='u-my-3 u-text-center'>
+              <p className='u-mb-5 u-fs-300'>
                 Las biotecnologías reproductivas son herramientas
                 biotecnológicas que permiten obtener el mayor provecho
                 reproductivo posible a un individuo en sus diferentes etapas
@@ -582,36 +598,35 @@ const Ova7p6 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_4'
+                  title='Biotecnologías reproductivas en equinos.'
+                >
                   <PlanCheck
                     value='question_1'
                     label='Ultrasonografía reproductiva.'
                   />
 
-                  <PlanSelect
-                    id='question_1'
-                    placeholder='Seleccionar'
-                    addClass='planSelectStyle'
-                  >
-                    <option value={1}>
+                  <PlanSelect id='question_1' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
                       adecuado y eficiente de variables ováricas y uterinas
                       indispensable en la aplicación de diferentes
                       biotecnologías reproductivas.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
                       enfermades por contacto sexual, sin embargo, se debe
                       contar con el semental en el mismo criadero o cercano a
                       este.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -619,9 +634,9 @@ const Ova7p6 = () => {
                       ligares muy apartados del sistema de producción, demás
                       resulta más económico y rentable que adquirir y mantener
                       un macho reproductor en el sistema.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -633,7 +648,7 @@ const Ova7p6 = () => {
                       gestaciones y crías de una hembra especifica aumenta
                       durante un periodo de tiempo específico, algo que no se
                       lograría si la hembra donante estuviera en gestación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -641,30 +656,26 @@ const Ova7p6 = () => {
                     label='Monta natural dirigida.'
                   />
 
-                  <PlanSelect
-                    id='question_2'
-                    placeholder='Seleccionar'
-                    addClass='planSelectStyle'
-                  >
-                    <option value={1}>
+                  <PlanSelect id='question_2' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
                       adecuado y eficiente de variables ováricas y uterinas
                       indispensable en la aplicación de diferentes
                       biotecnologías reproductivas.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
                       enfermades por contacto sexual, sin embargo, se debe
                       contar con el semental en el mismo criadero o cercano a
                       este.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -672,9 +683,9 @@ const Ova7p6 = () => {
                       ligares muy apartados del sistema de producción, demás
                       resulta más económico y rentable que adquirir y mantener
                       un macho reproductor en el sistema.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -686,7 +697,7 @@ const Ova7p6 = () => {
                       gestaciones y crías de una hembra especifica aumenta
                       durante un periodo de tiempo específico, algo que no se
                       lograría si la hembra donante estuviera en gestación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -694,30 +705,26 @@ const Ova7p6 = () => {
                     label='Inseminación artificial.'
                   />
 
-                  <PlanSelect
-                    id='question_3'
-                    placeholder='Seleccionar'
-                    addClass='planSelectStyle'
-                  >
-                    <option value={1}>
+                  <PlanSelect id='question_3' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
                       adecuado y eficiente de variables ováricas y uterinas
                       indispensable en la aplicación de diferentes
                       biotecnologías reproductivas.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
                       enfermades por contacto sexual, sin embargo, se debe
                       contar con el semental en el mismo criadero o cercano a
                       este.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -725,9 +732,9 @@ const Ova7p6 = () => {
                       ligares muy apartados del sistema de producción, demás
                       resulta más económico y rentable que adquirir y mantener
                       un macho reproductor en el sistema.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -739,7 +746,7 @@ const Ova7p6 = () => {
                       gestaciones y crías de una hembra especifica aumenta
                       durante un periodo de tiempo específico, algo que no se
                       lograría si la hembra donante estuviera en gestación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -747,30 +754,26 @@ const Ova7p6 = () => {
                     label='Colecta y transferencia de embriones.'
                   />
 
-                  <PlanSelect
-                    id='question_4'
-                    placeholder='Seleccionar'
-                    addClass='planSelectStyle'
-                  >
-                    <option value={1}>
+                  <PlanSelect id='question_4' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
                       adecuado y eficiente de variables ováricas y uterinas
                       indispensable en la aplicación de diferentes
                       biotecnologías reproductivas.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
                       enfermades por contacto sexual, sin embargo, se debe
                       contar con el semental en el mismo criadero o cercano a
                       este.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -778,9 +781,9 @@ const Ova7p6 = () => {
                       ligares muy apartados del sistema de producción, demás
                       resulta más económico y rentable que adquirir y mantener
                       un macho reproductor en el sistema.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -792,7 +795,7 @@ const Ova7p6 = () => {
                       gestaciones y crías de una hembra especifica aumenta
                       durante un periodo de tiempo específico, algo que no se
                       lograría si la hembra donante estuviera en gestación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -800,30 +803,26 @@ const Ova7p6 = () => {
                     label='Colecta artificial dirigida.'
                   />
 
-                  <PlanSelect
-                    id='question_5'
-                    placeholder='Seleccionar'
-                    addClass='planSelectStyle'
-                  >
-                    <option value={1}>
+                  <PlanSelect id='question_5' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Sin lugar a dudas es la biotecnología que mayor impacto
                       logra en el plan de manejo reproductivo en un plantel
                       equino, ya que mediante esta se logra hacer un seguimiento
                       adecuado y eficiente de variables ováricas y uterinas
                       indispensable en la aplicación de diferentes
                       biotecnologías reproductivas.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       A través de esta biotecnología se lograr seleccionar el
                       semental especifico con el cual se quiere servir la yegua,
                       además de lograr un buen control de la transmisión de
                       enfermades por contacto sexual, sin embargo, se debe
                       contar con el semental en el mismo criadero o cercano a
                       este.
-                    </option>
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       Esta biotecnología es la de mayor impacto, después de la
                       ultrasonografía, ya que permite maximizar el potencial
                       genético aportado por el macho, puesto que se pude contar
@@ -831,9 +830,9 @@ const Ova7p6 = () => {
                       ligares muy apartados del sistema de producción, demás
                       resulta más económico y rentable que adquirir y mantener
                       un macho reproductor en el sistema.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Esta biotecnología permite mejorar de una manera muy
                       eficiente los dos componentes, tanto el materno como el
                       paterno, ya que se logra la formación de un embrión a
@@ -845,12 +844,16 @@ const Ova7p6 = () => {
                       gestaciones y crías de una hembra especifica aumenta
                       durante un periodo de tiempo específico, algo que no se
                       lograría si la hembra donante estuviera en gestación.
-                    </option>
+                    </Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>
 
-              <Row justify-content='center' align-items='center'>
+              <Row
+                justify-content='center'
+                align-items='center'
+                addClass='u-mt-3'
+              >
                 <ButtonSection
                   section={2}
                   onClick={() =>
@@ -861,7 +864,7 @@ const Ova7p6 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -870,10 +873,11 @@ const Ova7p6 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
+
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

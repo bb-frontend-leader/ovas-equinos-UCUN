@@ -38,6 +38,10 @@ body {
     transition: background-image 1s ease-in-out;
 }
 
+section[data-type="Section"] {
+    overflow-y: initial;
+}
+
 /* Remove default margin */
 :where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
     margin: 0;
@@ -68,6 +72,7 @@ a {
 .u-button-reset {
     padding: 0;
     display: block;
+    align-items: center;
     font-weight: normal;
     background-color: transparent;
     border-radius: min(10%, 3rem);
@@ -150,8 +155,8 @@ th.styleContent2:nth-child(2) {
 }
 
 .imgSogas img[tabIndex="-1"] {
-    --axis-x-img: 7.5rem;
-    --axis-y-img: 57%;
+    --axis-x-img: 2.5rem;
+    --axis-y-img: 0;
     position: absolute;
     height: auto;
     width: 1rem;

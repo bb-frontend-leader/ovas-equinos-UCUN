@@ -25,8 +25,7 @@ export const CheckBoxModal = ({
   // Obtenemos las diferentes propiedades del contexto superior.
   const {
     checkboxValues,
-    activity: { validation },
-    addNewRef
+    activity: { validation, options, load }
   } = useContext(CheckBoxGroupContext)
 
   // Referencia del elemento checkbox.
@@ -79,14 +78,12 @@ export const CheckBoxModal = ({
   }
 
   useEffect(() => {
-    // Agregamos al Referencia a la función addNewRef si está existe
-    checkboxRef.current && addNewRef(checkboxRef.current)
+    if (!load) return
 
-    return () => {
-      // Limpiamos la referencia al desmontar el componente
-      checkboxRef.current = null
-    }
-  }, [checkboxRef])
+    setChecked((prev) => {
+      return options.some(option => option.id === id) || prev
+    })
+  }, [options])
 
   return (
     <>

@@ -1,46 +1,53 @@
-import { useContext, useEffect } from "react";
-import PropTypes from "prop-types";
+import { useContext, Children, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import { PlanGroupContext, Select } from '@components'
 
-import { Select } from "UI-Components-books";
-import { PlanGroupContext } from "@components";
+export const PlanSelect = ({ id, children, placeholder, label }) => {
+  const [selected, setSeleted] = useState(null)
+  const { validation, handleSectionChange, load } = useContext(PlanGroupContext)
 
-import css from "./PlanActivity.module.css";
+  const isEnable = validation(id)
 
-export const PlanSelect = ({ children, id, placeholder, label, addClass }) => {
-  const { addNewSelectId, validation } = useContext(PlanGroupContext);
+  const onSelectionChange = (key) => {
+    const selectedChild = Children.toArray(children).find(
+      (child) => child.props['data-key'] === key
+    )
+    const selectedText = selectedChild?.props?.children
 
-  const isEnable = validation(id);
+    handleSectionChange({ id, key, value: selectedText })
+    setSeleted(key)
+  }
 
   useEffect(() => {
-    // Agregamos al Referencia a la función addNewRef si está existe
-    id && addNewSelectId(id);
+    if (load.length === 0) return
 
-    return () => {
-      // Limpiamos la referencia al desmontar el componente
-      id = null;
-    };
-  }, [id]);
+    setSeleted((prev) => {
+      return load.find(value => value.id === id)?.key || prev
+    })
+  }, [load])
 
   return (
     <Select
+      id={id}
       label={label}
       data-id={id}
       placeholder={placeholder}
       isDisabled={!isEnable}
-      addClass={`${css["c-select"]} ${addClass ?? ""}`}
+      selectedKey={selected}
+      onSelectionChange={onSelectionChange}
     >
       {children}
     </Select>
-  );
-};
+  )
+}
 
 PlanSelect.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.arrayOf(PropTypes.node)
   ]),
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  addClass: PropTypes.string,
-};
+  addClass: PropTypes.string
+}

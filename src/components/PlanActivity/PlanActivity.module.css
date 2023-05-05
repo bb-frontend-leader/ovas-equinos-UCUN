@@ -1,18 +1,3 @@
-/* Select */
-.c-select>div select {
-    height: 4.5rem;
-    color: #472309;
-    background-color: #f7c895;
-    border: 3px solid #bc7f62;
-    border-radius: 0.8rem;
-}
-
-.c-select>div select:disabled {
-    background: rgb(238,170,92);
-    background: linear-gradient(90deg, rgba(238,170,92,1) 36%, rgba(231,162,91,1) 44%, rgba(219,149,85,1) 55%, rgba(191,121,73,1) 77%, rgba(188,117,70,1) 100%);
-    border-color: #f7c895;
-}
-
 /* Checkbox */
 .c-checkbox {
     --input-color: var(--clr-primary-900) !important;

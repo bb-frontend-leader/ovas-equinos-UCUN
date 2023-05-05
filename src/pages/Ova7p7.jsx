@@ -1,159 +1,59 @@
-import { useState, useRef, useReducer } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+
 import {
   Panel,
   Section,
   Col,
   Row,
   Image,
-  Modal,
   Button,
-  NavSection,
   ButtonSection,
-  ModalOverlay,
-  ModalContent,
   Draggable,
   Droppable,
-  DragAndDrop,
   GeneralDraggable
 } from 'UI-Components-books'
 import {
   SvgStageMenuTwo,
   ImageContainer,
   DragValidation,
-  MultipleCheckbox,
-  MultipleCheckboxOption,
-  MultipleCheckBoxButton,
+  DragValidationButton,
+  PlanGroup,
+  PlanCheck,
   ModalActivity
 } from '@components'
 import { useBackground } from '@hooks'
 
 const Ova7p7 = () => {
-  const questionOBJ = [
-    {
-      id: '1',
-      questionTitle:
-        'Teniendo en cuenta las enfermedades mencionadas en el recurso, mencione cuales enfermedades son de control en Colombia y que vacunas se deben incluir en el plan de manejo reproductivo según las directrices del Instituto Colombiano Agropecuario. Seleccione las vacunas que se deben incluir en el plan de manejo del sistema de producción equina según el ICA)',
-      options: [
-        { answer: 'Encefalitis equina venezolana – EEV.', state: 'right' },
-        { answer: 'Influenza equina.', state: 'right' },
-        { answer: 'Influeza venezolana.', state: 'wrong' },
-        { answer: 'Encefalitis.', state: 'wrong' }
-      ]
-    }
-  ]
+  // Usado para almacenar el puntaje de las actividades y
+  // poder mostrarlo en el ModalActivity.
+  const [points, setPoints] = useState(0)
+
+  // Estado utilizado para controlar la apertura y cierre de modales.
+  const [isOpen, setIsOpen] = useState({
+    drag: false
+  })
+
+  // Hook que permite el cambio del fondo de pantalla.
   const { setBackground } = useBackground()
-  const [isOpen, setIsOpen] = useState(false)
-  const puntaje = null
-  const onResult = (value) => {
-    console.log(value)
+
+  // Se utiliza para abrir y cerrar los modales.
+  const onToggleModal = (modal) => {
+    setIsOpen((prev) => ({ ...prev, [modal]: !prev[modal] }))
   }
 
-  const contextRef = useRef()
-
-  // Custom hook que permite cambiar el background.
-  // const { level, setUpdateLevelActive, setActivityLoad, setActivityComplete } =
-  //   useLevelMap();
-
-  // Usado para controlar la apertura del modal de la actividad radio y el contenido dentro de éste.
-  const [validate, setValidate] = useState({ isOpen: false, isRight: false })
-  const [defaultValidateId, setDefaultValidateId] = useState([])
-  const [defaultState, setDefaultState] = useState({})
-  const [updateState, setUpdateState] = useState({})
-
-  // Usado para controlar todos los elementos de la actividad Drag.
-  const [dragActivity, updatedDragActivity] = useReducer(
-    (prev, next) => {
-      return { ...prev, ...next }
-    },
-    { isOpenModal: false, isRight: false, isValidate: false, button: true }
-  )
-
-  /**
-   * Función que se encarga de validar
-   * el valor proporcionado por el componente Radio.
-   *
-   * @param {Array} result - Object
-   */
-  const onValidate = (result) => {
-    const newObject = { isOpen: true }
-
-    if (result) {
-      newObject.isRight = true
-    }
-    setValidate({ ...newObject })
+  // Funcion utilizada en el onResult de la actividad drag and drop.
+  const handleActivityDrag = ({ result }) => {
+    setPoints(result)
+    onToggleModal('drag')
   }
 
-  // Se utiliza para cerrar el modal de la actividad Radio.
-  const onCloseModal = () => {
-    setValidate({ ...validate, isOpen: false })
-  }
-
-  /**
-   * Función que se encarga de validar
-   * el valor proporcionado por el componente DragAndDrop.
-   *
-   * @param {Array} value - ID del drag
-   */
-  const onNewDrag = ({ validate: drags, active }) => {
-    const newListDrags = [...drags]
-    const TOTAL_DRAGS_TO_THROW_CORRECT_MODAL = 1
-
-    if (active && dragActivity.button) {
-      updatedDragActivity({ button: !dragActivity.button })
-    }
-
-    if (newListDrags.length === TOTAL_DRAGS_TO_THROW_CORRECT_MODAL) {
-      updatedDragActivity({ isRight: !dragActivity.isRight })
-    }
-    // setUpdateLevelActive("/redg-4/level-1/activity-8");
-  }
-
-  // Referencia del botón que valida la actividad drag.
-  const refButtonDragActivity = useRef()
-
-  // Referencia del botón de la actividad Radio.
-  const refButtonActivity = useRef()
-
-  const onState = ({ state }) => {
-    setUpdateState(state)
-  }
-
-  // useEffect(() => {
-  //   // guarda las llaves de las actividades en cache
-  //   setActivityLoad({
-  //     activities: [{ key: "Lv1Act7-Ativity1" }, { key: "Lv1Act7-Ativity2" }],
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   if (dragActivity.isValidate && !dragActivity.load) {
-  //     setActivityComplete({
-  //       key: updateState.key,
-  //       answer: updateState.validateId,
-  //       answers: updateState.newObjectState,
-  //     });
-  //   }
-  // }, [dragActivity]);
-
-  // useEffect(() => {
-  //   if (level) {
-  //     const { activities } = level;
-  //     const activity = activities?.find(
-  //       (item) => item.key === "Lv1Act7-Ativity1"
-  //     );
-  //     if (activity?.complete) {
-  //       setDefaultValidateId(activity.answer || []);
-  //       setDefaultState(activity.answers || {});
-
-  //       if (!activity.isValidate) updatedDragActivity({ isValidate: true });
-  //     }
-  //   }
-  // }, [level]);
+  // Referencia del botón para validar la actividad.
+  const validateRef = useRef()
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
         <Row justify-content='center' align-items='center'>
@@ -166,7 +66,7 @@ const Ova7p7 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container title-container--stage'
-                width='500px'
+                width='60%'
                 height='100px'
               >
                 <h2 className='u-special-font u-text-center u-fs-500'>
@@ -189,13 +89,7 @@ const Ova7p7 = () => {
               <SvgStageMenuTwo style={{ maxWidth: '700px' }}>
                 {/* Buttons */}
 
-                <foreignObject
-                  x='47'
-                  y='110'
-                  width='350'
-                  height='95'
-                  className='hoverButton'
-                >
+                <foreignObject x='47' y='110' width='350' height='95'>
                   <ButtonSection
                     section={2}
                     onClick={() =>
@@ -211,13 +105,7 @@ const Ova7p7 = () => {
                   </ButtonSection>
                 </foreignObject>
 
-                <foreignObject
-                  x='412'
-                  y='110'
-                  width='350'
-                  height='95'
-                  className='hoverButton'
-                >
+                <foreignObject x='412' y='110' width='350' height='95'>
                   <ButtonSection
                     section={3}
                     onClick={() =>
@@ -233,13 +121,7 @@ const Ova7p7 = () => {
                   </ButtonSection>
                 </foreignObject>
 
-                <foreignObject
-                  x='790'
-                  y='110'
-                  width='350'
-                  height='95'
-                  className='hoverButton'
-                >
+                <foreignObject x='790' y='110' width='350' height='95'>
                   <ButtonSection
                     section={4}
                     onClick={() =>
@@ -261,7 +143,7 @@ const Ova7p7 = () => {
       </Section>
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
-        <Row justify-content='center' align-items='center' addClass='u-my-6'>
+        <Row justify-content='space-evenly' align-items='center'>
           <Col xs='11' mm='10' md='9' lg='7' hd='6'>
             <ImageContainer
               background='assets/images/Slide1-image-9.png'
@@ -279,7 +161,7 @@ const Ova7p7 = () => {
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-5 u-mx-3'>
+              <p className='u-my-3 u-mx-2'>
                 Es muy importante reconocer las principales enfermedades
                 reproductivas y su impacto en la eficiencia del sistema, de esta
                 forma se presenta como una herramienta fundamental en la
@@ -288,7 +170,7 @@ const Ova7p7 = () => {
                 panorama sanitario de la producción es deficiente
               </p>
 
-              <p className='u-my-2 u-mx-3'>
+              <p className='u-mx-2'>
                 En esta pesebrera algunos animales presentan fallas
                 reproductivas que obedecen específicamente a patologías que
                 afectan la reproducción, siendo el aborto la sintomatología más
@@ -343,8 +225,8 @@ const Ova7p7 = () => {
       </Section>
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
-        <Row justify-content='center' align-items='center' addClass='u-my-6'>
-          <Col xs='11' mm='10' md='9' lg='7' hd='6'>
+        <Row justify-content='space-evenly' align-items='center'>
+          <Col xs='11' mm='10' md='9' lg='6' hd='5'>
             <ImageContainer
               background='assets/images/Slide1-image-9.png'
               addClass='u-mt-2 u-fs-300 c-image-container-sign'
@@ -361,7 +243,7 @@ const Ova7p7 = () => {
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-5 u-mx-3'>
+              <p className='u-my-2 u-mx-2'>
                 Son muchas las causas patológicas que afectan la reproducción en
                 equinos, sin embargo, conocer su sintomatología y lograr un
                 correcto diagnóstico es el conducto regular y más adecuado para
@@ -423,13 +305,10 @@ const Ova7p7 = () => {
           align-items='center'
           addClass='u-py-6'
         >
-          <DragAndDrop
-            validate={dragActivity.isValidate}
-            id='Lv1Act7-Ativity1'
-            onState={onState}
-            defaultValidate={defaultValidateId}
-            defaultState={defaultState}
-            onValidate={onNewDrag}
+          <DragValidation
+            id='activity_7'
+            onResult={handleActivityDrag}
+            points={6}
           >
             <Col xs='11' mm='10' md='10' lg='10' hd='10'>
               <ImageContainer
@@ -475,6 +354,7 @@ const Ova7p7 = () => {
                     label='Draggable item'
                     dragging='c-drag--active'
                     addClass='c-drag--act7'
+                    defaultStyle
                   >
                     <p className='ocultar'>yegua drag</p>
                   </Draggable>
@@ -484,7 +364,7 @@ const Ova7p7 = () => {
 
             <Col xs='11' mm='10' md='9' lg='6' hd='4'>
               <div className='drop-container__act-7'>
-                <p className='u-ml-3 u-mr-3  u-mb-6 u-text-justify'>
+                <p className='u-mx-3 u-mb-5 u-fs-300 u-text-justify'>
                   El problema puede estar asociado a condiciones insalubres de
                   la Pesebrera. Una estrategia puede ser inspeccionar la
                   pesebrera donde se encuentra la yegua, revisar la cantidad de
@@ -504,7 +384,7 @@ const Ova7p7 = () => {
 
             <Col xs='11' mm='10' md='9' lg='6' hd='4'>
               <div className='drop-container__act-7'>
-                <p className='u-ml-3 u-mr-3  u-mb-6 u-text-justify'>
+                <p className='u-mx-3 u-mb-5 u-fs-300 u-text-justify'>
                   El problema puede estar asociado a la presencia de
                   microorganismos patógenos a nivel uterino, los cuales
                   interfieren en el desarrollo embrionario. Una estrategia puede
@@ -525,7 +405,7 @@ const Ova7p7 = () => {
 
             <Col xs='11' mm='10' md='9' lg='6' hd='4'>
               <div className='drop-container__act-7'>
-                <p className='u-ml-3 u-mr-3  u-mb-6 u-text-justify'>
+                <p className='u-mx-3 u-mb-5 u-fs-300 u-text-justify'>
                   El problema puede estar asociado a la presencia de
                   microorganismos patógenos en la pesebrera. Podrá determinarse
                   realizando una evaluación reproductiva por ecografía
@@ -542,143 +422,14 @@ const Ova7p7 = () => {
                 />
               </div>
             </Col>
-          </DragAndDrop>
 
-          <Col xs='11' mm='11' md='11' lg='11' hd='11'>
-            <div className='btn-sec-act7'>
-              <Button
-                addClass='u-button-reset u-stack hoverButton'
-                ref={refButtonDragActivity}
-                label='Comprobar'
-                disabled={dragActivity.button}
-                hasAriaLabel
-                onClick={() => {
-                  () => setIsOpen(true)
-                  updatedDragActivity({
-                    isValidate: !dragActivity.isValidate,
-                    button: !dragActivity.button,
-                    isOpenModal: !dragActivity.isOpenModal
-                  })
-                }}
-              >
-                <Image
-                  src='assets/images/Button-style-large.png'
-                  alt='Ir a la segunda sección'
-                  width='200'
-                  noCaption
-                />
-                <span className='u-special-font u-fs-500 u-zindex-2'>
-                  Validar
-                </span>
-              </Button>
-
-              <ButtonSection
-                section={1}
-                onClick={() =>
-                  setBackground('url(/assets/images/Principal-background.png)')}
-              >
-                <Button addClass='u-button-reset u-stack hoverButton'>
-                  <Image
-                    src='assets/images/Button-style-large.png'
-                    alt='Ir a la segunda sección'
-                    width='200'
-                    noCaption
-                  />
-                  <span className='u-special-font u-fs-500 u-zindex-2'>
-                    Volver
-                  </span>
-                </Button>
-              </ButtonSection>
-            </div>
-          </Col>
-        </Row>
-
-        <ModalActivity
-          section={5}
-          open={dragActivity.isOpenModal}
-          onClose={() => updatedDragActivity({ isOpenModal: !dragActivity.isOpenModal })}
-          focusRef={contextRef}
-          feedback='La presencia de microorganismos patógenos a nivel uterino, los
-            cuales interfieren en desarrollo embrionario son causas para
-            abortos en las hembras equinas.'
-          points={`${dragActivity.isRight ? 6 : 0} / 6`}
-        />
-
-        {/* <Modal
-          isOpen={dragActivity.isOpenModal}
-          finalFocusRef={contextRef}
-          onClose={() =>
-            updatedDragActivity({ isOpenModal: !dragActivity.isOpenModal })
-          }
-        >
-          <ModalOverlay />
-          <ModalContent addClass="c-modal-secondary u-fs-300">
-            <Row justify-content="center" align-items="center">
-              <Col xs="11">
-                <p className="u-text-center">
-                  La presencia de microorganismos patógenos a nivel uterino, los
-                  cuales interfieren en desarrollo embrionario son causas para
-                  abortos en las hembras equinas
-                </p>
-                <p className="u-text-center">
-                  <b>
-                    Puntaje obtenido: {dragActivity.isRight ? 6 : 0} / 6 puntos
-                  </b>
-                </p>
-              </Col>
-            </Row>
-            <div className="container-btn">
-              <ButtonSection
-                section={5}
-                onClick={() =>
-                  updatedDragActivity({
-                    isOpenModal: !dragActivity.isOpenModal,
-                  })
-                }
-              >
-                <Button addClass="u-button-reset u-stack">
-                  <Image
-                    src="assets/images/Button-style-large.png"
-                    alt="Ir a la segunda sección"
-                    width="200"
-                    noCaption
-                  />
-                  <span className="u-special-font u-fs-500 u-zindex-2">
-                    Continuar
-                  </span>
-                </Button>
-              </ButtonSection>
-            </div>
-          </ModalContent>
-        </Modal> */}
-      </Section>
-
-      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
-        <Row justify-content='center' align-items='center'>
-          <Col xs='12' mm='11' md='10' lg='9' hd='8'>
-            <ImageContainer
-              background='assets/images/Slide3-image-7.png'
-              addClass='u-text-center u-my-2'
-              padding='30px'
-            >
-              <h2 className='u-mb-3 u-fs-300'>
-                <strong>Plan de manejo:</strong> Enfermedades que afectan la
-                reproducción en equinos
-              </h2>
-              <MultipleCheckbox
-                id='ucun-Activity7'
-                addClass='fieldsetStyle'
-                onResult={(value) => onResult(value)}
-              >
-                <MultipleCheckboxOption
-                  mainOBJ={questionOBJ}
-                  addClass='checkStyle'
-                />
-                <MultipleCheckBoxButton hasCustomButton>
-                  <Button addClass='u-button-reset u-stack btnValidar'>
+            <Col xs='11' mm='11' md='11' lg='11' hd='11'>
+              <div className='btn-sec-act7'>
+                <DragValidationButton>
+                  <Button ref={validateRef} addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la tercera sección'
+                      alt='Validar la actividad'
                       width='200'
                       noCaption
                     />
@@ -686,8 +437,93 @@ const Ova7p7 = () => {
                       Validar
                     </span>
                   </Button>
-                </MultipleCheckBoxButton>
-              </MultipleCheckbox>
+                </DragValidationButton>
+
+                <ButtonSection
+                  section={1}
+                  onClick={() =>
+                    setBackground(
+                      'url(/assets/images/Principal-background.png)'
+                    )}
+                >
+                  <Button addClass='u-button-reset u-stack hoverButton'>
+                    <Image
+                      src='assets/images/Button-style-large.png'
+                      alt='Ir a la segunda sección'
+                      width='200'
+                      noCaption
+                    />
+                    <span className='u-special-font u-fs-500 u-zindex-2'>
+                      Volver
+                    </span>
+                  </Button>
+                </ButtonSection>
+              </div>
+            </Col>
+          </DragValidation>
+        </Row>
+
+        <ModalActivity
+          section={5}
+          open={isOpen.drag}
+          onClose={() => onToggleModal('drag')}
+          focusRef={validateRef}
+          feedback='La presencia de microorganismos patógenos a nivel uterino, los
+            cuales interfieren en desarrollo embrionario son causas para
+            abortos en las hembras equinas.'
+          points={`${points} / 6`}
+        />
+      </Section>
+
+      <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
+        <Row justify-content='center' align-items='center'>
+          <Col xs='12' mm='11' md='10' lg='7' hd='6'>
+            <ImageContainer
+              background='assets/images/Slide3-image-7.png'
+              addClass='u-text-center u-my-2'
+              padding='30px'
+            >
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
+                <strong>Plan de manejo:</strong> Enfermedades que afectan la
+                reproducción en equinos
+              </h2>
+
+              <p className='u-mb-5 u-fs-300'>
+                Teniendo en cuenta las enfermedades mencionadas en el recurso,
+                mencione cuales enfermedades son de control en Colombia y que
+                vacunas se deben incluir en el plan de manejo reproductivo según
+                las directrices del Instituto Colombiano Agropecuario.
+                Seleccione las vacunas que se deben incluir en el plan de manejo
+                del sistema de producción equina según el ICA).
+              </p>
+
+              <Row
+                justify-content='center'
+                align-items='center'
+                flex-direction='column'
+              >
+                <div className='u-flow' style={{ '--flow-space': '2rem' }}>
+                  <PlanGroup
+                    onlyCheckbox
+                    id='plan_5'
+                    title='Enfermedades que afectan la reproducción en equinos.'
+                  >
+                    <PlanCheck
+                      value='question_1'
+                      label='Encefalitis equina venezolana – EEV.'
+                    />
+
+                    <PlanCheck value='question_2' label='Influenza equina.' />
+
+                    <PlanCheck
+                      value='question_3'
+                      label='Influeza venezolana.'
+                    />
+
+                    <PlanCheck value='question_4' label='Encefalitis.' />
+                  </PlanGroup>
+                </div>
+              </Row>
 
               <Row
                 justify-content='center'
@@ -711,7 +547,7 @@ const Ova7p7 = () => {
                 <Link to='/unit/1/page/8' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

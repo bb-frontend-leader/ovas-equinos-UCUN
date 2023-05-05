@@ -136,7 +136,7 @@
 .c-image-container-sign::after {
   content: "";
   position: absolute;
-  top: calc(100% + 17px);
+  top: calc(100% + 19px);
   left: 50%;
   width: 62px;
   height: 77px;
@@ -169,7 +169,7 @@
 
 .c-plan-group-grid {
   display: grid;
-  grid-template-columns: minmax(200px, 260px) 1fr;
+  grid-template-columns: minmax(200px, 260px) 40vw;
   gap: 0.8rem 1.2rem;
 }
 
@@ -334,13 +334,10 @@
   left: 20%;
 }
 
-.planSelectStyle div select {
-  height: 3.5rem;
-}
-
 /* Actividad radio etapa 4 */
 
 .c-popover-check__content {
+  position: relative;
   border: 4px solid rgb(193, 133, 100);
   border-radius: 1.5rem;
   background-color: rgb(248, 205, 152);
@@ -367,9 +364,9 @@
 
 .c-popover-check__check {
   position: absolute;
-  /* top: 30%; */
-  right: calc(100% - 2.475rem / 2);
-  transform: translateY(-300%);
+  top: 50%;
+  right: calc(100% - 2rem / 2);
+  transform: translateY(-50%);
 }
 
 .c-popover-check__check>div {
@@ -399,11 +396,6 @@
   top: -66%;
 }
 
-.hoverButton:hover {
-  transform: scale(1.05);
-  transform-origin: center;
-}
-
 .container-act-7 {
   position: relative;
   padding-bottom: 3rem;
@@ -419,29 +411,32 @@
 .c-drags-act-7 {
   position: absolute;
   top: 76%;
-  left: 43%;
-  width: 120px;
-  height: 120px;
+  left: 50%;
+  width: 100px;
+  height: 95px;
   background-color: transparent;
   background-image: url(/ovas-ucun/assets/images/backDragAct7.png);
   background-size: cover;
   background-repeat: round;
   z-index: 2;
   box-shadow: none;
+  transform: translateX(-50%);
 }
 
 .drop-act7 {
   position: absolute;
-  top: 66%;
-  left: 34%;
-  width: 120px;
-  height: 120px;
+  top: calc(100% - (95px / 2));
+  left: 50%;
+  margin: 0;
+  width: 100px;
+  height: 95px;
   background-color: transparent;
   background-image: url(/ovas-ucun/assets/images/backDragAct7.png);
   background-size: cover;
   background-repeat: round;
   z-index: 2;
   box-shadow: none;
+  transform: translateX(-50%);
 }
 
 .c-drag--act7 {
@@ -473,37 +468,37 @@ table {
   width: 100%;
 }
 
-th.tableFinal-1:nth-child(1) {
+td.tableFinal-1:nth-child(1) {
   background-color: rgba(232, 167, 90, 0.5);
   min-width: 50%;
   width: 500px;
   padding: 10px;
 }
 
-th.tableFinal-1:nth-child(2),
-th.tableFinal-1:nth-child(3) {
+td.tableFinal-1:nth-child(2),
+td.tableFinal-1:nth-child(3) {
   background-color: rgba(231, 167, 90, 0.5);
   min-width: 50%;
   width: 90px;
   padding: 10px;
 }
 
-th.tableFinal-2:nth-child(1) {
+td.tableFinal-2:nth-child(1) {
   background-color: rgba(238, 160, 63, 0.5);
   min-width: 50%;
   width: 500px;
   padding: 10px;
 }
 
-th.tableFinal-2:nth-child(2),
-th.tableFinal-2:nth-child(3) {
+td.tableFinal-2:nth-child(2),
+td.tableFinal-2:nth-child(3) {
   background-color: rgba(238, 160, 63, 0.5);
   min-width: 50%;
   width: 90px;
   padding: 10px;
 }
 
-th.tableFinal-3 {
+td.tableFinal-3 {
   background-color: rgba(232, 141, 27);
 }
 
@@ -537,21 +532,20 @@ th.tableFinal-3 {
 
 .positionImgFinal {
   position: absolute;
-  transform: translatex(50%);
-  z-index: 100;
+  left: 50%;
+  transform: translatex(-50%);
+  z-index: 2;
 }
 
 .styleLink {
   color: var(--clr-primary-800);
 }
 
-.positionContainerFinal {
+div.positionContainerFinal {
+  display: inline-flex;
   position: absolute;
-  top: 99%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: calc(100% - 72%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .styleAudioButton {
@@ -596,12 +590,6 @@ th.tableFinal-3 {
   .imgSogasFinal img[tabIndex="-1"]:nth-child(4) {
     top: calc(100% - 16%);
     right: 12rem;
-  }
-
-  .positionImgFinal {
-    position: absolute;
-    right: -18%;
-    z-index: 100;
   }
 }
 

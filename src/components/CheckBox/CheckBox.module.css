@@ -1,0 +1,8 @@
+.c-checkbox[data-state="wrong"]>div {
+    --input-color: var(--clr-error-600);
+}
+
+.c-checkbox[data-state="right"]>div {
+    --input-color: var(--clr-success-600);
+}
+

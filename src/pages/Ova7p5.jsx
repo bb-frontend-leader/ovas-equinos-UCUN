@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Item } from 'react-stately'
 
 import {
   Col,
   Row,
   Panel,
   Section,
-  NavSection,
   ButtonSection,
   Image,
   Button,
@@ -71,8 +71,8 @@ const Ova7p5 = () => {
   const radioValidateRef = useRef()
 
   return (
-    <Panel defaultIndex={5}>
-      <NavSection />
+    <Panel>
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
@@ -131,21 +131,18 @@ const Ova7p5 = () => {
                 audio.
               </p>
 
-              <Row
-                className='positionContainerFinal'
-                justify-content='center'
-                align-items='center'
-              >
+              <div className='positionContainerFinal'>
                 <Audio
                   defaultStyle
                   type='Button'
                   className='styleAudioButton'
                 />
+
                 <ButtonSection section={2}>
-                  <Button addClass='u-button-reset u-stack'>
+                  <Button addClass='u-button-reset u-stack u-self-start'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -154,7 +151,7 @@ const Ova7p5 = () => {
                     </span>
                   </Button>
                 </ButtonSection>
-              </Row>
+              </div>
             </ImageContainer>
           </Col>
         </Row>
@@ -171,8 +168,8 @@ const Ova7p5 = () => {
               <ImageContainer
                 background='assets/images/Slide3-image-1.png'
                 addClass='title-container title-container--stage'
-                width='95%'
                 height='100px'
+                width='80%'
               >
                 <h2 className='u-special-font u-text-center u-fs-500'>
                   Etapa 3.
@@ -250,10 +247,10 @@ const Ova7p5 = () => {
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
-          <Col xs='11' md='10' lg='9' hd='5'>
+          <Col xs='11' md='10' lg='9' hd='5' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer
@@ -262,12 +259,12 @@ const Ova7p5 = () => {
                 width='80%'
                 height='55px'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
-                  Sitauación
+                <h2 className='u-special-font u-text-center u-fs-600'>
+                  Situación
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-6'>
+              <p className='u-mt-3'>
                 La inseminación artificial desde hace muchos años es una de las
                 prácticas de servicio con mayor impacto en la industria equina,
                 ya que permite obtener el máximo rendimiento reproductivo y
@@ -299,7 +296,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -313,7 +310,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -340,10 +337,10 @@ const Ova7p5 = () => {
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='center' align-items='center'>
-          <Col xs='11' md='10' lg='9' hd='5'>
+          <Col xs='11' md='10' lg='9' hd='5' addClass='u-mt-3'>
             <ImageContainer
-              background='assets/images/Slide5-image-1.png'
-              addClass='u-fs-300 container'
+              background='assets/images/Slide1-image-9.png'
+              addClass='u-fs-300 c-image-container-sign'
               padding='33px'
             >
               <ImageContainer
@@ -352,7 +349,7 @@ const Ova7p5 = () => {
                 width='80%'
                 height='55px'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Contexto
                 </h2>
               </ImageContainer>
@@ -379,7 +376,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -393,7 +390,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -441,7 +438,7 @@ const Ova7p5 = () => {
                 width='80%'
                 height='55px'
               >
-                <h2 className='u-special-font u-text-center u-fs-500'>
+                <h2 className='u-special-font u-text-center u-fs-600'>
                   Actividad 4
                 </h2>
               </ImageContainer>
@@ -462,21 +459,21 @@ const Ova7p5 = () => {
                 Al terminar, haga clic en el botón “Validar” para conocer su
                 retroalimentación y puntaje.
               </p>
+
+              <div className='imgSogas'>
+                <img
+                  src='assets/images/Slide1-image-7.png'
+                  alt=''
+                  tabIndex={-1}
+                />
+
+                <img
+                  src='assets/images/Slide1-image-7.png'
+                  alt=''
+                  tabIndex={-1}
+                />
+              </div>
             </ImageContainer>
-
-            <div className='imgSogas'>
-              <img
-                src='assets/images/Slide1-image-7.png'
-                alt=''
-                tabIndex={-1}
-              />
-
-              <img
-                src='assets/images/Slide1-image-7.png'
-                alt=''
-                tabIndex={-1}
-              />
-            </div>
 
             <Row justify-content='center' align-items='center'>
               <ImageContainer
@@ -485,7 +482,11 @@ const Ova7p5 = () => {
                 addClass='u-fs-300 container'
                 padding='33px'
               >
-                <SelectGroup onResult={handleActivitySelect} minSelected={3}>
+                <SelectGroup
+                  id='activity_4'
+                  onResult={handleActivitySelect}
+                  minSelected={3}
+                >
                   <table>
                     <thead>
                       <tr>
@@ -500,12 +501,15 @@ const Ova7p5 = () => {
                         </td>
                         <td className='styleContent1'>
                           <SelectElement
+                            id='select-1'
                             addClass='styleSelectEtapa3-1'
                             points={2}
                             correct='Proestro.'
                           >
                             <option value='Proestro.'>Proestro.</option>
-                            <option value='Estro y maestro.'>Estro y maestro.</option>
+                            <option value='Estro y maestro.'>
+                              Estro y maestro.
+                            </option>
                             <option value='Diestro.'>Diestro.</option>
                             <option value='Anestro.'>Anestro.</option>
                           </SelectElement>
@@ -515,12 +519,15 @@ const Ova7p5 = () => {
                         <td className='styleContent2'>Fase periovulatoria.</td>
                         <td className='styleContent2'>
                           <SelectElement
+                            id='select-2'
                             addClass='styleSelectEtapa3-1'
                             points={2}
                             correct='Estro y maestro.'
                           >
                             <option value='Proestro.'>Proestro.</option>
-                            <option value='Estro y maestro.'>Estro y maestro.</option>
+                            <option value='Estro y maestro.'>
+                              Estro y maestro.
+                            </option>
                             <option value='Diestro.'>Diestro.</option>
                             <option value='Anestro.'>Anestro.</option>
                           </SelectElement>
@@ -530,12 +537,15 @@ const Ova7p5 = () => {
                         <td className='styleContent1'>Fase luteal.</td>
                         <td className='styleContent1'>
                           <SelectElement
+                            id='select-3'
                             addClass='styleSelectEtapa3-1'
                             points={2}
                             correct='Diestro.'
                           >
                             <option value='Proestro.'>Proestro.</option>
-                            <option value='Estro y maestro.'>Estro y maestro.</option>
+                            <option value='Estro y maestro.'>
+                              Estro y maestro.
+                            </option>
                             <option value='Diestro.'>Diestro.</option>
                             <option value='Anestro.'>Anestro.</option>
                           </SelectElement>
@@ -549,7 +559,7 @@ const Ova7p5 = () => {
                       <Button addClass='u-button-reset u-stack'>
                         <Image
                           src='assets/images/Button-style-large.png'
-                          alt='Volver a la segunda sección'
+                          alt='Validar la actividad'
                           width='200'
                           noCaption
                         />
@@ -563,7 +573,7 @@ const Ova7p5 = () => {
                       <Button addClass='u-button-reset u-stack'>
                         <Image
                           src='assets/images/Button-style-large.png'
-                          alt='Ir a la segunda sección'
+                          alt='Continuar a la siguiente sección'
                           width='200'
                           noCaption
                         />
@@ -590,22 +600,20 @@ const Ova7p5 = () => {
           points={`${points.select} / 6`}
         >
           <List style={{ padding: '0' }}>
-            <ListItem>
-              Fase folicular o de regresión lútea = Proestro.
-            </ListItem>
-            <ListItem>
-              Fase periovulatoria= Estro y metaestro.
-            </ListItem>
-            <ListItem>
-              Fase luteal = Diestro.
-            </ListItem>
+            <ListItem>Fase folicular o de regresión lútea = Proestro.</ListItem>
+            <ListItem>Fase periovulatoria= Estro y metaestro.</ListItem>
+            <ListItem>Fase luteal = Diestro.</ListItem>
           </List>
         </ModalActivity>
       </Section>
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster u-section-overflow'>
         <Row justify-content='space-evenly' align-items='center'>
-          <PopoverRadioGroup onResult={handleActivityRadio} minSelected={1}>
+          <PopoverRadioGroup
+            id='activity_5'
+            onResult={handleActivityRadio}
+            minSelected={1}
+          >
             <Col xs='11' mm='10' md='9' lg='7' hd='6' addClass='u-self-end'>
               <Image
                 src='assets/images/SvgRoulette-inseminación-artificial-2.png'
@@ -697,7 +705,7 @@ const Ova7p5 = () => {
                     >
                       <Image
                         src='assets/images/Button-style-large.png'
-                        alt='Ir a la segunda sección'
+                        alt='Validar la actividad'
                         width='200'
                         noCaption
                       />
@@ -717,7 +725,7 @@ const Ova7p5 = () => {
                     <Button addClass='u-button-reset u-stack'>
                       <Image
                         src='assets/images/Button-style-large.png'
-                        alt='Ir a la segunda sección'
+                        alt='Continuar a la siguiente sección'
                         width='200'
                         noCaption
                       />
@@ -755,7 +763,7 @@ const Ova7p5 = () => {
               addClass='u-text-center u-my-2'
               padding='30px'
             >
-              <h2 className='u-mb-3 u-fs-300'>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
                 <strong>Plan de manejo:</strong> Variables foliculares
                 relacionadas a los parámetros reproductivos en equinos.
               </h2>
@@ -773,22 +781,21 @@ const Ova7p5 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_3'
+                  title='Variables foliculares relacionadas a los parámetros reproductivos en equinos.'
+                >
                   <PlanCheck
                     value='question_1'
                     label='Duración del ciclo estral.'
                   />
 
-                  <PlanSelect id='question_1' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
-
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
-
-                    <option value={3}>40 - 46 mm, promedio.</option>
-
-                    <option value={4}>1 - 4 mm, promedio.</option>
-
-                    <option value={5}>90 días promedio.</option>
+                  <PlanSelect id='question_1' label='Seleccionar'>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -796,16 +803,12 @@ const Ova7p5 = () => {
                     label='Crecimiento diario folicular.'
                   />
 
-                  <PlanSelect id='question_2' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
-
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
-
-                    <option value={3}>40 - 46 mm, promedio.</option>
-
-                    <option value={4}>1 - 4 mm, promedio.</option>
-
-                    <option value={5}>90 días promedio.</option>
+                  <PlanSelect id='question_2' label='Seleccionar'>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck
@@ -813,30 +816,22 @@ const Ova7p5 = () => {
                     label='Diámetro folicular a la ovulación.'
                   />
 
-                  <PlanSelect id='question_3' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
-
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
-
-                    <option value={3}>40 - 46 mm, promedio.</option>
-
-                    <option value={4}>1 - 4 mm, promedio.</option>
-
-                    <option value={5}>90 días promedio.</option>
+                  <PlanSelect id='question_3' label='Seleccionar'>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_4' label='Duración folicular.' />
 
-                  <PlanSelect id='question_4' placeholder='Seleccionar'>
-                    <option value={1}>20 – 21 días promedio.</option>
-
-                    <option value={2}>2.5 mm diarios, en promedio.</option>
-
-                    <option value={3}>40 - 46 mm, promedio.</option>
-
-                    <option value={4}>1 - 4 mm, promedio.</option>
-
-                    <option value={5}>90 días promedio.</option>
+                  <PlanSelect id='question_4' label='Seleccionar'>
+                    <Item data-key='1' key='1'>20 – 21 días promedio.</Item>
+                    <Item data-key='2' key='2'>2.5 mm diarios, en promedio.</Item>
+                    <Item data-key='3' key='3'>40 - 46 mm, promedio.</Item>
+                    <Item data-key='4' key='4'>1 - 4 mm, promedio.</Item>
+                    <Item data-key='5' key='5'>90 días promedio.</Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>
@@ -856,7 +851,7 @@ const Ova7p5 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -869,7 +864,7 @@ const Ova7p5 = () => {
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

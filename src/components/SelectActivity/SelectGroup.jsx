@@ -1,9 +1,13 @@
-import { createContext, useReducer, useRef, useEffect } from 'react'
+import { createContext, useReducer, useRef, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
+import { useActivity } from '@hooks'
 
 export const SelectGroupContext = createContext()
 
-export const SelectGroup = ({ children, onResult, minSelected }) => {
+export const SelectGroup = ({ id, children, onResult, minSelected }) => {
+  const { setActivity, getActivity } = useActivity()
+  const level = useMemo(() => getActivity(id), [id])
+
   const [activity, updatedActivity] = useReducer(
     (prev, next) => {
       return { ...prev, ...next }
@@ -15,7 +19,8 @@ export const SelectGroup = ({ children, onResult, minSelected }) => {
         validate: false,
         points: 0
       },
-      options: []
+      options: [],
+      load: false
     }
   )
 
@@ -32,11 +37,11 @@ export const SelectGroup = ({ children, onResult, minSelected }) => {
    * @param {String} id - id de la pregunta.
    * @param {Object} value - valor del radio seleccionado.
    */
-  const selectValues = ({ id, value, points }) => {
+  const selectValues = ({ id, value, option, points }) => {
     updatedActivity({
       options: [
         ...activity.options.filter((option) => option.id !== id),
-        { id, value, points }
+        { id, value, option, points }
       ]
     })
   }
@@ -69,6 +74,13 @@ export const SelectGroup = ({ children, onResult, minSelected }) => {
     }
 
     updatedActivity({ result: newResult })
+
+    setActivity({
+      activity: id,
+      points: newResult.points,
+      state: { validation: true, load: true },
+      answers: [...activity.options]
+    })
   }
 
   /**
@@ -83,6 +95,24 @@ export const SelectGroup = ({ children, onResult, minSelected }) => {
       updatedActivity({ button: false })
     }
   }, [activity.options])
+
+  /**
+   * Efecto utilizado para cargar la actividad,
+   * desde el localStorage solo si está existe.
+   */
+  useEffect(() => {
+    if (Object.keys(level).length === 0) return
+
+    updatedActivity({
+      validation: level.state.validation,
+      result: {
+        validate: false,
+        points: level.points
+      },
+      options: [...level.answers],
+      load: level.state.load
+    })
+  }, [level])
 
   return (
     <SelectGroupContext.Provider
@@ -101,5 +131,6 @@ SelectGroup.propTypes = {
     PropTypes.arrayOf(PropTypes.node)
   ]),
   onResult: PropTypes.func,
-  minSelected: PropTypes.number.isRequired
+  minSelected: PropTypes.number.isRequired,
+  id: PropTypes.string
 }

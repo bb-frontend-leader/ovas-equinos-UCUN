@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { PropTypes } from 'prop-types'
 
 import {
@@ -21,11 +21,27 @@ export const PopoverCheck = ({
   points,
   state
 }) => {
+  // Estado utilizado para controlar si el input está checked.
+  const [checked, setChecked] = useState(false)
+
   // Obtenemos las diferentes propiedades del contexto superior.
   const {
     checkboxValues,
-    activity: { validation }
+    activity: { validation, options, load }
   } = useContext(PopoverCheckGroupContext)
+
+  const onChangeCheckbox = (value) => {
+    setChecked(!checked)
+    checkboxValues({ ...value, points })
+  }
+
+  useEffect(() => {
+    if (!load) return
+
+    setChecked((prev) => {
+      return options.some(option => option.id === id) || prev
+    })
+  }, [options])
 
   return (
     <PopoverModal>
@@ -43,9 +59,12 @@ export const PopoverCheck = ({
           id={id}
           addClass={css['c-popover-check__check']}
           state={validation ? state : 'normal'}
+          value={state}
+          label={label}
           isDisabled={validation}
-          onChange={(value) => checkboxValues({ ...value, points })}
-          label=''
+          onChange={onChangeCheckbox}
+          inherit
+          checked={checked}
         />
       </PopoverModalContent>
     </PopoverModal>

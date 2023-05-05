@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { Button } from 'UI-Components-books'
-
 import css from './Header.module.css'
 
 const Header = () => {
@@ -86,6 +85,7 @@ const Header = () => {
 
       <NavLink
         to='unit/1/page/2'
+        data-tour='link_menu'
         className={`${css['c-header__icon']} animate__animated animate__bounce animate__delay-1s`}
       >
         <img

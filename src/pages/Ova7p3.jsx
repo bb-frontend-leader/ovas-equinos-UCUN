@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Item } from 'react-stately'
 
 import {
   Col,
@@ -11,7 +12,6 @@ import {
   TabPanels,
   Panel,
   Section,
-  NavSection,
   ButtonSection,
   Modal,
   ModalContent,
@@ -32,13 +32,7 @@ import {
 } from '@components'
 import { useBackground } from '@hooks'
 
-import { useActivityStore } from '../store/store'
-
 const Ova7p3 = () => {
-  const getStorage = useActivityStore((state) => state.activities)
-
-  getStorage()
-
   // Usado para almacenar el puntaje de la actividad y
   // poder mostrarlo en el ModalActivity.
   const [points, setPoints] = useState(0)
@@ -75,7 +69,7 @@ const Ova7p3 = () => {
 
   return (
     <Panel>
-      <NavSection />
+      {/* <NavSection /> */}
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
         <Row justify-content='center' align-items='center' addClass='u-my-7'>
@@ -174,7 +168,7 @@ const Ova7p3 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Ir a la segunda sección'
+                      alt='Continuar a la siguiente sección'
                       width='200'
                       noCaption
                     />
@@ -435,11 +429,15 @@ const Ova7p3 = () => {
                     obtenido.
                   </p>
 
-                  <CheckBoxGroup onResult={handleActivity}>
+                  <CheckBoxGroup
+                    id='activity_1'
+                    minSelected={2}
+                    onResult={handleActivity}
+                  >
                     <div className='c-checkbox-modal-grid u-my-4'>
                       <CheckBoxModal
                         id='ui-checkbox-1'
-                        value='option_1'
+                        value='Item_1'
                         label='Opción 1'
                         state='right'
                         points={2.5}
@@ -462,10 +460,10 @@ const Ova7p3 = () => {
 
                       <CheckBoxModal
                         id='ui-checkbox-2'
-                        value='option_2'
+                        value='Item_2'
                         label='Opción 2'
                         state='wrong'
-                        points={0}
+                        points={-2.5}
                       >
                         <Row
                           justify-content='center'
@@ -485,7 +483,7 @@ const Ova7p3 = () => {
 
                       <CheckBoxModal
                         id='ui-checkbox-3'
-                        value='option_3'
+                        value='Item_3'
                         label='Opción 3'
                         state='right'
                         points={2.5}
@@ -509,10 +507,10 @@ const Ova7p3 = () => {
 
                       <CheckBoxModal
                         id='ui-checkbox-4'
-                        value='option_4'
+                        value='Item_4'
                         label='Opción 4'
                         state='wrong'
-                        points={0}
+                        points={-2.5}
                       >
                         <Row
                           justify-content='center'
@@ -540,7 +538,7 @@ const Ova7p3 = () => {
                         >
                           <Image
                             src='assets/images/Button-style-large.png'
-                            alt='Volver a la segunda sección'
+                            alt='Validar la actividad'
                             width='200'
                             noCaption
                           />
@@ -560,7 +558,7 @@ const Ova7p3 = () => {
                         <Button addClass='u-button-reset u-stack'>
                           <Image
                             src='assets/images/Button-style-large.png'
-                            alt='Volver a la segunda sección'
+                            alt='Volver a la sección anterior'
                             width='200'
                             noCaption
                           />
@@ -593,14 +591,14 @@ const Ova7p3 = () => {
       </Section>
 
       <Section addClass='animate__animated animate__fadeInDown animate__faster'>
-        <Row justify-content='center' align-items='center'>
+        <Row justify-content='center' align-items='flex-start'>
           <Col xs='12' mm='11' md='10' lg='9' hd='8'>
             <ImageContainer
               background='assets/images/Slide3-image-7.png'
               addClass='u-text-center u-my-2'
               padding='30px'
             >
-              <h2 className='u-mb-3 u-fs-300'>
+              <h2 className='u-mb-3 u-fs-300 u-font-normal'>
                 <strong>Plan de manejo:</strong> Anatomía de la reproducción en
                 equinos.
               </h2>
@@ -613,250 +611,253 @@ const Ova7p3 = () => {
               </p>
 
               <div className='c-plan-group-grid u-px-3'>
-                <PlanGroup>
+                <PlanGroup
+                  id='plan_1'
+                  title='Anatomía de la reproducción en equinos.'
+                >
                   <PlanCheck value='question_1' label='Vulva.' />
 
-                  <PlanSelect id='question_1'>
-                    <option value={1}>
+                  <PlanSelect id='question_1' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_2' label='Vagina.' />
 
-                  <PlanSelect id='question_2'>
-                    <option value={1}>
+                  <PlanSelect id='question_2' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_3' label='Cérvix.' />
 
-                  <PlanSelect id='question_3'>
-                    <option value={1}>
+                  <PlanSelect id='question_3' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_4' label='Cuerpo del útero.' />
 
-                  <PlanSelect id='question_4'>
-                    <option value={1}>
+                  <PlanSelect id='question_4' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_5' label='Cuerno uterinos.' />
 
-                  <PlanSelect id='question_5'>
-                    <option value={1}>
+                  <PlanSelect id='question_5' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_6' label='Oviducto.' />
 
-                  <PlanSelect id='question_6'>
-                    <option value={1}>
+                  <PlanSelect id='question_6' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
 
                   <PlanCheck value='question_7' label='Ovarios.' />
 
-                  <PlanSelect id='question_7'>
-                    <option value={1}>
+                  <PlanSelect id='question_7' label='Seleccionar'>
+                    <Item data-key='1' key='1'>
                       Órgano que fundamenta en la expresión de sintomatología de
                       celo.
-                    </option>
+                    </Item>
 
-                    <option value={2}>
+                    <Item data-key='2' key='2'>
                       En esta región se produce la eyaculación, siendo el inicio
-                      del proceso de fertilización..
-                    </option>
+                      del proceso de fertilización.
+                    </Item>
 
-                    <option value={3}>
+                    <Item data-key='3' key='3'>
                       A través del este se realiza el pasaje de instrumentos con
                       los cuales se realizan diferentes biotecnologías, ya sea
                       inseminación artificial o, colecta y transferencia de
                       embriones.
-                    </option>
+                    </Item>
 
-                    <option value={4}>
+                    <Item data-key='4' key='4'>
                       Es el sitio en el cual se realiza la deposición del semen
                       en la inseminación artificial.
-                    </option>
+                    </Item>
 
-                    <option value={5}>
+                    <Item data-key='5' key='5'>
                       En su interior se produce el recorrido que realiza el
                       embrión para procurar el reconocimiento materno de preñez
                       y lograr la gestación, junto con el cuerpo uterino,
                       reflejan la presentación de edema uterino, el cual es
                       fundamental en el seguimiento que se realiza para
                       determinar el momento de la ovulación.
-                    </option>
+                    </Item>
                   </PlanSelect>
                 </PlanGroup>
               </div>
@@ -870,7 +871,7 @@ const Ova7p3 = () => {
                   <Button addClass='u-button-reset u-stack'>
                     <Image
                       src='assets/images/Button-style-large.png'
-                      alt='Volver a la tercera sección'
+                      alt='Volver a la sección anterior'
                       width='200'
                       noCaption
                     />
@@ -883,7 +884,7 @@ const Ova7p3 = () => {
                 <Link to='/unit/1/page/2' className='u-button-reset u-stack'>
                   <Image
                     src='assets/images/Button-style-large.png'
-                    alt='Lleva al menú principal'
+                    alt='Continuar al menú principal'
                     width='200'
                     noCaption
                   />

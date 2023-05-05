@@ -1,28 +1,51 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { PropTypes } from 'prop-types'
 
 import { Select } from 'UI-Components-books'
 import { SelectGroupContext } from './SelectGroup'
 
 export const SelectElement = ({
+  id,
   children,
   placeholder,
   points,
   correct,
   addClass
 }) => {
+  const refSelect = useRef()
+
   // Obtenemos las diferentes propiedades del contexto superior.
   const {
     selectValues,
-    activity: { validation }
+    activity: { validation, options, load }
   } = useContext(SelectGroupContext)
 
   const handleChange = ({ id, value }) => {
-    selectValues({ id, value: value.toLowerCase().trim() === correct.toLowerCase().trim(), points })
+    selectValues({
+      id,
+      value: value.toLowerCase().trim() === correct.toLowerCase().trim(),
+      option: value,
+      points
+    })
   }
+
+  useEffect(() => {
+    if (!load && refSelect.current) return
+
+    const optionsElement = [
+      ...refSelect.current.getElementsByTagName('option')
+    ]
+
+    optionsElement.forEach((element) => {
+      const option = options.find((option) => option.id === id)?.option
+      element.selected = element.value === option
+    })
+  }, [options, refSelect])
 
   return (
     <Select
+      id={id}
+      ref={refSelect}
       placeholder={placeholder}
       onChoise={handleChange}
       isDisabled={validation}
@@ -47,5 +70,6 @@ SelectElement.propTypes = {
   placeholder: PropTypes.string,
   points: PropTypes.number,
   correct: PropTypes.string.isRequired,
-  addClass: PropTypes.string
+  addClass: PropTypes.string,
+  id: PropTypes.string.isRequired
 }

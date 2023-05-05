@@ -1,3 +1,3 @@
-export { PopoverCheck } from "./PopoverCheck";
-export { PopoverCheckGroup } from "./PopoverCheckGroup";
+export * from './PopoverCheckGroup'
+export { PopoverCheck } from './PopoverCheck'
 export { PopoverCheckButton } from './PopoverCheckButton'
