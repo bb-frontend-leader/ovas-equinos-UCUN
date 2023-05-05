@@ -11,7 +11,7 @@ import { ViewContext } from '@components'
  * attributes:
  *  - index: número de la pestaña a la cual va redirigir
  */
-export const ViewButton = ({ index, ...props }) => {
+export const ViewButton = ({ index, onClick, ...props }) => {
   /**
    * Necesitamos obtener la referencia del botón
    * para luego pasarla en la función addNewRef proveniente
@@ -25,6 +25,14 @@ export const ViewButton = ({ index, ...props }) => {
    */
   const { changeView, addNewRef, onNavigation, validation } =
     useContext(ViewContext)
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    }
+
+    changeView(index)
+  }
 
   /**
    * variable que almacena el resultado de validation.
@@ -53,12 +61,13 @@ export const ViewButton = ({ index, ...props }) => {
       tabIndex={`${isSelected ? 0 : -1}`}
       aria-selected={isSelected}
       onKeyDown={onNavigation}
-      onClick={() => changeView(index)}
+      onClick={handleClick}
       {...props}
     />
   )
 }
 
 ViewButton.propTypes = {
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
+  onClick: PropTypes.func
 }

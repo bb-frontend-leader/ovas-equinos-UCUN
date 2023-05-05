@@ -4,18 +4,31 @@ import {
   SvgStaticRoulette,
   View,
   Views,
-  ViewNavigation
+  ViewNavigation,
+  Tutorial
 } from '@components'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const Ova7p1 = () => {
+  const [activeTutorial, setActiveTutorial] = useState(false)
+
+  const toggleActiveTutorial = (value) => {
+    setActiveTutorial(value ?? !activeTutorial)
+  }
+
   return (
     <Content>
+      <Tutorial isOpen={activeTutorial} onFinish={toggleActiveTutorial} />
       <Row justify-content='center' align-items='center'>
         <View defaultIndex={4}>
           <Col xs='11' mm='10' md='8' lg='3'>
             <Row justify-content='center' align-items='center'>
-              <SvgMenu style={{ maxWidth: '320px' }} className='u-my-2' />
+              <SvgMenu
+                style={{ maxWidth: '320px' }}
+                onClickTutorial={toggleActiveTutorial}
+                className='u-my-2'
+              />
             </Row>
           </Col>
 
@@ -428,9 +441,14 @@ const Ova7p1 = () => {
                   <SvgStaticRoulette
                     style={{ maxWidth: '600px' }}
                     className='u-mb-2'
+                    data-tour='menu_roulette'
                   />
 
-                  <svg viewBox='0 0 1158.3 215.6' style={{ maxWidth: '670px' }}>
+                  <svg
+                    viewBox='0 0 1158.3 215.6'
+                    data-tour='options_roulette'
+                    style={{ maxWidth: '670px' }}
+                  >
                     <image
                       width={2414}
                       height={425}

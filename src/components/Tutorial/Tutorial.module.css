@@ -1,0 +1,21 @@
+.helplayer {
+    --animate-delay: 0.2s;
+    position: absolute;
+    border-radius: 7px;
+    box-shadow: 0px 0px 12px 6px #fdd22d;
+    transition: all 0.4s ease-out;
+    z-index: 9999998;
+}
+
+.hand {
+    width: clamp(2rem, 2.8vw, 100%);
+    transition: transform 0.8s ease-in-out;
+}
+
+.hand img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: rotate(340deg);
+    filter: drop-shadow(2px 2px 3px rgba(255, 255, 255, 0.339));
+}

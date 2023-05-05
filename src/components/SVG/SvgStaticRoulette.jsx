@@ -9,6 +9,7 @@ const SvgStaticRoulette = memo((props) => {
         xlinkHref='assets/images/SvgRoulette-5-normal.png'
         transform='matrix(.48 0 0 .48 33.697 5.523)'
         overflow='visible'
+        data-tour='stage_5_roulette'
       />
       <image
         width={629}
@@ -16,6 +17,7 @@ const SvgStaticRoulette = memo((props) => {
         xlinkHref='assets/images/SvgRoulette-4-normal.png'
         transform='matrix(.48 0 0 .48 5.873 265.918)'
         overflow='visible'
+        data-tour='stage_4_roulette'
       />
       <image
         width={990}
@@ -23,6 +25,7 @@ const SvgStaticRoulette = memo((props) => {
         xlinkHref='assets/images/SvgRoulette-3-normal.png'
         transform='matrix(.48 0 0 .48 161.494 539.725)'
         overflow='visible'
+        data-tour='stage_3_roulette'
       />
       <image
         width={612}
@@ -30,6 +33,7 @@ const SvgStaticRoulette = memo((props) => {
         xlinkHref='assets/images/SvgRoulette-2-normal.png'
         transform='matrix(.48 0 0 .48 495.77 266.241)'
         overflow='visible'
+        data-tour='stage_2_roulette'
       />
       <image
         width={819}
@@ -37,6 +41,7 @@ const SvgStaticRoulette = memo((props) => {
         xlinkHref='assets/images/SvgRoulette-1-normal.png'
         transform='matrix(.48 0 0 .48 379.394 3.683)'
         overflow='visible'
+        data-tour='stage_1_roulette'
       />
 
       {/* Horse */}

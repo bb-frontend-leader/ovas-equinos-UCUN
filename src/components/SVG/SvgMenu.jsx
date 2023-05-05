@@ -1,14 +1,19 @@
 import { memo } from 'react'
-import { Image, Button } from 'UI-Components-books'
+import { Image } from 'UI-Components-books'
 
 import { ViewButton } from '@components'
 
-const SvgMenu = memo((props) => {
+const SvgMenu = memo(({ onClickTutorial, ...props }) => {
   return (
-    <svg viewBox='0 0 343.5 558.4' {...props} id='SvgMenu'>
+    <svg
+      id='SvgMenu'
+      viewBox='0 0 343.5 558.4'
+      data-tour='menu_aside'
+      {...props}
+    >
       <style>
         {
-          '#SvgMenu .c-button { background-color: transparent; padding: 0; border-radius: 10px; --outline-color: var(--clr-common-white-100); --outline-size: 4px; --outline-offset: -5px;  }'
+          '#SvgMenu .c-button { background-color: transparent; padding: 0; border-radius: 10px; --outline-color: var(--clr-common-white-100); --outline-size: 4px; --outline-offset: -5px; transition: filter 0.5s ease-in  } #SvgMenu .c-button:disabled {   pointer-events:none; filter: grayscale(1);}'
         }
       </style>
 
@@ -24,6 +29,7 @@ const SvgMenu = memo((props) => {
           label='Resultado esperado de aprendizaje'
           hasAriaLabel
           index={1}
+          data-view='disable'
         >
           <Image url='assets/images/SvgMenu-1.png' alt='' noCaption />
         </ViewButton>
@@ -35,6 +41,7 @@ const SvgMenu = memo((props) => {
           label='Presentación'
           hasAriaLabel
           index={2}
+          data-view='disable'
         >
           <Image url='assets/images/SvgMenu-2.png' alt='' noCaption />
         </ViewButton>
@@ -46,19 +53,22 @@ const SvgMenu = memo((props) => {
           addClass='c-button'
           hasAriaLabel
           index={3}
+          data-view='disable'
         >
           <Image url='assets/images/SvgMenu-3.png' alt='' noCaption />
         </ViewButton>
       </foreignObject>
 
       <foreignObject x='25.255' y='430.21' width='293' height='130'>
-        <Button
+        <ViewButton
           label='¿Cómo navegar por este recurso?'
           addClass='c-button'
           hasAriaLabel
+          index={4}
+          onClick={() => onClickTutorial()}
         >
           <Image url='assets/images/SvgMenu-4.png' alt='' noCaption />
-        </Button>
+        </ViewButton>
       </foreignObject>
     </svg>
   )
