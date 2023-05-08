@@ -32,7 +32,9 @@ export const Select = (props) => {
 
   return (
     <div className={`${css['c-select']}`}>
-      <div {...labelProps} className='u-sr-only'>{label}</div>
+      <div {...labelProps} className='u-sr-only'>
+        {label}
+      </div>
       <HiddenSelect state={state} triggerRef={ref} label={label} name={name} />
 
       <Button buttonRef={ref} {...triggerProps}>
@@ -86,7 +88,6 @@ function Popover (props) {
         }}
         {...popoverProps}
       >
-        <DismissButton onDismiss={state.close} />
         {children}
         <DismissButton onDismiss={state.close} />
       </div>
