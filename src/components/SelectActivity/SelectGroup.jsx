@@ -63,16 +63,18 @@ export const SelectGroup = ({ id, children, onResult, minSelected }) => {
       0
     )
 
-    const newResult = { ...activity.result, points: sumPoints }
-
-    correctOptions.length === activity.options.length &&
-      (newResult.validate = true)
+    const newResult = {
+      ...activity.result,
+      points: sumPoints,
+      validate: correctOptions.length === activity.options.length
+    }
 
     // Enviamos el resultado a la propiedad onResult si está existe.
     if (onResult) {
       onResult({ result: newResult })
     }
 
+    // Actualiza la actividad con el nuevo resultado
     updatedActivity({ result: newResult })
 
     setActivity({

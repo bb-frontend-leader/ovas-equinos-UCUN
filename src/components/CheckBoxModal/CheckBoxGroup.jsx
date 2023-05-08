@@ -43,6 +43,46 @@ export const CheckBoxGroup = ({ id, children, onResult, minSelected }) => {
   }
 
   /**
+   * Función utilizada para calcular
+   * la suma de puntos de la actividad.
+   * @param {object[]} options
+   * @returns {number}
+   */
+  const calculateSumPoints = (options) => {
+    // Usa la función reduce para sumar los puntos de las opciones
+    const sumPoints = options.reduce((acc, option) => {
+      const { points } = option
+      return acc + points
+    }, 0)
+    // Devuelve la suma de puntos, asegurándote de que no sea negativa
+    return sumPoints < 0 ? 0 : sumPoints
+  }
+
+  /**
+   * Función usada para calcular el resultado
+   * de la actividad.
+   * @param {object} activity
+   * @returns {object}
+   */
+  const calculateNewResult = (activity) => {
+    // Usa la función filter para obtener las opciones correctas
+    const correctOptions = activity.options.filter(
+      (option) => option.value === CORRECT_STATE
+    )
+
+    // Usa la función calculateSumPoints para calcular la suma de puntos
+    const sumPoints = calculateSumPoints(activity.options)
+
+    // Crea un objeto nuevo sin modificar el objeto original
+    const newResult = {
+      ...activity.result,
+      points: correctOptions.length > 0 ? sumPoints : 0,
+      validate: correctOptions.length === activity.options.length
+    }
+    return newResult
+  }
+
+  /**
    * Se usa para la validación de toda la actividad,
    * está se encarga de comprobrar que el número de opciones
    * seleccionadas se igual al total de las correctas.
@@ -50,28 +90,15 @@ export const CheckBoxGroup = ({ id, children, onResult, minSelected }) => {
   const validate = () => {
     updatedActivity({ validation: true, button: true })
 
-    const correctOptions = activity.options.filter(
-      (option) => option.value === CORRECT_STATE
-    )
-    const sumPoints = activity.options.reduce(
-      (acc, { points }) =>
-        points === 0 && acc > 0 ? points - acc : acc + points,
-      0
-    )
-
-    const newResult = {
-      ...activity.result,
-      points: correctOptions.length > 0 ? sumPoints : 0
-    }
-
-    correctOptions.length === activity.options.length &&
-      (newResult.validate = true)
+    // Calcula el nuevo resultado
+    const newResult = calculateNewResult(activity)
 
     // Enviamos el resultado a la propiedad onResult si está existe.
     if (onResult) {
       onResult({ result: newResult })
     }
 
+    // Actualiza la actividad con el nuevo resultado
     updatedActivity({ result: newResult })
 
     setActivity({

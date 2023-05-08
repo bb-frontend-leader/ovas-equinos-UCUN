@@ -227,14 +227,6 @@ const Ova7p8 = () => {
                 </p>
 
                 <div className='positionImgFinal'>
-                  {/* <a href={instance.url} target='_blank' rel='noopener noreferrer' className='u-stack'>
-                    <Image
-                      url='assets/images/Slide1-image-8.png'
-                      alt='Descargar las estrategias de manejo zootécnico para el control reproductivo'
-                      width='145'
-                      noCaption
-                    />
-                  </a> */}
                   <PDFDownloadLink document={<PlanFile />} fileName='estrategias-de-manejo-zootecnico.pdf' className='u-stack'>
                     <Image
                       url='assets/images/Slide1-image-8.png'

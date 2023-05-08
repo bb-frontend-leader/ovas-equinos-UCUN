@@ -17,7 +17,8 @@ import {
   ModalContent,
   ModalOverlay,
   Image,
-  Button
+  Button,
+  Audio
 } from 'UI-Components-books'
 import {
   ImageContainer,
@@ -92,11 +93,17 @@ const Ova7p3 = () => {
                 </h2>
               </ImageContainer>
 
-              <p className='u-mt-6'>
-                Introducción Resultado esperado Contenido Antes de visitar las
-                pesebreras se recomienda repasar algunos conceptos. En esta
-                etapa se abordarán algunos elementos relacionados con la
-                anatomía de la hembra equina.
+              <Audio
+                addClass='audio_button u-mx-auto u-my-2'
+                src='assets/audios/Ova7p3_audio_01.mp3'
+                format='audio/mp3'
+                type='Button'
+              />
+
+              <p>
+                Antes de visitar las pesebreras se recomienda repasar algunos
+                conceptos. En esta etapa se abordarán algunos elementos
+                relacionados con la anatomía de la hembra equina.
               </p>
 
               <p className='u-my-3'>
