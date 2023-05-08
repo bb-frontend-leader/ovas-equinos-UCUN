@@ -54,6 +54,7 @@ export const Tutorial = ({ isOpen, onFinish }) => {
    * cuando la propiedad isOpen es true.
    */
   useEffect(() => {
+    // Función que activa el siguiente elemento de la lista
     const activateNextItem = () => {
       setactiveItem((prev) => {
         if (Object.keys(prev).length === 0) {
@@ -64,18 +65,19 @@ export const Tutorial = ({ isOpen, onFinish }) => {
         return ITEM_LIST[itemIndex + 1] ?? prev
       })
 
-      onAudioPlay()
+      onAudioPlay() // Función que reproduce un audio
     }
 
     if (isOpen) {
-      beforeIsOpen.current = true
-      activateNextItem()
+      beforeIsOpen.current = true // Variable de referencia que indica si el menú estaba abierto antes de ser cerrado
+      activateNextItem() // Activar el siguiente elemento cuando el menú está abierto
     }
 
     if (!isOpen && beforeIsOpen.current) {
-      disableMenuButtons(false)
+      disableMenuButtons(false) // Desactivar los botones del menú cuando se cierra el menú
     }
 
+    // Se restablece el elemento activo cuando se desmonta el componente
     return () => {
       setactiveItem({})
     }

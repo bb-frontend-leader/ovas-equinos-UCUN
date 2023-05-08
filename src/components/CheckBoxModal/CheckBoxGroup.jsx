@@ -6,6 +6,17 @@ export const CheckBoxGroupContext = createContext()
 
 const CORRECT_STATE = 'right'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que conecta y en vuelve los componentes CheckboxModal.
+ * attributes:
+ *  - id: Identificador de la actividad.
+ *  - children: Hijos del componente.
+ *  - onResult: Función que devuelve un objecto cuando la actividad se ha validado.
+ *  - minSelected: Número mínimo de checkbox seleccionados.
+ */
+
 export const CheckBoxGroup = ({ id, children, onResult, minSelected }) => {
   const { setActivity, getActivity } = useActivity()
   const level = useMemo(() => getActivity(id), [id])
