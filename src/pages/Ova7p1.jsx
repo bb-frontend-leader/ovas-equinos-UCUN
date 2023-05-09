@@ -422,7 +422,7 @@ const Ova7p1 = () => {
                       {/* Buttons */}
 
                       <foreignObject x='440' y='811' width='166' height='85'>
-                        <a href='/' download className='u-stack'>
+                        <a href='assets/docs/Rubrica_Plan_de_manejo.pdf' download className='u-stack'>
                           <Image
                             url='assets/images/Slide1-image-8.png'
                             alt='Botón para descargar un svg'

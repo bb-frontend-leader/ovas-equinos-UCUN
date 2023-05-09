@@ -250,7 +250,7 @@ const Ova7p8 = () => {
                 </p>
 
                 <div className='positionImgFinal'>
-                  <a href='/' download className='u-stack'>
+                  <a href='assets/docs/Rubrica_Plan_de_manejo.pdf' download className='u-stack'>
                     <Image
                       url='assets/images/Slide1-image-8.png'
                       alt='Descargar la rúbrica de evaluación del plan de manejo'
