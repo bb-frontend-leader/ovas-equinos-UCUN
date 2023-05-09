@@ -4,6 +4,19 @@ import { PropTypes } from 'prop-types'
 import { Select } from 'UI-Components-books'
 import { SelectGroupContext } from './SelectGroup'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente select custom.
+ * attributes:
+ *  - id: Identificador del checkbox.
+ *  - children: Elementos hijos que recibe el componente.
+ *  - placeholder: Propiedad placeholder del select.
+ *  - points: Puntos que genera la actividad si es correcta.
+ *  - correct: Opción correcta del select.
+ *  - addClass: Permite agregar una clase al componente.
+ */
+
 export const SelectElement = ({
   id,
   children,
@@ -29,13 +42,23 @@ export const SelectElement = ({
     })
   }
 
+  /**
+   * Actualiza los valores seleccionados
+   * en el select según las opciones que se hayan pasado.
+   */
   useEffect(() => {
     if (!load && refSelect.current) return
 
+    // se obtienen los elementos <option> del select.
     const optionsElement = [
       ...refSelect.current.getElementsByTagName('option')
     ]
-
+    /**
+     * se itera sobre cada elemento option y se busca en
+     * la lista de opciones (options) la que tenga
+     * el mismo id que el valor option del elemento. Si se encuentra,
+     * se establece la propiedad selected del elemento en true.
+     */
     optionsElement.forEach((element) => {
       const option = options.find((option) => option.id === id)?.option
       element.selected = element.value === option

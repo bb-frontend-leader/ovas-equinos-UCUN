@@ -2,7 +2,19 @@ import { createContext, useReducer, useRef, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useActivity } from '@hooks'
 
+// Creación del contexto
 export const SelectGroupContext = createContext()
+
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que conecta y en vuelve los componentes SelectElement.
+ * attributes:
+ *  - id: Identificador de la actividad.
+ *  - children: Hijos del componente.
+ *  - onResult: Función que devuelve un objecto cuando la actividad se ha validado.
+ *  - minSelected: Número mínimo de checkbox seleccionados.
+ */
 
 export const SelectGroup = ({ id, children, onResult, minSelected }) => {
   const { setActivity, getActivity } = useActivity()
@@ -63,16 +75,18 @@ export const SelectGroup = ({ id, children, onResult, minSelected }) => {
       0
     )
 
-    const newResult = { ...activity.result, points: sumPoints }
-
-    correctOptions.length === activity.options.length &&
-      (newResult.validate = true)
+    const newResult = {
+      ...activity.result,
+      points: sumPoints,
+      validate: correctOptions.length === activity.options.length
+    }
 
     // Enviamos el resultado a la propiedad onResult si está existe.
     if (onResult) {
       onResult({ result: newResult })
     }
 
+    // Actualiza la actividad con el nuevo resultado
     updatedActivity({ result: newResult })
 
     setActivity({

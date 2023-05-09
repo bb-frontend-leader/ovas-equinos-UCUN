@@ -5,6 +5,10 @@ import { usePopper } from 'react-popper'
 
 import css from './Tutorial.module.css'
 
+/**
+ * Lista de elementos que hacen
+ * parte del Tutorial.
+ */
 const ITEM_LIST = [
   { id: 1, time: 1, target: 'link_menu' },
   { id: 2, time: 6, target: 'menu_roulette' },
@@ -16,6 +20,15 @@ const ITEM_LIST = [
   { id: 8, time: 42, target: 'menu_roulette' },
   { id: 9, time: 47, target: 'options_roulette' }
 ]
+
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que permite realizar el Tutorial.
+ * attributes:
+ *  - isOpen: Propiedad que abre e inicia el Tutorial.
+ *  - onFinish: Función que devuelve un booleano cuando el Tutorial ha acabado.
+ */
 
 export const Tutorial = ({ isOpen, onFinish }) => {
   const [activeItem, setactiveItem] = useState({})
@@ -54,6 +67,7 @@ export const Tutorial = ({ isOpen, onFinish }) => {
    * cuando la propiedad isOpen es true.
    */
   useEffect(() => {
+    // Función que activa el siguiente elemento de la lista
     const activateNextItem = () => {
       setactiveItem((prev) => {
         if (Object.keys(prev).length === 0) {
@@ -64,18 +78,19 @@ export const Tutorial = ({ isOpen, onFinish }) => {
         return ITEM_LIST[itemIndex + 1] ?? prev
       })
 
-      onAudioPlay()
+      onAudioPlay() // Función que reproduce un audio
     }
 
     if (isOpen) {
-      beforeIsOpen.current = true
-      activateNextItem()
+      beforeIsOpen.current = true // Variable de referencia que indica si el menú estaba abierto antes de ser cerrado
+      activateNextItem() // Activar el siguiente elemento cuando el menú está abierto
     }
 
     if (!isOpen && beforeIsOpen.current) {
-      disableMenuButtons(false)
+      disableMenuButtons(false) // Desactivar los botones del menú cuando se cierra el menú
     }
 
+    // Se restablece el elemento activo cuando se desmonta el componente
     return () => {
       setactiveItem({})
     }

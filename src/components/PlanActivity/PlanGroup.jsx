@@ -2,7 +2,19 @@ import { useReducer, createContext, useMemo, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useActivity } from '@hooks'
 
+// Creación del contexto
 export const PlanGroupContext = createContext()
+
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente utilizado para la actividad plan.
+ * attributes:
+ *  - id: Identificador de la actividad.
+ *  - title: titulo de la actividad plan.
+ *  - children: Hijos del componente.
+ *  - onlyCheckbox: Propiedad usada para solo utilizar los checkbox en la actividad.
+ */
 
 export const PlanGroup = ({ id, title, children, onlyCheckbox }) => {
   const { setPlan, getPlan } = useActivity()
@@ -22,8 +34,20 @@ export const PlanGroup = ({ id, title, children, onlyCheckbox }) => {
     }
   )
 
+  /**
+   * Función usada para comprobrar
+   * si un 'id' existe en el la propiedad 'enable'
+   * del estado.
+   * @param {string} id
+   * @returns {Boolean}
+   */
   const validation = (id) => plan.enable.includes(id)
 
+  /**
+   * Usado para obtener el valor
+   * de los elementos 'select' seleccionados.
+   * @param {object} param0
+   */
   const handleSectionChange = ({ id: idSelect, key, value }) => {
     const newSection = { id: idSelect, key, value }
 
@@ -31,6 +55,11 @@ export const PlanGroup = ({ id, title, children, onlyCheckbox }) => {
     updatedLocalStorage(newSection)
   }
 
+  /**
+   * Usado para obtener el valor
+   * del elemento 'checkbox'.
+   * @param {object} value
+   */
   const handleCheck = ({ value }) => {
     const { enable } = plan
 
@@ -39,12 +68,19 @@ export const PlanGroup = ({ id, title, children, onlyCheckbox }) => {
       : [...enable, value]
 
     updatedPlan({ enable: updatedEnable })
+
     if (onlyCheckbox) {
       updatedLocalStorage({ id: value })
     }
   }
 
+  /**
+   * Guarda el estado del componente
+   * en el estado global y localStorage.
+   * @param {object} value
+   */
   const updatedLocalStorage = (value) => {
+    // Obtiene la pregunta de la actividad.
     const getQuestion = document.querySelector(`label[for='${value.id}']`).innerText
 
     setPlan({

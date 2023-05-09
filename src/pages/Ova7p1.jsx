@@ -1,4 +1,4 @@
-import { Row, Col, Content, Image } from 'UI-Components-books'
+import { Row, Col, Content, Image, Audio } from 'UI-Components-books'
 import {
   SvgMenu,
   SvgStaticRoulette,
@@ -89,7 +89,13 @@ const Ova7p1 = () => {
 
                       {/* Text */}
 
-                      <foreignObject x='100' y='235' width='510' height='173'>
+                      <foreignObject x='100' y='200' width='510' height='173'>
+                        <Audio
+                          addClass='audio_button u-mx-auto u-my-2'
+                          src='assets/audios/Ova7p1_audio_01.mp3'
+                          format='audio/mp3'
+                          type='Button'
+                        />
                         <p>
                           Definir estrategias de manejo zootécnico para el
                           control reproductivo, mediante la resolución de
@@ -148,7 +154,14 @@ const Ova7p1 = () => {
 
                       {/* Text */}
 
-                      <foreignObject x='100' y='180' width='1100' height='273'>
+                      <foreignObject x='100' y='120' width='1100' height='300'>
+                        <Audio
+                          addClass='audio_button u-mx-auto u-my-2'
+                          src='assets/audios/Ova7p1_audio_02.mp3'
+                          format='audio/mp3'
+                          type='Button'
+                        />
+
                         <p
                           style={{ fontSize: '1.4rem' }}
                           className='u-mb-4 u-text-justify'
@@ -183,6 +196,12 @@ const Ova7p1 = () => {
               <div className='animate__animated animate__zoomIn animate__fast'>
                 <Row justify-content='center' align-items='center'>
                   <Col xs='11' md='10'>
+                    <Audio
+                      addClass='audio_button u-mx-auto u-my-2'
+                      src='assets/audios/Ova7p1_audio_03.mp3'
+                      format='audio/mp3'
+                      type='Button'
+                    />
                     <svg viewBox='0 0 1361.4 911.6' className='u-fs-svg'>
                       {/* Upper container */}
 
@@ -403,7 +422,7 @@ const Ova7p1 = () => {
                       {/* Buttons */}
 
                       <foreignObject x='440' y='811' width='166' height='85'>
-                        <a href='/' download className='u-stack'>
+                        <a href='assets/docs/Rubrica_Plan_de_manejo.pdf' download className='u-stack'>
                           <Image
                             url='assets/images/Slide1-image-8.png'
                             alt='Botón para descargar un svg'

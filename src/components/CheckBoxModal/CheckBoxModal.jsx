@@ -6,6 +6,19 @@ import { CheckBoxGroupContext, ImageContainer } from '@components'
 
 import css from './CheckBoxModal.module.css'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que genera un Custom checkbox con un modal.
+ * attributes:
+ *  - label: Label del checkbox.
+ *  - id: Identificador del checkbox.
+ *  - name: Propiedad name del checkbox.
+ *  - points: Puntos que genera el checkbox si es correcto.
+ *  - addClass: Permite agregar una clase.
+ *  - state: Estado del checkbox define si es 'right' o 'wrong'.
+ *  - children: Hijos del componente.
+ */
 export const CheckBoxModal = ({
   children,
   id,

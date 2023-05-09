@@ -12,6 +12,20 @@ import { PopoverRadioGroupContext } from './PopoverRadioGroup'
 
 import css from './PopoverRadio.module.css'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente radio custom con un popover.
+ * attributes:
+ *  - id: Identificador del radio.
+ *  - label: Propiedad label del radio.
+ *  - children: Elementos hijos que recibe el componente.
+ *  - distance: Distance entre el popover y el botón que lo abre.
+ *  - placement: Ubicación del popover.
+ *  - points: Puntos que genera la actividad si es correcta.
+ *  - state: Estado del radio define si es 'right' o 'wrong'.
+ */
+
 export const PopoverRadio = ({
   children,
   label,

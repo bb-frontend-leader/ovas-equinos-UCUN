@@ -4,7 +4,19 @@ import PropTypes from 'prop-types'
 import { DragAndDrop } from 'UI-Components-books'
 import { useActivity } from '@hooks'
 
+// Creación del contexto
 export const DragValidationContext = createContext()
+
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente encargado de la validación de los componentes drag and drop.
+ * attributes:
+ *  - id: Identificador de la actividad.
+ *  - children: Hijos del componente.
+ *  - onResult: Función que devuelve un objecto cuando la actividad se ha validado.
+ *  - points: Puntos que genera la actividad drag si es correcta.
+ */
 
 export const DragValidation = ({ id, children, points, onResult }) => {
   const { setActivity, getActivity } = useActivity()
@@ -24,9 +36,12 @@ export const DragValidation = ({ id, children, points, onResult }) => {
   const dragsList = useRef([])
   const storageDndState = useRef({})
 
+  // Define una función llamada `onNewDrag` que recibe un objeto como argumento
   const onNewDrag = ({ validate: drags, active }) => {
+    // Asigna el valor de la propiedad `validate` del objeto de entrada a la variable `dragsList.current`
     dragsList.current = [...drags]
 
+    // Verifica si la propiedad `active` es verdadera y la propiedad `button` de la variable `activity` también es verdadera
     if (active && activity.button) {
       updatedActivity({ button: !activity.button })
     }

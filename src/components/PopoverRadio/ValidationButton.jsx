@@ -3,6 +3,15 @@ import PropTypes from 'prop-types'
 
 import { PopoverRadioGroupContext } from './PopoverRadioGroup'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que permite validar la actividad con radio.
+ * attributes:
+ *  - Children: Elementos hijos que recibe el componente.
+ *  - onClick: Evento que se ejecuta en el onclick del botón.
+ */
+
 export const ValidationButton = ({ children, onClick }) => {
   // Obtenemos el método validate y la propiedad disabledButton del contexto.
   const {

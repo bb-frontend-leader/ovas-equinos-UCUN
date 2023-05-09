@@ -47,7 +47,6 @@
 /* Componente Popover */
 .c-popover {
     position: absolute;
-    top: 100%;
     width: 40vw;
     z-index: 1;
 }
@@ -57,7 +56,7 @@
 .c-list-box {
     margin: 0px;
     padding: 0px;
-    max-height: 150px;
+    max-height: 250px;
     min-width: 100px;
     background-color: var(--clr-brown-light);
     list-style: none;

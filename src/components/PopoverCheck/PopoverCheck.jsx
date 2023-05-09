@@ -12,6 +12,20 @@ import { PopoverCheckGroupContext } from './PopoverCheckGroup'
 
 import css from './PopoverCheck.module.css'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente checkbox custom con un popover.
+ * attributes:
+ *  - id: Identificador del checkbox.
+ *  - label: Propiedad label del checkbox.
+ *  - children: Elementos hijos que recibe el componente.
+ *  - distance: Distance entre el popover y el botón que lo abre.
+ *  - placement: Ubicación del popover.
+ *  - points: Puntos que genera la actividad si es correcta.
+ *  - state: Estado del checkbox define si es 'right' o 'wrong'.
+ */
+
 export const PopoverCheck = ({
   children,
   label,

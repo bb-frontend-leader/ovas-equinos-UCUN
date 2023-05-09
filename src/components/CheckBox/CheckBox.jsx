@@ -6,6 +6,18 @@ import { CheckBoxGroupContext } from '@components'
 
 import css from './CheckBox.module.css'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que genera un Custom checkbox.
+ * attributes:
+ *  - label: Label del checkbox.
+ *  - id: Identificador del checkbox.
+ *  - points: Puntos que genera el checkbox si es correcto.
+ *  - addClss: Permite agregar una clase.
+ *  - state: Estado del checkbox define si es 'right' o 'wrong'.
+ */
+
 export const CheckBox = ({ label, id, points, addClass, state }) => {
   // Estado utilizado para controlar si el input está checked.
   const [checked, setChecked] = useState(false)
