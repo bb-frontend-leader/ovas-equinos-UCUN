@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import { DragAndDrop } from 'UI-Components-books'
 import { useActivity } from '@hooks'
 
+// Creación del contexto
 export const DragValidationContext = createContext()
+
 /**
  * date: 05/08/2023
  * author:  Books&Books
@@ -15,6 +17,7 @@ export const DragValidationContext = createContext()
  *  - onResult: Función que devuelve un objecto cuando la actividad se ha validado.
  *  - points: Puntos que genera la actividad drag si es correcta.
  */
+
 export const DragValidation = ({ id, children, points, onResult }) => {
   const { setActivity, getActivity } = useActivity()
   const level = useMemo(() => getActivity(id), [id])

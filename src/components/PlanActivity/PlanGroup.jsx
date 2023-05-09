@@ -2,6 +2,7 @@ import { useReducer, createContext, useMemo, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useActivity } from '@hooks'
 
+// Creación del contexto
 export const PlanGroupContext = createContext()
 
 /**

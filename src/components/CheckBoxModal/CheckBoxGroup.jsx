@@ -2,6 +2,7 @@ import { createContext, useReducer, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useActivity } from '@hooks'
 
+// Creación del contexto
 export const CheckBoxGroupContext = createContext()
 
 const CORRECT_STATE = 'right'

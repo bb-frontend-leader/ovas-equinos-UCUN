@@ -16,6 +16,12 @@ import PropTypes from 'prop-types'
 import { Icon } from 'UI-Components-books'
 import css from './Select.module.css'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente Select custom, creado con el paquete React Aria.
+ */
+
 export const Select = (props) => {
   const { label, name } = props
 
@@ -65,6 +71,9 @@ export const Select = (props) => {
   )
 }
 
+/**
+ * @link https://react-spectrum.adobe.com/react-aria/useSelect.html#popover
+ */
 function Popover (props) {
   const ref = useRef(null)
   const { popoverRef = ref, state, children } = props
@@ -95,6 +104,10 @@ function Popover (props) {
   )
 }
 
+/**
+ *  @link https://react-spectrum.adobe.com/react-aria/useSelect.html#listbox
+ */
+
 function ListBox (props) {
   const ref = useRef(null)
   const { listBoxRef = ref, state } = props
@@ -109,6 +122,9 @@ function ListBox (props) {
   )
 }
 
+/**
+ * @link https://react-spectrum.adobe.com/react-aria/useSelect.html#listbox
+ */
 function Option ({ item, state }) {
   const ref = useRef(null)
   const { optionProps, isFocused, isDisabled } = useOption(
@@ -130,6 +146,9 @@ function Option ({ item, state }) {
   )
 }
 
+/**
+ * @link https://react-spectrum.adobe.com/react-aria/useSelect.html#button
+ */
 function Button (props) {
   const ref = props.buttonRef
   const { buttonProps } = useButton(props, ref)

@@ -2,9 +2,21 @@ import { createContext, useReducer, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useActivity } from '@hooks'
 
+// Creación del contexto
 export const PopoverCheckGroupContext = createContext()
 
 const CORRECT_STATE = 'right'
+
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que conecta y en vuelve los componentes PopoverCheck.
+ * attributes:
+ *  - id: Identificador de la actividad.
+ *  - children: Hijos del componente.
+ *  - onResult: Función que devuelve un objecto cuando la actividad se ha validado.
+ *  - minSelected: Número mínimo de checkbox seleccionados.
+ */
 
 export const PopoverCheckGroup = ({ id, children, onResult, minSelected }) => {
   const { setActivity, getActivity } = useActivity()

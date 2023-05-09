@@ -5,6 +5,10 @@ import { usePopper } from 'react-popper'
 
 import css from './Tutorial.module.css'
 
+/**
+ * Lista de elementos que hacen
+ * parte del Tutorial.
+ */
 const ITEM_LIST = [
   { id: 1, time: 1, target: 'link_menu' },
   { id: 2, time: 6, target: 'menu_roulette' },
@@ -16,6 +20,15 @@ const ITEM_LIST = [
   { id: 8, time: 42, target: 'menu_roulette' },
   { id: 9, time: 47, target: 'options_roulette' }
 ]
+
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente que permite realizar el Tutorial.
+ * attributes:
+ *  - isOpen: Propiedad que abre e inicia el Tutorial.
+ *  - onFinish: Función que devuelve un booleano cuando el Tutorial ha acabado.
+ */
 
 export const Tutorial = ({ isOpen, onFinish }) => {
   const [activeItem, setactiveItem] = useState({})

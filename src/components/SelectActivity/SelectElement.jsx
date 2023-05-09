@@ -4,6 +4,19 @@ import { PropTypes } from 'prop-types'
 import { Select } from 'UI-Components-books'
 import { SelectGroupContext } from './SelectGroup'
 
+/**
+ * date: 05/08/2023
+ * author:  Books&Books
+ * description:  Componente select custom.
+ * attributes:
+ *  - id: Identificador del checkbox.
+ *  - children: Elementos hijos que recibe el componente.
+ *  - placeholder: Propiedad placeholder del select.
+ *  - points: Puntos que genera la actividad si es correcta.
+ *  - correct: Opción correcta del select.
+ *  - addClass: Permite agregar una clase al componente.
+ */
+
 export const SelectElement = ({
   id,
   children,

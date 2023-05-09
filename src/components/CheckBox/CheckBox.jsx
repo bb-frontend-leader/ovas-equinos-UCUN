@@ -13,7 +13,7 @@ import css from './CheckBox.module.css'
  * attributes:
  *  - label: Label del checkbox.
  *  - id: Identificador del checkbox.
- *  - points: Puntos que genera el chexbox si es correcto.
+ *  - points: Puntos que genera el checkbox si es correcto.
  *  - addClss: Permite agregar una clase.
  *  - state: Estado del checkbox define si es 'right' o 'wrong'.
  */
